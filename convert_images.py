@@ -12,6 +12,12 @@ def convert_to_webp(directory):
                 # Check if WebP already exists
                 if os.path.exists(webp_path):
                     print(f"Skipping {file}, WebP already exists.")
+                    # Optional: Delete original even if WebP exists, to clean up
+                    try:
+                        os.remove(file_path)
+                        print(f"Deleted original {file} (WebP existed)")
+                    except Exception as e:
+                        print(f"Error deleting {file}: {e}")
                     continue
                 
                 # Check file size (skip if < 100KB to save time/quality for tiny icons)
@@ -20,9 +26,11 @@ def convert_to_webp(directory):
                     continue
 
                 try:
-                    img = Image.open(file_path)
-                    img.save(webp_path, 'WEBP', quality=85)
-                    print(f"Converted {file} to WebP")
+                    with Image.open(file_path) as img:
+                        img.save(webp_path, 'WEBP', quality=85)
+                        print(f"Converted {file} to WebP.")
+                        os.remove(file_path) # Delete original after conversion
+                        print(f"Deleted original {file}")
                 except Exception as e:
                     print(f"Failed to convert {file}: {e}")
 
