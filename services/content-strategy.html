@@ -128,20 +128,29 @@
         /* Dropdown Menu */
         .nav-dropdown {
             position: fixed;
-            top: 80px;
+            top: 75px;
+            /* Moved up slightly */
             left: 50%;
-            transform: translateX(-50%) translateY(20px);
-            background: rgba(10, 10, 10, 0.98);
-            backdrop-filter: blur(40px);
+            transform: translateX(-50%) translateY(10px);
+            background: rgba(8, 8, 8, 0.95);
+            /* Slightly darker/more opaque */
+            backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
-            padding: 2rem;
-            width: 90vw;
-            max-width: 900px;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            /* Gold top highlight */
+            border-radius: 16px;
+            /* Slightly tighter radius */
+            padding: 1.5rem;
+            width: auto;
+            /* Auto width based on content */
+            min-width: 800px;
+            max-width: 95vw;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.8),
+                0 0 0 1px rgba(0, 0, 0, 0.5);
             z-index: 1001;
         }
 
@@ -153,71 +162,80 @@
 
         .nav-dropdown-inner {
             display: grid;
-            grid-template-columns: 1fr 280px;
-            gap: 2rem;
+            grid-template-columns: 1fr 240px;
+            /* Slightly tighter sidebar */
+            gap: 1.5rem;
         }
 
         .nav-services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 0.75rem;
+            gap: 0.5rem;
         }
 
         .nav-service-card {
             display: flex;
             flex-direction: column;
-            padding: 1.25rem;
-            border-radius: 16px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 1rem;
+            border-radius: 12px;
+            background: transparent;
+            /* Cleaner look */
+            border: 1px solid transparent;
             text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.2s ease;
         }
 
         .nav-service-card:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(212, 175, 55, 0.2);
-            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
         }
 
         .nav-service-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--accent);
+        }
+
+        .nav-service-card:hover .nav-service-icon {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: rgba(212, 175, 55, 0.3);
         }
 
         .nav-service-card h4 {
-            font-size: 0.95rem;
-            font-weight: 600;
+            font-size: 0.9rem;
+            font-weight: 500;
             color: var(--text-primary);
-            margin-bottom: 0.35rem;
+            margin-bottom: 0.25rem;
         }
 
         .nav-service-card p {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
+            /* Smaller text */
             color: var(--text-secondary);
-            line-height: 1.4;
+            line-height: 1.3;
         }
 
         .nav-dropdown-sidebar {
-            background: linear-gradient(145deg, rgba(212, 175, 55, 0.08), rgba(212, 175, 55, 0.02));
-            border: 1px solid rgba(212, 175, 55, 0.15);
-            border-radius: 20px;
-            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
         .nav-dropdown-sidebar h3 {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
             line-height: 1.2;
@@ -227,42 +245,56 @@
             font-family: var(--font-serif);
             font-style: italic;
             font-weight: 500;
-            color: var(--text-secondary);
+            color: var(--accent);
         }
 
         .nav-dropdown-sidebar p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.5;
+            margin-bottom: 1rem;
+            line-height: 1.4;
         }
 
         .nav-dropdown-cta {
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
-            background: var(--accent);
+            gap: 0.5rem;
+            background: var(--text-primary);
+            /* White button */
             color: #000;
-            padding: 0.75rem 1.25rem;
-            border-radius: 100px;
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-decoration: none;
             transition: all 0.3s ease;
+            width: fit-content;
         }
 
         .nav-dropdown-cta:hover {
-            transform: translateX(4px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Fixed Bridge to prevent random triggering */
+        .nav-item-group {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
         }
 
         .nav-item-group::after {
             content: '';
             position: absolute;
             top: 100%;
-            left: -100px;
-            right: -100px;
-            height: 100px;
+            /* Bottom of nav item */
+            left: -10px;
+            /* Much smaller bridge */
+            right: -10px;
+            height: 40px;
+            /* Only needs to reach the menu */
+            background: transparent;
         }
 
         .hero {
@@ -1724,18 +1756,24 @@
         <div class="marquee-header">Trusted by World-Class Brands</div>
         <div class="logo-marquee">
             <div class="marquee-track">
-                <img loading="lazy" src="../Logos/bazaar.png" alt="Harper's Bazaar"><img loading="lazy" src="../Logos/hello bpdy.webp"
-                    alt="Hello Body"><img loading="lazy" src="../Logos/hp.png" alt="HP"><img loading="lazy" src="../Logos/mgm.png" alt="MGM"><img loading="lazy"
-                    src="../Logos/universal.png" alt="Universal" class="logo-fix"><img loading="lazy" src="../Logos/scwatrtz.webp"
-                    alt="Schwarzkopf"><img loading="lazy" src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
-                <img loading="lazy" src="../Logos/bazaar.png" alt="Harper's Bazaar"><img loading="lazy" src="../Logos/hello bpdy.webp"
-                    alt="Hello Body"><img loading="lazy" src="../Logos/hp.png" alt="HP"><img loading="lazy" src="../Logos/mgm.png" alt="MGM"><img loading="lazy"
-                    src="../Logos/universal.png" alt="Universal" class="logo-fix"><img loading="lazy" src="../Logos/scwatrtz.webp"
-                    alt="Schwarzkopf"><img loading="lazy" src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
-                <img loading="lazy" src="../Logos/bazaar.png" alt="Harper's Bazaar"><img loading="lazy" src="../Logos/hello bpdy.webp"
-                    alt="Hello Body"><img loading="lazy" src="../Logos/hp.png" alt="HP"><img loading="lazy" src="../Logos/mgm.png" alt="MGM"><img loading="lazy"
-                    src="../Logos/universal.png" alt="Universal" class="logo-fix"><img loading="lazy" src="../Logos/scwatrtz.webp"
-                    alt="Schwarzkopf"><img loading="lazy" src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
+                <img loading="lazy" src="../Logos/bazaar.png" alt="Harper's Bazaar"><img loading="lazy"
+                    src="../Logos/hello bpdy.webp" alt="Hello Body"><img loading="lazy" src="../Logos/hp.png"
+                    alt="HP"><img loading="lazy" src="../Logos/mgm.png" alt="MGM"><img loading="lazy"
+                    src="../Logos/universal.png" alt="Universal" class="logo-fix"><img loading="lazy"
+                    src="../Logos/scwatrtz.webp" alt="Schwarzkopf"><img loading="lazy"
+                    src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
+                <img loading="lazy" src="../Logos/bazaar.png" alt="Harper's Bazaar"><img loading="lazy"
+                    src="../Logos/hello bpdy.webp" alt="Hello Body"><img loading="lazy" src="../Logos/hp.png"
+                    alt="HP"><img loading="lazy" src="../Logos/mgm.png" alt="MGM"><img loading="lazy"
+                    src="../Logos/universal.png" alt="Universal" class="logo-fix"><img loading="lazy"
+                    src="../Logos/scwatrtz.webp" alt="Schwarzkopf"><img loading="lazy"
+                    src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
+                <img loading="lazy" src="../Logos/bazaar.png" alt="Harper's Bazaar"><img loading="lazy"
+                    src="../Logos/hello bpdy.webp" alt="Hello Body"><img loading="lazy" src="../Logos/hp.png"
+                    alt="HP"><img loading="lazy" src="../Logos/mgm.png" alt="MGM"><img loading="lazy"
+                    src="../Logos/universal.png" alt="Universal" class="logo-fix"><img loading="lazy"
+                    src="../Logos/scwatrtz.webp" alt="Schwarzkopf"><img loading="lazy"
+                    src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
             </div>
         </div>
     </div>
