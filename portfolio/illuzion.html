@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Illuzion Documentary | Nusa & North</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --bg-card: #0a0a0a;
+            --bg-elevated: #112d27;
+            --text-primary: #ffffff;
+            --text-secondary: #b8c5c1;
+            --accent: #d4af37;
+            --accent-dim: rgba(212, 175, 55, 0.1);
+            --font-display: 'Outfit', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-display);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .back-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 4rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('../images/illuzion-hero.png') center/cover no-repeat;
+            opacity: 0.4;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 7vw, 6rem);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* Project Details */
+        .project-details {
+            padding: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .detail-item h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-item p {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            background: var(--bg-card);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Description Section */
+        .description-section {
+            padding: 4rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .description-section h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .description-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Ambient Glow */
+        .ambient-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+            background: radial-gradient(ellipse at top right, #0a1f1a 0%, #000000 40%, #000000 100%);
+        }
+
+        .glow-orb {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(26, 61, 53, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.6;
+            animation: moveGlow 30s infinite alternate ease-in-out;
+        }
+
+        .glow-orb:nth-child(1) {
+            top: -40%;
+            right: -20%;
+            animation-delay: 0s;
+            width: 1000px;
+            height: 1000px;
+        }
+
+        .glow-orb:nth-child(2) {
+            bottom: -30%;
+            left: -15%;
+            animation-delay: -15s;
+            background: radial-gradient(circle, rgba(15, 40, 35, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+            width: 1000px;
+            height: 1000px;
+        }
+
+        @keyframes moveGlow {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(40px, 40px) scale(1.05);
+            }
+        }
+
+        section {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ambient-glow">
+        <div class="glow-orb"></div>
+        <div class="glow-orb"></div>
+    </div>
+
+    <nav>
+        <a href="../index.html" class="logo">nusa<span>&</span>north</a>
+        <a href="../index.html#work" class="back-link">← Back to Work</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <p
+                style="color: var(--accent); text-transform: uppercase; letter-spacing: 0.2em; font-weight: 600; margin-bottom: 1rem;">
+                Collab with DJ Mag</p>
+            <h1>Illuzion</h1>
+            <p class="hero-subtitle">The Art of Escape: A cinematic journey into the heart of the world's #9 club.</p>
+        </div>
+    </section>
+
+    <section class="project-details">
+        <div class="details-grid">
+            <div class="detail-item">
+                <h3>Client</h3>
+                <p>Illuzion Club (Collab with DJ Mag)</p>
+            </div>
+            <div class="detail-item">
+                <h3>Narrative</h3>
+                <p>The Art of Escape</p>
+            </div>
+            <div class="detail-item">
+                <h3>Ranking</h3>
+                <p>#9 Best Club in the World</p>
+            </div>
+            <div class="detail-item">
+                <h3>Services</h3>
+                <p>Concept, Treatment, Storyboard, Voiceover, Interviews, Film, Creative Direction</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <div class="video-container">
+            <iframe src="https://player.vimeo.com/video/1145009419?h=90bca3a2b9"
+                allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section class="description-section">
+        <div style="margin-bottom: 4rem;">
+            <h2>The Story</h2>
+            <p>In collaboration with DJ Mag, we set out to capture more than just a venue—we wanted to capture a
+                feeling. <em>The Art of Escape</em> is a documentary that explores the duality of the nightlife
+                experience: the moments where you lose yourself in the music only to find a truer version of yourself in
+                the chaos.</p>
+            <p>Set against the backdrop of Illuzion, currently ranked the #9 best club in the world, the film dives deep
+                into the sensory overload and the emotional release that defines the modern dance floor.</p>
+        </div>
+
+        <div
+            style="margin-bottom: 4rem; padding: 3rem; background: rgba(255,255,255,0.02); border-left: 4px solid var(--accent); border-radius: 0 16px 16px 0;">
+            <h2 style="color: var(--accent);">The Challenge</h2>
+            <p>Our biggest hurdle was capturing the sheer scale and intensity of a top-10 global club without losing the
+                human narrative. We had to navigate a high-octane environment, balancing technical precision with raw,
+                unfiltered emotion.</p>
+            <p>We faced the challenge of translating "The Art of Escape" into a visual language—using light, sound, and
+                shadow to tell a story that feels as visceral as being there in person.</p>
+        </div>
+
+        <div style="margin-bottom: 4rem;">
+            <h2>The Process</h2>
+            <p>Creating a documentary for the world's #9 club required a meticulous, start-to-finish creative journey.
+                We didn't just show up with cameras; we built a foundation from the ground up.</p>
+            <ul style="list-style: none; margin-top: 2rem;">
+                <li style="margin-bottom: 2rem;">
+                    <strong
+                        style="color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase;">01.
+                        Concept & Treatment</strong>
+                    <p>We spent weeks defining the "Art of Escape" narrative. This involved crafting a cinematic
+                        treatment that aligned with both Illuzion's prestige and DJ Mag's editorial standards, ensuring
+                        the film felt elevated yet authentic.</p>
+                </li>
+                <li style="margin-bottom: 2rem;">
+                    <strong
+                        style="color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase;">02.
+                        Storyboarding & Scripting</strong>
+                    <p>Every key scene was storyboarded to visualize the sensory overload of the venue. We developed a
+                        powerful voiceover script that guides the viewer through the psychological journey of losing
+                        oneself in the music.</p>
+                </li>
+                <li style="margin-bottom: 2rem;">
+                    <strong
+                        style="color: var(--accent); display: block; margin-block: 0.5rem; font-size: 0.9rem; text-transform: uppercase;">03.
+                        Interviews & Production</strong>
+                    <p>Our production team conducted intimate, deep-dive interviews with key figures behind the club's
+                        success. On the ground, we captured the visceral energy of the night, using high-speed
+                        cinematography to freeze moments of pure emotional release.</p>
+                </li>
+                <li style="margin-bottom: 2rem;">
+                    <strong
+                        style="color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase;">04.
+                        Voiceover & Sound Design</strong>
+                    <p>In post-production, we layered world-class voiceover performance with an immersive soundscape
+                        that mirrors the venue's acoustic intensity, completing the sensory transition from reality to
+                        escape.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div>
+            <h2>The Result & Feedback</h2>
+            <p>The response has been nothing short of spectacular. The documentary didn't just showcase the club; it
+                resonated with the global dance community. We've received amazing feedback from both the industry and
+                fans, praising the film's ability to capture the "soul" of the escape.</p>
+            <p>DJ Mag and Illuzion have both hailed it as a benchmark for creative storytelling in the nightlife space,
+                cementing our reputation for high-impact, cinematic documentary work.</p>
+        </div>
+    </section>
+
+</body>
+
+</html>

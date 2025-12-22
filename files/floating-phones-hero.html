@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Phones Hero</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --text-primary: #ffffff;
+            --text-secondary: #999999;
+            --accent: #d4af37;
+            --font-display: 'Outfit', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-display);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* Hero Container */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        /* Content Layer */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        /* Partner Badges */
+        .partner-badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.2s forwards;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .badge-icon {
+            font-size: 1.5rem;
+        }
+
+        .badge-text {
+            text-align: left;
+            line-height: 1.2;
+        }
+
+        .badge-text strong {
+            display: block;
+            color: var(--text-primary);
+        }
+
+        /* Typography */
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: slideUp 0.8s ease 0.4s forwards;
+        }
+
+        .hero h1 em {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 400;
+            display: block;
+            color: var(--text-secondary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.6s forwards;
+        }
+
+        .hero-subtitle strong {
+            color: var(--text-primary);
+        }
+
+        /* CTA Button */
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--bg-primary);
+            border: 2px solid var(--accent);
+            padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+            border-radius: 100px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.8s forwards;
+        }
+
+        .hero-cta:hover {
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+            transform: scale(1.02);
+        }
+
+        .hero-cta span {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .cta-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: var(--bg-primary);
+        }
+
+        /* Floating Phones Container */
+        .phones-container {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            perspective: 1200px;
+            transform-style: preserve-3d;
+        }
+
+        /* Individual Phone */
+        .phone {
+            position: absolute;
+            width: 180px;
+            height: 380px;
+            border-radius: 36px;
+            background: #1a1a1a;
+            padding: 8px;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+            transform-style: preserve-3d;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            border-radius: 28px;
+            overflow: hidden;
+            background: #000;
+            position: relative;
+        }
+
+        .phone-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Phone Notch */
+        .phone::before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 24px;
+            background: #000;
+            border-radius: 20px;
+            z-index: 10;
+        }
+
+        /* Phone Positions & Animations */
+        .phone-1 {
+            left: 5%;
+            top: 15%;
+            transform: rotateY(25deg) rotateX(5deg) rotateZ(-8deg);
+            animation: float1 6s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .phone-2 {
+            left: 15%;
+            bottom: 10%;
+            transform: rotateY(20deg) rotateX(-5deg) rotateZ(5deg);
+            animation: float2 7s ease-in-out infinite;
+            z-index: 3;
+        }
+
+        .phone-3 {
+            right: 5%;
+            top: 20%;
+            transform: rotateY(-25deg) rotateX(5deg) rotateZ(8deg);
+            animation: float3 5.5s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .phone-4 {
+            right: 12%;
+            bottom: 8%;
+            transform: rotateY(-20deg) rotateX(-5deg) rotateZ(-5deg);
+            animation: float4 6.5s ease-in-out infinite;
+            z-index: 4;
+        }
+
+        .phone-5 {
+            left: 50%;
+            bottom: -5%;
+            transform: translateX(-50%) rotateY(0deg) rotateX(-15deg) rotateZ(0deg);
+            animation: float5 7s ease-in-out infinite;
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        /* Float Animations */
+        @keyframes float1 {
+            0%, 100% { transform: rotateY(25deg) rotateX(5deg) rotateZ(-8deg) translateY(0); }
+            50% { transform: rotateY(28deg) rotateX(8deg) rotateZ(-10deg) translateY(-20px); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: rotateY(20deg) rotateX(-5deg) rotateZ(5deg) translateY(0); }
+            50% { transform: rotateY(18deg) rotateX(-8deg) rotateZ(3deg) translateY(-15px); }
+        }
+
+        @keyframes float3 {
+            0%, 100% { transform: rotateY(-25deg) rotateX(5deg) rotateZ(8deg) translateY(0); }
+            50% { transform: rotateY(-28deg) rotateX(8deg) rotateZ(10deg) translateY(-25px); }
+        }
+
+        @keyframes float4 {
+            0%, 100% { transform: rotateY(-20deg) rotateX(-5deg) rotateZ(-5deg) translateY(0); }
+            50% { transform: rotateY(-18deg) rotateX(-8deg) rotateZ(-3deg) translateY(-18px); }
+        }
+
+        @keyframes float5 {
+            0%, 100% { transform: translateX(-50%) rotateY(0deg) rotateX(-15deg) rotateZ(0deg) translateY(0); }
+            50% { transform: translateX(-50%) rotateY(3deg) rotateX(-18deg) rotateZ(2deg) translateY(-10px); }
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Gradient Overlay for depth */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.8) 70%);
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        /* Screen Content Variations */
+        .screen-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .screen-ad-1 {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+        }
+
+        .screen-ad-1 h3 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            line-height: 1;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .screen-ad-1 p {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .screen-ad-2 {
+            background: linear-gradient(180deg, #1a3a2a 0%, #0d1f17 100%);
+        }
+
+        .screen-ad-2 h3 {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .screen-ad-2 h2 {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .screen-ad-3 {
+            background: linear-gradient(135deg, #2d1f4e 0%, #1a1033 100%);
+            justify-content: flex-end;
+            padding-bottom: 2rem;
+        }
+
+        .screen-ad-3 h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .screen-ad-3 span {
+            font-size: 0.75rem;
+            color: #a78bfa;
+            margin-top: 0.25rem;
+        }
+
+        .screen-ad-4 {
+            background: linear-gradient(180deg, #0c1f2c 0%, #000 100%);
+        }
+
+        .screen-ad-4 .logo-mark {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: #000;
+            margin-bottom: 1rem;
+        }
+
+        .screen-ad-4 h3 {
+            font-size: 1rem;
+            color: #fff;
+        }
+
+        .screen-ad-5 {
+            background: linear-gradient(135deg, #3d2914 0%, #1a1008 100%);
+        }
+
+        .screen-ad-5 h3 {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .phone {
+                width: 140px;
+                height: 300px;
+                border-radius: 28px;
+            }
+
+            .phone-screen {
+                border-radius: 22px;
+            }
+
+            .phone-1 { left: 2%; top: 10%; }
+            .phone-2 { left: 8%; bottom: 15%; }
+            .phone-3 { right: 2%; top: 15%; }
+            .phone-4 { right: 8%; bottom: 12%; }
+        }
+
+        @media (max-width: 768px) {
+            .phone {
+                width: 100px;
+                height: 210px;
+                border-radius: 20px;
+                padding: 5px;
+            }
+
+            .phone-screen {
+                border-radius: 16px;
+            }
+
+            .phone::before {
+                width: 50px;
+                height: 16px;
+                top: 8px;
+            }
+
+            .phone-5 {
+                display: none;
+            }
+
+            .partner-badges {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .screen-content h3 {
+                font-size: 0.9rem !important;
+            }
+
+            .screen-content h2 {
+                font-size: 1rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <!-- Floating Phones -->
+        <div class="phones-container">
+            <div class="phone phone-1">
+                <div class="phone-screen">
+                    <div class="screen-content screen-ad-1">
+                        <h3>SAVE ON<br>YOUR FAVS</h3>
+                        <p>Get 30% Off Your First Order</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phone phone-2">
+                <div class="phone-screen">
+                    <div class="screen-content screen-ad-2">
+                        <h3>Introducing</h3>
+                        <h2>Debloat Detox™</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phone phone-3">
+                <div class="phone-screen">
+                    <div class="screen-content screen-ad-4">
+                        <div class="logo-mark">N</div>
+                        <h3>Premium Hospitality<br>Content</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phone phone-4">
+                <div class="phone-screen">
+                    <div class="screen-content screen-ad-3">
+                        <h3>MY WAY UP</h3>
+                        <span>Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phone phone-5">
+                <div class="phone-screen">
+                    <div class="screen-content screen-ad-5">
+                        <h3>Luxury<br>Redefined</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="hero-content">
+            <div class="partner-badges">
+                <div class="badge">
+                    <span class="badge-icon">♪</span>
+                    <div class="badge-text">
+                        TikTok<br>
+                        <strong>Marketing Partner</strong>
+                    </div>
+                </div>
+                <div class="badge">
+                    <span class="badge-icon">∞</span>
+                    <div class="badge-text">
+                        Meta<br>
+                        <strong>Business Partner</strong>
+                    </div>
+                </div>
+                <div class="badge">
+                    <div class="badge-text">
+                        Included in<br>
+                        <strong>Growth Partnership</strong>
+                    </div>
+                </div>
+            </div>
+
+            <h1>
+                Performance Creative
+                <em>Built to Scale</em>
+            </h1>
+
+            <p class="hero-subtitle">
+                <strong>Creating thumb-stopping creative</strong> is what we do day in day out for the 
+                World's leading brands. We don't just make creative, we make sure it performs.
+            </p>
+
+            <a href="#contact" class="hero-cta">
+                <span>Book Discovery</span>
+                <div class="cta-icon">n.</div>
+            </a>
+        </div>
+    </section>
+</body>
+</html>

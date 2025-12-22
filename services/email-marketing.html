@@ -1,0 +1,2035 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Marketing Agency | Nusa & North</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --bg-card: #0a0a0a;
+            --bg-elevated: #112d27;
+            --text-primary: #ffffff;
+            --text-secondary: #b8c5c1;
+            --accent: #d4af37;
+            --font-display: 'Outfit', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-display);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.25rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.25rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-cta {
+            background: var(--accent) !important;
+            color: var(--bg-primary) !important;
+            font-weight: 700 !important;
+            display: flex !important;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-cta:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-cta-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--bg-primary);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 0.75rem;
+        }
+
+        /* Dropdown Menu */
+        .nav-item-group {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Enhanced Mega Menu */
+        .nav-dropdown {
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 2rem;
+            width: 90vw;
+            max-width: 900px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            z-index: 1001;
+        }
+
+        .nav-item-group:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .nav-dropdown::before {
+            display: none;
+        }
+
+        .nav-dropdown-inner {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 2rem;
+        }
+
+        .nav-services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+        }
+
+        .nav-service-card {
+            display: flex;
+            flex-direction: column;
+            padding: 1.25rem;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0;
+            transform: translateY(15px);
+        }
+
+        .nav-item-group:hover .nav-service-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-service-card:nth-child(1) {
+            transition-delay: 0.05s;
+        }
+
+        .nav-service-card:nth-child(2) {
+            transition-delay: 0.1s;
+        }
+
+        .nav-service-card:nth-child(3) {
+            transition-delay: 0.15s;
+        }
+
+        .nav-service-card:nth-child(4) {
+            transition-delay: 0.2s;
+        }
+
+        .nav-service-card:nth-child(5) {
+            transition-delay: 0.25s;
+        }
+
+        .nav-service-card:nth-child(6) {
+            transition-delay: 0.3s;
+        }
+
+        .nav-service-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(212, 175, 55, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .nav-service-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .nav-service-card h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.35rem;
+        }
+
+        .nav-service-card p {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .nav-dropdown-sidebar {
+            background: linear-gradient(145deg, rgba(212, 175, 55, 0.08), rgba(212, 175, 55, 0.02));
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+        }
+
+        .nav-item-group:hover .nav-dropdown-sidebar {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .nav-dropdown-sidebar h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .nav-dropdown-sidebar h3 em {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .nav-dropdown-sidebar p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .nav-dropdown-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--accent);
+            color: #000;
+            padding: 0.75rem 1.25rem;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dropdown-cta:hover {
+            transform: translateX(4px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-item-group::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: -100px;
+            right: -100px;
+            height: 100px;
+        }
+
+
+
+        /* Hero */
+        /* Hero Section Final Design */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0a1f1a 0%, #000 40%, #000 100%);
+        }
+
+        /* Circular background element */
+        .hero-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-circle::before {
+            content: '';
+            position: absolute;
+            inset: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+        }
+
+        /* Radial fade for depth */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.6) 70%);
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        /* Content */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        /* Klaviyo Badge */
+        .partner-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.2s forwards;
+        }
+
+        .klaviyo-logo {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .klaviyo-logo::before {
+            content: '∞';
+            font-size: 1.8rem;
+        }
+
+        .badge-text {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-align: left;
+            line-height: 1.3;
+        }
+
+        .badge-text strong {
+            display: block;
+            color: var(--text-primary);
+        }
+
+        /* Typography */
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: slideUp 0.8s ease 0.3s forwards;
+        }
+
+        .hero h1 em {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 400;
+            display: block;
+            color: var(--text-secondary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 550px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.5s forwards;
+        }
+
+        .hero-subtitle strong {
+            color: var(--text-primary);
+        }
+
+        /* CTA */
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--bg-primary);
+            border: 2px solid rgba(212, 175, 55, 0.4);
+            padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+            border-radius: 100px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.7s forwards;
+        }
+
+        .hero-cta:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .hero-cta span {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .cta-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.9rem;
+            color: var(--bg-primary);
+        }
+
+        /* ==================== */
+        /* FLOATING EMAIL CARDS */
+        /* ==================== */
+        .email-cards-container {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .email-card {
+            position: absolute;
+            width: 200px;
+            background: rgba(20, 20, 20, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 14px;
+            padding: 14px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .email-card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .email-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #d4af37, #aa8a2a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .email-meta {
+            flex: 1;
+        }
+
+        .email-sender {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .email-time {
+            font-size: 0.6rem;
+            color: #666;
+        }
+
+        .email-subject {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .email-preview {
+            font-size: 0.65rem;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .email-metric {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #22c55e;
+            color: #000;
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+        }
+
+        /* Card Positions */
+        .card-left-1 {
+            left: 5%;
+            top: 20%;
+            transform: rotateY(20deg) rotateX(5deg) rotateZ(-5deg);
+            animation: floatLeft1 6s ease-in-out infinite;
+        }
+
+        .card-left-2 {
+            left: 8%;
+            bottom: 22%;
+            transform: rotateY(15deg) rotateX(-3deg) rotateZ(3deg);
+            animation: floatLeft2 7s ease-in-out infinite;
+        }
+
+        .card-right-1 {
+            right: 5%;
+            top: 18%;
+            transform: rotateY(-20deg) rotateX(5deg) rotateZ(5deg);
+            animation: floatRight1 5.5s ease-in-out infinite;
+        }
+
+        .card-right-2 {
+            right: 8%;
+            bottom: 25%;
+            transform: rotateY(-15deg) rotateX(-3deg) rotateZ(-3deg);
+            animation: floatRight2 6.5s ease-in-out infinite;
+        }
+
+        @keyframes floatLeft1 {
+
+            0%,
+            100% {
+                transform: rotateY(20deg) rotateX(5deg) rotateZ(-5deg) translateY(0);
+            }
+
+            50% {
+                transform: rotateY(22deg) rotateX(7deg) rotateZ(-6deg) translateY(-15px);
+            }
+        }
+
+        @keyframes floatLeft2 {
+
+            0%,
+            100% {
+                transform: rotateY(15deg) rotateX(-3deg) rotateZ(3deg) translateY(0);
+            }
+
+            50% {
+                transform: rotateY(13deg) rotateX(-5deg) rotateZ(4deg) translateY(-12px);
+            }
+        }
+
+        @keyframes floatRight1 {
+
+            0%,
+            100% {
+                transform: rotateY(-20deg) rotateX(5deg) rotateZ(5deg) translateY(0);
+            }
+
+            50% {
+                transform: rotateY(-22deg) rotateX(7deg) rotateZ(6deg) translateY(-18px);
+            }
+        }
+
+        @keyframes floatRight2 {
+
+            0%,
+            100% {
+                transform: rotateY(-15deg) rotateX(-3deg) rotateZ(-3deg) translateY(0);
+            }
+
+            50% {
+                transform: rotateY(-13deg) rotateX(-5deg) rotateZ(-4deg) translateY(-10px);
+            }
+        }
+
+        /* ==================== */
+        /* FLOATING METRIC CARDS */
+        /* ==================== */
+        .metric-card {
+            position: absolute;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 14px 18px;
+            text-align: center;
+            z-index: 3;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .metric-label {
+            font-size: 0.6rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 4px;
+        }
+
+        .metric-1 {
+            left: 12%;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: floatMetric1 8s ease-in-out infinite;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.8s forwards, floatMetric1 8s ease-in-out 1.2s infinite;
+        }
+
+        .metric-2 {
+            right: 12%;
+            top: 48%;
+            transform: translateY(-50%);
+            opacity: 0;
+            animation: fadeIn 1s ease 1s forwards, floatMetric2 7s ease-in-out 1.4s infinite;
+        }
+
+        @keyframes floatMetric1 {
+
+            0%,
+            100% {
+                transform: translateY(-50%);
+            }
+
+            50% {
+                transform: translateY(calc(-50% - 8px));
+            }
+        }
+
+        @keyframes floatMetric2 {
+
+            0%,
+            100% {
+                transform: translateY(-50%);
+            }
+
+            50% {
+                transform: translateY(calc(-50% - 10px));
+            }
+        }
+
+        /* ==================== */
+        /* NOTIFICATION TOAST   */
+        /* ==================== */
+        .notification-toast {
+            position: absolute;
+            top: 12%;
+            right: 18%;
+            background: rgba(20, 20, 20, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 4;
+            opacity: 0;
+            transform: translateX(30px);
+            animation: slideInNotif 0.6s ease 1.5s forwards;
+        }
+
+        @keyframes slideInNotif {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .notif-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #22c55e, #15803d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .notif-content {
+            flex: 1;
+        }
+
+        .notif-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .notif-desc {
+            font-size: 0.65rem;
+            color: #666;
+        }
+
+        .notif-badge {
+            background: var(--accent);
+            color: #000;
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        /* Pulsing dot on notification */
+        .notification-toast::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            width: 10px;
+            height: 10px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.3);
+                opacity: 0.7;
+            }
+        }
+
+        /* ==================== */
+        /* BOTTOM FLOW DIAGRAM  */
+        /* ==================== */
+        .flow-bar {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 0;
+            z-index: 10;
+            opacity: 0;
+            animation: fadeIn 1s ease 1s forwards;
+        }
+
+        .flow-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 1.5rem;
+        }
+
+        .flow-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #333;
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .flow-dot.active {
+            background: var(--accent);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+        }
+
+        .flow-dot.success {
+            background: #22c55e;
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+        }
+
+        .flow-label {
+            font-size: 0.65rem;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .flow-node.active .flow-label {
+            color: var(--accent);
+        }
+
+        .flow-node.success .flow-label {
+            color: #22c55e;
+        }
+
+        .flow-line {
+            width: 50px;
+            height: 2px;
+            background: #222;
+            margin-bottom: 20px;
+        }
+
+        .flow-line.animated {
+            background: linear-gradient(90deg, var(--accent), #333);
+            background-size: 200% 100%;
+            animation: flowPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes flowPulse {
+
+            0%,
+            100% {
+                background-position: 100% 0;
+            }
+
+            50% {
+                background-position: 0% 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .email-card {
+                width: 170px;
+                padding: 12px;
+            }
+
+            .card-left-1 {
+                left: 2%;
+            }
+
+            .card-left-2 {
+                left: 4%;
+            }
+
+            .card-right-1 {
+                right: 2%;
+            }
+
+            .card-right-2 {
+                right: 4%;
+            }
+
+            .metric-1 {
+                left: 3%;
+            }
+
+            .metric-2 {
+                right: 3%;
+            }
+
+            .notification-toast {
+                right: 10%;
+                top: 10%;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .metric-card {
+                display: none;
+            }
+
+            .notification-toast {
+                display: none;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .email-card {
+                width: 150px;
+                padding: 10px;
+            }
+
+            .email-avatar {
+                width: 26px;
+                height: 26px;
+            }
+
+            .email-subject {
+                font-size: 0.7rem;
+            }
+
+            .email-preview {
+                display: none;
+            }
+
+            .card-left-2,
+            .card-right-2 {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .email-cards-container {
+                display: none;
+            }
+
+            .flow-bar {
+                display: none;
+            }
+
+            .hero-circle {
+                width: 400px;
+                height: 400px;
+            }
+        }
+
+        /* Formula Section */
+        .formula-section {
+            padding: 8rem 4rem;
+            text-align: center;
+        }
+
+        .formula-section h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .formula-section h2 em {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .formula-text {
+            max-width: 750px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .formula-text strong {
+            color: var(--text-primary);
+        }
+
+        /* Framework Section */
+        .framework-section {
+            padding: 4rem 4rem 8rem;
+        }
+
+        .framework-label {
+            text-align: center;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+        }
+
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .framework-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 3rem;
+            transition: all 0.4s ease;
+        }
+
+        .framework-card:hover {
+            border-color: rgba(212, 175, 55, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .framework-icons {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .framework-icons .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .icon-meta {
+            background: linear-gradient(135deg, #0081FB, #00C6FF);
+        }
+
+        .icon-insta {
+            background: linear-gradient(135deg, #833AB4, #E1306C, #F77737);
+        }
+
+        .icon-messenger {
+            background: linear-gradient(135deg, #00B2FF, #006AFF);
+        }
+
+        .icon-whatsapp {
+            background: #25D366;
+        }
+
+        .framework-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .framework-card h3 em {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 500;
+            color: var(--text-secondary);
+            display: block;
+            font-size: 1.5rem;
+        }
+
+        .framework-list {
+            list-style: none;
+        }
+
+        .framework-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .framework-list li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem;
+        }
+
+        /* Proof Stack Section */
+        .proof-stack {
+            padding: 8rem 4rem;
+            background: linear-gradient(180deg, #000 0%, #050505 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .proof-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .proof-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(212, 175, 55, 0.1);
+        }
+
+        .proof-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .proof-number span {
+            color: var(--accent);
+        }
+
+        .proof-desc {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* The 28-Day Promise */
+        .promise-section {
+            padding: 6rem 4rem;
+            background: #080808;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .promise-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 32px;
+            padding: 4rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .promise-badge {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: #000;
+            padding: 0.6rem 1.5rem;
+            border-radius: 100px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .promise-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .promise-section p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 8rem 4rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-grid {
+            margin-top: 4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .faq-answer {
+            padding: 0 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0, 1, 0, 1);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .faq-item.active {
+            border-color: rgba(212, 175, 55, 0.3);
+            background: rgba(212, 175, 55, 0.02);
+        }
+
+        .faq-item.active .faq-answer {
+            padding-bottom: 2rem;
+            max-height: 500px;
+            transition: all 0.4s cubic-bezier(1, 0, 1, 0);
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            color: var(--accent);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        /* Logo Marquee */
+        .logo-marquee-section {
+            background: #000;
+            padding: 4rem 0 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            z-index: 5;
+            text-align: center;
+        }
+
+        .marquee-header {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            opacity: 0.6;
+        }
+
+        .logo-marquee {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .marquee-track {
+            display: flex;
+            align-items: center;
+            gap: 6rem;
+            width: max-content;
+            animation: scroll 40s linear infinite;
+        }
+
+        .marquee-track img {
+            height: 90px;
+            width: auto;
+            max-width: 325px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .marquee-track img[alt*="Bazaar"],
+        .marquee-track img[alt*="Universal"],
+        .marquee-track img[alt*="Schwarzkopf"],
+        .marquee-track img[alt*="Hello Body"] {
+            height: 130px;
+            max-width: 450px;
+        }
+
+        .marquee-track img.logo-fix {
+            filter: none;
+            mix-blend-mode: screen;
+            opacity: 0.8;
+        }
+
+        .marquee-track img:hover {
+            opacity: 1;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-33.33%);
+            }
+        }
+
+        /* Refined CTA */
+        .cta-section {
+            padding: 6rem 4rem 10rem;
+        }
+
+        .cta-card {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #112d27 0%, #000 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 32px;
+            padding: 5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2.5rem;
+            position: relative;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8), 0 0 40px rgba(212, 175, 55, 0.05);
+            overflow: hidden;
+        }
+
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .cta-card h2 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            max-width: 700px;
+            font-weight: 800;
+        }
+
+        .cta-card p {
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            max-width: 550px;
+            margin-top: -1rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1.25rem;
+            background: var(--accent);
+            border: none;
+            padding: 1.25rem 3rem;
+            border-radius: 100px;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            white-space: nowrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .cta-button span {
+            color: #000;
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: -0.01em;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-copy {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+
+            .framework-grid,
+            .proof-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-card {
+                padding: 4rem 2rem;
+            }
+
+            .cta-card h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links a:not(.nav-cta) {
+                display: none;
+            }
+
+            .hero,
+            .formula-section,
+            .proof-stack,
+            .promise-section,
+            .framework-section,
+            .faq-section {
+                padding: 5rem 1.5rem;
+            }
+
+            .proof-number {
+                font-size: 2.8rem;
+            }
+
+            .promise-card {
+                padding: 3rem 1.5rem;
+            }
+
+            .promise-section h2 {
+                font-size: 2rem;
+            }
+
+            .cta-card {
+                padding: 3rem 1.5rem;
+            }
+
+            .cta-card h2 {
+                font-size: 2.2rem;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+                padding: 4rem 1.5rem;
+                gap: 3rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Deep Forest Ambient Glow */
+        .ambient-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+            background: radial-gradient(ellipse at top right, #0a1f1a 0%, #000000 40%, #000000 100%);
+        }
+
+        .glow-orb {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(26, 61, 53, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.6;
+            animation: moveGlow 30s infinite alternate ease-in-out;
+        }
+
+        .glow-orb:nth-child(1) {
+            top: -40%;
+            right: -20%;
+            animation-delay: 0s;
+            width: 1000px;
+            height: 1000px;
+            filter: blur(120px);
+        }
+
+        .glow-orb:nth-child(2) {
+            bottom: -30%;
+            left: -15%;
+            animation-delay: -15s;
+            background: radial-gradient(circle, rgba(15, 40, 35, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+            width: 1000px;
+            height: 1000px;
+            filter: blur(120px);
+        }
+
+        @keyframes moveGlow {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(40px, 40px) scale(1.05);
+            }
+        }
+
+        /* Ensure content sits above glow */
+        section,
+        footer,
+        .hero {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="ambient-glow">
+        <div class="glow-orb"></div>
+        <div class="glow-orb"></div>
+    </div>
+
+    <nav>
+        <a href="../index.html" class="logo">nusa<span>&</span>north</a>
+        <div class="nav-links">
+            <div class="nav-item-group">
+                <a href="../index.html#services">Services</a>
+                <div class="nav-dropdown">
+                    <div class="nav-dropdown-inner">
+                        <div class="nav-services-grid">
+                            <a href="performance-creative.html" class="nav-service-card">
+                                <div class="nav-service-icon">🎬</div>
+                                <h4>Video & Creative</h4>
+                                <p>UGC & performance video production</p>
+                            </a>
+                            <a href="meta-ads.html" class="nav-service-card">
+                                <div class="nav-service-icon">∞</div>
+                                <h4>Meta Ads</h4>
+                                <p>Facebook & Instagram campaigns</p>
+                            </a>
+                            <a href="google-ads.html" class="nav-service-card">
+                                <div class="nav-service-icon">G</div>
+                                <h4>Google Ads</h4>
+                                <p>Search, display & YouTube ads</p>
+                            </a>
+                            <a href="email-marketing.html" class="nav-service-card">
+                                <div class="nav-service-icon">✉️</div>
+                                <h4>Email Marketing</h4>
+                                <p>Flows, campaigns & automation</p>
+                            </a>
+                            <a href="photography.html" class="nav-service-card">
+                                <div class="nav-service-icon">📷</div>
+                                <h4>Photography</h4>
+                                <p>Product & lifestyle shoots</p>
+                            </a>
+                            <a href="content-strategy.html" class="nav-service-card">
+                                <div class="nav-service-icon">📊</div>
+                                <h4>Content Strategy</h4>
+                                <p>Planning & creative direction</p>
+                            </a>
+                        </div>
+                        <div class="nav-dropdown-sidebar">
+                            <h3>All the <em>services</em> you need to scale</h3>
+                            <p>From creative production to paid media execution, we've got your growth covered.</p>
+                            <a href="../index.html#contact" class="nav-dropdown-cta">Get Started →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="../index.html#work">Work</a>
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#contact" class="nav-cta">
+                <span class="nav-cta-icon">n.</span>
+                Get Started
+            </a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <!-- Background circle -->
+        <div class="hero-circle"></div>
+
+        <!-- Floating Email Cards -->
+        <div class="email-cards-container">
+            <!-- Left Side -->
+            <div class="email-card card-left-1">
+                <div class="email-metric">42% open</div>
+                <div class="email-card-header">
+                    <div class="email-avatar">👋</div>
+                    <div class="email-meta">
+                        <div class="email-sender">Welcome Series</div>
+                        <div class="email-time">Just now</div>
+                    </div>
+                </div>
+                <div class="email-subject">Welcome to the family!</div>
+                <div class="email-preview">Here's your exclusive 15% discount code to get started...</div>
+            </div>
+
+            <div class="email-card card-left-2">
+                <div class="email-metric">€8.4K rev</div>
+                <div class="email-card-header">
+                    <div class="email-avatar" style="background: linear-gradient(135deg, #ef4444, #b91c1c);">🛒</div>
+                    <div class="email-meta">
+                        <div class="email-sender">Abandoned Cart</div>
+                        <div class="email-time">1h ago</div>
+                    </div>
+                </div>
+                <div class="email-subject">You left something behind</div>
+                <div class="email-preview">Your items are waiting! Complete your order before they're gone...</div>
+            </div>
+
+            <!-- Right Side -->
+            <div class="email-card card-right-1">
+                <div class="email-card-header">
+                    <div class="email-avatar" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">📰</div>
+                    <div class="email-meta">
+                        <div class="email-sender">Weekly Newsletter</div>
+                        <div class="email-time">Today</div>
+                    </div>
+                </div>
+                <div class="email-subject">This week's top picks</div>
+                <div class="email-preview">Curated content just for you based on your preferences...</div>
+            </div>
+
+            <div class="email-card card-right-2">
+                <div class="email-metric">12% CTR</div>
+                <div class="email-card-header">
+                    <div class="email-avatar" style="background: linear-gradient(135deg, #22c55e, #15803d);">💚</div>
+                    <div class="email-meta">
+                        <div class="email-sender">Win-back Flow</div>
+                        <div class="email-time">3d ago</div>
+                    </div>
+                </div>
+                <div class="email-subject">We miss you! Here's 20% off</div>
+                <div class="email-preview">It's been a while since your last visit. Come back and save...</div>
+            </div>
+        </div>
+
+        <!-- Floating Metric Cards -->
+        <div class="metric-card metric-1">
+            <div class="metric-value">47%</div>
+            <div class="metric-label">Avg Open Rate</div>
+        </div>
+
+        <div class="metric-card metric-2">
+            <div class="metric-value">€847K</div>
+            <div class="metric-label">Revenue Generated</div>
+        </div>
+
+        <!-- Notification Toast -->
+        <div class="notification-toast">
+            <div class="notif-icon">✓</div>
+            <div class="notif-content">
+                <div class="notif-title">Flow Triggered</div>
+                <div class="notif-desc">Welcome series sent to 1,247 subscribers</div>
+            </div>
+            <div class="notif-badge">Live</div>
+        </div>
+
+        <!-- Content -->
+        <div class="hero-content">
+            <div class="partner-badge">
+                <div class="klaviyo-logo">Klaviyo</div>
+                <div class="badge-text">
+                    Included in<br>
+                    <strong>Growth Partnership</strong>
+                </div>
+            </div>
+
+            <h1>
+                Email Marketing<br>
+                Built for LTV.
+                <em>Engineered for Retention.</em>
+            </h1>
+
+            <p class="hero-subtitle">
+                <strong>Stop renting your audience.</strong> We build owned channels that turn one-time
+                buyers into lifetime advocates through personalized flows and high-converting campaigns.
+            </p>
+
+            <a href="#contact" class="hero-cta">
+                <span>Book Discovery</span>
+                <div class="cta-icon">n.</div>
+            </a>
+        </div>
+
+        <!-- Bottom Flow Indicator -->
+        <div class="flow-bar">
+            <div class="flow-node active">
+                <div class="flow-dot active"></div>
+                <div class="flow-label">Trigger</div>
+            </div>
+            <div class="flow-line animated"></div>
+            <div class="flow-node">
+                <div class="flow-dot"></div>
+                <div class="flow-label">Email 1</div>
+            </div>
+            <div class="flow-line"></div>
+            <div class="flow-node">
+                <div class="flow-dot"></div>
+                <div class="flow-label">Wait</div>
+            </div>
+            <div class="flow-line"></div>
+            <div class="flow-node">
+                <div class="flow-dot"></div>
+                <div class="flow-label">Email 2</div>
+            </div>
+            <div class="flow-line"></div>
+            <div class="flow-node success">
+                <div class="flow-dot success"></div>
+                <div class="flow-label">Convert</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="formula-section reveal">
+        <h2>The 30%<br><em>Rule</em></h2>
+        <p class="formula-text">
+            If email isn’t driving at least <strong>30% of your total revenue</strong>, you’re missing out on pure
+            profit. We don’t just "send emails"—we build high-performance retention engines that turn browsers into
+            buyers on autopilot.
+            <strong>Our clients typically see a full ROI on our retainer within the first 28 days.</strong>
+        </p>
+    </section>
+
+    <section class="proof-stack reveal">
+        <div class="section-header">
+            <span class="section-label">Our Impact</span>
+            <h2>Proven Results for<br><em>Scaling Brands</em></h2>
+        </div>
+        <div class="proof-grid">
+            <div class="proof-card">
+                <div class="proof-number">€248<span>K</span></div>
+                <p class="proof-desc">Revenue Generated in 30 Days of Flow Optimization</p>
+            </div>
+            <div class="proof-card">
+                <div class="proof-number">42<span>%</span></div>
+                <p class="proof-desc">Increase in Retention Revenue in 90 Days</p>
+            </div>
+            <div class="proof-card">
+                <div class="proof-number">156<span>%</span></div>
+                <p class="proof-desc">Increase in Customer LTV from Email</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="promise-section reveal">
+        <div class="promise-card">
+            <div class="promise-badge">The Nusa Guarantee</div>
+            <h2>Full ROI within<br><em>28 Days</em></h2>
+            <p>We don't believe in long setups with no results. Our retention engines are built for immediate impact,
+                typically covering our cost within the first 4 weeks.</p>
+        </div>
+    </section>
+
+    <section class="framework-section reveal">
+        <div class="section-header">
+            <span class="section-label">The Strategy</span>
+            <h2>Our Framework to<br><em>Retention Dominance</em></h2>
+        </div>
+        <div class="framework-grid">
+            <div class="framework-card">
+                <h3><em>Revenue</em><br>Intelligence</h3>
+                <ul class="framework-list">
+                    <li>Predictive LTV modeling</li>
+                    <li>Zero-party data profiling</li>
+                    <li>Hyper-granular segmentation</li>
+                    <li>RFM behavior analysis</li>
+                </ul>
+            </div>
+            <div class="framework-card">
+                <h3><em>Retention</em><br>Design</h3>
+                <ul class="framework-list">
+                    <li>Psychology-led copywriting</li>
+                    <li>High-converting visual flows</li>
+                    <li>Email-first mobile optimization</li>
+                    <li>Brand-aligned creative assets</li>
+                </ul>
+            </div>
+            <div class="framework-card">
+                <h3><em>Owned</em><br>Revenue</h3>
+                <ul class="framework-list">
+                    <li>High-leverage Klaviyo flows</li>
+                    <li>SMS & Push integration</li>
+                    <li>Predictive churn prevention</li>
+                    <li>Post-purchase upsell loops</li>
+                </ul>
+            </div>
+            <div class="framework-card">
+                <h3><em>Performance</em><br>Reporting</h3>
+                <ul class="framework-list">
+                    <li>Real-time profit dashboards</li>
+                    <li>Multi-channel attribution</li>
+                    <li>Weekly performance audits</li>
+                    <li>Direct ROI impact mapping</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section reveal">
+        <div class="section-header">
+            <span class="section-label">Common Questions</span>
+            <h2>Clearing the<br><em>Path to Profit</em></h2>
+        </div>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <div class="faq-question">
+                    Why Klaviyo for Email & SMS?
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    Klaviyo is the gold standard for e-commerce, offering the deepest integration with Shopify and
+                    BigCommerce. It allows us to use your customer data to send hyper-personalized messages that convert
+                    at 3x the rate of generic platforms.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    How long does it take to see results?
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    Most clients see a measurable lift in revenue within the first 14 days as we optimize your core
+                    flows (Welcome, Abandoned Cart). Full ROI is typically achieved within the first 28 days of our
+                    partnership.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Do you handle the creative and copywriting?
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    Yes, we are a full-service agency. Our team of psychology-led copywriters and high-performance
+                    designers handle everything from initial concept to final send. You just approve the strategy.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    How do you track revenue attribution?
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    We use a combination of direct Klaviyo attribution and multi-touch modeling to ensure every dollar
+                    generated from email can be tracked directly back to our campaigns. You'll see the impact in
+                    real-time on your dashboard.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Logo Banner -->
+    <div class="logo-marquee-section">
+        <div class="marquee-header">Trusted by World-Class Brands</div>
+        <div class="logo-marquee">
+            <div class="marquee-track">
+                <img src="../Logos/bazaar.png" alt="Harper's Bazaar"><img src="../Logos/hello bpdy.png"
+                    alt="Hello Body"><img src="../Logos/hp.png" alt="HP"><img src="../Logos/mgm.png" alt="MGM"><img
+                    src="../Logos/universal.png" alt="Universal" class="logo-fix"><img src="../Logos/scwatrtz.png"
+                    alt="Schwarzkopf"><img src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
+                <img src="../Logos/bazaar.png" alt="Harper's Bazaar"><img src="../Logos/hello bpdy.png"
+                    alt="Hello Body"><img src="../Logos/hp.png" alt="HP"><img src="../Logos/mgm.png" alt="MGM"><img
+                    src="../Logos/universal.png" alt="Universal" class="logo-fix"><img src="../Logos/scwatrtz.png"
+                    alt="Schwarzkopf"><img src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
+                <img src="../Logos/bazaar.png" alt="Harper's Bazaar"><img src="../Logos/hello bpdy.png"
+                    alt="Hello Body"><img src="../Logos/hp.png" alt="HP"><img src="../Logos/mgm.png" alt="MGM"><img
+                    src="../Logos/universal.png" alt="Universal" class="logo-fix"><img src="../Logos/scwatrtz.png"
+                    alt="Schwarzkopf"><img src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
+            </div>
+        </div>
+    </div>
+
+    <section class="cta-section reveal">
+        <div class="cta-card">
+            <h2>Ready to drive<br><em>Profit on Autopilot?</em></h2>
+            <p>Stop leaving revenue on the table. Let’s build your retention engine today.</p>
+            <a href="../index.html#contact" class="cta-button">
+                <span>Book Your Free Audit →</span>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">nusa<span>&</span>north</div>
+        <div class="footer-links">
+            <a href="performance-creative.html">Video Production</a>
+            <a href="meta-ads.html">Meta Ads</a>
+            <a href="google-ads.html">Google Ads</a>
+            <a href="content-strategy.html">Content Strategy</a>
+        </div>
+        <div class="footer-copy">© 2024 Nusa & North. All rights reserved.</div>
+    </footer>
+
+    <script>
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < window.innerHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

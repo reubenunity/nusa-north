@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography | Nusa & North</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --bg-card: #0a0a0a;
+            --bg-elevated: #112d27;
+            --text-primary: #ffffff;
+            --text-secondary: #b8c5c1;
+            --accent: #d4af37;
+            --font-display: 'Outfit', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-display);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.25rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.25rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-cta {
+            background: var(--accent) !important;
+            color: var(--bg-primary) !important;
+            font-weight: 700 !important;
+            display: flex !important;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-cta:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-cta-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--bg-primary);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 0.75rem;
+        }
+
+        /* Dropdown Menu */
+        .nav-item-group {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Enhanced Mega Menu */
+        .nav-dropdown {
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 2rem;
+            width: 90vw;
+            max-width: 900px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            z-index: 1001;
+        }
+
+        .nav-item-group:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .nav-dropdown::before {
+            display: none;
+        }
+
+        .nav-dropdown-inner {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 2rem;
+        }
+
+        .nav-services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+        }
+
+        .nav-service-card {
+            display: flex;
+            flex-direction: column;
+            padding: 1.25rem;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0;
+            transform: translateY(15px);
+        }
+
+        .nav-item-group:hover .nav-service-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-service-card:nth-child(1) {
+            transition-delay: 0.05s;
+        }
+
+        .nav-service-card:nth-child(2) {
+            transition-delay: 0.1s;
+        }
+
+        .nav-service-card:nth-child(3) {
+            transition-delay: 0.15s;
+        }
+
+        .nav-service-card:nth-child(4) {
+            transition-delay: 0.2s;
+        }
+
+        .nav-service-card:nth-child(5) {
+            transition-delay: 0.25s;
+        }
+
+        .nav-service-card:nth-child(6) {
+            transition-delay: 0.3s;
+        }
+
+        .nav-service-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(212, 175, 55, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .nav-service-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .nav-service-card h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.35rem;
+        }
+
+        .nav-service-card p {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .nav-dropdown-sidebar {
+            background: linear-gradient(145deg, rgba(212, 175, 55, 0.08), rgba(212, 175, 55, 0.02));
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+        }
+
+        .nav-item-group:hover .nav-dropdown-sidebar {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .nav-dropdown-sidebar h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .nav-dropdown-sidebar h3 em {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .nav-dropdown-sidebar p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .nav-dropdown-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--accent);
+            color: #000;
+            padding: 0.75rem 1.25rem;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dropdown-cta:hover {
+            transform: translateX(4px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-item-group::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: -100px;
+            right: -100px;
+            height: 100px;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 10rem 4rem 6rem;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23222' stroke-width='0.5'%3E%3Cpath d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'/%3E%3Ccircle cx='12' cy='13' r='4'/%3E%3C/svg%3E") no-repeat center;
+            background-size: contain;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+        }
+
+        .hero h1 em {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 500;
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 3rem;
+        }
+
+        .hero-subtitle strong {
+            color: var(--text-primary);
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 0.75rem 1rem 0.75rem 2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .hero-cta:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.15);
+        }
+
+        .hero-cta span {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .hero-cta .cta-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: var(--bg-primary);
+        }
+
+        .formula-section {
+            padding: 8rem 4rem;
+            text-align: center;
+        }
+
+        .formula-section h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .formula-section h2 em {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 500;
+            display: block;
+        }
+
+        .formula-text {
+            max-width: 750px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .formula-text strong {
+            color: var(--text-primary);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 4rem;
+        }
+
+        .gallery-label {
+            text-align: center;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 300px);
+            gap: 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item-bg {
+            position: absolute;
+            inset: 0;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover .gallery-item-bg {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:nth-child(1) .gallery-item-bg {
+            background: url('../images/photo-four-seasons.jpg') center/cover no-repeat;
+        }
+
+        .gallery-item:nth-child(2) .gallery-item-bg {
+            background: url('../images/photo-silhouette.png') center/cover no-repeat;
+        }
+
+        .gallery-item:nth-child(3) .gallery-item-bg {
+            background: url('../images/photo-hello-body.jpg') center/cover no-repeat;
+        }
+
+        .gallery-item:nth-child(4) .gallery-item-bg {
+            background: url('../images/photo-bazaar.png') center/cover no-repeat;
+        }
+
+        .gallery-item:nth-child(5) .gallery-item-bg {
+            background: url('../images/photo-restaurant.png') center/cover no-repeat;
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.8) 100%);
+        }
+
+        .gallery-item-content {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            z-index: 2;
+        }
+
+        .gallery-item h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .gallery-item p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Services Grid */
+        .services-section {
+            padding: 8rem 4rem;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .services-header h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+        }
+
+        .services-header h2 em {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover {
+            border-color: rgba(212, 175, 55, 0.2);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card h3 em {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 500;
+            display: block;
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-top: 1rem;
+        }
+
+        /* Stats */
+        .stats-section {
+            padding: 6rem 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        /* Comparison */
+        .comparison-section {
+            padding: 8rem 4rem;
+        }
+
+        .comparison-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .comparison-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            background: var(--bg-card);
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 100px;
+        }
+
+        .comparison-header h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+        }
+
+        .comparison-table {
+            max-width: 900px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .comparison-table thead th {
+            padding: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .comparison-table thead th:first-child {
+            text-align: left;
+        }
+
+        .comparison-table thead th:nth-child(2) {
+            background: var(--accent);
+            color: var(--bg-primary);
+            border-radius: 16px 16px 0 0;
+            font-weight: 800;
+        }
+
+        .comparison-table tbody tr {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .comparison-table tbody td {
+            padding: 1.25rem 1.5rem;
+            vertical-align: middle;
+        }
+
+        .comparison-table tbody td:first-child {
+            text-align: left;
+        }
+
+        .comparison-table tbody td:not(:first-child) {
+            text-align: center;
+        }
+
+        .comparison-table tbody td:nth-child(2) {
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .comparison-table tbody tr:last-child td:nth-child(2) {
+            border-radius: 0 0 16px 16px;
+        }
+
+        .feature-name {
+            font-weight: 500;
+        }
+
+        .feature-name em {
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .check {
+            width: 28px;
+            height: 28px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+        }
+
+        .cross {
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            opacity: 0.4;
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 8rem 4rem;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .faq-header h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+        }
+
+        .faq-header h2 em {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(212, 175, 55, 0.2);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .faq-question h4 {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .faq-question span {
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        .faq-answer {
+            display: none;
+            padding-top: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question span {
+            transform: rotate(45deg);
+        }
+
+        /* Logo Marquee */
+        .logo-marquee-section {
+            background: #000;
+            padding: 4rem 0 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            z-index: 5;
+            text-align: center;
+        }
+
+        .marquee-header {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            opacity: 0.6;
+        }
+
+        .logo-marquee {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .marquee-track {
+            display: flex;
+            align-items: center;
+            gap: 6rem;
+            width: max-content;
+            animation: scroll 40s linear infinite;
+        }
+
+        .marquee-track img {
+            height: 90px;
+            width: auto;
+            max-width: 325px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .marquee-track img[alt*="Bazaar"],
+        .marquee-track img[alt*="Universal"],
+        .marquee-track img[alt*="Schwarzkopf"],
+        .marquee-track img[alt*="Hello Body"] {
+            height: 130px;
+            max-width: 450px;
+        }
+
+        .marquee-track img.logo-fix {
+            filter: none;
+            mix-blend-mode: screen;
+            opacity: 0.8;
+        }
+
+        .marquee-track img:hover {
+            opacity: 1;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-33.33%);
+            }
+        }
+
+        /* CTA */
+        .cta-section {
+            padding: 10rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200%;
+            height: 80%;
+            background: radial-gradient(ellipse at center bottom, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.05;
+        }
+
+        .cta-section h2 em {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto 3rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 1.25rem 2.5rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
+        }
+
+        footer {
+            padding: 3rem 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 800;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-copy {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 1024px) {
+
+            .services-grid,
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
+            }
+
+            .gallery-item.large {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links a:not(.nav-cta) {
+                display: none;
+            }
+
+            .hero,
+            .formula-section,
+            .gallery-section,
+            .services-section,
+            .stats-section,
+            .comparison-section,
+            .faq-section,
+            .cta-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item.large {
+                grid-column: span 1;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Deep Forest Ambient Glow */
+        .ambient-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+            background: radial-gradient(ellipse at top right, #0a1f1a 0%, #000000 40%, #000000 100%);
+        }
+
+        .glow-orb {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(26, 61, 53, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.6;
+            animation: moveGlow 30s infinite alternate ease-in-out;
+        }
+
+        .glow-orb:nth-child(1) {
+            top: -40%;
+            right: -20%;
+            animation-delay: 0s;
+            width: 1000px;
+            height: 1000px;
+            filter: blur(120px);
+        }
+
+        .glow-orb:nth-child(2) {
+            bottom: -30%;
+            left: -15%;
+            animation-delay: -15s;
+            background: radial-gradient(circle, rgba(15, 40, 35, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+            width: 1000px;
+            height: 1000px;
+            filter: blur(120px);
+        }
+
+        @keyframes moveGlow {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(40px, 40px) scale(1.05);
+            }
+        }
+
+        /* Ensure content sits above glow */
+        section,
+        footer,
+        .hero {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="ambient-glow">
+        <div class="glow-orb"></div>
+        <div class="glow-orb"></div>
+    </div>
+
+    <nav>
+        <a href="../index.html" class="logo">nusa<span>&</span>north</a>
+        <div class="nav-links">
+            <div class="nav-item-group">
+                <a href="../index.html#services">Services</a>
+                <div class="nav-dropdown">
+                    <div class="nav-dropdown-inner">
+                        <div class="nav-services-grid">
+                            <a href="performance-creative.html" class="nav-service-card">
+                                <div class="nav-service-icon">🎬</div>
+                                <h4>Video & Creative</h4>
+                                <p>UGC & performance video production</p>
+                            </a>
+                            <a href="meta-ads.html" class="nav-service-card">
+                                <div class="nav-service-icon">∞</div>
+                                <h4>Meta Ads</h4>
+                                <p>Facebook & Instagram campaigns</p>
+                            </a>
+                            <a href="google-ads.html" class="nav-service-card">
+                                <div class="nav-service-icon">G</div>
+                                <h4>Google Ads</h4>
+                                <p>Search, display & YouTube ads</p>
+                            </a>
+                            <a href="email-marketing.html" class="nav-service-card">
+                                <div class="nav-service-icon">✉️</div>
+                                <h4>Email Marketing</h4>
+                                <p>Flows, campaigns & automation</p>
+                            </a>
+                            <a href="photography.html" class="nav-service-card">
+                                <div class="nav-service-icon">📷</div>
+                                <h4>Photography</h4>
+                                <p>Product & lifestyle shoots</p>
+                            </a>
+                            <a href="content-strategy.html" class="nav-service-card">
+                                <div class="nav-service-icon">📊</div>
+                                <h4>Content Strategy</h4>
+                                <p>Planning & creative direction</p>
+                            </a>
+                        </div>
+                        <div class="nav-dropdown-sidebar">
+                            <h3>All the <em>services</em> you need to scale</h3>
+                            <p>From creative production to paid media execution, we've got your growth covered.</p>
+                            <a href="../index.html#contact" class="nav-dropdown-cta">Get Started →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="../index.html#work">Work</a>
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#contact" class="nav-cta">
+                <span class="nav-cta-icon">n.</span>
+                Get Started
+            </a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-badge">
+            <span>Included in Growth Partnership</span>
+        </div>
+        <h1>
+            Photography<br>
+            That Sells.<br>
+            <em>Styled for Luxury.</em>
+        </h1>
+        <p class="hero-subtitle">
+            <strong>Editorial-quality imagery that captures the soul of your property</strong>
+            and compels travelers to book.
+        </p>
+        <a href="../index.html#contact" class="hero-cta">
+            <span>Book Discovery</span>
+            <div class="cta-icon">n.</div>
+        </a>
+    </section>
+
+    <section class="formula-section reveal">
+        <h2>Our Photography<br><em>Philosophy</em></h2>
+        <p class="formula-text">
+            Stock photography kills bookings. <strong>We create bespoke visual assets that tell
+                your unique story,</strong> showcase your spaces authentically, and give potential
+            guests the confidence to book directly.
+        </p>
+    </section>
+
+    <section class="gallery-section">
+        <div class="gallery-label">Selected Work</div>
+        <div class="gallery-grid">
+            <div class="gallery-item large reveal">
+                <div class="gallery-item-bg"></div>
+                <div class="gallery-item-content">
+                    <h4>Four Seasons The Nam Hai</h4>
+                    <p>Editorial Suite Photography</p>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <div class="gallery-item-bg"></div>
+                <div class="gallery-item-content">
+                    <h4>Vlad in Tears</h4>
+                    <p>Band Promo Photography</p>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <div class="gallery-item-bg"></div>
+                <div class="gallery-item-content">
+                    <h4>Hello Body</h4>
+                    <p>Product Photography</p>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <div class="gallery-item-bg"></div>
+                <div class="gallery-item-content">
+                    <h4>Harper's Bazaar</h4>
+                    <p>Editorial Fashion</p>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <div class="gallery-item-bg"></div>
+                <div class="gallery-item-content">
+                    <h4>Le Comptoir</h4>
+                    <p>Michelin Restaurant Photography</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <div class="services-header">
+            <h2>What We <em>Capture</em></h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <h3><em>Architecture</em><br>& Interiors</h3>
+                <p>Showcase your spaces with magazine-worthy interior and architectural photography that highlights
+                    design details.</p>
+            </div>
+            <div class="service-card reveal">
+                <h3><em>Lifestyle</em><br>& Experience</h3>
+                <p>Capture real moments and authentic experiences that help guests envision themselves at your property.
+                </p>
+            </div>
+            <div class="service-card reveal">
+                <h3><em>Food</em><br>& Beverage</h3>
+                <p>Mouth-watering culinary photography that drives restaurant reservations and in-room dining orders.
+                </p>
+            </div>
+            <div class="service-card reveal">
+                <h3><em>Event</em><br>Coverage</h3>
+                <p>Professional event documentation for weddings, conferences, and special occasions at your venue.</p>
+            </div>
+            <div class="service-card reveal">
+                <h3><em>Portrait</em><br>& Team</h3>
+                <p>Professional headshots and team photography that humanizes your brand and builds trust.</p>
+            </div>
+            <div class="service-card reveal">
+                <h3><em>Aerial</em><br>& Drone</h3>
+                <p>Stunning aerial perspectives that showcase your property's location, grounds, and surroundings.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-grid reveal">
+            <div class="stat-item">
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Images Delivered</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Countries Shot</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">8+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="comparison-section reveal">
+        <div class="comparison-header">
+            <span class="comparison-label">Compare Us</span>
+            <h2>Why Choose nusa&north</h2>
+        </div>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>nusa&north</th>
+                    <th>Stock Photos</th>
+                    <th>Local Photographer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="feature-name">Hospitality <em>Expertise</em></span></td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="cross">✕</span></td>
+                    <td><span class="cross">✕</span></td>
+                </tr>
+                <tr>
+                    <td><span class="feature-name">Magazine <em>Quality</em></span></td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="cross">✕</span></td>
+                    <td><span class="cross">✕</span></td>
+                </tr>
+                <tr>
+                    <td><span class="feature-name">Multi-Platform <em>Optimization</em></span></td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="cross">✕</span></td>
+                    <td><span class="cross">✕</span></td>
+                </tr>
+                <tr>
+                    <td><span class="feature-name">Video <em>Capability</em></span></td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="cross">✕</span></td>
+                    <td><span class="cross">✕</span></td>
+                </tr>
+                <tr>
+                    <td><span class="feature-name">Brand <em>Consistency</em></span></td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="cross">✕</span></td>
+                    <td><span class="check">✓</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="faq-section">
+        <div class="faq-header">
+            <h2>Frequently Asked <em>Questions</em></h2>
+        </div>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>What's included in a photo shoot?</h4>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Every shoot includes pre-production planning, on-location photography, professional retouching, and
+                    delivery in multiple formats optimized for web, print, and social media.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>How many final images will we receive?</h4>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    This depends on the scope, but typically 30-50 final edited images per shoot day. We focus on
+                    quality over quantity.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>Do you provide styling?</h4>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes, we provide art direction and can coordinate with stylists for lifestyle shoots. We'll advise on
+                    props, wardrobe, and scene setup.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>Can you combine photo and video?</h4>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Absolutely. We often bundle photography with video production for maximum efficiency and
+                    cost-effectiveness.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Logo Banner -->
+    <div class="logo-marquee-section">
+        <div class="marquee-header">Trusted by World-Class Brands</div>
+        <div class="logo-marquee">
+            <div class="marquee-track">
+                <img src="../Logos/bazaar.png" alt="Harper's Bazaar"><img src="../Logos/hello bpdy.png"
+                    alt="Hello Body"><img src="../Logos/hp.png" alt="HP"><img src="../Logos/mgm.png" alt="MGM"><img
+                    src="../Logos/universal.png" alt="Universal" class="logo-fix"><img src="../Logos/scwatrtz.png"
+                    alt="Schwarzkopf"><img src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
+                <img src="../Logos/bazaar.png" alt="Harper's Bazaar"><img src="../Logos/hello bpdy.png"
+                    alt="Hello Body"><img src="../Logos/hp.png" alt="HP"><img src="../Logos/mgm.png" alt="MGM"><img
+                    src="../Logos/universal.png" alt="Universal" class="logo-fix"><img src="../Logos/scwatrtz.png"
+                    alt="Schwarzkopf"><img src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
+                <img src="../Logos/bazaar.png" alt="Harper's Bazaar"><img src="../Logos/hello bpdy.png"
+                    alt="Hello Body"><img src="../Logos/hp.png" alt="HP"><img src="../Logos/mgm.png" alt="MGM"><img
+                    src="../Logos/universal.png" alt="Universal" class="logo-fix"><img src="../Logos/scwatrtz.png"
+                    alt="Schwarzkopf"><img src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
+            </div>
+        </div>
+    </div>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to elevate<br>your <em>visual presence?</em></h2>
+            <p class="cta-subtitle">Let's discuss your photography needs and create images that convert.</p>
+            <a href="../index.html#contact" class="cta-button">
+                Start Your Project
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">nusa<span>&</span>north</div>
+        <div class="footer-links">
+            <a href="video-production.html">Video</a>
+            <a href="photography.html">Photography</a>
+            <a href="meta-ads.html">Meta Ads</a>
+            <a href="content-strategy.html">Strategy</a>
+        </div>
+        <div class="footer-copy">© 2024 Nusa & North. All rights reserved.</div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => item.classList.toggle('active'));
+        });
+
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            reveals.forEach(element => {
+                if (element.getBoundingClientRect().top < window.innerHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+    </script>
+</body>
+
+</html>
