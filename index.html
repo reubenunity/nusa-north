@@ -11,6 +11,126 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <style>
+        /* Deep Dive Section - Inlined for immediate update */
+        .deep-dive-section {
+            padding: 8rem 4rem;
+            position: relative;
+        }
+
+        .deep-dive-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .deep-dive-header h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            max-width: 900px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .deep-dive-header h2 em {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        .deep-dive-subtext {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .deep-dive-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .deep-dive-card {
+            background: linear-gradient(145deg, rgba(20, 20, 20, 0.6) 0%, rgba(10, 10, 10, 0.8) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 3rem 2.5rem;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Glass shine effect */
+        .deep-dive-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+            transition: 0.5s;
+        }
+
+        .deep-dive-card:hover::before {
+            left: 100%;
+        }
+
+        .deep-dive-card:hover {
+            transform: translateY(-8px);
+            background: linear-gradient(145deg, rgba(30, 30, 30, 0.7) 0%, rgba(15, 15, 15, 0.9) 100%);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.1);
+        }
+
+        .deep-dive-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 1.25rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .deep-dive-card h3 em {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 500;
+            color: var(--text-secondary);
+            display: block;
+            margin-top: 0.2rem;
+            font-size: 1.4rem;
+        }
+
+        .deep-dive-card:hover h3 em {
+            color: var(--accent);
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .deep-dive-card p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 900px) {
+            .deep-dive-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         :root {
             --bg-primary: #000000;
             --bg-card: #0a0a0a;
@@ -278,7 +398,7 @@
             padding: 0;
             position: relative;
             overflow: hidden;
-            background: #000;
+            background: radial-gradient(circle at 10% 10%, var(--bg-elevated) 0%, #000000 60%);
         }
 
         .hero::before {
@@ -828,12 +948,13 @@
 
         /* Portfolio Section */
         .portfolio-section {
-            padding: 8rem 4rem;
+            padding: 8rem 0;
         }
 
         .portfolio-header {
             text-align: center;
             margin-bottom: 4rem;
+            padding: 0 4rem;
         }
 
         .portfolio-header h2 {
@@ -1046,9 +1167,9 @@
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1000px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
             margin: 0 auto;
             text-align: center;
         }
@@ -1130,83 +1251,179 @@
             margin-left: 6px;
         }
 
-        /* About Section */
+        /* About / Team Section */
         .about-section {
             padding: 8rem 4rem;
         }
 
-        .about-content {
-            max-width: 1000px;
+        .about-content-wrapper {
+            max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 4rem;
-            align-items: center;
+            text-align: center;
         }
 
-        .about-image {
-            position: relative;
-        }
-
-        .about-image-wrapper {
-            aspect-ratio: 4/5;
-            background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-primary) 100%);
-            border-radius: 24px;
-            overflow: hidden;
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .about-image-wrapper::after {
-            content: 'R & O';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: var(--font-serif);
-            font-size: 3rem;
-            font-style: italic;
-            color: var(--accent);
-            opacity: 0.2;
-        }
-
-        .about-badge {
-            position: absolute;
-            bottom: -1rem;
-            right: -1rem;
-            background: var(--accent);
-            color: var(--bg-primary);
-            padding: 1rem 1.5rem;
-            border-radius: 100px;
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-
-        .about-text h2 {
+        .section-title {
             font-family: var(--font-display);
-            font-size: clamp(2rem, 4vw, 2.5rem);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 4rem;
         }
 
-        .about-text h2 em {
+        .section-title em {
             font-family: var(--font-serif);
             font-style: italic;
+            font-weight: 500;
             color: var(--accent);
         }
 
-        .about-text p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            line-height: 1.8;
+        /* Team Marquee */
+        .team-marquee {
+            width: 100%;
+            overflow: hidden;
+            padding: 2rem 0;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .team-track {
+            display: flex;
+            gap: 4rem;
+            width: max-content;
+            animation: teamScroll 60s linear infinite;
+            padding-left: 4rem;
+        }
+
+        .team-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes teamScroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .team-card {
+            flex: 0 0 280px;
+            /* Fixed width for text */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .team-img-container {
+            width: 140px;
+            /* 30% smaller than 200px */
+            height: 140px;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .team-img {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center top;
+            transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .team-glow {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+            transition: all 0.5s ease;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* Hover Effects */
+        .team-card:hover .team-img {
+            transform: scale(1.05);
+        }
+
+        .team-card:hover .team-glow {
+            box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.2);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .team-info h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            /* Slightly smaller header */
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-role {
+            display: block;
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: var(--accent);
+            font-size: 1rem;
             margin-bottom: 1rem;
         }
 
-        .about-text p strong {
+        .team-info p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 0.9rem;
+            /* Slightly smaller text */
+            margin: 0 auto;
+        }
+
+        .team-info h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-role {
+            display: block;
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-info p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .about-footer-text p {
+            font-size: 1.2rem;
             color: var(--text-primary);
             font-weight: 500;
+            max-width: 600px;
+            margin: 0 auto;
         }
+
+        @media (max-width: 768px) {
+            .team-card {
+                flex: 0 0 250px;
+                /* Slightly smaller on mobile */
+            }
+
+            .team-img-container {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+
 
         /* Contact Section */
         .contact-section {
@@ -1330,7 +1547,8 @@
             }
 
             .mastered-grid,
-            .portfolio-grid {
+            .portfolio-grid,
+            .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
@@ -1563,6 +1781,298 @@
         </p>
         <a href="#contact" class="welcome-cta">Ready? Start Now →</a>
     </section>
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid reveal" id="statsGrid">
+            <div class="stat-item">
+                <div class="stat-number" data-target="9" data-suffix="+">0</div>
+                <div class="stat-label">Years in the Industry</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="120" data-suffix="+">0</div>
+                <div class="stat-label">Satisfied Clients</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="500" data-suffix="+">0</div>
+                <div class="stat-label">Campaigns Delivered</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="12" data-suffix="+">0</div>
+                <div class="stat-label">Countries of Operation</div>
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio Section -->
+    <section class="portfolio-section" id="work">
+        <!-- Video Highlight Reel (Infinite Scroll) -->
+        <section class="video-reel-section" id="work">
+            <div class="portfolio-header">
+                <h2>Our<br><em>Work</em></h2>
+                <p class="portfolio-subtext">We partner with ambitious brands to create content that drives measurable
+                    results. From cinematic storytelling to performance-driven assets, we handle it all.</p>
+            </div>
+
+            <div class="reel-container">
+                <!-- Track 1 (Scroll Left) -->
+                <div class="reel-track track-left">
+                    <!-- Set 1 -->
+                    <div class="reel-item" data-vimeo-id="1133899956" data-hash="97ac212d90">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2078669405-91489ad32ee1d4de589854b1295ec6a99890df6500d2913ce139acb7c3262e05-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1133529757" data-hash="e8519ee984">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2078164274-4fbe4e1ef68baacba62c25d7406b8a4a98f1eb8ff13fb4b70f427d5bfcb15646-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1123943736" data-hash="b2bba13bf5">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2065676516-b4300baa189d4888a3ba1eed8ca0c14de7e8d89aee4b1f75301e070776b2ebd2-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1145009419" data-hash="90bca3a2b9">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2093846582-59b6858741a841ab76ef419ee0fa110ba9fa5f391367bb7e7180bef2750fe231-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1118772124" data-hash="85090fa653">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2059064794-b1e0f2dcbef1e0bb4b9e6b0a4f4288f6f34ccbb496e70c3d134f0581888e2896-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+
+                    <!-- Set 2 -->
+                    <div class="reel-item" data-vimeo-id="1133899956" data-hash="97ac212d90">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2078669405-91489ad32ee1d4de589854b1295ec6a99890df6500d2913ce139acb7c3262e05-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1133529757" data-hash="e8519ee984">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2078164274-4fbe4e1ef68baacba62c25d7406b8a4a98f1eb8ff13fb4b70f427d5bfcb15646-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1123943736" data-hash="b2bba13bf5">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2065676516-b4300baa189d4888a3ba1eed8ca0c14de7e8d89aee4b1f75301e070776b2ebd2-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1145009419" data-hash="90bca3a2b9">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2093846582-59b6858741a841ab76ef419ee0fa110ba9fa5f391367bb7e7180bef2750fe231-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1118772124" data-hash="85090fa653">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2059064794-b1e0f2dcbef1e0bb4b9e6b0a4f4288f6f34ccbb496e70c3d134f0581888e2896-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+
+                    <!-- Set 3 -->
+                    <div class="reel-item" data-vimeo-id="1133899956" data-hash="97ac212d90">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2078669405-91489ad32ee1d4de589854b1295ec6a99890df6500d2913ce139acb7c3262e05-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1133529757" data-hash="e8519ee984">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2078164274-4fbe4e1ef68baacba62c25d7406b8a4a98f1eb8ff13fb4b70f427d5bfcb15646-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1123943736" data-hash="b2bba13bf5">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2065676516-b4300baa189d4888a3ba1eed8ca0c14de7e8d89aee4b1f75301e070776b2ebd2-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1145009419" data-hash="90bca3a2b9">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2093846582-59b6858741a841ab76ef419ee0fa110ba9fa5f391367bb7e7180bef2750fe231-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1118772124" data-hash="85090fa653">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2059064794-b1e0f2dcbef1e0bb4b9e6b0a4f4288f6f34ccbb496e70c3d134f0581888e2896-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track 2 (Scroll Right - Different Videos) -->
+                <div class="reel-track track-right" style="margin-top: 1.5rem;">
+                    <!-- Set 1 -->
+                    <div class="reel-item" data-vimeo-id="1143242723" data-hash="c08f1c8239">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2091354883-839519eb32e57ea2b1b669977162d46cad0687ce0a313a74f2cf50dc413d455d-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1082754781" data-hash="6636bc5898">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2054846709-3feba26c75591be96dda774ac9f55bbc68f5625a677542f2cdb50f75eef98485-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1084881951" data-hash="3f2ec5e0f9">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2054821369-ef5825e2b9372ceb81776f45ed835a295cfdb6d31e2fd17e9d3014fedf00b75c-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1122744728" data-hash="c10d5281d7">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2064197543-cbf89ce985c9019114268be8568868dc968ba42a2a91966e1e51b4426d9361c6-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1084875985" data-hash="733ca8b56c">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2016384896-50aa8addb95e23c43cb11ae82354f0ee3043071a29f4e45f3f419d921dc43c55-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+
+                    <!-- Set 2 -->
+                    <div class="reel-item" data-vimeo-id="1143242723" data-hash="c08f1c8239">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2091354883-839519eb32e57ea2b1b669977162d46cad0687ce0a313a74f2cf50dc413d455d-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1082754781" data-hash="6636bc5898">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2054846709-3feba26c75591be96dda774ac9f55bbc68f5625a677542f2cdb50f75eef98485-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1084881951" data-hash="3f2ec5e0f9">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2054821369-ef5825e2b9372ceb81776f45ed835a295cfdb6d31e2fd17e9d3014fedf00b75c-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1122744728" data-hash="c10d5281d7">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2064197543-cbf89ce985c9019114268be8568868dc968ba42a2a91966e1e51b4426d9361c6-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1084875985" data-hash="733ca8b56c">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2016384896-50aa8addb95e23c43cb11ae82354f0ee3043071a29f4e45f3f419d921dc43c55-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+
+                    <!-- Set 3 -->
+                    <div class="reel-item" data-vimeo-id="1143242723" data-hash="c08f1c8239">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2091354883-839519eb32e57ea2b1b669977162d46cad0687ce0a313a74f2cf50dc413d455d-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1082754781" data-hash="6636bc5898">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2054846709-3feba26c75591be96dda774ac9f55bbc68f5625a677542f2cdb50f75eef98485-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1084881951" data-hash="3f2ec5e0f9">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2054821369-ef5825e2b9372ceb81776f45ed835a295cfdb6d31e2fd17e9d3014fedf00b75c-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1122744728" data-hash="c10d5281d7">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2064197543-cbf89ce985c9019114268be8568868dc968ba42a2a91966e1e51b4426d9361c6-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="reel-item" data-vimeo-id="1084875985" data-hash="733ca8b56c">
+                        <div class="reel-poster"
+                            style="background-image: url('https://i.vimeocdn.com/video/2016384896-50aa8addb95e23c43cb11ae82354f0ee3043071a29f4e45f3f419d921dc43c55-d_640x360');">
+                        </div>
+                        <div class="reel-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
 
     <!-- Who We're Built For -->
     <section class="built-for-section">
@@ -1685,42 +2195,6 @@
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section class="portfolio-section" id="work">
-        <div class="portfolio-header">
-            <h2>Our<br><em>Work</em></h2>
-        </div>
-        <div class="portfolio-grid">
-            <a href="portfolio/illuzion.html" class="portfolio-card reveal">
-                <div class="portfolio-card-bg" style="background-image: url('images/illuzion-thumbnail.webp');"></div>
-                <div class="portfolio-card-content">
-                    <h4>Illuzion</h4>
-                    <span>Documentary Film</span>
-                </div>
-            </a>
-            <a href="portfolio/hello-body.html" class="portfolio-card reveal">
-                <div class="portfolio-card-bg" style="background-image: url('images/hello-body-thumbnail.webp');"></div>
-                <div class="portfolio-card-content">
-                    <h4>Hello Body</h4>
-                    <span>Social Content</span>
-                </div>
-            </a>
-            <a href="portfolio/nam-hai.html" class="portfolio-card reveal">
-                <div class="portfolio-card-bg" style="background-image: url('images/nam-hai-thumbnail.webp');"></div>
-                <div class="portfolio-card-content">
-                    <h4>Four Seasons The Nam Hai</h4>
-                    <span>Commercial Campaign</span>
-                </div>
-            </a>
-            <a href="portfolio/bangkok.html" class="portfolio-card reveal">
-                <div class="portfolio-card-bg" style="background-image: url('images/bangkok-thumbnail.webp');"></div>
-                <div class="portfolio-card-content">
-                    <h4>Bangkok</h4>
-                    <span>Hospitality Content</span>
-                </div>
-            </a>
-        </div>
-    </section>
 
     <!-- Comparison Section -->
     <section class="comparison-section">
@@ -1773,64 +2247,692 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
-        <div class="stats-grid reveal">
-            <div class="stat-item">
-                <div class="stat-number">€2.4M+</div>
-                <div class="stat-label">Client Revenue Generated</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">187</div>
-                <div class="stat-label">Productions Delivered</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">12</div>
-                <div class="stat-label">Countries Filmed</div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Video Section -->
-    <section class="video-section">
-        <div class="video-container">
-            <div class="video-label">Get to know us</div>
-            <div class="video-wrapper">
-                <div class="play-button"></div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- About Section -->
     <section class="about-section" id="about">
-        <div class="about-content">
-            <div class="about-image reveal">
-                <div class="about-image-wrapper"></div>
-                <div class="about-badge">8+ Years Experience</div>
+        <div class="about-content-wrapper">
+            <h2 class="section-title reveal">Meet the team behind <em>the magic</em></h2>
+
+            <div class="team-marquee">
+                <div class="team-track">
+                    <!-- Set 1 -->
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <div class="team-img" style="background-image: url('assets/images/team/reuben.png');"></div>
+                            <div class="team-glow"></div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Reuben</h3>
+                            <span class="team-role">Founder & Creative Director</span>
+                            <p>With over a decade of experience in high-stakes production, Reuben leads the creative
+                                vision, bridging the gap between cinematic storytelling and performance marketing.</p>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <div class="team-img" style="background-image: url('assets/images/team/okta.jpg');"></div>
+                            <div class="team-glow"></div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Okta</h3>
+                            <span class="team-role">Head of Strategy</span>
+                            <p>Bringing world-class expertise from her time managing sales & marketing at Hermès and
+                                Dior, Okta infuses every campaign with high-end luxury authority.</p>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <div class="team-img" style="background-image: url('assets/images/team/elena.png');"></div>
+                            <div class="team-glow"></div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Elena</h3>
+                            <span class="team-role">Performance Creative Lead</span>
+                            <p>Curating the visual language of the unseen. Elena ensures every pixel whispers luxury
+                                before it's even seen.</p>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <div class="team-img"
+                                style="background-image: url('assets/images/team/marcus.png'); background-position: center;">
+                            </div>
+                            <div class="team-glow"></div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Marcus</h3>
+                            <span class="team-role">Ads Specialist</span>
+                            <p>Decoding the algorithms of desire. Marcus turns raw data into actionable luxury
+                                intelligence.</p>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <div class="team-img" style="background-image: url('assets/images/team/sia.png');"></div>
+                            <div class="team-glow"></div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Sia</h3>
+                            <span class="team-role">Social Media Manager</span>
+                            <p>Merging community with commerce. Sia builds the immersive digital engagement strategies
+                                that define the future of your brand presence.</p>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <div class="team-img" style="background-image: url('assets/images/team/julian.png');"></div>
+                            <div class="team-glow"></div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Julian</h3>
+                            <span class="team-role">Global Partnerships</span>
+                            <p>Connecting the world's most exclusive circles. Julian bridges the gap between heritage
+                                brands and modern relevance.</p>
+                        </div>
+                    </div>
+
+                    <!-- Duplicate Set 1 -->
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <div class="team-img" style="background-image: url('assets/images/team/reuben.png');"></div>
+                            <div class="team-glow"></div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Reuben</h3>
+                            <span class="team-role">Founder & Creative Director</span>
+                            <p>With over a decade of experience in high-stakes production, Reuben leads the creative
+                                vision, bridging the gap between cinematic storytelling and performance marketing.</p>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <div class="team-img" style="background-image: url('assets/images/team/okta.jpg');"></div>
+                            <div class="team-glow"></div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Okta</h3>
+                            <span class="team-role">Head of Strategy</span>
+                            <p>Bringing world-class expertise from her time managing sales & marketing at Hermès and
+                                Dior, Okta infuses every campaign with high-end luxury authority.</p>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <div class="team-img" style="background-image: url('assets/images/team/elena.png');"></div>
+                            <div class="team-glow"></div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Elena</h3>
+                            <span class="team-role">Performance Creative Lead</span>
+                            <p>Curating the visual language of the unseen. Elena ensures every pixel whispers luxury
+                                before it's even seen.</p>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <div class="team-img"
+                                style="background-image: url('assets/images/team/marcus.png'); background-position: center;">
+                            </div>
+                            <div class="team-glow"></div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Marcus</h3>
+                            <span class="team-role">Ads Specialist</span>
+                            <p>Decoding the algorithms of desire. Marcus turns raw data into actionable luxury
+                                intelligence.</p>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <div class="team-img" style="background-image: url('assets/images/team/sia.png');"></div>
+                            <div class="team-glow"></div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Sia</h3>
+                            <span class="team-role">Social Media Manager</span>
+                            <p>Merging community with commerce. Sia builds the immersive digital engagement strategies
+                                that define the future of your brand presence.</p>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <div class="team-img" style="background-image: url('assets/images/team/julian.png');"></div>
+                            <div class="team-glow"></div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Julian</h3>
+                            <span class="team-role">Global Partnerships</span>
+                            <p>Connecting the world's most exclusive circles. Julian bridges the gap between heritage
+                                brands and modern relevance.</p>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Duplicate Set 1 -->
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <div class="team-img" style="background-image: url('assets/images/team/reuben.png');"></div>
+                            <div class="team-glow"></div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Reuben</h3>
+                            <span class="team-role">Founder & Creative Director</span>
+                            <p>With over a decade of experience in high-stakes production, Reuben leads the creative
+                                vision, bridging the gap between cinematic storytelling and performance marketing.</p>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <div class="team-img" style="background-image: url('assets/images/team/okta.jpg');"></div>
+                            <div class="team-glow"></div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Okta</h3>
+                            <span class="team-role">Head of Strategy</span>
+                            <p>Meticulously crafting data-driven campaigns, Okta ensures that every piece of creative
+                                asset is optimized for maximum ROI and platform performance.</p>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <div class="team-img" style="background-image: url('assets/images/team/elena.png');"></div>
+                            <div class="team-glow"></div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Elena</h3>
+                            <span class="team-role">Performance Creative Lead</span>
+                            <p>Curating the visual language of the unseen. Elena ensures every pixel whispers luxury
+                                before it's even seen.</p>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <div class="team-img" style="background-image: url('assets/images/team/marcus.png');"></div>
+                            <div class="team-glow"></div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Marcus</h3>
+                            <span class="team-role">Ads Specialist</span>
+                            <p>Decoding the algorithms of desire. Marcus turns raw data into actionable luxury
+                                intelligence.</p>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <div class="team-img" style="background-image: url('assets/images/team/sia.png');"></div>
+                            <div class="team-glow"></div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Sia</h3>
+                            <span class="team-role">Social Media Manager</span>
+                            <p>Merging community with commerce. Sia builds the immersive digital engagement strategies
+                                that define the future of your brand presence.</p>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <div class="team-img" style="background-image: url('assets/images/team/julian.png');"></div>
+                            <div class="team-glow"></div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Julian</h3>
+                            <span class="team-role">Global Partnerships</span>
+                            <p>Connecting the world's most exclusive circles. Julian bridges the gap between heritage
+                                brands and modern relevance.</p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="about-text reveal">
-                <h2>Meet the team behind <em>the magic</em></h2>
-                <p>
-                    <strong>Reubs & Okta</strong> are the creative duo behind Nusa & North. With over eight years
-                    of international production experience, we've crafted stories for some of the world's most
-                    prestigious hospitality brands.
-                </p>
-                <p>
-                    From the suites of Four Seasons Bangkok to the stages of MGM Las Vegas, we bring a
-                    filmmaker's eye and a strategist's mind to every project. Based between Dublin and Berlin,
-                    we work with brands who refuse to blend in.
-                </p>
-            </div>
+
+
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact-section" id="contact">
-        <h2>Ready to create<br>something <em>unforgettable?</em></h2>
-        <a href="mailto:hello@nusaandnorth.com" class="contact-cta">
-            Get in Touch →
-        </a>
+        <div class="contact-container">
+            <div class="form-progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <form id="contactForm" action="https://formsubmit.co/reubenandokta@gmail.com" method="POST"
+                class="typeform-style">
+                <!-- Config -->
+                <input type="hidden" name="_subject" value="New Project Inquiry - Nusa & North">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://nusanorth.com/index.html">
+                <!-- Redirect back to home -->
+
+                <!-- Step 1: Personal Details -->
+                <div class="form-step active" data-step="1">
+                    <div class="step-header">
+                        <span class="step-number">1</span>
+                        <h3>We're looking forward to speaking with you. Let's grab your details *</h3>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="firstName">What's your first name? *</label>
+                        <input type="text" id="firstName" name="First Name" placeholder="Type your answer here..."
+                            required>
+                        <div class="error-msg">⚠️ Please fill this in</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">And your last name? *</label>
+                        <input type="text" id="lastName" name="Last Name" placeholder="Type your answer here..."
+                            required>
+                        <div class="error-msg">⚠️ Please fill this in</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">What's your company name? *</label>
+                        <input type="text" id="company" name="Company Name" placeholder="Type your answer here..."
+                            required>
+                        <div class="error-msg">⚠️ Please fill this in</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">What's your email address? *</label>
+                        <input type="email" id="email" name="email" placeholder="name@example.com" required>
+                        <div class="error-msg">⚠️ Please fill this in</div>
+                    </div>
+
+                    <button type="button" class="next-btn" onclick="nextStep(1)">OK <span
+                            class="check-icon">✓</span></button>
+                </div>
+
+                <!-- Step 2: Needs -->
+                <div class="form-step" data-step="2">
+                    <div class="step-header">
+                        <span class="step-number">2</span>
+                        <h3>What are you looking for help with? *</h3>
+                        <p class="step-sub">Choose as many as you like</p>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <label class="custom-checkbox-v2">
+                            <input type="checkbox" name="Interested In" value="Video Production">
+                            <span class="checkbox-label">Video Production</span>
+                            <span class="key-hint">A</span>
+                        </label>
+                        <label class="custom-checkbox-v2">
+                            <input type="checkbox" name="Interested In" value="Photography">
+                            <span class="checkbox-label">Photography</span>
+                            <span class="key-hint">B</span>
+                        </label>
+                        <label class="custom-checkbox-v2">
+                            <input type="checkbox" name="Interested In" value="Meta Ads">
+                            <span class="checkbox-label">Meta Ads</span>
+                            <span class="key-hint">C</span>
+                        </label>
+                        <label class="custom-checkbox-v2">
+                            <input type="checkbox" name="Interested In" value="Google Ads">
+                            <span class="checkbox-label">Google Ads</span>
+                            <span class="key-hint">D</span>
+                        </label>
+                        <label class="custom-checkbox-v2">
+                            <input type="checkbox" name="Interested In" value="Email Marketing">
+                            <span class="checkbox-label">Email Marketing</span>
+                            <span class="key-hint">E</span>
+                        </label>
+                        <label class="custom-checkbox-v2">
+                            <input type="checkbox" name="Interested In" value="Content Strategy">
+                            <span class="checkbox-label">Content Strategy</span>
+                            <span class="key-hint">F</span>
+                        </label>
+                        <label class="custom-checkbox-v2">
+                            <input type="checkbox" name="Interested In" value="Other">
+                            <span class="checkbox-label">Other</span>
+                            <span class="key-hint">G</span>
+                        </label>
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" class="back-btn" onclick="prevStep(2)">Back</button>
+                        <button type="submit" class="next-btn">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </section>
+
+    <style>
+        .contact-section {
+            padding: 8rem 2rem;
+            background: #000;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-container {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .typeform-style {
+            position: relative;
+        }
+
+        .form-step {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .form-step.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .step-header {
+            margin-bottom: 3rem;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: var(--text-secondary);
+            color: #000;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+
+        .step-header h3 {
+            display: inline;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #fff;
+            line-height: 1.4;
+        }
+
+        .step-sub {
+            display: block;
+            margin-top: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-left: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 0;
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-family: var(--font-display);
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-bottom-color: var(--accent);
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.15);
+            font-size: 1.5rem;
+        }
+
+        .error-msg {
+            display: none;
+            background: #4a1d1d;
+            color: #ff8c8c;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            width: fit-content;
+            animation: shake 0.4s ease-in-out;
+        }
+
+        .form-group.error .error-msg {
+            display: block;
+        }
+
+        .form-group.error input {
+            border-bottom-color: #ff8c8c;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            75% {
+                transform: translateX(5px);
+            }
+        }
+
+        .next-btn {
+            background: var(--accent);
+            /* Yellow/Gold */
+            color: #000;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: 1rem;
+        }
+
+        .next-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .back-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-secondary);
+            padding: 0.8rem 1.5rem;
+            font-size: 1.1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .back-btn:hover {
+            border-color: #fff;
+            color: #fff;
+        }
+
+        /* Checkbox Styling */
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .custom-checkbox {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .custom-checkbox:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent);
+        }
+
+        .custom-checkbox input {
+            display: none;
+        }
+
+        .custom-checkbox.selected {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        .checkbox-label {
+            flex-grow: 1;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .key-hint {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .custom-checkbox.selected .key-hint {
+            background: var(--accent);
+            color: #000;
+            border-color: var(--accent);
+        }
+
+        /* Progress Bar */
+        .form-progress {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 100;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--accent);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+    </style>
+
+    <script>
+        // Form Logic
+        let currentStep = 1;
+
+        function updateProgress(step) {
+            const totalSteps = 2;
+            const progress = (step / totalSteps) * 100;
+            document.getElementById('progressBar').style.width = `${progress}%`;
+        }
+
+        function nextStep(step) {
+            // Validation
+            if (step === 1) {
+                const firstName = document.getElementById('firstName');
+                const lastName = document.getElementById('lastName');
+                const company = document.getElementById('company');
+                let isValid = true;
+
+                [firstName, lastName, company].forEach(input => {
+                    const group = input.parentElement;
+                    if (!input.value.trim()) {
+                        group.classList.add('error');
+                        isValid = false;
+
+                        // Remove error on input
+                        input.addEventListener('input', () => {
+                            if (input.value.trim()) group.classList.remove('error');
+                        }, { once: true });
+                    }
+                });
+
+                if (!isValid) return;
+            }
+
+            // Transition
+            const currentEl = document.querySelector(`.form-step[data-step="${step}"]`);
+            const nextEl = document.querySelector(`.form-step[data-step="${step + 1}"]`);
+
+            if (nextEl) {
+                currentEl.classList.remove('active');
+                setTimeout(() => {
+                    nextEl.classList.add('active');
+                }, 300); // Wait for fade out
+                currentStep = step + 1;
+                updateProgress(currentStep);
+            }
+        }
+
+        function prevStep(step) {
+            const currentEl = document.querySelector(`.form-step[data-step="${step}"]`);
+            const prevEl = document.querySelector(`.form-step[data-step="${step - 1}"]`);
+
+            if (prevEl) {
+                currentEl.classList.remove('active');
+                setTimeout(() => {
+                    prevEl.classList.add('active');
+                }, 300);
+                currentStep = step - 1;
+                updateProgress(currentStep);
+            }
+        }
+
+        // Legacy functions removed.
+        // Form submission is now handled by Formsubmit.co via standard POST request.
+    </script>
 
     <!-- Footer -->
     <footer>
@@ -1863,7 +2965,408 @@
 
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
+
+        // Lightbox Elements
+        const lightbox = document.createElement('div');
+        lightbox.className = 'video-lightbox';
+        lightbox.innerHTML = `
+            <div class="lightbox-close">&times;</div>
+            <div class="lightbox-content">
+                <div class="lightbox-video-wrapper"></div>
+            </div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const lightboxWrapper = lightbox.querySelector('.lightbox-video-wrapper');
+        const lightboxClose = lightbox.querySelector('.lightbox-close');
+
+        // Close Lightbox
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            lightboxWrapper.innerHTML = ''; // Kill iframe
+            document.body.style.overflow = ''; // Enable scroll
+        };
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // Escape key to close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+        });
+
+        // Video Reel Interaction
+        document.querySelectorAll('.reel-item').forEach(item => {
+            // Hover: Muted Preview
+            item.addEventListener('mouseenter', () => {
+                if (!item.querySelector('.preview-iframe')) {
+                    const vimeoId = item.getAttribute('data-vimeo-id');
+                    const hash = item.getAttribute('data-hash');
+
+                    const iframe = document.createElement('iframe');
+                    iframe.className = 'preview-iframe';
+                    iframe.src = `https://player.vimeo.com/video/${vimeoId}?h=${hash}&background=1&autoplay=1&loop=1&byline=0&title=0`;
+                    iframe.allow = 'autoplay; fullscreen';
+
+                    item.appendChild(iframe);
+
+                    // Fade out poster/overlay slightly
+                    const overlay = item.querySelector('.reel-overlay');
+                    if (overlay) overlay.style.opacity = '0';
+                }
+            });
+
+            item.addEventListener('mouseleave', () => {
+                const iframe = item.querySelector('.preview-iframe');
+                const overlay = item.querySelector('.reel-overlay');
+                if (iframe) iframe.remove();
+                if (overlay) overlay.style.opacity = '1';
+            });
+
+            // Click: Full Screen Lightbox
+            item.addEventListener('click', () => {
+                const vimeoId = item.getAttribute('data-vimeo-id');
+                const hash = item.getAttribute('data-hash');
+
+                lightboxWrapper.innerHTML = `
+                    <iframe src="https://player.vimeo.com/video/${vimeoId}?h=${hash}&autoplay=1&title=0&byline=0&portrait=0" 
+                            frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen>
+                    </iframe>
+                `;
+
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Disable scroll
+            });
+        });
+    </script>
+
+    <style>
+        /* Video Reel Styles */
+        .video-reel-section {
+            padding: 6rem 0;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .reel-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            width: 100%;
+        }
+
+        .reel-track {
+            display: flex;
+            gap: 1.5rem;
+            width: max-content;
+        }
+
+        .track-left {
+            animation: scrollLeft 60s linear infinite;
+            /* Slowed down for elegance */
+        }
+
+        .track-right {
+            animation: scrollRight 70s linear infinite;
+        }
+
+        .reel-track:hover {
+            animation-play-state: paused;
+        }
+
+        .reel-item {
+            position: relative;
+            width: 350px;
+            aspect-ratio: 16/9;
+            border-radius: 12px;
+            overflow: hidden;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: #111;
+        }
+
+        .reel-item:hover {
+            transform: scale(1.15);
+            z-index: 10;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        .reel-poster {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            z-index: 2;
+        }
+
+        .reel-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+            transition: opacity 0.3s ease;
+        }
+
+        .play-icon {
+            font-size: 2.5rem;
+            color: #fff;
+            opacity: 0.9;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+        }
+
+        .reel-item:hover .play-icon {
+            transform: scale(1.2);
+            color: var(--accent);
+        }
+
+        .preview-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            z-index: 4;
+            /* On top of everything */
+            pointer-events: none;
+            /* Let clicks pass through to item */
+        }
+
+        @keyframes scrollLeft {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-33.333%);
+            }
+        }
+
+        @keyframes scrollRight {
+            0% {
+                transform: translateX(-33.333%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .portfolio-subtext {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 1rem auto 0;
+            line-height: 1.6;
+        }
+
+        /* Lightbox Styles */
+        .video-lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-lightbox.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: #fff;
+            font-size: 3rem;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.3s ease;
+            z-index: 10001;
+        }
+
+        .lightbox-close:hover {
+            color: var(--accent);
+        }
+
+        .lightbox-content {
+            width: 90%;
+            max-width: 1200px;
+            aspect-ratio: 16/9;
+            position: relative;
+            z-index: 10000;
+            box-shadow: 0 0 100px rgba(0, 0, 0, 0.8);
+        }
+
+        .lightbox-video-wrapper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .lightbox-video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .reel-item {
+                width: 250px;
+            }
+
+            .lightbox-close {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+    <script> // Stats Animation
+
+        const animateStats = () => {
+            const stats = document.querySelectorAll('.stat-number');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = +entry.target.getAttribute('data-target');
+                        const suffix = entry.target.getAttribute('data-suffix') || '';
+                        const duration = 2000; // 2 seconds
+                        const increment = target / (duration / 16); // 60fps
+
+                        let current = 0;
+
+                        const updateCount = () => {
+                            current += increment;
+
+                            if (current < target) {
+                                entry.target.innerText = Math.ceil(current) + suffix;
+                                requestAnimationFrame(updateCount);
+                            }
+
+                            else {
+                                entry.target.innerText = target + suffix;
+                            }
+                        }
+
+                            ;
+                        updateCount();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }
+
+                , {
+                    threshold: 0.5
+                });
+
+            stats.forEach(stat => observer.observe(stat));
+        }
+
+            ;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // ... existing init
+            animateStats();
+        });
+    </script>
+
+    <style>
+        /* Checkbox V2 Styling */
+        .custom-checkbox-v2 {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            margin-bottom: 0.75rem;
+        }
+
+        .custom-checkbox-v2:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent);
+        }
+
+        .custom-checkbox-v2 input {
+            display: none;
+        }
+
+        .custom-checkbox-v2.selected {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        .custom-checkbox-v2 .key-hint {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-left: auto;
+        }
+
+        .custom-checkbox-v2.selected .key-hint {
+            background: var(--accent);
+            color: #000;
+            border-color: var(--accent);
+        }
+    </style>
+    <script>
+        // Selection Logic V2 - Robust Fix
+        document.querySelectorAll('.custom-checkbox-v2').forEach(box => {
+            box.addEventListener('click', (e) => {
+                // Determine if we clicked the input or the box
+                const input = box.querySelector('input');
+                const isInput = e.target === input;
+
+                // If we clicked the box (not the input), we need to manually toggle the input
+                // because the label wrapping can sometimes be inconsistent with custom styling
+                if (!isInput) {
+                    // Prevent default to stop double-toggling if the browser also fires a click on the input
+                    // But we must be careful. Easiest way:
+                    // 1. Check current state
+                    // 2. Flip it
+                    // 3. Update UI
+
+                    e.preventDefault(); // Stop valid label click from firing input click again
+                    input.checked = !input.checked;
+                }
+
+                // Update UI based on new state
+                if (input.checked) {
+                    box.classList.add('selected');
+                } else {
+                    box.classList.remove('selected');
+                }
+
+                // Debug to console
+                console.log('Checkbox state:', input.checked);
+            });
+        });
     </script>
 </body>
 
-</html>
+</html>```

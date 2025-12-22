@@ -702,6 +702,123 @@
             opacity: 0.4;
         }
 
+        /* UGC Showcase Section */
+        .ugc-section {
+            padding: 8rem 4rem;
+            background: #050505;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .ugc-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .ugc-card {
+            aspect-ratio: 9/16;
+            /* Vertical Format */
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            background: #111;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .ugc-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .ugc-poster {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .ugc-card:hover .ugc-poster {
+            opacity: 0;
+        }
+
+        .ugc-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 40%);
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+            /* Ensure overlay sits on top of video */
+            pointer-events: none;
+        }
+
+        .ugc-play-btn {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1rem;
+            margin-right: 0.75rem;
+        }
+
+        .ugc-info h4 {
+            font-size: 0.9rem;
+            line-height: 1.2;
+            color: #fff;
+            margin-bottom: 0.2rem;
+        }
+
+        .ugc-info span {
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .ugc-preview-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            pointer-events: none;
+            z-index: 5;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .ugc-card:hover .ugc-preview-iframe {
+            opacity: 1;
+        }
+
+        @media (max-width: 1024px) {
+            .ugc-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .ugc-grid {
+                gap: 1rem;
+            }
+        }
+
         /* Work Examples */
         .work-section {
             padding: 8rem 4rem;
@@ -1035,7 +1152,7 @@
 
         /* Testimonials */
         .testimonials-section {
-            padding: 8rem 4rem;
+            padding: 4rem 2rem;
         }
 
         .testimonials-header {
@@ -2143,6 +2260,64 @@
                 padding: 3rem 2rem;
             }
         }
+
+        /* UGC Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 2001;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.2s ease;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .lightbox-video-wrapper {
+            width: 90%;
+            max-width: 500px;
+            aspect-ratio: 9/16;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+        }
     </style>
 </head>
 
@@ -2250,6 +2425,269 @@
 
 
     <!-- Deliverables List -->
+    <section class="work-section">
+        <div class="work-header">
+            <h2>Optimized for <em>Social Media</em></h2>
+            <p style="color: var(--text-secondary); margin-top: 1rem;">Vertical, fast-paced, and designed to stop the
+                scroll.</p>
+        </div>
+        <div class="work-grid">
+            <!-- Video 1: Art Of Escape -->
+            <div class="ugc-card" data-vimeo-id="1148681925" data-hash="1c440d73b7">
+                <div class="ugc-poster"
+                    style="background-image: url('https://i.vimeocdn.com/video/2098973919-76f2446bc1c861903b391c9a422c8e5f7cff28a81fdcdc9b4a5b7521667535a6-d_640x1138');">
+                </div>
+                <div class="ugc-overlay">
+                    <div class="ugc-play-btn">▶</div>
+                    <div class="ugc-info">
+                        <h4>Art of Escape</h4>
+                        <span>Documentary Trailer</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 2: Le Comptoir -->
+            <div class="ugc-card" data-vimeo-id="1148685522" data-hash="7a947c5ad6">
+                <div class="ugc-poster"
+                    style="background-image: url('https://i.vimeocdn.com/video/2098975366-d6ee47ab96882e45ee9123e161ab72ddddbb35eeaae70b735610ea356ea14718-d_640x1138');">
+                </div>
+                <div class="ugc-overlay">
+                    <div class="ugc-play-btn">▶</div>
+                    <div class="ugc-info">
+                        <h4>Le Comptoir</h4>
+                        <span>Restaurant</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 3: Letters To Nam Hai -->
+            <div class="ugc-card" data-vimeo-id="1120102595" data-hash="8d245ade90">
+                <div class="ugc-poster"
+                    style="background-image: url('https://i.vimeocdn.com/video/2060765621-bc735c674c83a549e3a2177c7436ea980754bed93d3c84dca04234c14915dbfb-d_640x1138');">
+                </div>
+                <div class="ugc-overlay">
+                    <div class="ugc-play-btn">▶</div>
+                    <div class="ugc-info">
+                        <h4>Letters To Nam Hai</h4>
+                        <span>Hotel / Hospitality</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 4: Pecks Road -->
+            <div class="ugc-card" data-vimeo-id="1143266792" data-hash="307333a803">
+                <div class="ugc-poster"
+                    style="background-image: url('https://i.vimeocdn.com/video/2091389488-43bb49248177a293722a51f71d828fd1c7e8716c06f99974aed11ba03e7fe366-d_640x1138');">
+                </div>
+                <div class="ugc-overlay">
+                    <div class="ugc-play-btn">▶</div>
+                    <div class="ugc-info">
+                        <h4>Pecks Road</h4>
+                        <span>Travel / Food</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="work-card-content">
+        <h4>Radisson Collection</h4>
+        <p>Brand Documentary</p>
+    </div>
+    </div>
+    </div>
+    <div class="work-cta">
+        <a href="#">
+            Want more inspiration?
+            <svg viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke-width="2" />
+            </svg>
+        </a>
+    </div>
+    </section>
+
+    <!-- Clients Section -->
+    <!-- Client Logo Banner (Moved) -->
+    <section class="ugc-section">
+        <div class="section-header">
+            <span class="section-label">Performance Creative</span>
+            <h2>UGC & <em>Product Demos</em></h2>
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 1rem auto;">
+                Authentic, high-converting product demonstration videos for <strong>Hello Body</strong>.
+            </p>
+        </div>
+
+        <div class="ugc-grid">
+            <!-- Video 1 -->
+            <div class="ugc-card" data-vimeo-id="1139332827" data-hash="877cff4ed9">
+                <div class="ugc-poster"
+                    style="background-image: url('https://i.vimeocdn.com/video/2085946390-f20a6bd4e0d2f12c3030b970bd21c209a699fd58b7c67429f1769f566cd8bbfb-d_640x800');">
+                </div>
+                <div class="ugc-overlay">
+                    <div class="ugc-play-btn">▶</div>
+                    <div class="ugc-info">
+                        <h4>Cocos Kiss</h4>
+                        <span>Product Demo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="ugc-card" data-vimeo-id="1139331912" data-hash="8e83f64171">
+                <div class="ugc-poster"
+                    style="background-image: url('https://i.vimeocdn.com/video/2085945379-09da3793430e6c41ea71300e0992959b466a7eea75b02ab79ffeff251461011d-d_640x800');">
+                </div>
+                <div class="ugc-overlay">
+                    <div class="ugc-play-btn">▶</div>
+                    <div class="ugc-info">
+                        <h4>Cocos Wow</h4>
+                        <span>UGC Style</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 3 -->
+            <div class="ugc-card" data-vimeo-id="1139332444" data-hash="1a1c84113c">
+                <div class="ugc-poster"
+                    style="background-image: url('https://i.vimeocdn.com/video/2085945876-0104e4c92ea0fac47decf9ef0750057d5dd507ada42605954af3a7017ce53ecc-d_640x800');">
+                </div>
+                <div class="ugc-overlay">
+                    <div class="ugc-play-btn">▶</div>
+                    <div class="ugc-info">
+                        <h4>Rose Refine</h4>
+                        <span>Texture Shot</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 4 -->
+            <div class="ugc-card" data-vimeo-id="1139331392" data-hash="5ee587949f">
+                <div class="ugc-poster"
+                    style="background-image: url('https://i.vimeocdn.com/video/2091333120-86f46e2ffa5aacd17a543723da08d07495b3a40c6a1ba9bc55b10e436a581711-d_640x800');">
+                </div>
+                <div class="ugc-overlay">
+                    <div class="ugc-play-btn">▶</div>
+                    <div class="ugc-info">
+                        <h4>Cocos Gold</h4>
+                        <span>Application</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 5 -->
+            <div class="ugc-card" data-vimeo-id="1139333509" data-hash="">
+                <div class="ugc-poster"
+                    style="background-image: url('https://i.vimeocdn.com/video/2085947236-c2878dba368ecc960f842183819ef5a7f358a922f43af41916afb804ca6f7f0c-d_640x800');">
+                </div>
+                <div class="ugc-overlay">
+                    <div class="ugc-play-btn">▶</div>
+                    <div class="ugc-info">
+                        <h4>Cocos Day</h4>
+                        <span>Routine</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="logo-marquee-section">
+        <div class="marquee-header">Trusted by World-Class Brands</div>
+        <div class="logo-marquee">
+            <div class="marquee-track">
+                <!-- Set 1 -->
+                <img loading="lazy" src="../Logos/bazaar.png" alt="Harper's Bazaar">
+                <img loading="lazy" src="../Logos/hello bpdy.webp" alt="Hello Body">
+                <img loading="lazy" src="../Logos/hp.png" alt="HP">
+                <img loading="lazy" src="../Logos/mgm.png" alt="MGM">
+                <img loading="lazy" src="../Logos/universal.png" alt="Universal" class="logo-fix">
+                <img loading="lazy" src="../Logos/scwatrtz.webp" alt="Schwarzkopf">
+                <img loading="lazy" src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
+
+                <!-- Set 2 -->
+                <img loading="lazy" src="../Logos/bazaar.png" alt="Harper's Bazaar">
+                <img loading="lazy" src="../Logos/hello bpdy.webp" alt="Hello Body">
+                <img loading="lazy" src="../Logos/hp.png" alt="HP">
+                <img loading="lazy" src="../Logos/mgm.png" alt="MGM">
+                <img loading="lazy" src="../Logos/universal.png" alt="Universal" class="logo-fix">
+                <img loading="lazy" src="../Logos/scwatrtz.webp" alt="Schwarzkopf">
+                <img loading="lazy" src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
+
+                <!-- Set 3 -->
+                <img loading="lazy" src="../Logos/bazaar.png" alt="Harper's Bazaar">
+                <img loading="lazy" src="../Logos/hello bpdy.webp" alt="Hello Body">
+                <img loading="lazy" src="../Logos/hp.png" alt="HP">
+                <img loading="lazy" src="../Logos/mgm.png" alt="MGM">
+                <img loading="lazy" src="../Logos/universal.png" alt="Universal" class="logo-fix">
+                <img loading="lazy" src="../Logos/scwatrtz.webp" alt="Schwarzkopf">
+                <img loading="lazy" src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
+            </div>
+        </div>
+    </div>
+
+    <!-- Process Section -->
+    <section class="testimonials-section reveal" id="impact">
+        <div class="testimonials-container">
+            <!-- Header -->
+            <div class="testimonials-header">
+                <span class="section-label">Real Impact</span>
+                <h2>Video is <em>Non-Negotiable</em></h2>
+                <p
+                    style="color: var(--text-secondary); max-width: 700px; margin: 0 auto; font-size: 1.2rem; line-height: 1.6; margin-top: 1.5rem;">
+                    In the modern attention economy, static images are becoming invisible. Video represents the single
+                    biggest lever for increasing conversion rates and lowering your acquisition costs.
+                </p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="proof-grid" style="margin-bottom: 6rem;">
+                <div class="proof-card">
+                    <div class="proof-number">80<span>%</span></div>
+                    <p class="proof-desc">Lift in Landing Page Conversion</p>
+                </div>
+                <div class="proof-card">
+                    <div class="proof-number">85<span>%</span></div>
+                    <p class="proof-desc">Higher Purchase Intent vs. Photo</p>
+                </div>
+                <div class="proof-card">
+                    <div class="proof-number">12<span>x</span></div>
+                    <p class="proof-desc">Higher Engagement on Social</p>
+                </div>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="testimonials-grid">
+                <!-- HP -->
+                <div class="testimonial-card">
+                    <div class="testimonial-logo">
+                        <img loading="lazy" src="../Logos/hp.png" alt="HP">
+                    </div>
+                    <blockquote>"They brought our Berlin vision to life with cinematic impact."</blockquote>
+                    <p>Working with Nusa was seamless from start to finish. They captured our Berlin pop-up activation
+                        with cinematic precision, spotlighting the energy of the event. The final content brought the HP
+                        brand to life in a way that felt bold, modern, and culturally connected.</p>
+                    <div class="testimonial-author">
+                        <cite>HP Computers</cite>
+                        <span>Global Marketing Team</span>
+                    </div>
+                </div>
+
+                <!-- HelloBody -->
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img loading="lazy" src="../images/hellobody-closeup.webp" alt="Emily Davis">
+                    </div>
+                    <blockquote>"Didn't miss a beat!"</blockquote>
+                    <p>Reuben & Okta transformed our brand across three countries with precision and creativity. They
+                        delivered a full rebrand for HelloBody EU, from scripting and styling to shoot execution. The
+                        result? A bold new identity that resonated deeply with our audience.</p>
+                    <div class="testimonial-author">
+                        <cite>Emily Davis</cite>
+                        <span>CMO, HelloBody</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="deliverables-section reveal">
         <div class="deliverables-container">
             <div class="deliverables-header">
@@ -2680,91 +3118,7 @@
 
 
 
-    <section class="work-section">
-        <div class="work-header">
-            <h2>Content that <em>Converts</em></h2>
-        </div>
-        <div class="work-grid">
-            <div class="work-card card-1 reveal">
-                <div class="work-card-bg"></div>
-                <div class="play-icon"></div>
-                <div class="work-card-content">
-                    <h4>Four Seasons Bangkok</h4>
-                    <p>Brand Film</p>
-                </div>
-            </div>
-            <div class="work-card card-2 reveal">
-                <div class="work-card-bg"></div>
-                <div class="play-icon"></div>
-                <div class="work-card-content">
-                    <h4>InterContinental Bali</h4>
-                    <p>Social Campaign</p>
-                </div>
-            </div>
-            <div class="work-card card-3 reveal">
-                <div class="work-card-bg"></div>
-                <div class="play-icon"></div>
-                <div class="work-card-content">
-                    <h4>MGM Las Vegas</h4>
-                    <p>Event Coverage</p>
-                </div>
-            </div>
-            <div class="work-card card-4 reveal">
-                <div class="work-card-bg"></div>
-                <div class="play-icon"></div>
-                <div class="work-card-content">
-                    <h4>Radisson Collection</h4>
-                    <p>Brand Documentary</p>
-                </div>
-            </div>
-        </div>
-        <div class="work-cta">
-            <a href="#">
-                Want more inspiration?
-                <svg viewBox="0 0 24 24">
-                    <path d="M5 12h14M12 5l7 7-7 7" stroke-width="2" />
-                </svg>
-            </a>
-        </div>
-    </section>
-
-    <!-- Clients Section -->
-    <!-- Client Logo Banner (Moved) -->
-    <div class="logo-marquee-section">
-        <div class="marquee-header">Trusted by World-Class Brands</div>
-        <div class="logo-marquee">
-            <div class="marquee-track">
-                <!-- Set 1 -->
-                <img loading="lazy" src="../Logos/bazaar.png" alt="Harper's Bazaar">
-                <img loading="lazy" src="../Logos/hello bpdy.webp" alt="Hello Body">
-                <img loading="lazy" src="../Logos/hp.png" alt="HP">
-                <img loading="lazy" src="../Logos/mgm.png" alt="MGM">
-                <img loading="lazy" src="../Logos/universal.png" alt="Universal" class="logo-fix">
-                <img loading="lazy" src="../Logos/scwatrtz.webp" alt="Schwarzkopf">
-                <img loading="lazy" src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
-
-                <!-- Set 2 -->
-                <img loading="lazy" src="../Logos/bazaar.png" alt="Harper's Bazaar">
-                <img loading="lazy" src="../Logos/hello bpdy.webp" alt="Hello Body">
-                <img loading="lazy" src="../Logos/hp.png" alt="HP">
-                <img loading="lazy" src="../Logos/mgm.png" alt="MGM">
-                <img loading="lazy" src="../Logos/universal.png" alt="Universal" class="logo-fix">
-                <img loading="lazy" src="../Logos/scwatrtz.webp" alt="Schwarzkopf">
-                <img loading="lazy" src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
-
-                <!-- Set 3 -->
-                <img loading="lazy" src="../Logos/bazaar.png" alt="Harper's Bazaar">
-                <img loading="lazy" src="../Logos/hello bpdy.webp" alt="Hello Body">
-                <img loading="lazy" src="../Logos/hp.png" alt="HP">
-                <img loading="lazy" src="../Logos/mgm.png" alt="MGM">
-                <img loading="lazy" src="../Logos/universal.png" alt="Universal" class="logo-fix">
-                <img loading="lazy" src="../Logos/scwatrtz.webp" alt="Schwarzkopf">
-                <img loading="lazy" src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
-            </div>
-        </div>
-    </div>
-
-    <!-- Process Section -->
+    <!-- UGC Showcase Section -->
     <section class="process-section">
         <div class="process-header">
             <h2>Our winning<br><em>Production Formula</em></h2>
@@ -2845,70 +3199,6 @@
 
     <!-- CTA -->
     <!-- Impact Section (Stats + Testimonials) -->
-    <section class="testimonials-section reveal" id="impact">
-        <div class="testimonials-container">
-            <!-- Header -->
-            <div class="testimonials-header">
-                <span class="section-label">Real Impact</span>
-                <h2>Video is <em>Non-Negotiable</em></h2>
-                <p
-                    style="color: var(--text-secondary); max-width: 700px; margin: 0 auto; font-size: 1.2rem; line-height: 1.6; margin-top: 1.5rem;">
-                    In the modern attention economy, static images are becoming invisible. Video represents the single
-                    biggest lever for increasing conversion rates and lowering your acquisition costs.
-                </p>
-            </div>
-
-            <!-- Stats Grid -->
-            <div class="proof-grid" style="margin-bottom: 6rem;">
-                <div class="proof-card">
-                    <div class="proof-number">80<span>%</span></div>
-                    <p class="proof-desc">Lift in Landing Page Conversion</p>
-                </div>
-                <div class="proof-card">
-                    <div class="proof-number">85<span>%</span></div>
-                    <p class="proof-desc">Higher Purchase Intent vs. Photo</p>
-                </div>
-                <div class="proof-card">
-                    <div class="proof-number">12<span>x</span></div>
-                    <p class="proof-desc">Higher Engagement on Social</p>
-                </div>
-            </div>
-
-            <!-- Testimonials Grid -->
-            <div class="testimonials-grid">
-                <!-- HP -->
-                <div class="testimonial-card">
-                    <div class="testimonial-logo">
-                        <img loading="lazy" src="../Logos/hp.png" alt="HP">
-                    </div>
-                    <blockquote>"They brought our Berlin vision to life with cinematic impact."</blockquote>
-                    <p>Working with Nusa was seamless from start to finish. They captured our Berlin pop-up activation
-                        with cinematic precision, spotlighting the energy of the event. The final content brought the HP
-                        brand to life in a way that felt bold, modern, and culturally connected.</p>
-                    <div class="testimonial-author">
-                        <cite>HP Computers</cite>
-                        <span>Global Marketing Team</span>
-                    </div>
-                </div>
-
-                <!-- HelloBody -->
-                <div class="testimonial-card">
-                    <div class="testimonial-image">
-                        <img loading="lazy" src="../images/hellobody-closeup.webp" alt="Emily Davis">
-                    </div>
-                    <blockquote>"Didn't miss a beat!"</blockquote>
-                    <p>Reuben & Okta transformed our brand across three countries with precision and creativity. They
-                        delivered a full rebrand for HelloBody EU, from scripting and styling to shoot execution. The
-                        result? A bold new identity that resonated deeply with our audience.</p>
-                    <div class="testimonial-author">
-                        <cite>Emily Davis</cite>
-                        <span>CMO, HelloBody</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="cta-section reveal">
         <div class="cta-card">
             <h2>Ready to scale with<br><em>Performance Creative?</em></h2>
@@ -2930,6 +3220,13 @@
         </div>
         <div class="footer-copy">© 2024 Nusa & North. All rights reserved.</div>
     </footer>
+
+    <!-- UGC Lightbox -->
+    <div id="ugc-lightbox" class="lightbox">
+        <button class="lightbox-close">&times;</button>
+        <div class="lightbox-video-wrapper">
+        </div>
+    </div>
 
     <script>
         // FAQ Accordion
@@ -2963,6 +3260,101 @@
         };
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
+
+        // UGC Showcase Logic
+
+        const lightbox = document.getElementById('ugc-lightbox');
+        const lightboxWrapper = lightbox.querySelector('.lightbox-video-wrapper');
+        const closeBtn = lightbox.querySelector('.lightbox-close');
+
+        // Close Lightbox
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            lightboxWrapper.innerHTML = '';
+            document.body.style.overflow = '';
+        };
+
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // UGC Hover Logic
+        // UGC Hover Logic
+        const initUGCHover = () => {
+            const cards = document.querySelectorAll('.ugc-card');
+            const lightbox = document.getElementById('ugc-lightbox');
+            const lightboxWrapper = lightbox ? lightbox.querySelector('.lightbox-video-wrapper') : null;
+
+            if (!lightbox || !lightboxWrapper) {
+                console.error('Lightbox elements not found');
+                return;
+            }
+
+            cards.forEach(card => {
+                // Hover: Muted Preview
+                card.addEventListener('mouseenter', () => {
+                    const id = card.dataset.vimeoId;
+                    const hash = card.dataset.hash;
+
+                    if (!card.querySelector('.ugc-preview-iframe')) {
+                        const iframe = document.createElement('iframe');
+                        iframe.className = 'ugc-preview-iframe';
+
+                        // Use background=1 for robust preview (muted, loop, hidden controls)
+                        let src = `https://player.vimeo.com/video/${id}?background=1&autoplay=1&loop=1&playsinline=1&muted=1`;
+                        if (hash) {
+                            src += `&h=${hash}`;
+                        }
+
+                        iframe.src = src;
+                        iframe.allow = "autoplay; fullscreen";
+                        card.appendChild(iframe);
+
+                        // Ensure opacity transition triggers
+                        requestAnimationFrame(() => {
+                            iframe.style.opacity = '1';
+                        });
+                    }
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    const iframe = card.querySelector('.ugc-preview-iframe');
+                    if (iframe) iframe.remove();
+                });
+
+                // Click: Open Lightbox
+                card.addEventListener('click', () => {
+                    const id = card.dataset.vimeoId;
+                    const hash = card.dataset.hash;
+
+                    let src = `https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0`;
+                    if (hash) {
+                        src += `&h=${hash}`;
+                    }
+
+                    lightboxWrapper.innerHTML = `
+                        <iframe src="${src}" 
+                                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                                style="width:100%; height:100%;">
+                        </iframe>
+                    `;
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+        };
+
+        // Run initialization
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initUGCHover);
+        } else {
+            initUGCHover();
+        }
+
 
         // Production Formula Tabs
         const processSteps = {
@@ -3003,9 +3395,9 @@
                     setTimeout(() => {
                         // Update content
                         processDisplay.innerHTML = `
-                            <h3>${processSteps[step].title}</h3>
-                            <p>${processSteps[step].text}</p>
-                        `;
+            < h3 > ${processSteps[step].title}</h3 >
+                <p>${processSteps[step].text}</p>
+        `;
 
                         // Fade in effect
                         processDisplay.style.opacity = '1';
@@ -3018,23 +3410,23 @@
         // Add CSS for transitions
         const stepStyle = document.createElement('style');
         stepStyle.textContent = `
-            #process-display {
-                transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-                max-width: 800px;
-                margin: 0 auto;
-            }
-            .process-content {
-                display: block !important;
-                padding: 4rem !important;
-            }
-            .process-text p {
-                font-size: 1.25rem !important;
-                line-height: 1.8 !important;
-            }
-            .process-text h3 {
-                font-size: 2.5rem !important;
-                margin-bottom: 2rem !important;
-            }
+        #process - display {
+            transition: all 0.4s cubic - bezier(0.16, 1, 0.3, 1);
+            max - width: 800px;
+            margin: 0 auto;
+        }
+            .process - content {
+            display: block!important;
+            padding: 4rem!important;
+        }
+            .process - text p {
+            font - size: 1.25rem!important;
+            line - height: 1.8!important;
+        }
+            .process - text h3 {
+            font - size: 2.5rem!important;
+            margin - bottom: 2rem!important;
+        }
         `;
         document.head.appendChild(stepStyle);
         // Deliverables Glass Glow Effect
@@ -3044,8 +3436,8 @@
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
-                card.style.setProperty('--x', `${x}px`);
-                card.style.setProperty('--y', `${y}px`);
+                card.style.setProperty('--x', `${x} px`);
+                card.style.setProperty('--y', `${y} px`);
             });
         });
         // Showcase Image Rotation
@@ -3104,7 +3496,7 @@
                             char = this.randomChar();
                             this.queue[i].char = char;
                         }
-                        output += `<span class="dud">${char}</span>`;
+                        output += `< span class="dud" > ${char}</span >`;
                     } else {
                         output += from;
                     }
