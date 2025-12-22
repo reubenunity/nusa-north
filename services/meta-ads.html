@@ -122,199 +122,96 @@
         }
 
         /* Dropdown Menu */
+        /* Simplified Premium Dropdown */
         .nav-item-group {
             position: relative;
+            height: 100%;
             display: flex;
             align-items: center;
         }
 
-        /* Enhanced Mega Menu */
         .nav-dropdown {
-            position: fixed;
-            top: 80px;
+            position: absolute;
+            top: 100%;
             left: 50%;
             transform: translateX(-50%) translateY(20px);
-            background: rgba(10, 10, 10, 0.98);
-            backdrop-filter: blur(40px);
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(25px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
-            padding: 2rem;
-            width: 90vw;
-            max-width: 900px;
+            border-top: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 16px;
+            padding: 0.75rem;
+            min-width: 260px;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
             box-shadow:
-                0 40px 100px rgba(0, 0, 0, 0.8),
-                inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            z-index: 1001;
+                0 20px 40px rgba(0, 0, 0, 0.8),
+                0 0 0 1px rgba(255, 255, 255, 0.05),
+                0 0 30px rgba(212, 175, 55, 0.1);
+            /* Ambient Gold Glow */
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        /* Pointer Triangle */
+        .nav-dropdown::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 12px;
+            height: 12px;
+            background: #050505;
+            border-top: 1px solid rgba(212, 175, 55, 0.4);
+            border-left: 1px solid rgba(212, 175, 55, 0.4);
         }
 
         .nav-item-group:hover .nav-dropdown {
             opacity: 1;
             visibility: visible;
-            transform: translateX(-50%) translateY(0);
+            transform: translateX(-50%) translateY(10px);
+            /* Slight gap from nav */
         }
 
-        .nav-dropdown::before {
-            display: none;
-        }
-
-        /* Dropdown Grid Layout */
-        .nav-dropdown-inner {
-            display: grid;
-            grid-template-columns: 1fr 280px;
-            gap: 2rem;
-        }
-
-        .nav-services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.75rem;
-        }
-
-        /* Service Card */
-        .nav-service-card {
-            display: flex;
-            flex-direction: column;
-            padding: 1.25rem;
-            border-radius: 16px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+        .nav-dropdown a {
+            color: var(--text-secondary);
             text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            opacity: 0;
-            transform: translateY(15px);
-        }
-
-        .nav-item-group:hover .nav-service-card {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Staggered animation delays */
-        .nav-service-card:nth-child(1) {
-            transition-delay: 0.05s;
-        }
-
-        .nav-service-card:nth-child(2) {
-            transition-delay: 0.1s;
-        }
-
-        .nav-service-card:nth-child(3) {
-            transition-delay: 0.15s;
-        }
-
-        .nav-service-card:nth-child(4) {
-            transition-delay: 0.2s;
-        }
-
-        .nav-service-card:nth-child(5) {
-            transition-delay: 0.25s;
-        }
-
-        .nav-service-card:nth-child(6) {
-            transition-delay: 0.3s;
-        }
-
-        .nav-service-card:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(212, 175, 55, 0.2);
-            transform: translateY(-4px);
-        }
-
-        .nav-service-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .nav-service-card h4 {
+            padding: 0.85rem 1.25rem;
+            border-radius: 10px;
             font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.35rem;
-        }
-
-        .nav-service-card p {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            line-height: 1.4;
-        }
-
-        /* Dropdown Sidebar */
-        .nav-dropdown-sidebar {
-            background: linear-gradient(145deg, rgba(212, 175, 55, 0.08), rgba(212, 175, 55, 0.02));
-            border: 1px solid rgba(212, 175, 55, 0.15);
-            border-radius: 20px;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            opacity: 0;
-            transform: translateX(20px);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
-        }
-
-        .nav-item-group:hover .nav-dropdown-sidebar {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .nav-dropdown-sidebar h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            line-height: 1.2;
-        }
-
-        .nav-dropdown-sidebar h3 em {
-            font-family: var(--font-serif);
-            font-style: italic;
             font-weight: 500;
-            color: var(--text-secondary);
-        }
-
-        .nav-dropdown-sidebar p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.5;
-        }
-
-        .nav-dropdown-cta {
-            display: inline-flex;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            display: flex;
             align-items: center;
-            gap: 0.75rem;
-            background: var(--accent);
-            color: #000;
-            padding: 0.75rem 1.25rem;
-            border-radius: 100px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
+            justify-content: space-between;
         }
 
-        .nav-dropdown-cta:hover {
-            transform: translateX(4px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        .nav-dropdown a:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+            padding-left: 1.5rem;
+            /* Slide effect */
         }
 
+        .nav-dropdown a:hover::after {
+            content: '→';
+            font-size: 0.8em;
+            color: var(--accent);
+            opacity: 0.8;
+        }
+
+        /* Hover Bridge */
         .nav-item-group::after {
             content: '';
             position: absolute;
             top: 100%;
-            left: -100px;
-            right: -100px;
-            height: 100px;
+            left: -20px;
+            right: -20px;
+            height: 30px;
         }
 
         /* Hero Section */
@@ -1530,57 +1427,19 @@
         <a href="../index.html" class="logo">nusa<span>&</span>north</a>
         <div class="nav-links">
             <div class="nav-item-group">
-                <a href="../index.html#services">Services</a>
+                <a href="../index.html#services" class="nav-link-trigger">Services</a>
                 <div class="nav-dropdown">
-                    <div class="nav-dropdown-inner">
-                        <div class="nav-services-grid">
-                            <a href="performance-creative.html" class="nav-service-card">
-                                <div class="nav-service-icon">🎬</div>
-                                <h4>Video & Creative</h4>
-                                <p>UGC & performance video production</p>
-                            </a>
-                            <a href="meta-ads.html" class="nav-service-card">
-                                <div class="nav-service-icon">∞</div>
-                                <h4>Meta Ads</h4>
-                                <p>Facebook & Instagram campaigns</p>
-                            </a>
-                            <a href="google-ads.html" class="nav-service-card">
-                                <div class="nav-service-icon">G</div>
-                                <h4>Google Ads</h4>
-                                <p>Search, display & YouTube ads</p>
-                            </a>
-                            <a href="email-marketing.html" class="nav-service-card">
-                                <div class="nav-service-icon">✉️</div>
-                                <h4>Email Marketing</h4>
-                                <p>Flows, campaigns & automation</p>
-                            </a>
-                            <a href="photography.html" class="nav-service-card">
-                                <div class="nav-service-icon">📷</div>
-                                <h4>Photography</h4>
-                                <p>Product & lifestyle shoots</p>
-                            </a>
-                            <a href="content-strategy.html" class="nav-service-card">
-                                <div class="nav-service-icon">📊</div>
-                                <h4>Content Strategy</h4>
-                                <p>Planning & creative direction</p>
-                            </a>
-                        </div>
-                        <div class="nav-dropdown-sidebar">
-                            <h3>All the <em>services</em> you need to scale</h3>
-                            <p>From creative production to paid media execution, we've got your growth covered.</p>
-                            <a href="../index.html#contact" class="nav-dropdown-cta">
-                                Get Started →
-                            </a>
-                        </div>
-                    </div>
+                    <a href="google-ads.html">Google Ads</a>
+                    <a href="meta-ads.html">Meta Ads</a>
+                    <a href="performance-creative.html">Performance Creative</a>
+                    <a href="email-marketing.html">Email Marketing</a>
+                    <a href="content-strategy.html">Content Strategy</a>
+                    <a href="photography.html">Photography</a>
                 </div>
             </div>
             <a href="../index.html#work">Work</a>
             <a href="../index.html#about">About</a>
-            <a href="../index.html#contact" class="nav-cta">
-                <span class="nav-cta-icon">n.</span>
-                Get Started
-            </a>
+            <a href="../index.html#contact" class="nav-cta">Book Discovery Call<span class="nav-cta-icon">n.</span></a>
         </div>
     </nav>
 
@@ -1755,7 +1614,8 @@
                     </ul>
                 </div>
                 <div class="slide-image">
-                    <img loading="lazy" src="../assets/images/services/process-2-campaign.webp" alt="Campaign Architecture">
+                    <img loading="lazy" src="../assets/images/services/process-2-campaign.webp"
+                        alt="Campaign Architecture">
                 </div>
             </div>
 
@@ -1844,7 +1704,8 @@
         <div class="results-grid">
             <!-- The Gasometer Hotel -->
             <div class="result-card reveal">
-                <img loading="lazy" src="../assets/images/gasometer-logo.png" alt="The Gasometer Hotel" class="result-logo">
+                <img loading="lazy" src="../assets/images/gasometer-logo.png" alt="The Gasometer Hotel"
+                    class="result-logo">
                 <p class="result-quote">We drove targeted Meta campaigns that promoted their bookings while dramatically
                     reducing cost-per-click. More visibility, better returns.</p>
                 <div class="result-stats">

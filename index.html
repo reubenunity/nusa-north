@@ -119,9 +119,10 @@
             font-size: 0.75rem;
         }
 
-        /* Dropdown Menu */
+        /* Simplified Premium Dropdown */
         .nav-item-group {
             position: relative;
+            height: 100%;
             display: flex;
             align-items: center;
         }
@@ -131,27 +132,27 @@
             top: 100%;
             left: 50%;
             transform: translateX(-50%) translateY(20px);
-            background: rgba(15, 15, 15, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid rgba(212, 175, 55, 0.4);
             border-radius: 16px;
-            padding: 0.5rem;
-            min-width: 240px;
+            padding: 0.75rem;
+            min-width: 260px;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-            z-index: 1001;
-            margin-top: 1rem;
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.8),
+                0 0 0 1px rgba(255, 255, 255, 0.05),
+                0 0 30px rgba(212, 175, 55, 0.1);
+            /* Ambient Gold Glow */
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
         }
 
-        .nav-item-group:hover .nav-dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        /* Triangle pointer */
+        /* Pointer Triangle */
         .nav-dropdown::before {
             content: '';
             position: absolute;
@@ -160,39 +161,54 @@
             transform: translateX(-50%) rotate(45deg);
             width: 12px;
             height: 12px;
-            background: rgba(15, 15, 15, 0.95);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            background: #050505;
+            border-top: 1px solid rgba(212, 175, 55, 0.4);
+            border-left: 1px solid rgba(212, 175, 55, 0.4);
         }
 
-        .nav-links .nav-dropdown a {
-            display: block;
-            padding: 0.75rem 1rem;
+        .nav-item-group:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(10px);
+            /* Slight gap from nav */
+        }
+
+        .nav-dropdown a {
             color: var(--text-secondary);
-            font-size: 0.9rem;
-            text-align: left;
+            text-decoration: none;
+            padding: 0.85rem 1.25rem;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
             white-space: nowrap;
-            border-radius: 12px;
-            background: transparent;
-            border: 1px solid transparent;
-            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        .nav-links .nav-dropdown a:hover {
+        .nav-dropdown a:hover {
+            color: #fff;
             background: rgba(255, 255, 255, 0.05);
-            color: var(--text-primary);
-            border-color: rgba(255, 255, 255, 0.05);
-            padding-left: 1.25rem;
+            padding-left: 1.5rem;
+            /* Slide effect */
         }
 
-        /* Invisible bridge for hover */
+        .nav-dropdown a:hover::after {
+            content: '→';
+            font-size: 0.8em;
+            color: var(--accent);
+            opacity: 0.8;
+        }
+
+        /* Hover Bridge */
         .nav-item-group::after {
             content: '';
             position: absolute;
             top: 100%;
-            left: 0;
-            right: 0;
-            height: 20px;
+            left: -20px;
+            right: -20px;
+            height: 30px;
         }
 
         /* Solar Ambient Glow */
@@ -1430,22 +1446,19 @@
         <a href="#" class="logo">nusa<span>&</span>north</a>
         <div class="nav-links">
             <div class="nav-item-group">
-                <a href="#services">Services</a>
+                <a href="#services" class="nav-link-trigger">Services</a>
                 <div class="nav-dropdown">
-                    <a href="services/performance-creative.html">Video & Performance Creative</a>
-                    <a href="services/photography.html">Photography</a>
-                    <a href="services/email-marketing.html">Email Marketing</a>
-                    <a href="services/meta-ads.html">Meta Ads</a>
                     <a href="services/google-ads.html">Google Ads</a>
+                    <a href="services/meta-ads.html">Meta Ads</a>
+                    <a href="services/performance-creative.html">Performance Creative</a>
+                    <a href="services/email-marketing.html">Email Marketing</a>
                     <a href="services/content-strategy.html">Content Strategy</a>
+                    <a href="services/photography.html">Photography</a>
                 </div>
             </div>
             <a href="#work">Work</a>
             <a href="#about">About</a>
-            <a href="#contact" class="nav-cta">
-                <span class="nav-cta-icon">n.</span>
-                Get Started
-            </a>
+            <a href="#contact" class="nav-cta">Book Discovery Call<span class="nav-cta-icon">n.</span></a>
         </div>
     </nav>
 
@@ -1633,7 +1646,8 @@
                         style="background-image: url('assets/images/services/email_marketing.webp');"></div>
                 </a>
                 <a href="services/meta-ads.html" class="mastered-card">
-                    <div class="mastered-card-bg" style="background-image: url('assets/images/services/meta_ads.webp');">
+                    <div class="mastered-card-bg"
+                        style="background-image: url('assets/images/services/meta_ads.webp');">
                     </div>
                 </a>
                 <a href="services/google-ads.html" class="mastered-card">
@@ -1655,7 +1669,8 @@
                         style="background-image: url('assets/images/services/email_marketing.webp');"></div>
                 </a>
                 <a href="services/meta-ads.html" class="mastered-card">
-                    <div class="mastered-card-bg" style="background-image: url('assets/images/services/meta_ads.webp');">
+                    <div class="mastered-card-bg"
+                        style="background-image: url('assets/images/services/meta_ads.webp');">
                     </div>
                 </a>
                 <a href="services/google-ads.html" class="mastered-card">

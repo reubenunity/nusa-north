@@ -20,7 +20,6 @@ for file_path in files:
         
         # Add status icon
         status = "🟢" if score >= 90 else "jq" if score >= 50 else "🔴"
-        if score >= 50 and score < 90: status = "jq" # correction for Orange
         if score >= 50 and score < 90: status = "🟠"
 
         print(f"| {filename} | {score} {status} | {lcp} | {fcp} | {cls} |")

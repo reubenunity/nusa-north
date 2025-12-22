@@ -125,158 +125,7 @@
             /* Black text on gold */
         }
 
-        /* Dropdown Menu */
-        .nav-dropdown {
-            position: fixed;
-            top: 75px;
-            /* Moved up slightly */
-            left: 50%;
-            transform: translateX(-50%) translateY(10px);
-            background: rgba(8, 8, 8, 0.95);
-            /* Slightly darker/more opaque */
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
-            /* Gold top highlight */
-            border-radius: 16px;
-            /* Slightly tighter radius */
-            padding: 1.5rem;
-            width: auto;
-            /* Auto width based on content */
-            min-width: 800px;
-            max-width: 95vw;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow:
-                0 20px 50px rgba(0, 0, 0, 0.8),
-                0 0 0 1px rgba(0, 0, 0, 0.5);
-            z-index: 1001;
-        }
-
-        .nav-item-group:hover .nav-dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .nav-dropdown-inner {
-            display: grid;
-            grid-template-columns: 1fr 240px;
-            /* Slightly tighter sidebar */
-            gap: 1.5rem;
-        }
-
-        .nav-services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.5rem;
-        }
-
-        .nav-service-card {
-            display: flex;
-            flex-direction: column;
-            padding: 1rem;
-            border-radius: 12px;
-            background: transparent;
-            /* Cleaner look */
-            border: 1px solid transparent;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .nav-service-card:hover {
-            background: rgba(255, 255, 255, 0.03);
-            border-color: rgba(255, 255, 255, 0.08);
-            transform: translateY(-2px);
-        }
-
-        .nav-service-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            margin-bottom: 0.75rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            color: var(--accent);
-        }
-
-        .nav-service-card:hover .nav-service-icon {
-            background: rgba(212, 175, 55, 0.1);
-            border-color: rgba(212, 175, 55, 0.3);
-        }
-
-        .nav-service-card h4 {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            margin-bottom: 0.25rem;
-        }
-
-        .nav-service-card p {
-            font-size: 0.7rem;
-            /* Smaller text */
-            color: var(--text-secondary);
-            line-height: 1.3;
-        }
-
-        .nav-dropdown-sidebar {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .nav-dropdown-sidebar h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            line-height: 1.2;
-        }
-
-        .nav-dropdown-sidebar h3 em {
-            font-family: var(--font-serif);
-            font-style: italic;
-            font-weight: 500;
-            color: var(--accent);
-        }
-
-        .nav-dropdown-sidebar p {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            line-height: 1.4;
-        }
-
-        .nav-dropdown-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--text-primary);
-            /* White button */
-            color: #000;
-            padding: 0.6rem 1rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            width: fit-content;
-        }
-
-        .nav-dropdown-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
-        }
-
-        /* Fixed Bridge to prevent random triggering */
+        /* Simplified Premium Dropdown */
         .nav-item-group {
             position: relative;
             height: 100%;
@@ -284,17 +133,88 @@
             align-items: center;
         }
 
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 16px;
+            padding: 0.75rem;
+            min-width: 260px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.8),
+                0 0 0 1px rgba(255, 255, 255, 0.05),
+                0 0 30px rgba(212, 175, 55, 0.1);
+            /* Ambient Gold Glow */
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        /* Pointer Triangle */
+        .nav-dropdown::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 12px;
+            height: 12px;
+            background: #050505;
+            border-top: 1px solid rgba(212, 175, 55, 0.4);
+            border-left: 1px solid rgba(212, 175, 55, 0.4);
+        }
+
+        .nav-item-group:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(10px);
+            /* Slight gap from nav */
+        }
+
+        .nav-dropdown a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.85rem 1.25rem;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-dropdown a:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+            padding-left: 1.5rem;
+            /* Slide effect */
+        }
+
+        .nav-dropdown a:hover::after {
+            content: '→';
+            font-size: 0.8em;
+            color: var(--accent);
+            opacity: 0.8;
+        }
+
+        /* Hover Bridge */
         .nav-item-group::after {
             content: '';
             position: absolute;
             top: 100%;
-            /* Bottom of nav item */
-            left: -10px;
-            /* Much smaller bridge */
-            right: -10px;
-            height: 40px;
-            /* Only needs to reach the menu */
-            background: transparent;
+            left: -20px;
+            right: -20px;
+            height: 30px;
         }
 
         .hero {
@@ -1443,47 +1363,14 @@
         <a href="../index.html" class="logo">nusa<span>&</span>north</a>
         <div class="nav-links">
             <div class="nav-item-group">
-                <a href="../index.html#services">Services</a>
+                <a href="../index.html#services" class="nav-link-trigger">Services</a>
                 <div class="nav-dropdown">
-                    <div class="nav-dropdown-inner">
-                        <div class="nav-services-grid">
-                            <a href="performance-creative.html" class="nav-service-card">
-                                <div class="nav-service-icon">🎬</div>
-                                <h4>Video & Creative</h4>
-                                <p>UGC & performance video production</p>
-                            </a>
-                            <a href="meta-ads.html" class="nav-service-card">
-                                <div class="nav-service-icon">∞</div>
-                                <h4>Meta Ads</h4>
-                                <p>Facebook & Instagram campaigns</p>
-                            </a>
-                            <a href="google-ads.html" class="nav-service-card">
-                                <div class="nav-service-icon">G</div>
-                                <h4>Google Ads</h4>
-                                <p>Search, display & YouTube ads</p>
-                            </a>
-                            <a href="email-marketing.html" class="nav-service-card">
-                                <div class="nav-service-icon">✉️</div>
-                                <h4>Email Marketing</h4>
-                                <p>Flows, campaigns & automation</p>
-                            </a>
-                            <a href="photography.html" class="nav-service-card">
-                                <div class="nav-service-icon">📷</div>
-                                <h4>Photography</h4>
-                                <p>Product & lifestyle shoots</p>
-                            </a>
-                            <a href="content-strategy.html" class="nav-service-card">
-                                <div class="nav-service-icon">📊</div>
-                                <h4>Content Strategy</h4>
-                                <p>Planning & creative direction</p>
-                            </a>
-                        </div>
-                        <div class="nav-dropdown-sidebar">
-                            <h3>All the <em>services</em> you need to scale</h3>
-                            <p>From creative production to paid media execution, we've got your growth covered.</p>
-                            <a href="../index.html#contact" class="nav-dropdown-cta">Get Started →</a>
-                        </div>
-                    </div>
+                    <a href="google-ads.html">Google Ads</a>
+                    <a href="meta-ads.html">Meta Ads</a>
+                    <a href="performance-creative.html">Performance Creative</a>
+                    <a href="email-marketing.html">Email Marketing</a>
+                    <a href="content-strategy.html">Content Strategy</a>
+                    <a href="photography.html">Photography</a>
                 </div>
             </div>
             <a href="../index.html#work">Work</a>

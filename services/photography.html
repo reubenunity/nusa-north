@@ -123,282 +123,269 @@
         }
 
         /* Enhanced Mega Menu */
+        /* Simplified Premium Dropdown */
+        .nav-item-group {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
         .nav-dropdown {
-            position: fixed;
-            top: 80px;
+            position: absolute;
+            top: 100%;
             left: 50%;
             transform: translateX(-50%) translateY(20px);
-            background: rgba(10, 10, 10, 0.98);
-            backdrop-filter: blur(40px);
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(25px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
-            padding: 2rem;
-            width: 90vw;
-            max-width: 900px;
+            border-top: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 16px;
+            padding: 0.75rem;
+            min-width: 260px;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            z-index: 1001;
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.8),
+                0 0 0 1px rgba(255, 255, 255, 0.05),
+                0 0 30px rgba(212, 175, 55, 0.1);
+            /* Ambient Gold Glow */
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        /* Pointer Triangle */
+        .nav-dropdown::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 12px;
+            height: 12px;
+            background: #050505;
+            border-top: 1px solid rgba(212, 175, 55, 0.4);
+            border-left: 1px solid rgba(212, 175, 55, 0.4);
         }
 
         .nav-item-group:hover .nav-dropdown {
             opacity: 1;
             visibility: visible;
-            transform: translateX(-50%) translateY(0);
+            transform: translateX(-50%) translateY(10px);
+            /* Slight gap from nav */
         }
 
-        .nav-dropdown::before {
-            display: none;
-        }
-
-        .nav-dropdown-inner {
-            display: grid;
-            grid-template-columns: 1fr 280px;
-            gap: 2rem;
-        }
-
-        .nav-services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.75rem;
-        }
-
-        .nav-service-card {
-            display: flex;
-            flex-direction: column;
-            padding: 1.25rem;
-            border-radius: 16px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+        .nav-dropdown a {
+            color: var(--text-secondary);
             text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            opacity: 0;
-            transform: translateY(15px);
-        }
-
-        .nav-item-group:hover .nav-service-card {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .nav-service-card:nth-child(1) {
-            transition-delay: 0.05s;
-        }
-
-        .nav-service-card:nth-child(2) {
-            transition-delay: 0.1s;
-        }
-
-        .nav-service-card:nth-child(3) {
-            transition-delay: 0.15s;
-        }
-
-        .nav-service-card:nth-child(4) {
-            transition-delay: 0.2s;
-        }
-
-        .nav-service-card:nth-child(5) {
-            transition-delay: 0.25s;
-        }
-
-        .nav-service-card:nth-child(6) {
-            transition-delay: 0.3s;
-        }
-
-        .nav-service-card:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(212, 175, 55, 0.2);
-            transform: translateY(-4px);
-        }
-
-        .nav-service-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .nav-service-card h4 {
+            padding: 0.85rem 1.25rem;
+            border-radius: 10px;
             font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.35rem;
-        }
-
-        .nav-service-card p {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            line-height: 1.4;
-        }
-
-        .nav-dropdown-sidebar {
-            background: linear-gradient(145deg, rgba(212, 175, 55, 0.08), rgba(212, 175, 55, 0.02));
-            border: 1px solid rgba(212, 175, 55, 0.15);
-            border-radius: 20px;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            opacity: 0;
-            transform: translateX(20px);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
-        }
-
-        .nav-item-group:hover .nav-dropdown-sidebar {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .nav-dropdown-sidebar h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            line-height: 1.2;
-        }
-
-        .nav-dropdown-sidebar h3 em {
-            font-family: var(--font-serif);
-            font-style: italic;
             font-weight: 500;
-            color: var(--text-secondary);
-        }
-
-        .nav-dropdown-sidebar p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.5;
-        }
-
-        .nav-dropdown-cta {
-            display: inline-flex;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            display: flex;
             align-items: center;
-            gap: 0.75rem;
-            background: var(--accent);
-            color: #000;
-            padding: 0.75rem 1.25rem;
-            border-radius: 100px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
+            justify-content: space-between;
         }
 
-        .nav-dropdown-cta:hover {
-            transform: translateX(4px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        .nav-dropdown a:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+            padding-left: 1.5rem;
+            /* Slide effect */
         }
 
+        .nav-dropdown a:hover::after {
+            content: '→';
+            font-size: 0.8em;
+            color: var(--accent);
+            opacity: 0.8;
+        }
+
+        /* Hover Bridge */
         .nav-item-group::after {
             content: '';
             position: absolute;
             top: 100%;
-            left: -100px;
-            right: -100px;
-            height: 100px;
+            left: -20px;
+            right: -20px;
+            height: 30px;
         }
 
+        /* Infinite Marquee Hero */
         .hero {
-            min-height: 100vh;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .marquee-container {
+            position: absolute;
+            inset: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 10rem 4rem 6rem;
+            gap: 20px;
+            opacity: 0.4;
+            transform: rotate(-5deg) scale(1.1);
+            /* Slight tilt for dynamism */
+            pointer-events: auto;
+        }
+
+        .marquee-row {
+            display: flex;
+            gap: 20px;
+            width: max-content;
+        }
+
+        .marquee-item {
+            height: 250px;
+            /* Increased slightly for better impact */
+            width: auto;
+            /* Allow natural aspect ratio */
+            border-radius: 8px;
+            overflow: hidden;
             position: relative;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 400px;
-            height: 400px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23222' stroke-width='0.5'%3E%3Cpath d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'/%3E%3Ccircle cx='12' cy='13' r='4'/%3E%3C/svg%3E") no-repeat center;
-            background-size: contain;
-            opacity: 0.15;
-            pointer-events: none;
+        .marquee-item img {
+            width: auto;
+            height: 100%;
+            object-fit: cover;
+            /* Will cover height, width matches */
+            display: block;
+            /* Removed grayscale for full color impact */
+            transition: all 0.4s ease;
         }
 
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
+        .marquee-item:hover img {
+            transform: scale(1.05);
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Animations */
+        .scroll-left {
+            animation: scrollLeft 40s linear infinite;
+        }
+
+        .scroll-right {
+            animation: scrollRight 45s linear infinite;
+        }
+
+        @keyframes scrollLeft {
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes scrollRight {
+            from {
+                transform: translateX(-50%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        /* Content Overlay - Clean Style */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            padding: 0 2rem;
+            /* Removed box styling as requested */
         }
 
         .hero h1 {
             font-family: var(--font-display);
-            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-size: clamp(3rem, 7vw, 6rem);
             font-weight: 800;
-            line-height: 1.05;
-            letter-spacing: -0.03em;
+            line-height: 1;
             margin-bottom: 1.5rem;
-            max-width: 900px;
+            color: #fff;
+        }
+
+        .hero h1 span {
+            display: block;
+            margin-bottom: 0.2em;
         }
 
         .hero h1 em {
             font-family: var(--font-serif);
             font-style: italic;
-            font-weight: 500;
+            font-weight: 400;
+            color: var(--accent);
             display: block;
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0 auto 2.5rem;
             max-width: 600px;
-            margin-bottom: 3rem;
-        }
-
-        .hero-subtitle strong {
-            color: var(--text-primary);
+            line-height: 1.6;
         }
 
         .hero-cta {
             display: inline-flex;
             align-items: center;
             gap: 1rem;
-            background: var(--bg-card);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 0.75rem 1rem 0.75rem 2rem;
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            padding: 1rem 2.5rem;
             border-radius: 100px;
             text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 0.05em;
             transition: all 0.3s ease;
         }
 
         .hero-cta:hover {
-            border-color: var(--accent);
-            box-shadow: 0 0 50px rgba(212, 175, 55, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
         }
 
-        .hero-cta span {
-            color: var(--text-primary);
-            font-weight: 500;
-        }
+        @media (max-width: 768px) {
+            .marquee-item {
+                height: 180px;
+                width: auto;
+            }
 
-        .hero-cta .cta-icon {
-            width: 44px;
-            height: 44px;
-            background: var(--accent);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            color: var(--bg-primary);
+            .marquee-container {
+                transform: rotate(0);
+                gap: 10px;
+            }
+
+            .hero-content {
+                background: rgba(0, 0, 0, 0.7);
+                backdrop-filter: blur(12px);
+                border-radius: 0;
+                width: 100%;
+                border: none;
+            }
+
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+                padding: 0.5rem;
+                background: none;
+                border: none;
+            }
         }
 
         .formula-section {
@@ -433,99 +420,7 @@
             color: var(--text-primary);
         }
 
-        /* Gallery Section */
-        .gallery-section {
-            padding: 4rem;
-        }
 
-        .gallery-label {
-            text-align: center;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(2, 300px);
-            gap: 1rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .gallery-item {
-            border-radius: 16px;
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
-            transition: transform 0.4s ease;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.02);
-        }
-
-        .gallery-item.large {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
-
-        .gallery-item-bg {
-            position: absolute;
-            inset: 0;
-            transition: transform 0.6s ease;
-        }
-
-        .gallery-item:hover .gallery-item-bg {
-            transform: scale(1.1);
-        }
-
-        .gallery-item:nth-child(1) .gallery-item-bg {
-            background: url('../images/photo-four-seasons.webp') center/cover no-repeat;
-        }
-
-        .gallery-item:nth-child(2) .gallery-item-bg {
-            background: url('../images/photo-silhouette.webp') center/cover no-repeat;
-        }
-
-        .gallery-item:nth-child(3) .gallery-item-bg {
-            background: url('../images/photo-hello-body.webp') center/cover no-repeat;
-        }
-
-        .gallery-item:nth-child(4) .gallery-item-bg {
-            background: url('../images/photo-bazaar.webp') center/cover no-repeat;
-        }
-
-        .gallery-item:nth-child(5) .gallery-item-bg {
-            background: url('../images/photo-restaurant.webp') center/cover no-repeat;
-        }
-
-        .gallery-item::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.8) 100%);
-        }
-
-        .gallery-item-content {
-            position: absolute;
-            bottom: 1.5rem;
-            left: 1.5rem;
-            z-index: 2;
-        }
-
-        .gallery-item h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .gallery-item p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
 
         /* Services Grid */
         .services-section {
@@ -555,6 +450,84 @@
             gap: 1.5rem;
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+
+        /* Dual Parallax Stream */
+        .horizontal-scroll-container {
+            height: 400vh;
+            position: relative;
+            background: #050505;
+        }
+
+        .horizontal-track {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .dual-stream {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            gap: 2rem;
+            padding-left: 25vw;
+            /* Make room for header */
+        }
+
+        .stream-row {
+            display: flex;
+            gap: 1.5rem;
+            will-change: transform;
+            width: max-content;
+        }
+
+        .strip-item {
+            height: 35vh;
+            /* Much smaller elegance */
+            width: auto;
+            flex-shrink: 0;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .strip-item img {
+            height: 100%;
+            width: auto;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .strip-item:hover img {
+            transform: scale(1.03);
+        }
+
+        @media (max-width: 768px) {
+            .dual-stream {
+                padding-left: 5vw;
+                gap: 1rem;
+                justify-content: flex-end;
+                /* Push down */
+                padding-bottom: 5rem;
+            }
+
+            .div-stream-header {
+                top: 5vh !important;
+                left: 5vw !important;
+            }
+
+            .strip-item {
+                height: 25vh;
+                /* Even smaller on mobile */
+            }
         }
 
         .service-card {
@@ -1038,6 +1011,24 @@
                 text-align: center;
                 padding: 2rem 1.5rem;
             }
+
+            .stack-card {
+                width: 90vw;
+                height: 50vh;
+            }
+
+            .process-section {
+                padding: 4rem 1rem;
+            }
+
+            .masonry-grid {
+                columns: 2 160px;
+                column-gap: 10px;
+            }
+
+            .masonry-item {
+                margin-bottom: 10px;
+            }
         }
 
         .reveal {
@@ -1125,75 +1116,92 @@
         <a href="../index.html" class="logo">nusa<span>&</span>north</a>
         <div class="nav-links">
             <div class="nav-item-group">
-                <a href="../index.html#services">Services</a>
+                <a href="../index.html#services" class="nav-link-trigger">Services</a>
                 <div class="nav-dropdown">
-                    <div class="nav-dropdown-inner">
-                        <div class="nav-services-grid">
-                            <a href="performance-creative.html" class="nav-service-card">
-                                <div class="nav-service-icon">🎬</div>
-                                <h4>Video & Creative</h4>
-                                <p>UGC & performance video production</p>
-                            </a>
-                            <a href="meta-ads.html" class="nav-service-card">
-                                <div class="nav-service-icon">∞</div>
-                                <h4>Meta Ads</h4>
-                                <p>Facebook & Instagram campaigns</p>
-                            </a>
-                            <a href="google-ads.html" class="nav-service-card">
-                                <div class="nav-service-icon">G</div>
-                                <h4>Google Ads</h4>
-                                <p>Search, display & YouTube ads</p>
-                            </a>
-                            <a href="email-marketing.html" class="nav-service-card">
-                                <div class="nav-service-icon">✉️</div>
-                                <h4>Email Marketing</h4>
-                                <p>Flows, campaigns & automation</p>
-                            </a>
-                            <a href="photography.html" class="nav-service-card">
-                                <div class="nav-service-icon">📷</div>
-                                <h4>Photography</h4>
-                                <p>Product & lifestyle shoots</p>
-                            </a>
-                            <a href="content-strategy.html" class="nav-service-card">
-                                <div class="nav-service-icon">📊</div>
-                                <h4>Content Strategy</h4>
-                                <p>Planning & creative direction</p>
-                            </a>
-                        </div>
-                        <div class="nav-dropdown-sidebar">
-                            <h3>All the <em>services</em> you need to scale</h3>
-                            <p>From creative production to paid media execution, we've got your growth covered.</p>
-                            <a href="../index.html#contact" class="nav-dropdown-cta">Get Started →</a>
-                        </div>
-                    </div>
+                    <a href="google-ads.html">Google Ads</a>
+                    <a href="meta-ads.html">Meta Ads</a>
+                    <a href="performance-creative.html">Performance Creative</a>
+                    <a href="email-marketing.html">Email Marketing</a>
+                    <a href="content-strategy.html">Content Strategy</a>
+                    <a href="photography.html">Photography</a>
                 </div>
             </div>
             <a href="../index.html#work">Work</a>
             <a href="../index.html#about">About</a>
-            <a href="../index.html#contact" class="nav-cta">
-                <span class="nav-cta-icon">n.</span>
-                Get Started
-            </a>
+            <a href="../index.html#contact" class="nav-cta">Book Discovery Call<span class="nav-cta-icon">n.</span></a>
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="hero-badge">
-            <span>Included in Growth Partnership</span>
+    <!-- Infinite Marquee Hero -->
+    <section class="hero" id="hero">
+        <div class="marquee-container">
+            <!-- Row 1: Left Scroll -->
+            <div class="marquee-row scroll-left">
+                <!-- Set A -->
+                <div class="marquee-item"><img src="../images/hero-gallery-01.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-02.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-03.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-04.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-05.webp" alt=""></div>
+                <!-- Duplicate Set A for loop -->
+                <div class="marquee-item"><img src="../images/hero-gallery-01.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-02.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-03.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-04.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-05.webp" alt=""></div>
+            </div>
+
+            <!-- Row 2: Right Scroll -->
+            <div class="marquee-row scroll-right">
+                <!-- Set B -->
+                <div class="marquee-item"><img src="../images/hero-gallery-06.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-07.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-08.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-09.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-10.webp" alt=""></div>
+                <!-- Duplicate Set B for loop -->
+                <div class="marquee-item"><img src="../images/hero-gallery-06.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-07.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-08.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-09.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-10.webp" alt=""></div>
+            </div>
+
+            <!-- Row 3: Left Scroll -->
+            <div class="marquee-row scroll-left">
+                <!-- Set C (Mix) -->
+                <div class="marquee-item"><img src="../images/hero-gallery-03.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-07.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-01.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-08.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-02.webp" alt=""></div>
+                <!-- Duplicate Set C for loop -->
+                <div class="marquee-item"><img src="../images/hero-gallery-03.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-07.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-01.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-08.webp" alt=""></div>
+                <div class="marquee-item"><img src="../images/hero-gallery-02.webp" alt=""></div>
+            </div>
         </div>
-        <h1>
-            Photography<br>
-            That Sells.<br>
-            <em>Styled for Luxury.</em>
-        </h1>
-        <p class="hero-subtitle">
-            <strong>Editorial-quality imagery that captures the soul of your property</strong>
-            and compels travelers to book.
-        </p>
-        <a href="../index.html#contact" class="hero-cta">
-            <span>Book Discovery</span>
-            <div class="cta-icon">n.</div>
-        </a>
+
+        <div class="hero-content">
+            <div
+                style="color: var(--accent); letter-spacing: 0.2rem; font-weight: 600; margin-bottom: 1rem; text-transform: uppercase; font-size: 0.9rem;">
+                Commercial Photography Studio
+            </div>
+            <h1>
+                <span>Capture The</span>
+                <em>Extraordinary</em>
+            </h1>
+            <p class="hero-subtitle">
+                A massive library of high-converting visuals. We produce scaleable commercial photography for the
+                world's most ambitious brands.
+            </p>
+            <a href="#work" class="hero-cta">
+                View Gallery
+                <span class="cta-icon" style="background: none; color: inherit; width: auto; height: auto;">↓</span>
+            </a>
+        </div>
     </section>
 
     <section class="formula-section reveal">
@@ -1205,42 +1213,58 @@
         </p>
     </section>
 
-    <section class="gallery-section">
-        <div class="gallery-label">Selected Work</div>
-        <div class="gallery-grid">
-            <div class="gallery-item large reveal">
-                <div class="gallery-item-bg"></div>
-                <div class="gallery-item-content">
-                    <h4>Four Seasons The Nam Hai</h4>
-                    <p>Editorial Suite Photography</p>
+    <!-- PART 1: Vertical Curtains (Process) -->
+
+
+    <!-- PART 2: Dual Parallax Stream (Gallery) -->
+    <section class="horizontal-scroll-container">
+        <div class="div-stream-header" style="position: absolute; top: 10vh; left: 5vw; z-index: 20;">
+            <h2 style="font-size: 3rem; line-height: 1;">Selected<br>Collection</h2>
+            <p style="color: var(--text-secondary); margin-top: 1rem;">A curated stream of work</p>
+        </div>
+        <div class="horizontal-track">
+            <div class="dual-stream">
+                <!-- Top Row (Slower) -->
+                <div class="stream-row row-top">
+                    <div class="strip-item"><img src="../images/hero-gallery-01.webp" alt="Gallery"></div>
+                    <div class="strip-item"><img src="../images/hero-gallery-02.webp" alt="Gallery"></div>
+                    <div class="strip-item"><img src="../images/hero-gallery-03.webp" alt="Gallery"></div>
+                    <div class="strip-item"><img src="../images/hero-gallery-04.webp" alt="Gallery"></div>
+                    <div class="strip-item"><img src="../images/hero-gallery-05.webp" alt="Gallery"></div>
+                    <div class="strip-item"><img src="../images/hero-gallery-06.webp" alt="Gallery"></div>
+                    <div class="strip-item"><img src="../images/hero-gallery-07.webp" alt="Gallery"></div>
+                    <div class="strip-item"><img src="../images/hero-gallery-08.webp" alt="Gallery"></div>
+                    <div class="strip-item"><img src="../images/hero-gallery-09.webp" alt="Gallery"></div>
+                    <div class="strip-item"><img src="../images/hero-gallery-10.webp" alt="Gallery"></div>
+                    <div class="strip-item"><img src="../images/DSCF1602.webp" alt="Gallery"></div>
+                    <div class="strip-item"><img src="../images/DSCF4550.webp" alt="Gallery"></div>
+                    <div class="strip-item"><img src="../images/photo-four-seasons.webp" alt="Four Seasons"></div>
                 </div>
-            </div>
-            <div class="gallery-item reveal">
-                <div class="gallery-item-bg"></div>
-                <div class="gallery-item-content">
-                    <h4>Vlad in Tears</h4>
-                    <p>Band Promo Photography</p>
-                </div>
-            </div>
-            <div class="gallery-item reveal">
-                <div class="gallery-item-bg"></div>
-                <div class="gallery-item-content">
-                    <h4>Hello Body</h4>
-                    <p>Product Photography</p>
-                </div>
-            </div>
-            <div class="gallery-item reveal">
-                <div class="gallery-item-bg"></div>
-                <div class="gallery-item-content">
-                    <h4>Harper's Bazaar</h4>
-                    <p>Editorial Fashion</p>
-                </div>
-            </div>
-            <div class="gallery-item reveal">
-                <div class="gallery-item-bg"></div>
-                <div class="gallery-item-content">
-                    <h4>Le Comptoir</h4>
-                    <p>Michelin Restaurant Photography</p>
+
+                <!-- Bottom Row (Faster - Duplicated Content) -->
+                <div class="stream-row row-bottom">
+                    <div class="strip-item"><img src="../images/photo-silhouette.webp" alt="Silhouette"></div>
+                    <div class="strip-item"><img src="../images/photo-hello-body.webp" alt="Hello Body"></div>
+                    <div class="strip-item"><img src="../images/photo-bazaar.webp" alt="Bazaar"></div>
+                    <div class="strip-item"><img src="../images/photo-restaurant.webp" alt="Restaurant"></div>
+                    <div class="strip-item"><img src="../images/photo-culinary.webp" alt="Culinary"></div>
+                    <div class="strip-item"><img src="../images/photo-radisson.webp" alt="Radisson"></div>
+                    <div class="strip-item"><img src="../images/illuzion-hero.webp" alt="Illuzion"></div>
+                    <div class="strip-item"><img src="../images/bangkok-cultural.webp" alt="Bangkok"></div>
+                    <div class="strip-item"><img src="../images/lazy-river.webp" alt="Resort"></div>
+                    <div class="strip-item"><img src="../images/pool-resort.webp" alt="Pool"></div>
+                    <div class="strip-item"><img src="../images/dj-performance.webp" alt="DJ"></div>
+                    <div class="strip-item"><img src="../images/basketball-action.webp" alt="Action"></div>
+                    <div class="strip-item"><img src="../images/hellobody-bts-1.webp" alt="BTS"></div>
+                    <!-- Duplicate Set 1 -->
+                    <div class="strip-item"><img src="../images/photo-silhouette.webp" alt="Silhouette"></div>
+                    <div class="strip-item"><img src="../images/photo-hello-body.webp" alt="Hello Body"></div>
+                    <div class="strip-item"><img src="../images/photo-bazaar.webp" alt="Bazaar"></div>
+                    <div class="strip-item"><img src="../images/photo-restaurant.webp" alt="Restaurant"></div>
+                    <div class="strip-item"><img src="../images/photo-culinary.webp" alt="Culinary"></div>
+                    <div class="strip-item"><img src="../images/photo-radisson.webp" alt="Radisson"></div>
+                    <div class="strip-item"><img src="../images/illuzion-hero.webp" alt="Illuzion"></div>
+                    <div class="strip-item"><img src="../images/bangkok-cultural.webp" alt="Bangkok"></div>
                 </div>
             </div>
         </div>
@@ -1400,34 +1424,41 @@
         <div class="marquee-header">Trusted by World-Class Brands</div>
         <div class="logo-marquee">
             <div class="marquee-track">
-                <img loading="lazy" src="../Logos/bazaar.png" alt="Harper's Bazaar"><img loading="lazy" src="../Logos/hello bpdy.webp"
-                    alt="Hello Body"><img loading="lazy" src="../Logos/hp.png" alt="HP"><img loading="lazy" src="../Logos/mgm.png" alt="MGM"><img loading="lazy"
-                    src="../Logos/universal.png" alt="Universal" class="logo-fix"><img loading="lazy" src="../Logos/scwatrtz.webp"
-                    alt="Schwarzkopf"><img loading="lazy" src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
-                <img loading="lazy" src="../Logos/bazaar.png" alt="Harper's Bazaar"><img loading="lazy" src="../Logos/hello bpdy.webp"
-                    alt="Hello Body"><img loading="lazy" src="../Logos/hp.png" alt="HP"><img loading="lazy" src="../Logos/mgm.png" alt="MGM"><img loading="lazy"
-                    src="../Logos/universal.png" alt="Universal" class="logo-fix"><img loading="lazy" src="../Logos/scwatrtz.webp"
-                    alt="Schwarzkopf"><img loading="lazy" src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
-                <img loading="lazy" src="../Logos/bazaar.png" alt="Harper's Bazaar"><img loading="lazy" src="../Logos/hello bpdy.webp"
-                    alt="Hello Body"><img loading="lazy" src="../Logos/hp.png" alt="HP"><img loading="lazy" src="../Logos/mgm.png" alt="MGM"><img loading="lazy"
-                    src="../Logos/universal.png" alt="Universal" class="logo-fix"><img loading="lazy" src="../Logos/scwatrtz.webp"
-                    alt="Schwarzkopf"><img loading="lazy" src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
+                <img loading="lazy" src="../Logos/bazaar.png" alt="Harper's Bazaar"><img loading="lazy"
+                    src="../Logos/hello bpdy.webp" alt="Hello Body"><img loading="lazy" src="../Logos/hp.png"
+                    alt="HP"><img loading="lazy" src="../Logos/mgm.png" alt="MGM"><img loading="lazy"
+                    src="../Logos/universal.png" alt="Universal" class="logo-fix"><img loading="lazy"
+                    src="../Logos/scwatrtz.webp" alt="Schwarzkopf"><img loading="lazy"
+                    src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
+                <img loading="lazy" src="../Logos/bazaar.png" alt="Harper's Bazaar"><img loading="lazy"
+                    src="../Logos/hello bpdy.webp" alt="Hello Body"><img loading="lazy" src="../Logos/hp.png"
+                    alt="HP"><img loading="lazy" src="../Logos/mgm.png" alt="MGM"><img loading="lazy"
+                    src="../Logos/universal.png" alt="Universal" class="logo-fix"><img loading="lazy"
+                    src="../Logos/scwatrtz.webp" alt="Schwarzkopf"><img loading="lazy"
+                    src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
+                <img loading="lazy" src="../Logos/bazaar.png" alt="Harper's Bazaar"><img loading="lazy"
+                    src="../Logos/hello bpdy.webp" alt="Hello Body"><img loading="lazy" src="../Logos/hp.png"
+                    alt="HP"><img loading="lazy" src="../Logos/mgm.png" alt="MGM"><img loading="lazy"
+                    src="../Logos/universal.png" alt="Universal" class="logo-fix"><img loading="lazy"
+                    src="../Logos/scwatrtz.webp" alt="Schwarzkopf"><img loading="lazy"
+                    src="../Logos/logo long trang 1.png" alt="Pan Pacific" class="logo-fix">
             </div>
         </div>
     </div>
 
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2>Ready to elevate<br>your <em>visual presence?</em></h2>
-            <p class="cta-subtitle">Let's discuss your photography needs and create images that convert.</p>
-            <a href="../index.html#contact" class="cta-button">
-                Start Your Project
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-            </a>
-        </div>
-    </section>
+
+
+    <div class="cta-section"
+        style="background: #000; padding: 6rem 2rem; text-align: center; position: relative; z-index: 50;">
+        <h2>Ready to elevate<br>your <em>visual presence?</em></h2>
+        <p class="cta-subtitle">Let's discuss your photography needs and create images that convert.</p>
+        <a href="../index.html#contact" class="cta-button">
+            Start Your Project
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+        </a>
+    </div>
 
     <footer>
         <div class="footer-logo">nusa<span>&</span>north</div>
@@ -1455,6 +1486,33 @@
         };
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
+
+        // Dual Parallax Scroll Logic
+        const track = document.querySelector('.horizontal-scroll-container');
+        const rowTop = document.querySelector('.row-top');
+        const rowBottom = document.querySelector('.row-bottom');
+
+        if (track && rowTop && rowBottom) {
+            window.addEventListener('scroll', () => {
+                const rect = track.getBoundingClientRect();
+                const trackHeight = track.offsetHeight;
+                const windowHeight = window.innerHeight;
+
+                const scrollTop = -rect.top;
+                const scrollableDistance = trackHeight - windowHeight;
+                let progress = Math.max(0, Math.min(1, scrollTop / scrollableDistance));
+
+                // Parallax Calculation
+                // Simply mapping progress (0 to 1) to the full scroll width of each row.
+                // Since row-bottom has MORE content (is wider), it will naturally move faster to finish at the same time.
+
+                const moveAmountTop = -(rowTop.scrollWidth - window.innerWidth) * progress;
+                rowTop.style.transform = `translateX(${moveAmountTop}px)`;
+
+                const moveAmountBottom = -(rowBottom.scrollWidth - window.innerWidth) * progress;
+                rowBottom.style.transform = `translateX(${moveAmountBottom}px)`;
+            });
+        }
     </script>
 </body>
 
