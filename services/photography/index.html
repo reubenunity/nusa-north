@@ -90,17 +90,23 @@
         }
 
         .nav-cta {
-            background: var(--accent) !important;
-            color: var(--bg-primary) !important;
-            font-weight: 700 !important;
+            background: transparent !important;
+            border: 1px solid rgba(212, 175, 55, 0.4) !important;
+            color: var(--text-primary) !important;
+            font-weight: 600 !important;
             display: flex !important;
             align-items: center;
-            gap: 0.5rem;
+            gap: 1rem;
+            padding: 0.5rem 0.5rem 0.5rem 1.5rem !important;
+            border-radius: 100px !important;
+            transition: all 0.3s ease;
         }
 
         .nav-cta:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            border-color: var(--accent) !important;
+            background: rgba(212, 175, 55, 0.05) !important;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+            transform: translateY(-2px);
         }
 
         .nav-cta-icon {
@@ -342,19 +348,48 @@
             display: inline-flex;
             align-items: center;
             gap: 1rem;
-            background: var(--text-primary);
-            color: var(--bg-primary);
-            padding: 1rem 2.5rem;
+            background: transparent;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            padding: 0.75rem 0.75rem 0.75rem 2rem;
             border-radius: 100px;
             text-decoration: none;
-            font-weight: 700;
-            letter-spacing: 0.05em;
             transition: all 0.3s ease;
+            opacity: 1;
+            /* Reset logic if needed or match animation */
         }
 
         .hero-cta:hover {
+            border-color: var(--accent);
+            background: rgba(212, 175, 55, 0.05);
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .hero-cta span {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .hero-cta .cta-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-cta .cta-icon span {
+            color: var(--bg-primary);
+            font-weight: 800;
+            font-size: 1rem;
+        }
+
+        .hero-cta:hover .cta-icon {
+            transform: scale(1.1);
         }
 
         @media (max-width: 768px) {
@@ -899,20 +934,43 @@
         .cta-button {
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
-            background: var(--accent);
-            color: var(--bg-primary);
-            padding: 1.25rem 2.5rem;
+            gap: 1rem;
+            background: transparent;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            padding: 0.75rem 0.75rem 0.75rem 2rem;
             border-radius: 100px;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
         .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
+            border-color: var(--accent);
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .cta-button span {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .cta-button .cta-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cta-button .cta-icon span {
+            color: var(--bg-primary);
+            font-weight: 800;
+            font-size: 1rem;
         }
 
         footer {
@@ -1198,8 +1256,8 @@
                 world's most ambitious brands.
             </p>
             <a href="#work" class="hero-cta">
-                View Gallery
-                <span class="cta-icon" style="background: none; color: inherit; width: auto; height: auto;">↓</span>
+                <span>View Gallery</span>
+                <div class="cta-icon"><span>n.</span></div>
             </a>
         </div>
     </section>
@@ -1453,10 +1511,8 @@
         <h2>Ready to elevate<br>your <em>visual presence?</em></h2>
         <p class="cta-subtitle">Let's discuss your photography needs and create images that convert.</p>
         <a href="/#contact" class="cta-button">
-            Start Your Project
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
+            <span>Start Your Project</span>
+            <div class="cta-icon"><span>n.</span></div>
         </a>
     </div>
 

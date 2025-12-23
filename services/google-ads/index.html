@@ -91,29 +91,36 @@
         }
 
         .nav-cta {
-            background: var(--accent) !important;
-            color: var(--bg-primary) !important;
-            font-weight: 700 !important;
+            background: transparent !important;
+            border: 1px solid rgba(212, 175, 55, 0.4) !important;
+            color: var(--text-primary) !important;
+            font-weight: 600 !important;
             display: flex !important;
             align-items: center;
-            gap: 0.5rem;
+            gap: 1rem;
+            padding: 0.5rem 0.5rem 0.5rem 1.5rem !important;
+            border-radius: 100px !important;
+            transition: all 0.3s ease;
         }
 
         .nav-cta:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            border-color: var(--accent) !important;
+            background: rgba(212, 175, 55, 0.05) !important;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+            transform: translateY(-2px);
         }
 
         .nav-cta-icon {
-            width: 20px;
-            height: 20px;
-            background: var(--bg-primary);
-            border-radius: 4px;
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 900;
-            font-size: 0.75rem;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--bg-primary);
         }
 
         /* Dropdown Menu */
@@ -1032,9 +1039,9 @@
             display: inline-flex;
             align-items: center;
             gap: 1rem;
-            background: var(--accent);
-            border: none;
-            padding: 1rem 2rem;
+            background: transparent;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            padding: 0.75rem 0.75rem 0.75rem 2rem;
             border-radius: 100px;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -1042,13 +1049,32 @@
         }
 
         .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+            border-color: var(--accent);
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
         }
 
         .cta-button span {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .cta-button .cta-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cta-button .cta-icon span {
             color: var(--bg-primary);
-            font-weight: 700;
+            font-weight: 800;
+            font-size: 1rem;
         }
 
         /* Footer */
@@ -1621,7 +1647,8 @@
                     </ul>
                 </div>
                 <div class="slide-image">
-                    <img loading="lazy" src="../../assets/images/services/process-3-creative.webp" alt="Creative Assets">
+                    <img loading="lazy" src="../../assets/images/services/process-3-creative.webp"
+                        alt="Creative Assets">
                 </div>
             </div>
 
@@ -1714,8 +1741,9 @@
                 <h3>Ready to scale profitably?</h3>
                 <p>Book a discovery call to see if we're the right fit.</p>
             </div>
-            <a href="/#contact" class="cta-button">
-                <span>Book Discovery Call →</span>
+            <a href="../../index.html#contact" class="cta-button">
+                <span>Book Discovery Call</span>
+                <div class="cta-icon"><span>n.</span></div>
             </a>
         </div>
     </section>

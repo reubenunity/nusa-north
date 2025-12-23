@@ -91,17 +91,23 @@
         }
 
         .nav-cta {
-            background: var(--accent) !important;
-            color: var(--bg-primary) !important;
-            font-weight: 700 !important;
+            background: transparent !important;
+            border: 1px solid rgba(212, 175, 55, 0.4) !important;
+            color: var(--text-primary) !important;
+            font-weight: 600 !important;
             display: flex !important;
             align-items: center;
-            gap: 0.5rem;
+            gap: 1rem;
+            padding: 0.5rem 0.5rem 0.5rem 1.5rem !important;
+            border-radius: 100px !important;
+            transition: all 0.3s ease;
         }
 
         .nav-cta:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            border-color: var(--accent) !important;
+            background: rgba(212, 175, 55, 0.05) !important;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+            transform: translateY(-2px);
         }
 
         .nav-cta-icon {
@@ -343,10 +349,10 @@
         .hero-cta {
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
-            background: var(--bg-primary);
-            border: 2px solid rgba(212, 175, 55, 0.4);
-            padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+            gap: 1rem;
+            background: transparent;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            padding: 0.75rem 0.75rem 0.75rem 2rem;
             border-radius: 100px;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -356,25 +362,36 @@
 
         .hero-cta:hover {
             border-color: var(--accent);
-            box-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
         }
 
         .hero-cta span {
             color: var(--text-primary);
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 1.1rem;
         }
 
-        .cta-icon {
-            width: 44px;
-            height: 44px;
+        .hero-cta .cta-icon {
+            width: 40px;
+            height: 40px;
             background: var(--accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 800;
-            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-cta .cta-icon span {
             color: var(--bg-primary);
+            font-weight: 800;
+            font-size: 1rem;
+        }
+
+        .hero-cta:hover .cta-icon {
+            transform: scale(1.1);
         }
 
         /* ==================== */

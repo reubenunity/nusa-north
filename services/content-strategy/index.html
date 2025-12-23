@@ -793,20 +793,43 @@
         .cta-button {
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
-            background: var(--accent);
-            color: var(--bg-primary);
-            padding: 1.25rem 2.5rem;
+            gap: 1rem;
+            background: transparent;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            padding: 0.75rem 0.75rem 0.75rem 2rem;
             border-radius: 100px;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
         .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
+            border-color: var(--accent);
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .cta-button span {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .cta-button .cta-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cta-button .cta-icon span {
+            color: var(--bg-primary);
+            font-weight: 800;
+            font-size: 1rem;
         }
 
         /* --- Premium Results Section --- */
@@ -1148,41 +1171,7 @@
             /* mask-image: linear-gradient(to right, transparent, black 10%); */
         }
 
-        /* New Hero CTA Button */
-        .hero-cta-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            padding: 1rem 2rem;
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 100px;
-            color: var(--text-primary);
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
 
-        .hero-cta-button:hover {
-            border-color: var(--accent);
-            background: rgba(255, 255, 255, 0.05);
-            transform: translateY(-2px);
-        }
-
-        .hero-cta-button .cta-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            background: var(--accent);
-            border-radius: 50%;
-            color: #000;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
 
         .floating-grid {
             position: absolute;
@@ -1400,9 +1389,9 @@
                 presence, attract your ideal guests, and turn followers into bookers.
             </p>
             <div class="hero-actions">
-                <a href="../../index.html#contact" class="hero-cta-button">
-                    Book Discovery Call
-                    <span class="cta-icon">n.</span>
+                <a href="../../index.html#contact" class="hero-cta">
+                    <span>Book Discovery Call</span>
+                    <div class="cta-icon"><span>n.</span></div>
                 </a>
             </div>
         </div>
@@ -1676,10 +1665,10 @@
             <h2>Ready to build<br>a content <em>system?</em></h2>
             <p class="cta-subtitle">Let's create a strategy that turns your content into a competitive advantage.
             </p>
-            <a href="../../index.html#contact" class="cta-button">Book Strategy Call<svg viewBox="0 0 24 24" width="20"
-                    height="20" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg></a>
+            <a href="../../index.html#contact" class="cta-button">
+                <span>Book Strategy Call</span>
+                <div class="cta-icon"><span>n.</span></div>
+            </a>
         </div>
     </section>
 

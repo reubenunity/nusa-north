@@ -92,17 +92,23 @@
         }
 
         .nav-cta {
-            background: var(--accent) !important;
-            color: var(--bg-primary) !important;
-            font-weight: 700 !important;
+            background: transparent !important;
+            border: 1px solid rgba(212, 175, 55, 0.4) !important;
+            color: var(--text-primary) !important;
+            font-weight: 600 !important;
             display: flex !important;
             align-items: center;
-            gap: 0.5rem;
+            gap: 1rem;
+            padding: 0.5rem 0.5rem 0.5rem 1.5rem !important;
+            border-radius: 100px !important;
+            transition: all 0.3s ease;
         }
 
         .nav-cta:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            border-color: var(--accent) !important;
+            background: rgba(212, 175, 55, 0.05) !important;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+            transform: translateY(-2px);
         }
 
         .nav-cta-icon {
@@ -319,10 +325,10 @@
         .hero-cta {
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
-            background: var(--bg-primary);
-            border: 2px solid var(--accent);
-            padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+            gap: 1rem;
+            background: transparent;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            padding: 0.75rem 0.75rem 0.75rem 2rem;
             border-radius: 100px;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -331,26 +337,37 @@
         }
 
         .hero-cta:hover {
-            box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
-            transform: scale(1.02);
-            background: var(--bg-card);
+            border-color: var(--accent);
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
         }
 
         .hero-cta span {
             color: var(--text-primary);
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 1.1rem;
         }
 
-        .cta-icon {
-            width: 44px;
-            height: 44px;
+        .hero-cta .cta-icon {
+            width: 40px;
+            height: 40px;
             background: var(--accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 800;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-cta .cta-icon span {
             color: var(--bg-primary);
+            font-weight: 800;
+            font-size: 1rem;
+        }
+
+        .hero-cta:hover .cta-icon {
+            transform: scale(1.1);
         }
 
         /* Floating Phones Container */
@@ -2061,21 +2078,45 @@
         }
 
         .cta-button {
-            display: inline-block;
-            background: var(--accent);
-            color: #000;
-            font-weight: 700;
-            padding: 1.25rem 3rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: transparent;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            padding: 0.75rem 0.75rem 0.75rem 2rem;
             border-radius: 100px;
             text-decoration: none;
-            font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+            white-space: nowrap;
         }
 
         .cta-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.4);
+            border-color: var(--accent);
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .cta-button span {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .cta-button .cta-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cta-button .cta-icon span {
+            color: var(--bg-primary);
+            font-weight: 800;
+            font-size: 1rem;
         }
 
         /* Footer Styles */
@@ -2418,7 +2459,7 @@
 
             <a href="/#contact" class="hero-cta">
                 <span>Book Discovery</span>
-                <div class="cta-icon">n.</div>
+                <div class="cta-icon"><span>n.</span></div>
             </a>
         </div>
     </section>
@@ -2804,20 +2845,21 @@
                         </div>
                         <!-- Floating Assets -->
                         <div class="floating-asset asset-1" id="rotating-asset-1">
-                            <img loading="lazy" src="../../images/hellobody-bts-1.webp" alt="Craft Asset" class="active">
+                            <img loading="lazy" src="../../images/hellobody-bts-1.webp" alt="Craft Asset"
+                                class="active">
                             <img loading="lazy" src="../../images/hellobody-bts-3.webp" alt="Craft Asset">
                         </div>
                         <div class="floating-asset asset-2" id="rotating-asset-2">
-                            <img loading="lazy" src="../../images/hellobody-bts-2.webp" alt="Craft Asset" class="active">
+                            <img loading="lazy" src="../../images/hellobody-bts-2.webp" alt="Craft Asset"
+                                class="active">
                             <img loading="lazy" src="../../images/hello-body-thumbnail.webp" alt="Craft Asset">
                         </div>
                     </div>
 
                     <div class="card-right">
-                        <a href="#contact" class="prestige-cta">
-                            <span>Book</span>
-                            <div class="nusa-logo-small">N</div>
-                            <span>Discovery</span>
+                        <a href="#contact" class="hero-cta">
+                            <span>Book Discovery</span>
+                            <div class="cta-icon"><span>n.</span></div>
                         </a>
                     </div>
                 </div>
