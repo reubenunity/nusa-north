@@ -33,27 +33,125 @@
         /* Solid black */
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
+        /* Start from top to allow scrolling */
         align-items: center;
-        gap: 2rem !important;
+        padding: 6rem 2rem 4rem;
+        /* Add top padding for close button space */
+        gap: 1.5rem !important;
         z-index: 10000;
         /* Max z-index */
         transform: translateX(100%);
-        transition: transform 0.3s ease-in-out;
-        padding: 0;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         margin: 0;
         inset: 0;
+        overflow-y: auto;
+        /* Allow scrolling for tall menus */
     }
 
     .nav-links.active {
         transform: translateX(0);
     }
 
-    .nav-links a {
+    .nav-links>a.active-link {
+        /* style for top level links */
         font-size: 1.5rem !important;
-        padding: 1rem !important;
+        padding: 0.5rem 1rem !important;
         display: block !important;
-        /* Override inline CSS hiding links */
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links>a {
+        font-size: 1.5rem !important;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Reset Dropdown for Mobile - Make it static and visible */
+    /* Reset Dropdown for Mobile - Make it static and visible */
+    .nav-item-group {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100%;
+        align-items: center;
+        height: auto !important;
+        /* Reset fixed height */
+        pointer-events: auto !important;
+    }
+
+    .nav-item-group>a {
+        /* The "Services" parent link */
+        font-size: 1.5rem !important;
+        margin-bottom: 0.5rem;
+        pointer-events: none;
+        /* Make "Services" label not clickable if it's just a label */
+        opacity: 0.7;
+    }
+
+    .nav-dropdown {
+        position: static !important;
+        /* No longer absolute */
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: flex !important;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.03);
+        /* Slight contrast background */
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: none !important;
+        width: 100%;
+        max-width: 280px;
+        /* Limit width */
+        min-width: unset !important;
+        border-radius: 12px;
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    /* Remove the pointer triangle on mobile */
+    .nav-dropdown::before {
+        display: none !important;
+    }
+
+    .nav-item-group::after {
+        display: none !important;
+    }
+
+    .nav-dropdown a {
+        font-size: 1rem !important;
+        /* Smaller than main links */
+        padding: 0.8rem 1rem !important;
+        justify-content: center;
+        /* Center align items */
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        width: 100%;
+        display: flex !important;
+    }
+
+    .nav-dropdown a:last-child {
+        border-bottom: none;
+    }
+
+    /* Fix Giant CTA Button */
+    .nav-cta {
+        margin-top: 1.5rem;
+        width: auto !important;
+        /* Don't force full width */
+        min-width: 200px;
+        max-width: 100%;
+        justify-content: center;
+        font-size: 1rem !important;
+        /* Normal button text size */
+        padding: 0.8rem 1.5rem !important;
+        background: transparent !important;
+        border: 1px solid var(--accent) !important;
+    }
+
+    .nav-cta span {
+        font-size: 1rem !important;
     }
 
     /* Animation for hamburger to X */

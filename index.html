@@ -900,23 +900,108 @@
                 font-size: 1.2rem;
             }
 
-            /* Hero Typography - Mobile */
-            .hero-span-results {
-                font-size: 15vw;
-                /* Responsive massive text */
+            /* Section Padding Reductions */
+            .hero-content {
+                padding: 6rem 1.5rem 4rem 1.5rem;
+                /* Ensure top padding clears nav */
+            }
+
+            .deep-dive-section,
+            .built-for-section,
+            .mastered-section,
+            .portfolio-section,
+            .comparison-section,
+            .stats-section,
+            .video-section,
+            .about-section {
+                padding: 4rem 1.5rem;
+                /* Consistent smaller padding */
+            }
+
+            /* Hero Typography - Mobile Optimized */
+            .hero-span-we {
+                font-size: clamp(2rem, 8vw, 2.5rem);
             }
 
             .hero-span-deliver {
-                font-size: 10vw;
+                font-size: clamp(2.5rem, 10vw, 3.5rem);
+                margin-bottom: 0.25rem;
+            }
+
+            .hero-span-results {
+                font-size: clamp(3.5rem, 14vw, 5rem);
+                /* Responsive massive text but controlled */
+                line-height: 0.9;
+                margin-left: 0;
+            }
+
+            .hero-cta-group {
+                flex-direction: column;
+                width: 100%;
+                gap: 1rem;
+            }
+
+            .hero-btn-primary,
+            .hero-cta {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
             }
 
             /* Deep Dive Mobile */
             .deep-dive-grid {
+                grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
 
             .deep-dive-card {
                 padding: 2rem 1.5rem;
+            }
+
+            .deep-dive-header h2 {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+
+            .built-for-grid,
+            .stats-grid,
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid {
+                /* Maybe 2 cols for portfolio on tablets, 1 on mobile? Keeping 1 for safety on small screens */
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 1.5rem;
+                text-align: center;
+                border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .comparison-row.header {
+                display: none;
+                /* Hide header on mobile, too complex */
+            }
+
+            .comparison-cell {
+                justify-content: center !important;
+                padding: 0.5rem;
+            }
+
+            /* Emulate card stacking for comparison */
+            .comparison-table {
+                border: none;
+                background: transparent;
+            }
+
+            .comparison-row {
+                background: var(--bg-card);
+                border-radius: 16px;
+                margin-bottom: 1rem;
+                border: 1px solid rgba(255, 255, 255, 0.05);
             }
         }
 
@@ -1792,6 +1877,7 @@
 
             .nav-links a:not(.nav-cta) {
                 display: none;
+                /* Hide default nav links, handled by mobile menu overlay */
             }
 
             .hero,
@@ -1813,6 +1899,27 @@
                 grid-template-columns: 1fr 1fr;
             }
 
+            /* Sizing Fixes for 'Giant' Elements */
+            .reel-item {
+                width: 210px !important;
+                /* Reduced from 250px/350px */
+            }
+
+            .mastered-card {
+                flex: 0 0 220px !important;
+                /* Reduced from 260px */
+            }
+
+            .team-card {
+                flex: 0 0 220px !important;
+                /* Reduced from 250px */
+            }
+
+            .team-img-container {
+                width: 100px !important;
+                height: 100px !important;
+            }
+
             .stats-grid {
                 grid-template-columns: 1fr;
             }
@@ -1823,13 +1930,20 @@
             }
 
             .about-image {
-                max-width: 300px;
+                max-width: 250px;
                 margin: 0 auto;
             }
 
             footer {
                 flex-direction: column;
                 text-align: center;
+            }
+
+            /* Ensure Nav Dropdown is Forced for Specificity if needed */
+            .nav-dropdown {
+                display: flex !important;
+                visibility: visible !important;
+                opacity: 1 !important;
             }
         }
 
