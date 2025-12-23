@@ -5,12 +5,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nusa & North | Premium Video Production & Performance Marketing</title>
+    <!-- Social & SEO -->
+    <meta name="description"
+        content="We partner with ambitious brands to create content that drives measurable results. Premium video production and performance marketing for brands scaling to €1M+ months.">
+    <meta property="og:title" content="Nusa & North | Premium Video Production & Performance Marketing">
+    <meta property="og:description"
+        content="We partner with ambitious brands to create content that drives measurable results. Premium video production and performance marketing for brands scaling to €1M+ months.">
+    <meta property="og:image" content="https://www.nusaandnorth.com/assets/images/hero/img1.webp">
+    <meta property="og:url" content="https://www.nusaandnorth.com/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Analytics & Tracking (Placeholders) -->
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-PLACEHOLDER'); // REPLACE 'G-PLACEHOLDER' with your actual Measurement ID
+    </script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'YOUR_PIXEL_ID'); // REPLACE 'YOUR_PIXEL_ID' with your actual Pixel ID
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
     <!-- Updated: 2025-12-23 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/mobile-menu.css">
     <style>
         /* Deep Dive Section - Inlined for immediate update */
         .deep-dive-section {
@@ -1726,6 +1768,13 @@
     <!-- Navigation -->
     <nav>
         <a href="/" class="logo">nusa<span>&</span>north</a>
+
+        <button class="mobile-menu-btn" aria-label="Toggle Navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
         <div class="nav-links">
             <div class="nav-item-group">
                 <a href="#services" class="nav-link-trigger">Services</a>
@@ -1784,8 +1833,10 @@
             <div class="floating-grid">
                 <!-- Column 1 (Scroll Up) -->
                 <div class="grid-column col-anim-up">
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img1.webp" alt="Work"></div>
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img2.webp" alt="Work"></div>
+                    <div class="grid-item"><img loading="eager" fetchpriority="high" src="assets/images/hero/img1.webp"
+                            alt="Work"></div>
+                    <div class="grid-item"><img loading="eager" fetchpriority="high" src="assets/images/hero/img2.webp"
+                            alt="Work"></div>
                     <div class="grid-item"><img loading="lazy" src="assets/images/hero/img3.webp" alt="Work"></div>
                     <!-- Duplicate for infinite scroll -->
                     <div class="grid-item"><img loading="lazy" src="assets/images/hero/img1.webp" alt="Work"></div>
@@ -1795,8 +1846,10 @@
 
                 <!-- Column 2 (Scroll Down) -->
                 <div class="grid-column col-anim-down">
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img4.webp" alt="Work"></div>
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img5.webp" alt="Work"></div>
+                    <div class="grid-item"><img loading="eager" fetchpriority="high" src="assets/images/hero/img4.webp"
+                            alt="Work"></div>
+                    <div class="grid-item"><img loading="eager" fetchpriority="high" src="assets/images/hero/img5.webp"
+                            alt="Work"></div>
                     <div class="grid-item"><img loading="lazy" src="assets/images/hero/img6.webp" alt="Work"></div>
                     <!-- Duplicate -->
                     <div class="grid-item"><img loading="lazy" src="assets/images/hero/img4.webp" alt="Work"></div>
@@ -2216,47 +2269,47 @@
         <div class="mastered-grid">
             <div class="mastered-carousel-track">
                 <!-- Original Items -->
-                <a href="services/performance-creative.html" class="mastered-card">
+                <a href="services/performance-creative/" class="mastered-card">
                     <div class="mastered-card-bg"
                         style="background-image: url('assets/images/services/performance_creative.webp');"></div>
                 </a>
-                <a href="services/email-marketing.html" class="mastered-card">
+                <a href="services/email-marketing/" class="mastered-card">
                     <div class="mastered-card-bg"
                         style="background-image: url('assets/images/services/email_marketing.webp');"></div>
                 </a>
-                <a href="services/meta-ads.html" class="mastered-card">
+                <a href="services/meta-ads/" class="mastered-card">
                     <div class="mastered-card-bg"
                         style="background-image: url('assets/images/services/meta_ads.webp');">
                     </div>
                 </a>
-                <a href="services/google-ads.html" class="mastered-card">
+                <a href="services/google-ads/" class="mastered-card">
                     <div class="mastered-card-bg"
                         style="background-image: url('assets/images/services/google_ads.webp');"></div>
                 </a>
-                <a href="services/content-strategy.html" class="mastered-card">
+                <a href="services/content-strategy/" class="mastered-card">
                     <div class="mastered-card-bg"
                         style="background-image: url('assets/images/services/content_strategy.webp');"></div>
                 </a>
 
                 <!-- Duplicated for Infinite Scroll -->
-                <a href="services/performance-creative.html" class="mastered-card">
+                <a href="services/performance-creative/" class="mastered-card">
                     <div class="mastered-card-bg"
                         style="background-image: url('assets/images/services/performance_creative.webp');"></div>
                 </a>
-                <a href="services/email-marketing.html" class="mastered-card">
+                <a href="services/email-marketing/" class="mastered-card">
                     <div class="mastered-card-bg"
                         style="background-image: url('assets/images/services/email_marketing.webp');"></div>
                 </a>
-                <a href="services/meta-ads.html" class="mastered-card">
+                <a href="services/meta-ads/" class="mastered-card">
                     <div class="mastered-card-bg"
                         style="background-image: url('assets/images/services/meta_ads.webp');">
                     </div>
                 </a>
-                <a href="services/google-ads.html" class="mastered-card">
+                <a href="services/google-ads/" class="mastered-card">
                     <div class="mastered-card-bg"
                         style="background-image: url('assets/images/services/google_ads.webp');"></div>
                 </a>
-                <a href="services/content-strategy.html" class="mastered-card">
+                <a href="services/content-strategy/" class="mastered-card">
                     <div class="mastered-card-bg"
                         style="background-image: url('assets/images/services/content_strategy.webp');"></div>
                 </a>
@@ -2507,7 +2560,16 @@
                 <!-- Config -->
                 <input type="hidden" name="_subject" value="New Project Inquiry - Nusa & North">
                 <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://www.nusaandnorth.com/index.html">
+                <input type="hidden" name="_next" value="https://www.nusaandnorth.com/booking.html">
+                <script>
+                    // Dynamic redirect for localhost/staging compliance
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const nextInput = document.querySelector('input[name="_next"]');
+                        if (nextInput) {
+                            nextInput.value = window.location.origin + '/booking.html';
+                        }
+                    });
+                </script>
                 <!-- Redirect back to home -->
 
                 <!-- Step 1: Personal Details -->
@@ -2927,12 +2989,12 @@
     <footer>
         <div class="footer-logo">nusa<span>&</span>north</div>
         <div class="footer-links">
-            <a href="services/performance-creative.html">Video Production</a>
-            <a href="services/photography.html">Photography</a>
-            <a href="services/meta-ads.html">Meta Ads</a>
-            <a href="services/email-marketing.html">Email Marketing</a>
-            <a href="services/google-ads.html">Google Ads</a>
-            <a href="services/content-strategy.html">Content Strategy</a>
+            <a href="services/performance-creative/">Video Production</a>
+            <a href="services/photography/">Photography</a>
+            <a href="services/meta-ads/">Meta Ads</a>
+            <a href="services/email-marketing/">Email Marketing</a>
+            <a href="services/google-ads/">Google Ads</a>
+            <a href="services/content-strategy/">Content Strategy</a>
         </div>
         <div class="footer-copy">© 2024 Nusa & North. All rights reserved.</div>
     </footer>
@@ -3356,6 +3418,7 @@
             });
         });
     </script>
+    <script src="assets/js/mobile-menu.js" defer></script>
 </body>
 
 </html>```
