@@ -53,6 +53,7 @@
             align-items: center;
             background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
@@ -140,6 +141,7 @@
             transform: translateX(-50%) translateY(20px);
             background: rgba(5, 5, 5, 0.95);
             backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-top: 1px solid rgba(212, 175, 55, 0.4);
             border-radius: 16px;
@@ -256,7 +258,8 @@
         }
 
         .hero-cta,
-        .hero-badge {
+        .hero-badge,
+        .hero-cta-button {
             pointer-events: auto;
             /* Re-enable for buttons */
         }
@@ -444,6 +447,7 @@
             position: relative;
             overflow: hidden;
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .framework-card:hover {
@@ -1240,6 +1244,7 @@
             gap: 15px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             transition: border-color 0.3s ease;
         }
 
@@ -1360,10 +1365,10 @@
     </div>
 
     <nav>
-        <a href="/" class="logo">nusa<span>&</span>north</a>
+        <a href="../../index.html" class="logo">nusa<span>&</span>north</a>
         <div class="nav-links">
             <div class="nav-item-group">
-                <a href="/#services" class="nav-link-trigger">Services</a>
+                <a href="../../index.html#services" class="nav-link-trigger">Services</a>
                 <div class="nav-dropdown">
                     <a href="../google-ads/">Google Ads</a>
                     <a href="../meta-ads/">Meta Ads</a>
@@ -1373,9 +1378,10 @@
                     <a href="../photography/">Photography</a>
                 </div>
             </div>
-            <a href="/#work">Work</a>
-            <a href="/#about">About</a>
-            <a href="/#contact" class="nav-cta">Book Discovery Call<span class="nav-cta-icon">n.</span></a>
+            <a href="../../index.html#work">Work</a>
+            <a href="../../index.html#about">About</a>
+            <a href="../../index.html#contact" class="nav-cta">Book Discovery Call<span
+                    class="nav-cta-icon">n.</span></a>
         </div>
     </nav>
 
@@ -1394,7 +1400,7 @@
                 presence, attract your ideal guests, and turn followers into bookers.
             </p>
             <div class="hero-actions">
-                <a href="/#contact" class="hero-cta-button">
+                <a href="../../index.html#contact" class="hero-cta-button">
                     Book Discovery Call
                     <span class="cta-icon">n.</span>
                 </a>
@@ -1670,8 +1676,8 @@
             <h2>Ready to build<br>a content <em>system?</em></h2>
             <p class="cta-subtitle">Let's create a strategy that turns your content into a competitive advantage.
             </p>
-            <a href="/#contact" class="cta-button">Book Strategy Call<svg viewBox="0 0 24 24" width="20" height="20"
-                    fill="none" stroke="currentColor" stroke-width="2">
+            <a href="../../index.html#contact" class="cta-button">Book Strategy Call<svg viewBox="0 0 24 24" width="20"
+                    height="20" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg></a>
         </div>
@@ -1680,7 +1686,7 @@
     <footer>
         <div class="footer-logo">nusa<span>&</span>north</div>
         <div class="footer-links">
-            <a href="video-production.html">Video</a>
+            <a href="../performance-creative/">Video</a>
             <a href="../photography/">Photography</a>
             <a href="../meta-ads/">Meta Ads</a>
             <a href="../content-strategy/">Strategy</a>
