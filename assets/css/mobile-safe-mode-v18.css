@@ -295,9 +295,9 @@
     }
 
     /* Extend Mobile Stack to support .process-content (Content Strategy page structure) */
-    .process-section.mobile-stack .process-content {
+    /* Boost specificity to force show all contents */
+    .process-section.mobile-stack div.process-content {
         display: flex !important;
-        /* Force show all */
         flex-direction: column !important;
         gap: 1.5rem !important;
         opacity: 1 !important;
@@ -315,7 +315,7 @@
     }
 
     /* Add "Step X" label dynamically for process-content too */
-    .process-section.mobile-stack .process-content::before {
+    .process-section.mobile-stack div.process-content::before {
         content: "Step " counter(step-counter);
         display: inline-block;
         font-family: 'DM Sans', sans-serif;
@@ -336,9 +336,9 @@
         order: 1;
     }
 
+    /* REMOVED IMAGE AS REQUESTED */
     .process-section.mobile-stack .process-content .process-visual {
-        order: 2;
-        margin-top: 1rem;
+        display: none !important;
     }
 
     /* 9. SERVICE PAGES: COLLAPSIBLE FAQ (AGGRESSIVE FIX) */
