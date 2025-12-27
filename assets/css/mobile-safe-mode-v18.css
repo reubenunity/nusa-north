@@ -115,87 +115,77 @@
         margin-right: auto !important;
     }
 
-    /* 6. "Our Work" */
-    /* 6. "Our Work" - 3D Carousel Conversion */
+    /* 6. "Our Work" - Simple Centered Scroll */
     .video-reel-section {
         display: block !important;
         width: 100% !important;
         overflow: hidden !important;
-        padding-bottom: 2rem !important;
+        padding-bottom: 3rem !important;
     }
 
-    /* Container becomes the scrollable area */
+    /* Container: Simple horizontal scroll */
     .reel-container {
         display: flex !important;
         flex-direction: row !important;
-        /* Force Horizontal */
         flex-wrap: nowrap !important;
-        /* No Wrapping */
-        overflow-x: scroll !important;
+        overflow-x: auto !important;
         scroll-snap-type: x mandatory;
-        gap: 0 !important;
-        padding: 2rem 50% 4rem 2rem !important;
+        gap: 1rem !important;
+        padding: 1rem 1rem 2rem 1rem !important;
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
-        margin-left: -2rem !important;
-        margin-right: -2rem !important;
-        width: calc(100% + 4rem) !important;
-        box-sizing: border-box;
-        perspective: 1000px;
+        /* Hide scrollbar but allow scroll */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
     }
 
-    /* Spacer for centering */
-    .reel-container::before,
-    .reel-container::after {
-        content: '';
-        flex: 0 0 25vw;
-        min-width: 25vw;
+    .reel-container::-webkit-scrollbar {
+        display: none;
     }
 
-    /* 6a. RESTORE ANIMATION FOR OTHER SECTIONS (We Mastered...) */
-    @keyframes mobileReelScroll {
-        0% {
-            transform: translateX(0);
-        }
-
-        100% {
-            transform: translateX(-50%);
-        }
-    }
-
-    /* Merge Tracks: Treat items as direct children of container */
+    /* Flatten Tracks for Mobile */
     .reel-track {
         display: contents !important;
     }
 
     .reel-track.track-right {
-        display: contents !important;
-        /* Unhide Track 2 */
+        display: none !important;
+        /* Hide second track on mobile - use only one row */
     }
 
-    /* Card Styling (Video Style: -5vw overlap) */
+    /* Card Styling: Clean, no overlap, no 3D */
     .reel-item {
-        flex: 0 0 60vw !important;
-        min-width: 60vw !important;
+        flex: 0 0 80vw !important;
+        min-width: 80vw !important;
         scroll-snap-align: center;
-        margin: 0 -5vw !important;
-        /* Gentle overlap */
-        transform-style: preserve-3d;
-        will-change: transform, opacity, z-index;
-        border-radius: 20px !important;
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6) !important;
+        margin: 0 !important;
+        border-radius: 16px !important;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
         background: #0a0a0a;
-        backface-visibility: hidden;
         aspect-ratio: 16/9 !important;
-        /* Force cinematic ratio */
         height: auto !important;
+        /* Remove all 3D transforms */
+        transform: none !important;
+        opacity: 1 !important;
     }
 
-    /* Initial State */
-    .reel-item {
-        transform: scale(0.7) rotateY(0deg);
-        opacity: 0.4;
-        z-index: 0;
+    /* Scroll indicator dots (via wrapper) */
+    .reel-container::after {
+        content: '• • • • •';
+        display: block;
+        position: absolute;
+        bottom: 0.5rem;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 0.6rem;
+        color: rgba(255, 255, 255, 0.3);
+        letter-spacing: 0.5em;
+        pointer-events: none;
+    }
+
+    .video-reel-section {
+        position: relative;
     }
 
     .reel-overlay,
@@ -236,67 +226,59 @@
         border-radius: 12px !important;
     }
 
-    /* 7b. SHARED 3D CAROUSEL STYLES (Built For / Team) */
+    /* 7b. SIMPLE SCROLL STYLES (Built For / Team / Stats) */
     .built-for-grid,
     .team-marquee,
     .stats-grid {
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: nowrap !important;
-        overflow-x: scroll !important;
+        overflow-x: auto !important;
         scroll-snap-type: x mandatory;
-        gap: 0 !important;
-        padding: 2rem 50% 4rem 2rem !important;
-        margin-left: -2rem !important;
-        margin-right: -2rem !important;
-        width: calc(100% + 4rem) !important;
-        perspective: 1000px;
-        -webkit-overflow-scrolling: touch;
+        gap: 1rem !important;
+        padding: 1rem !important;
+        /* Hide scrollbar */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
         /* Disable native grid if present */
         grid-template-columns: none !important;
     }
 
+    .built-for-grid::-webkit-scrollbar,
+    .team-marquee::-webkit-scrollbar,
+    .stats-grid::-webkit-scrollbar {
+        display: none;
+    }
+
     .team-track {
         display: contents !important;
-        /* Flatten team track */
     }
 
-    /* Cards */
+    /* Cards: Clean, no 3D */
     .built-for-card,
     .team-card,
     .stat-item {
-        flex: 0 0 70vw !important;
-        /* Wider for info cards */
-        min-width: 70vw !important;
+        flex: 0 0 85vw !important;
+        min-width: 85vw !important;
         scroll-snap-align: center;
-        margin: 0 -5vw !important;
-        transform-style: preserve-3d;
-        will-change: transform, opacity, z-index;
-        backface-visibility: hidden;
-        background: #0a0a0a;
-        /* Ensure solid bg */
-        border-radius: 20px !important;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
-        /* Reset heights */
+        margin: 0 !important;
+        background: rgba(20, 20, 20, 0.8) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 16px !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
         height: auto !important;
-        aspect-ratio: auto !important;
+        padding: 1.5rem !important;
+        /* Remove all transforms */
+        transform: none !important;
+        opacity: 1 !important;
     }
 
-    /* Stats Specific */
     .stat-item {
-        flex: 0 0 50vw !important;
-        min-width: 50vw !important;
+        flex: 0 0 45vw !important;
+        min-width: 45vw !important;
         background: transparent !important;
+        border: none !important;
         box-shadow: none !important;
-    }
-
-    /* Initial State */
-    .built-for-card,
-    .team-card,
-    .stat-item {
-        transform: scale(0.7) rotateY(0deg);
-        opacity: 0.4;
-        z-index: 0;
     }
 
     /* 8. SERVICE PAGES: SCROLLABLE STEPS (Default / Performance Creative) */
