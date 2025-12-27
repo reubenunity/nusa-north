@@ -3557,11 +3557,16 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             if (window.innerWidth <= 1024) {
-                const containers = document.querySelectorAll('.reel-container');
+                // Target ALL 3D containers
+                const containers = document.querySelectorAll('.reel-container, .built-for-grid, .team-marquee');
 
                 containers.forEach(container => {
-                    // Get ALL items (Flat List)
-                    const items = Array.from(container.children).filter(el => el.classList.contains('reel-item'));
+                    // Get ALL items (Flat List) - checking for any of the 3 card types
+                    const items = Array.from(container.children).filter(el =>
+                        el.classList.contains('reel-item') ||
+                        el.classList.contains('built-for-card') ||
+                        el.classList.contains('team-card')
+                    );
 
                     if (items.length === 0) return;
 
