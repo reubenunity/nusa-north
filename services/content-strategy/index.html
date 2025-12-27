@@ -1410,7 +1410,8 @@
             /* GLOBAL STICKY FIX: Remove overflow/transform from ancestors */
             html,
             body {
-                overflow-x: hidden !important;
+                overflow-x: clip !important;
+                /* "clip" is safer than "hidden" for sticky */
                 overflow-y: auto !important;
             }
 
@@ -1419,7 +1420,9 @@
                 transform: none !important;
                 display: block !important;
                 height: auto !important;
-                padding-bottom: 2rem !important;
+                min-height: 250vh !important;
+                /* Ensure ample scroll space */
+                padding-bottom: 10rem !important;
             }
 
             /* Disable hero overflow which might block sticky */
@@ -1450,13 +1453,17 @@
                 opacity: 1 !important;
                 visibility: visible !important;
                 background: #111 !important;
-                border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
-                box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5) !important;
-                margin-bottom: 50vh !important;
+                border: 1px solid rgba(255, 255, 255, 0.15) !important;
+                box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8) !important;
+                /* Deeper shadow */
+                margin-bottom: 60vh !important;
+                /* Large gap to allow scroll-stacking */
                 z-index: 10;
-                padding: 2rem !important;
-                border-radius: 20px !important;
+                padding: 2.5rem 2rem !important;
+                border-radius: 24px !important;
                 counter-increment: step-counter;
+                margin-top: 0 !important;
+                /* Reset any tops */
             }
 
             .process-section.mobile-stack #phase1 {
