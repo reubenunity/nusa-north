@@ -226,12 +226,17 @@
     }
 
     .mastered-grid {
-        width: 100% !important;
+        display: flex !important;
         overflow-x: auto !important;
-        overflow-y: hidden !important;
         scroll-snap-type: x mandatory;
         scrollbar-width: none;
         -ms-overflow-style: none;
+
+        /* Breakout to full viewport width */
+        width: 100vw !important;
+        max-width: none !important;
+        margin-left: 50% !important;
+        transform: translateX(-50%) !important;
     }
 
     .mastered-grid::-webkit-scrollbar {
@@ -242,9 +247,10 @@
         display: flex !important;
         width: max-content !important;
         flex-wrap: nowrap !important;
-        gap: 12px !important;
-        padding: 0 1rem !important;
-        /* Remove auto-scroll animation for manual swipe */
+        gap: 1rem !important;
+        /* Center the first item: 50vw - (cardWidth/2) */
+        /* Card width is 140px, so half is 70px */
+        padding: 0 calc(50vw - 70px) !important;
         animation: none !important;
     }
 
@@ -253,7 +259,8 @@
         width: 140px !important;
         aspect-ratio: 9/16 !important;
         border-radius: 12px !important;
-        scroll-snap-align: start;
+        scroll-snap-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     /* Scroll Indicator - On SECTION level (not containers - overflow clips them) */
