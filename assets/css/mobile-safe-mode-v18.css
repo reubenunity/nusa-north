@@ -127,6 +127,10 @@
     /* Container becomes the scrollable area */
     .reel-container {
         display: flex !important;
+        flex-direction: row !important;
+        /* Force Horizontal */
+        flex-wrap: nowrap !important;
+        /* No Wrapping */
         overflow-x: scroll !important;
         scroll-snap-type: x mandatory;
         gap: 0 !important;
@@ -148,6 +152,17 @@
         min-width: 25vw;
     }
 
+    /* 6a. RESTORE ANIMATION FOR OTHER SECTIONS (We Mastered...) */
+    @keyframes mobileReelScroll {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
     /* Merge Tracks: Treat items as direct children of container */
     .reel-track {
         display: contents !important;
@@ -155,7 +170,7 @@
 
     .reel-track.track-right {
         display: contents !important;
-        /* Unhide Track 2! */
+        /* Unhide Track 2 */
     }
 
     /* Card Styling (Video Style: -5vw overlap) */
