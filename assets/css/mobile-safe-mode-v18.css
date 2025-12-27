@@ -131,9 +131,10 @@
         flex-wrap: nowrap !important;
         overflow-x: auto !important;
         scroll-snap-type: x mandatory;
-        gap: 0.75rem !important;
-        /* Center first card: (100vw - 90vw) / 2 = 5vw padding on each side */
-        padding: 1rem 5vw !important;
+        gap: 1rem !important;
+        /* Padding pushes content inward, scroll-padding tells browser where snap point is */
+        padding: 1rem calc((100vw - 88vw) / 2) !important;
+        scroll-padding-inline: calc((100vw - 88vw) / 2);
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
         /* Hide scrollbar but allow scroll */
@@ -155,10 +156,10 @@
         /* Hide second track on mobile - use only one row */
     }
 
-    /* Card Styling: Clean, full width, no 3D */
+    /* Card Styling: Clean, fills most of screen, leaves peek on sides */
     .reel-item {
-        flex: 0 0 90vw !important;
-        min-width: 90vw !important;
+        flex: 0 0 88vw !important;
+        min-width: 88vw !important;
         scroll-snap-align: center;
         margin: 0 !important;
         border-radius: 16px !important;
