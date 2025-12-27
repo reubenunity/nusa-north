@@ -3556,24 +3556,29 @@
     <!-- 3D Carousel Logic (Homepage 'Our Work') -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const carousels = document.querySelectorAll('.reel-container');
+            if (window.innerWidth <= 1024) {
+                const containers = document.querySelectorAll('.reel-container');
 
-            if (window.innerWidth <= 1024) { // Matches CSS breakpoint
-                carousels.forEach(carousel => {
-                    const cards = Array.from(carousel.querySelectorAll('.reel-item'));
+                containers.forEach(container => {
+                    // Get ALL items (Flat List)
+                    const items = Array.from(container.children).filter(el => el.classList.contains('reel-item'));
+
+                    if (items.length === 0) return;
+
                     let ticking = false;
 
                     const updateCarousel = () => {
-                        const center = carousel.scrollLeft + (carousel.offsetWidth / 2);
-                        const maxDist = carousel.offsetWidth / 1.5;
+                        const center = container.scrollLeft + (container.offsetWidth / 2);
+                        // Increase maxDist slightly to allow more items to be visible/active
+                        const maxDist = container.offsetWidth * 0.75;
 
-                        cards.forEach(card => {
+                        items.forEach(card => {
                             const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
                             const distance = center - cardCenter;
                             const absDistance = Math.abs(distance);
 
                             // Optimization: Skip calculation for far items
-                            if (absDistance > maxDist * 1.8) {
+                            if (absDistance > maxDist * 2.0) {
                                 if (card.dataset.state !== 'far') {
                                     card.style.transform = 'scale(0.6) rotateY(0deg)';
                                     card.style.opacity = '0.2';
@@ -3612,18 +3617,19 @@
                         }
                     };
 
-                    carousel.addEventListener('scroll', onScroll, { passive: true });
+                    container.addEventListener('scroll', onScroll, { passive: true });
                     window.addEventListener('resize', updateCarousel);
 
+                    // Trigger initial update
                     updateCarousel();
 
-                    // Center initial item safely
+                    // Center initial item safely (Item 0 or 1)
                     setTimeout(() => {
-                        if (cards[0]) {
-                            const scrollPos = cards[0].offsetLeft - (carousel.offsetWidth / 2) + (cards[0].offsetWidth / 2);
-                            carousel.scrollLeft = scrollPos;
+                        if (items[0]) {
+                            const scrollPos = items[0].offsetLeft - (container.offsetWidth / 2) + (items[0].offsetWidth / 2);
+                            container.scrollLeft = scrollPos;
                         }
-                    }, 500); // Slight delay to ensure layout is ready
+                    }, 200);
                 });
             }
         });
