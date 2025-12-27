@@ -199,31 +199,67 @@
         animation: none !important;
     }
 
-    /* 7. Services Size Fix & NEW 3D CAROUSEL TARGETS */
-    .mastered-sections {
-        padding: 4rem 0 !important;
-        overflow: hidden !important;
+    /* 7. "We Mastered" Services Section - Swipeable Scroll */
+    .mastered-section {
+        position: relative;
+        padding-bottom: 3rem !important;
     }
 
     .mastered-grid {
         width: 100% !important;
-        overflow: hidden !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .mastered-grid::-webkit-scrollbar {
+        display: none;
     }
 
     .mastered-carousel-track {
         display: flex !important;
         width: max-content !important;
         flex-wrap: nowrap !important;
-        gap: 16px !important;
-        animation: mobileReelScroll 40s linear infinite !important;
-        padding-left: 16px !important;
+        gap: 12px !important;
+        padding: 0 1rem !important;
+        /* Remove auto-scroll animation for manual swipe */
+        animation: none !important;
     }
 
     .mastered-card {
-        flex: 0 0 160px !important;
-        width: 160px !important;
+        flex: 0 0 140px !important;
+        width: 140px !important;
         aspect-ratio: 9/16 !important;
         border-radius: 12px !important;
+        scroll-snap-align: start;
+    }
+
+    /* Scroll Indicator - General for all swipeable sections */
+    .mastered-grid::after,
+    .reel-container::after,
+    .built-for-grid::after,
+    .team-marquee::after {
+        content: 'swipe →';
+        display: block;
+        position: absolute;
+        bottom: -1.5rem;
+        right: 1rem;
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.4);
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        pointer-events: none;
+    }
+
+    /* Ensure sections have relative positioning for the indicator */
+    .video-reel-section,
+    .mastered-section,
+    .built-for-section,
+    .team-section {
+        position: relative !important;
     }
 
     /* 7b. SIMPLE SCROLL STYLES (Built For / Team / Stats) */
