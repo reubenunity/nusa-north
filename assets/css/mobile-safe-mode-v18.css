@@ -132,9 +132,7 @@
         overflow-x: auto !important;
         scroll-snap-type: x mandatory;
         gap: 1rem !important;
-        /* Padding pushes content inward, scroll-padding tells browser where snap point is */
-        padding: 1rem calc((100vw - 88vw) / 2) !important;
-        scroll-padding-inline: calc((100vw - 88vw) / 2);
+        padding: 1rem 0 !important;
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
         /* Hide scrollbar but allow scroll */
@@ -144,6 +142,20 @@
 
     .reel-container::-webkit-scrollbar {
         display: none;
+    }
+
+    /* Spacer to center first card (universal fallback for all iOS) */
+    .reel-container::before {
+        content: '';
+        flex: 0 0 6vw;
+        min-width: 6vw;
+    }
+
+    /* Spacer for last card centering */
+    .reel-container::after {
+        content: '';
+        flex: 0 0 6vw;
+        min-width: 6vw;
     }
 
     /* Flatten Tracks for Mobile */
