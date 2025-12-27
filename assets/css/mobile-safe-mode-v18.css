@@ -168,8 +168,13 @@
     }
 
     .reel-track.track-right {
+        display: contents !important;
+        /* Show second track on mobile to reveal all 10 unique videos */
+    }
+
+    /* Hide Marquee Duplicates (Items 6+) on Mobile for a clean 10-item list */
+    .reel-track .reel-item:nth-child(n+6) {
         display: none !important;
-        /* Hide second track on mobile - use only one row */
     }
 
     /* Card Styling: Clean, fills most of screen, leaves peek on sides */
