@@ -32,8 +32,13 @@
     }
 
     .hero-visual {
-        transform: scale(0.8);
-        /* Scale down phones slightly */
+        transform: none !important;
+        width: 140vw !important;
+        /* Wider to show "many tiles" */
+        left: -20vw !important;
+        height: 100% !important;
+        opacity: 0.4 !important;
+        /* Ensure text legibility */
     }
 
     /* We Mastered Section - Horizontal Carousel (Defiant Style) */
@@ -120,13 +125,15 @@
     /* 5. Typography mimicking Defiant Digital */
     h1,
     .hero-span-results {
-        font-size: 40px !important;
-        /* Defiant H1 */
+        font-size: clamp(32px, 10vw, 40px) !important;
+        /* Safety cap to prevent cut-off */
         line-height: 1.1 !important;
         font-weight: 800 !important;
         letter-spacing: -0.02em !important;
-        width: 100%;
-        margin-bottom: 1.5rem !important;
+        width: 95% !important;
+        /* Prevent touching edges */
+        margin: 0 auto 1.5rem !important;
+        overflow-wrap: break-word !important;
     }
 
     h2,
@@ -249,4 +256,59 @@
         transform: none !important;
         /* Disable hover scale on mobile */
     }
+
+    /* === NEW REFINEMENTS (User Feedback) === */
+
+    /* 10. Hide Comparison Table */
+    .comparison-section {
+        display: none !important;
+    }
+
+    /* 11. Meet the Team - Stacked Vertical */
+    .team-marquee,
+    .team-track {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+        gap: 2rem !important;
+        animation: none !important;
+        /* Kill marquee */
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+    }
+
+    .team-card {
+        width: 100% !important;
+        margin-right: 0 !important;
+    }
+
+    /* 12. Our Work - Vertical Stack (Fixes "Slow" & "Ugly") */
+    .video-reel-section {
+        height: auto !important;
+        overflow: visible !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+    }
+
+    .reel-track {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        animation: none !important;
+        /* Kill marquee */
+        gap: 1.5rem !important;
+        margin-top: 0 !important;
+    }
+
+    .reel-item {
+        width: 100% !important;
+        max-width: 100% !important;
+        /* Full width cinematic */
+        aspect-ratio: 16/9;
+        margin: 0 !important;
+    }
+
 }
