@@ -119,8 +119,9 @@
     .video-reel-section {
         display: block !important;
         width: 100% !important;
-        overflow: hidden !important;
-        padding-bottom: 3rem !important;
+        overflow: visible !important;
+        padding-bottom: 2.5rem !important;
+        position: relative;
     }
 
     /* Container: Simple horizontal scroll */
@@ -130,8 +131,8 @@
         flex-wrap: nowrap !important;
         overflow-x: auto !important;
         scroll-snap-type: x mandatory;
-        gap: 1rem !important;
-        padding: 1rem 1rem 2rem 1rem !important;
+        gap: 0.75rem !important;
+        padding: 1rem !important;
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
         /* Hide scrollbar but allow scroll */
@@ -153,10 +154,10 @@
         /* Hide second track on mobile - use only one row */
     }
 
-    /* Card Styling: Clean, no overlap, no 3D */
+    /* Card Styling: Clean, full width, no 3D */
     .reel-item {
-        flex: 0 0 80vw !important;
-        min-width: 80vw !important;
+        flex: 0 0 90vw !important;
+        min-width: 90vw !important;
         scroll-snap-align: center;
         margin: 0 !important;
         border-radius: 16px !important;
@@ -169,23 +170,19 @@
         opacity: 1 !important;
     }
 
-    /* Scroll indicator dots (via wrapper) */
-    .reel-container::after {
-        content: '• • • • •';
+    /* Scroll indicator on SECTION (not container - overflow issue) */
+    .video-reel-section::after {
+        content: 'swipe →';
         display: block;
         position: absolute;
         bottom: 0.5rem;
-        left: 0;
-        right: 0;
-        text-align: center;
-        font-size: 0.6rem;
-        color: rgba(255, 255, 255, 0.3);
-        letter-spacing: 0.5em;
+        right: 1rem;
+        font-size: 0.65rem;
+        color: rgba(255, 255, 255, 0.5);
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
         pointer-events: none;
-    }
-
-    .video-reel-section {
-        position: relative;
     }
 
     .reel-overlay,
@@ -236,18 +233,17 @@
         scroll-snap-align: start;
     }
 
-    /* Scroll Indicator - General for all swipeable sections */
-    .mastered-grid::after,
-    .reel-container::after,
-    .built-for-grid::after,
-    .team-marquee::after {
+    /* Scroll Indicator - On SECTION level (not containers - overflow clips them) */
+    .mastered-section::after,
+    .built-for-section::after,
+    .team-section::after {
         content: 'swipe →';
         display: block;
         position: absolute;
-        bottom: -1.5rem;
+        bottom: 0.5rem;
         right: 1rem;
-        font-size: 0.7rem;
-        color: rgba(255, 255, 255, 0.4);
+        font-size: 0.65rem;
+        color: rgba(255, 255, 255, 0.5);
         font-weight: 500;
         letter-spacing: 0.05em;
         text-transform: uppercase;
@@ -255,11 +251,11 @@
     }
 
     /* Ensure sections have relative positioning for the indicator */
-    .video-reel-section,
     .mastered-section,
     .built-for-section,
     .team-section {
         position: relative !important;
+        padding-bottom: 2.5rem !important;
     }
 
     /* 7b. SIMPLE SCROLL STYLES (Built For / Team / Stats) */
