@@ -640,14 +640,16 @@
             margin: 0 auto;
             display: none;
             /* Hidden by default, toggled via JS */
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            /* Grid removed for single column layout */
+            /* grid-template-columns: 1fr 1fr; */
+            /* gap: 3rem; */
             align-items: center;
             animation: fadeIn 0.5s ease;
+            text-align: center;
         }
 
         .process-content.active {
-            display: grid;
+            display: block;
         }
 
         .process-text h3 {
@@ -1529,6 +1531,13 @@
 
     <nav>
         <a href="../../index.html" class="logo">nusa<span>&</span>north</a>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-btn" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <div class="nav-links">
             <div class="nav-item-group">
                 <a href="../../index.html#services" class="nav-link-trigger">Services</a>
@@ -1644,9 +1653,8 @@
                     the
                     market and uncover the unique "hook" that will separate your brand from the noise.</p>
             </div>
-            <div class="process-visual">
-                <!-- Placeholder for future image -->
-            </div>
+        </div>
+        <!-- Visual removed -->
         </div>
 
         <!-- Tab 2 -->
@@ -1657,8 +1665,7 @@
                     of
                     voice, and mapping out a 90-day editorial calendar that aligns with your business goals.</p>
             </div>
-            <div class="process-visual">
-            </div>
+            <!-- Visual Removed -->
         </div>
 
         <!-- Tab 3 -->
@@ -1669,8 +1676,7 @@
                     analyze
                     performance data to iterate and scale the winning concepts.</p>
             </div>
-            <div class="process-visual">
-            </div>
+            <!-- Visual Removed -->
         </div>
     </section>
 
