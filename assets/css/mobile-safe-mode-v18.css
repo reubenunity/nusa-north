@@ -132,7 +132,8 @@
         overflow-x: auto !important;
         scroll-snap-type: x mandatory;
         gap: 1rem !important;
-        padding: 1rem 0 !important;
+        /* USE PADDING FOR CENTERING - 6vw on each side centers 88vw cards */
+        padding: 1rem 6vw !important;
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
         /* Hide scrollbar but allow scroll */
@@ -142,20 +143,6 @@
 
     .reel-container::-webkit-scrollbar {
         display: none;
-    }
-
-    /* Spacer to center first card (universal fallback for all iOS) */
-    .reel-container::before {
-        content: '';
-        flex: 0 0 6vw;
-        min-width: 6vw;
-    }
-
-    /* Spacer for last card centering */
-    .reel-container::after {
-        content: '';
-        flex: 0 0 6vw;
-        min-width: 6vw;
     }
 
     /* Flatten Tracks for Mobile */
