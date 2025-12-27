@@ -54,7 +54,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="assets/css/mobile-menu.css?v=3">
     <!-- Mobile Safe Mode (Global Stabilization) -->
-    <link rel="stylesheet" href="assets/css/mobile-safe-mode-v8.css">
+    <link rel="stylesheet" href="assets/css/mobile-safe-mode-v9.css">
     <style>
         /* Deep Dive Section - Inlined for immediate update */
         .deep-dive-section {
@@ -2037,43 +2037,215 @@
         <!-- Right: 3D Grid -->
         <div class="hero-visual">
             <div class="floating-grid">
-                <!-- Column 1 (Scroll Up) -->
                 <div class="grid-column col-anim-up">
-                    <div class="grid-item"><img loading="eager" fetchpriority="high" src="assets/images/hero/img1.webp"
-                            alt="Work"></div>
-                    <div class="grid-item"><img loading="eager" fetchpriority="high" src="assets/images/hero/img2.webp"
-                            alt="Work"></div>
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img3.webp" alt="Work"></div>
-                    <!-- Duplicate for infinite scroll -->
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img1.webp" alt="Work"></div>
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img2.webp" alt="Work"></div>
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img3.webp" alt="Work"></div>
-                </div>
 
-                <!-- Column 2 (Scroll Down) -->
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img1.webp" alt="Visual 1"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img2.webp" alt="Visual 2"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img3.webp" alt="Visual 3"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img4.webp" alt="Visual 4"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img1.webp" alt="Visual 1"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img2.webp" alt="Visual 2"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img3.webp" alt="Visual 3"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img4.webp" alt="Visual 4"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                </div>
                 <div class="grid-column col-anim-down">
-                    <div class="grid-item"><img loading="eager" fetchpriority="high" src="assets/images/hero/img4.webp"
-                            alt="Work"></div>
-                    <div class="grid-item"><img loading="eager" fetchpriority="high" src="assets/images/hero/img5.webp"
-                            alt="Work"></div>
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img6.webp" alt="Work"></div>
-                    <!-- Duplicate -->
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img4.webp" alt="Work"></div>
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img5.webp" alt="Work"></div>
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img6.webp" alt="Work"></div>
-                </div>
 
-                <!-- Column 3 (Scroll Up) -->
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img1.webp" alt="Visual 1"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img2.webp" alt="Visual 2"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img3.webp" alt="Visual 3"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img4.webp" alt="Visual 4"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img1.webp" alt="Visual 1"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img2.webp" alt="Visual 2"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img3.webp" alt="Visual 3"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img4.webp" alt="Visual 4"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                </div>
                 <div class="grid-column col-anim-up">
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img7.webp" alt="Work"></div>
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img8.webp" alt="Work"></div>
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img9.webp" alt="Work"></div>
-                    <!-- Duplicate -->
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img7.webp" alt="Work"></div>
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img8.webp" alt="Work"></div>
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img9.webp" alt="Work"></div>
+
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img1.webp" alt="Visual 1"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img2.webp" alt="Visual 2"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img3.webp" alt="Visual 3"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img4.webp" alt="Visual 4"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img1.webp" alt="Visual 1"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img2.webp" alt="Visual 2"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img3.webp" alt="Visual 3"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img4.webp" alt="Visual 4"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                </div>
+                <div class="grid-column col-anim-down">
+
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img1.webp" alt="Visual 1"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img2.webp" alt="Visual 2"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img3.webp" alt="Visual 3"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img4.webp" alt="Visual 4"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img1.webp" alt="Visual 1"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img2.webp" alt="Visual 2"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img3.webp" alt="Visual 3"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img4.webp" alt="Visual 4"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                </div>
+                <div class="grid-column col-anim-up">
+
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img1.webp" alt="Visual 1"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img2.webp" alt="Visual 2"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img3.webp" alt="Visual 3"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img4.webp" alt="Visual 4"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img1.webp" alt="Visual 1"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img2.webp" alt="Visual 2"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img3.webp" alt="Visual 3"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/hero/img4.webp" alt="Visual 4"
+                            onerror="this.src='assets/images/hero/img1.webp'">
+                    </div>
                 </div>
             </div>
+            <div class="grid-item"><img loading="eager" fetchpriority="high" src="assets/images/hero/img2.webp"
+                    alt="Work"></div>
+            <div class="grid-item"><img loading="lazy" src="assets/images/hero/img3.webp" alt="Work"></div>
+            <!-- Duplicate for infinite scroll -->
+            <div class="grid-item"><img loading="lazy" src="assets/images/hero/img1.webp" alt="Work"></div>
+            <div class="grid-item"><img loading="lazy" src="assets/images/hero/img2.webp" alt="Work"></div>
+            <div class="grid-item"><img loading="lazy" src="assets/images/hero/img3.webp" alt="Work"></div>
+        </div>
+
+        <!-- Column 2 (Scroll Down) -->
+        <div class="grid-column col-anim-down">
+            <div class="grid-item"><img loading="eager" fetchpriority="high" src="assets/images/hero/img4.webp"
+                    alt="Work"></div>
+            <div class="grid-item"><img loading="eager" fetchpriority="high" src="assets/images/hero/img5.webp"
+                    alt="Work"></div>
+            <div class="grid-item"><img loading="lazy" src="assets/images/hero/img6.webp" alt="Work"></div>
+            <!-- Duplicate -->
+            <div class="grid-item"><img loading="lazy" src="assets/images/hero/img4.webp" alt="Work"></div>
+            <div class="grid-item"><img loading="lazy" src="assets/images/hero/img5.webp" alt="Work"></div>
+            <div class="grid-item"><img loading="lazy" src="assets/images/hero/img6.webp" alt="Work"></div>
+        </div>
+
+        <!-- Column 3 (Scroll Up) -->
+        <div class="grid-column col-anim-up">
+            <div class="grid-item"><img loading="lazy" src="assets/images/hero/img7.webp" alt="Work"></div>
+            <div class="grid-item"><img loading="lazy" src="assets/images/hero/img8.webp" alt="Work"></div>
+            <div class="grid-item"><img loading="lazy" src="assets/images/hero/img9.webp" alt="Work"></div>
+            <!-- Duplicate -->
+            <div class="grid-item"><img loading="lazy" src="assets/images/hero/img7.webp" alt="Work"></div>
+            <div class="grid-item"><img loading="lazy" src="assets/images/hero/img8.webp" alt="Work"></div>
+            <div class="grid-item"><img loading="lazy" src="assets/images/hero/img9.webp" alt="Work"></div>
+        </div>
+        </div>
         </div>
     </section>
 
