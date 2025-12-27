@@ -116,15 +116,21 @@
     }
 
     /* 6. "Our Work" - Simple Centered Scroll */
-    #work.video-reel-section {
+    /* NUCLEAR SPECIFICITY: Override all desktop styles */
+    html body #work.video-reel-section {
         display: block !important;
         width: 100% !important;
+        min-width: 100vw !important;
+        /* Force full width */
         max-width: none !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
+        margin: 0 !important;
+        /* Reset -24px margins */
+        padding: 0 0 2.5rem 0 !important;
+        /* Reset 24px padding, keep bottom */
         overflow: visible !important;
-        padding-bottom: 2.5rem !important;
-        position: relative;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
     }
 
     /* Container: Simple horizontal scroll - Full bleed to viewport */
