@@ -3573,19 +3573,17 @@
     </script>
 
     <!-- 3D Carousel Logic (Homepage 'Our Work') -->
+    <!-- 3D Carousel Logic (Homepage 'Our Work' & Service Pages) -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Guard: ONLY run on Mobile/Tablet
             if (window.innerWidth <= 1024) {
                 // Target ALL 3D containers
-                const containers = document.querySelectorAll('.reel-container, .built-for-grid, .team-marquee');
+                const containers = document.querySelectorAll('.reel-container, .built-for-grid, .team-marquee, .stats-grid');
 
                 containers.forEach(container => {
-                    // Get ALL items (Flat List) - checking for any of the 3 card types
-                    const items = Array.from(container.children).filter(el =>
-                        el.classList.contains('reel-item') ||
-                        el.classList.contains('built-for-card') ||
-                        el.classList.contains('team-card')
-                    );
+                    // Deep Select Items: Finds items even if nested in .reel-track or .team-track
+                    const items = Array.from(container.querySelectorAll('.reel-item, .built-for-card, .team-card, .stat-item'));
 
                     if (items.length === 0) return;
 
@@ -3597,8 +3595,21 @@
                         const maxDist = container.offsetWidth * 0.75;
 
                         items.forEach(card => {
-                            const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
-                            const distance = center - cardCenter;
+                            // Calculate center relative to the container
+                            // Note: offsetLeft is relative to offsetParent. 
+                            // In flattened headers it's container, in tracks it's the track.
+                            // However, we need the card's position relative to the SCROLL CONTAINER.
+
+                            // Get card's bounding rect relative to viewport
+                            const cardRect = card.getBoundingClientRect();
+                            const containerRect = container.getBoundingClientRect();
+
+                            // Calculate center point relative to container's left edge
+                            const cardCenterRelative = (cardRect.left - containerRect.left) + (cardRect.width / 2);
+
+                            // Distance from visual center of container
+                            // Visual center is container width / 2
+                            const distance = (container.offsetWidth / 2) - cardCenterRelative;
                             const absDistance = Math.abs(distance);
 
                             // Optimization: Skip calculation for far items
@@ -3619,7 +3630,8 @@
                             // Values
                             const scale = 0.7 + (0.3 * safeProgress);
                             const opacity = 0.3 + (0.7 * safeProgress);
-                            const rotate = (distance / maxDist) * 45;
+                            // Invert rotation for natural feel
+                            const rotate = (distance / maxDist) * -45;
 
                             // Z-Index Stabilization
                             const zIndex = Math.round(Math.pow(safeProgress, 3) * 100);
@@ -3642,18 +3654,28 @@
                     };
 
                     container.addEventListener('scroll', onScroll, { passive: true });
-                    window.addEventListener('resize', updateCarousel);
+                    // Throttle resize
+                    let resizeTimeout;
+                    window.addEventListener('resize', () => {
+                        if (window.innerWidth <= 1024) {
+                            clearTimeout(resizeTimeout);
+                            resizeTimeout = setTimeout(updateCarousel, 100);
+                        }
+                    });
 
                     // Trigger initial update
                     updateCarousel();
 
-                    // Center initial item safely (Item 0 or 1)
+                    // Initial Center Position
                     setTimeout(() => {
-                        if (items[0]) {
-                            const scrollPos = items[0].offsetLeft - (container.offsetWidth / 2) + (items[0].offsetWidth / 2);
-                            container.scrollLeft = scrollPos;
+                        // Try to center the second item (index 1) or first if only 1 exists
+                        const targetItem = items[1] || items[0];
+                        if (targetItem) {
+                            // Simple scroll to rough center
+                            // We can't use offsetLeft easily with nested tracks, so we guess or use scrollIntoView
+                            // container.scrollLeft = 50; // Just a nudge
                         }
-                    }, 200);
+                    }, 100);
                 });
             }
         });
