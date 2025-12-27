@@ -1404,27 +1404,20 @@
             z-index: 1;
         }
 
-        /* === INLINE MOBILE SAFE MODE OVERRIDE (CACHE BUSTER v2) === */
+        /* === INLINE MOBILE SAFE MODE OVERRIDE (CACHE BUSTER v5 - MENU FIX) === */
         @media (max-width: 1024px) {
 
-            /* GLOBAL STICKY FIX REVERTED: Restoring defaults */
+            /* 1. Global Overflow - Use 'clip' for safety */
             html,
             body {
-                overflow-x: hidden !important;
+                overflow-x: clip !important;
                 overflow-y: auto !important;
             }
 
-            html body .process-section.mobile-stack {
-                overflow: hidden !important;
-                display: block !important;
-                height: auto !important;
-                min-height: auto !important;
-                padding-bottom: 4rem !important;
-                counter-reset: cs-step-counter;
-            }
-
+            /* 2. Hero - Unlock overlap */
             .hero {
-                overflow: hidden !important;
+                overflow: visible !important;
+                z-index: 1 !important;
             }
 
             .hero-visual-container,
@@ -1433,42 +1426,64 @@
                 display: none !important;
             }
 
+            /* 3. MENU FORCE-FIX - Max Z-Index & Visibility */
+            nav {
+                display: flex !important;
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                z-index: 2147483647 !important;
+                /* Maximum Integer */
+                opacity: 1 !important;
+                visibility: visible !important;
+                background: rgba(0, 0, 0, 0.95) !important;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                min-height: 80px !important;
+                /* Ensure it has height */
+            }
+
+            /* 4. Process Section - Vertical Clean Stack */
+            .process-section.mobile-stack {
+                overflow: visible !important;
+                display: block !important;
+                height: auto !important;
+                padding-bottom: 4rem !important;
+                counter-reset: cs-step-counter;
+            }
+
             .process-section.mobile-stack .process-tabs {
                 display: none !important;
             }
 
-            html body .process-section.mobile-stack .process-content,
-            html body .process-section.mobile-stack div.process-content,
-            html body .process-section.mobile-stack #phase1,
-            html body .process-section.mobile-stack #phase2,
-            html body .process-section.mobile-stack #phase3 {
+            /* Target all content variations */
+            .process-section.mobile-stack .process-content,
+            .process-section.mobile-stack #phase1,
+            .process-section.mobile-stack #phase2,
+            .process-section.mobile-stack #phase3 {
                 display: flex !important;
                 flex-direction: column !important;
                 position: relative !important;
-                /* Revert to relative */
                 height: auto !important;
                 opacity: 1 !important;
                 visibility: visible !important;
                 background: #111 !important;
                 border: 1px solid rgba(255, 255, 255, 0.15) !important;
                 box-shadow: none !important;
-                margin-bottom: 1.5rem !important;
-                /* Standard gap */
+                margin-bottom: 2rem !important;
                 z-index: 1;
                 padding: 2rem !important;
                 border-radius: 20px !important;
                 counter-increment: cs-step-counter;
                 top: auto !important;
-                /* Reset top */
-                z-index: 3 !important;
             }
 
             .process-section.mobile-stack .process-content:last-child {
                 margin-bottom: 5rem !important;
             }
 
-            html body .process-section.mobile-stack .process-content::before,
-            html body .process-section.mobile-stack div.process-content::before {
+            /* Counter Pills (Preserved User Logic) */
+            .process-section.mobile-stack .process-content::before {
                 content: "Step " counter(cs-step-counter);
                 display: inline-block;
                 font-family: 'DM Sans', sans-serif;
