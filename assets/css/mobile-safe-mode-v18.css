@@ -132,11 +132,16 @@
         overflow-x: auto !important;
         scroll-snap-type: x mandatory;
         gap: 1rem !important;
-        /* FULL BLEED: break out of any parent padding */
+
+        /* FULL BLEED BREAKOUT: Force full viewport width regardless of parent */
         width: 100vw !important;
-        margin-left: calc(-1 * (100vw - 100%) / 2) !important;
-        /* Add internal padding to center first card */
+        max-width: none !important;
+        margin-left: 50% !important;
+        transform: translateX(-50%) !important;
+
+        /* Add internal padding to center first card (88vw card need 6vw sides) */
         padding: 1rem 6vw !important;
+
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
         /* Hide scrollbar but allow scroll */
