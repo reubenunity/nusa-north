@@ -286,6 +286,61 @@
     }
 
 
+    /* 8c. CONTENT STRATEGY SPECIFIC OVERRIDES */
+    /* Hero De-clutter */
+    .hero-visual-container,
+    .floating-grid,
+    .mockup-card {
+        display: none !important;
+    }
+
+    /* Extend Mobile Stack to support .process-content (Content Strategy page structure) */
+    .process-section.mobile-stack .process-content {
+        display: flex !important;
+        /* Force show all */
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        position: relative !important;
+        height: auto !important;
+        transform: none !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 20px !important;
+        padding: 2rem !important;
+        background: linear-gradient(180deg, rgba(20, 20, 20, 0.5), rgba(10, 10, 10, 0.8)) !important;
+        margin-bottom: 2rem !important;
+        counter-increment: step-counter;
+        /* Increment shared counter */
+    }
+
+    /* Add "Step X" label dynamically for process-content too */
+    .process-section.mobile-stack .process-content::before {
+        content: "Step " counter(step-counter);
+        display: inline-block;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: #d4af37;
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        padding: 0.4rem 1rem;
+        border-radius: 100px;
+        margin-bottom: 1rem;
+        align-self: flex-start;
+        background: rgba(212, 175, 55, 0.05);
+    }
+
+    /* Fix internal Layout of process-content */
+    .process-section.mobile-stack .process-content .process-text {
+        order: 1;
+    }
+
+    .process-section.mobile-stack .process-content .process-visual {
+        order: 2;
+        margin-top: 1rem;
+    }
+
     /* 9. SERVICE PAGES: COLLAPSIBLE FAQ (AGGRESSIVE FIX) */
     .faq-grid {
         display: flex !important;
