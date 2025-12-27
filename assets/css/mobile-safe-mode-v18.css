@@ -167,13 +167,13 @@
         display: contents !important;
     }
 
-    .reel-track.track-right {
+    html body #work .reel-track.track-right {
         display: contents !important;
         /* Show second track on mobile to reveal all 10 unique videos */
     }
 
     /* Hide Marquee Duplicates (Items 6+) on Mobile for a clean 10-item list */
-    .reel-track .reel-item:nth-child(n+6) {
+    html body #work .reel-track .reel-item:nth-child(n+6) {
         display: none !important;
     }
 
