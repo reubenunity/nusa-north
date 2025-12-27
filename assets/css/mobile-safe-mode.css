@@ -1,0 +1,153 @@
+/* === GLOBAL EMERGENCY SAFE MODE MOBILE CSS === */
+/* Applied to ALL pages for consistent mobile stability */
+
+@media (max-width: 768px) {
+
+    /* 1. Global Reset & Safety Lock */
+    html,
+    body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        position: relative;
+        max-width: 100vw !important;
+    }
+
+    * {
+        max-width: 100vw !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 2. Hide Complex/Heavy Elements */
+    .hero-visual,
+    .floating-grid,
+    .ambient-glow {
+        display: none !important;
+    }
+
+    /* 3. Navigation */
+    nav {
+        padding: 1rem 1.5rem !important;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    /* 4. Universal Section Padding & Stacking */
+    section,
+    .hero,
+    footer,
+    .footer-content {
+        padding: 3rem 1.5rem !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        height: auto !important;
+        min-height: auto !important;
+    }
+
+    /* 5. Typography Taming */
+    h1,
+    h2,
+    h3 {
+        width: 100%;
+        word-wrap: break-word;
+    }
+
+    .hero {
+        padding-top: 6rem !important;
+        /* Clear nav */
+        display: block !important;
+    }
+
+    .hero-content {
+        padding: 0 !important;
+        width: 100% !important;
+        align-items: center;
+    }
+
+    .hero-span-we {
+        font-size: 2rem !important;
+    }
+
+    .hero-span-deliver {
+        font-size: 2.5rem !important;
+    }
+
+    .hero-span-results {
+        font-size: clamp(3rem, 12vw, 4rem) !important;
+        /* Cap at 4rem */
+        line-height: 1;
+        margin: 0.5rem 0 1rem !important;
+    }
+
+    .hero-cta {
+        font-size: 1rem !important;
+        padding: 0.8rem 1.5rem !important;
+        width: auto !important;
+        max-width: 90vw !important;
+    }
+
+    /* 6. Grid & Layout Flattening */
+    .mastered-grid,
+    .portfolio-grid,
+    .stats-grid,
+    .deep-dive-grid,
+    .built-for-grid,
+    .about-content,
+    .comparison-row,
+    .hero-brands {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 2rem !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    /* 7. Element Sizing Caps */
+    .reel-item {
+        width: 100% !important;
+        max-width: 320px !important;
+        /* Strict cap */
+        aspect-ratio: 16/9;
+        margin: 0 auto;
+    }
+
+    .mastered-card,
+    .team-card,
+    .built-for-card,
+    .deep-dive-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: none !important;
+        margin: 0 !important;
+    }
+
+    .team-img-container {
+        width: 120px !important;
+        height: 120px !important;
+        margin: 0 auto 1rem !important;
+    }
+
+    /* 8. Scroll Container Safety */
+    .reel-track,
+    .team-track,
+    .logos-track {
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+        /* Prevent scroll breakout */
+    }
+
+    /* 9. Our Work / Play Button Refinements */
+    .reel-item .play-icon {
+        font-size: 1.5rem !important;
+        /* Reduced from 2.5rem */
+        opacity: 0.8 !important;
+        filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5)) !important;
+    }
+
+    .reel-item:hover .play-icon {
+        transform: none !important;
+        /* Disable hover scale on mobile */
+    }
+}
