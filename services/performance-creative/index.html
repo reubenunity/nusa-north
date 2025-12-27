@@ -2409,7 +2409,7 @@
                 min-width: 25vw;
             }
 
-            /* Card Styling (Included .deliverable-link) */
+            /* Card Styling (Shared) */
             .ugc-card,
             .work-card,
             .proof-card,
@@ -2417,13 +2417,27 @@
                 flex: 0 0 60vw !important;
                 min-width: 60vw !important;
                 scroll-snap-align: center;
-                margin: 0 -15vw !important;
-                /* Stronger Overlap requested */
                 transform-style: preserve-3d;
                 will-change: transform, opacity, z-index;
                 border-radius: 20px !important;
                 box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6) !important;
                 background: #0a0a0a;
+                backface-visibility: hidden;
+                /* Fix rendering glitches */
+            }
+
+            /* VIDEO Overlap (Cleaner, less aggressive) */
+            .ugc-card,
+            .work-card {
+                margin: 0 -5vw !important;
+                /* Gentle overlap */
+            }
+
+            /* DELIVERABLE Overlap (Strong 3D Stack, as requested) */
+            .deliverable-link,
+            .proof-card {
+                margin: 0 -15vw !important;
+                /* Deep overlap */
             }
 
             /* Deliverable Specifics */
