@@ -1404,8 +1404,28 @@
             z-index: 1;
         }
 
-        /* === INLINE MOBILE SAFE MODE OVERRIDE (CACHE BUSTER) === */
+        /* === INLINE MOBILE SAFE MODE OVERRIDE (CACHE BUSTER v2) === */
         @media (max-width: 1024px) {
+
+            /* GLOBAL STICKY FIX: Remove overflow/transform from ancestors */
+            html,
+            body {
+                overflow-x: hidden !important;
+                overflow-y: auto !important;
+            }
+
+            .process-section.mobile-stack {
+                overflow: visible !important;
+                transform: none !important;
+                display: block !important;
+                height: auto !important;
+                padding-bottom: 2rem !important;
+            }
+
+            /* Disable hero overflow which might block sticky */
+            .hero {
+                overflow: visible !important;
+            }
 
             .hero-visual-container,
             .floating-grid,
@@ -1423,6 +1443,8 @@
             .process-section.mobile-stack #phase3 {
                 display: flex !important;
                 flex-direction: column !important;
+                position: -webkit-sticky !important;
+                /* Safari Prefix */
                 position: sticky !important;
                 height: auto !important;
                 opacity: 1 !important;
