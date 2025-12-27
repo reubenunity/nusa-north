@@ -119,6 +119,9 @@
     .video-reel-section {
         display: block !important;
         width: 100% !important;
+        max-width: none !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
         overflow: visible !important;
         padding-bottom: 2.5rem !important;
         position: relative;
