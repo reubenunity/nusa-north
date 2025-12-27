@@ -1407,27 +1407,23 @@
         /* === INLINE MOBILE SAFE MODE OVERRIDE (CACHE BUSTER v2) === */
         @media (max-width: 1024px) {
 
-            /* GLOBAL STICKY FIX: Remove overflow/transform from ancestors */
+            /* GLOBAL STICKY FIX REVERTED: Restoring defaults */
             html,
             body {
-                overflow-x: clip !important;
-                /* "clip" is safer than "hidden" for sticky */
+                overflow-x: hidden !important;
                 overflow-y: auto !important;
             }
 
             .process-section.mobile-stack {
-                overflow: visible !important;
-                transform: none !important;
+                overflow: hidden !important;
                 display: block !important;
                 height: auto !important;
-                min-height: 250vh !important;
-                /* Ensure ample scroll space */
-                padding-bottom: 10rem !important;
+                min-height: auto !important;
+                padding-bottom: 4rem !important;
             }
 
-            /* Disable hero overflow which might block sticky */
             .hero {
-                overflow: visible !important;
+                overflow: hidden !important;
             }
 
             .hero-visual-container,
@@ -1446,68 +1442,54 @@
             .process-section.mobile-stack #phase3 {
                 display: flex !important;
                 flex-direction: column !important;
-                position: -webkit-sticky !important;
-                /* Safari Prefix */
-                position: sticky !important;
+                position: relative !important;
+                /* Revert to relative */
                 height: auto !important;
                 opacity: 1 !important;
                 visibility: visible !important;
                 background: #111 !important;
                 border: 1px solid rgba(255, 255, 255, 0.15) !important;
-                box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8) !important;
-                /* Deeper shadow */
-                margin-bottom: 60vh !important;
-                /* Large gap to allow scroll-stacking */
-                z-index: 10;
-                padding: 2.5rem 2rem !important;
-                border-radius: 24px !important;
+                box-shadow: none !important;
+                margin-bottom: 1.5rem !important;
+                /* Standard gap */
+                z-index: 1;
+                padding: 2rem !important;
+                border-radius: 20px !important;
                 counter-increment: step-counter;
-                margin-top: 0 !important;
-                /* Reset any tops */
+                top: auto !important;
+                /* Reset top */
             }
 
-            .process-section.mobile-stack #phase1 {
-                top: 15vh !important;
-                z-index: 1 !important;
-            }
+            z-index: 3 !important;
+        }
 
-            .process-section.mobile-stack #phase2 {
-                top: 18vh !important;
-                z-index: 2 !important;
-            }
+        .process-section.mobile-stack .process-content:last-child {
+            margin-bottom: 5rem !important;
+        }
 
-            .process-section.mobile-stack #phase3 {
-                top: 21vh !important;
-                z-index: 3 !important;
-            }
+        .process-section.mobile-stack .process-content::before {
+            content: "Step " counter(step-counter);
+            display: inline-block;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #d4af37;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: rgba(212, 175, 55, 0.05);
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 1rem;
+            align-self: flex-start;
+        }
 
-            .process-section.mobile-stack .process-content:last-child {
-                margin-bottom: 5rem !important;
-            }
+        .process-section.mobile-stack .process-content .process-visual {
+            display: none !important;
+        }
 
-            .process-section.mobile-stack .process-content::before {
-                content: "Step " counter(step-counter);
-                display: inline-block;
-                font-family: 'DM Sans', sans-serif;
-                font-size: 0.8rem;
-                text-transform: uppercase;
-                letter-spacing: 0.15em;
-                color: #d4af37;
-                border: 1px solid rgba(212, 175, 55, 0.3);
-                background: rgba(212, 175, 55, 0.05);
-                padding: 0.4rem 1rem;
-                border-radius: 100px;
-                margin-bottom: 1rem;
-                align-self: flex-start;
-            }
-
-            .process-section.mobile-stack .process-content .process-visual {
-                display: none !important;
-            }
-
-            .process-section.mobile-stack .process-content .process-text {
-                order: 1;
-            }
+        .process-section.mobile-stack .process-content .process-text {
+            order: 1;
+        }
         }
     </style>
 </head>
