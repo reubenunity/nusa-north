@@ -3625,6 +3625,82 @@
             });
         });
     </script>
+
+    <!-- 3D Carousel Logic (Homepage 'Our Work') -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const carousels = document.querySelectorAll('.reel-container');
+
+            if (window.innerWidth <= 1024) { // Matches CSS breakpoint
+                carousels.forEach(carousel => {
+                    const cards = Array.from(carousel.querySelectorAll('.reel-item'));
+                    let ticking = false;
+
+                    const updateCarousel = () => {
+                        const center = carousel.scrollLeft + (carousel.offsetWidth / 2);
+                        const maxDist = carousel.offsetWidth / 1.5;
+
+                        cards.forEach(card => {
+                            const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
+                            const distance = center - cardCenter;
+                            const absDistance = Math.abs(distance);
+
+                            // Optimization: Skip calculation for far items
+                            if (absDistance > maxDist * 1.8) {
+                                if (card.dataset.state !== 'far') {
+                                    card.style.transform = 'scale(0.6) rotateY(0deg)';
+                                    card.style.opacity = '0.2';
+                                    card.style.zIndex = '0';
+                                    card.dataset.state = 'far';
+                                }
+                                return;
+                            }
+
+                            // Math
+                            const progress = 1 - (absDistance / maxDist);
+                            const safeProgress = Math.max(0, Math.min(1, progress));
+
+                            // Values
+                            const scale = 0.7 + (0.3 * safeProgress);
+                            const opacity = 0.3 + (0.7 * safeProgress);
+                            const rotate = (distance / maxDist) * 45;
+
+                            // Z-Index Stabilization
+                            const zIndex = Math.round(Math.pow(safeProgress, 3) * 100);
+
+                            // Apply
+                            card.style.transform = `scale(${scale.toFixed(3)}) rotateY(${rotate.toFixed(1)}deg)`;
+                            card.style.opacity = opacity.toFixed(2);
+                            card.style.zIndex = zIndex;
+                            card.dataset.state = 'active';
+                        });
+
+                        ticking = false;
+                    };
+
+                    const onScroll = () => {
+                        if (!ticking) {
+                            window.requestAnimationFrame(updateCarousel);
+                            ticking = true;
+                        }
+                    };
+
+                    carousel.addEventListener('scroll', onScroll, { passive: true });
+                    window.addEventListener('resize', updateCarousel);
+
+                    updateCarousel();
+
+                    // Center initial item safely
+                    setTimeout(() => {
+                        if (cards[0]) {
+                            const scrollPos = cards[0].offsetLeft - (carousel.offsetWidth / 2) + (cards[0].offsetWidth / 2);
+                            carousel.scrollLeft = scrollPos;
+                        }
+                    }, 500); // Slight delay to ensure layout is ready
+                });
+            }
+        });
+    </script>
     <script src="assets/js/mobile-menu.js?v=2" defer></script>
     <!-- Safe Mobile Density Injection -->
     <script src="assets/js/mobile-density.js"></script>

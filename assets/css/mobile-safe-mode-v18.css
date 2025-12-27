@@ -116,15 +116,71 @@
     }
 
     /* 6. "Our Work" */
-    .reel-track.track-right {
-        display: none !important;
-    }
-
+    /* 6. "Our Work" - 3D Carousel Conversion */
     .video-reel-section {
         display: block !important;
         width: 100% !important;
         overflow: hidden !important;
-        padding-bottom: 20px !important;
+        padding-bottom: 2rem !important;
+    }
+
+    /* Container becomes the scrollable area */
+    .reel-container {
+        display: flex !important;
+        overflow-x: scroll !important;
+        scroll-snap-type: x mandatory;
+        gap: 0 !important;
+        padding: 2rem 50% 4rem 2rem !important;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        margin-left: -2rem !important;
+        margin-right: -2rem !important;
+        width: calc(100% + 4rem) !important;
+        box-sizing: border-box;
+        perspective: 1000px;
+    }
+
+    /* Spacer for centering */
+    .reel-container::before,
+    .reel-container::after {
+        content: '';
+        flex: 0 0 25vw;
+        min-width: 25vw;
+    }
+
+    /* Merge Tracks: Treat items as direct children of container */
+    .reel-track {
+        display: contents !important;
+    }
+
+    .reel-track.track-right {
+        display: contents !important;
+        /* Unhide Track 2! */
+    }
+
+    /* Card Styling (Video Style: -5vw overlap) */
+    .reel-item {
+        flex: 0 0 60vw !important;
+        min-width: 60vw !important;
+        scroll-snap-align: center;
+        margin: 0 -5vw !important;
+        /* Gentle overlap */
+        transform-style: preserve-3d;
+        will-change: transform, opacity, z-index;
+        border-radius: 20px !important;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6) !important;
+        background: #0a0a0a;
+        backface-visibility: hidden;
+        aspect-ratio: 16/9 !important;
+        /* Force cinematic ratio */
+        height: auto !important;
+    }
+
+    /* Initial State */
+    .reel-item {
+        transform: scale(0.7) rotateY(0deg);
+        opacity: 0.4;
+        z-index: 0;
     }
 
     .reel-overlay,
@@ -132,34 +188,10 @@
         display: none !important;
     }
 
-    .reel-track {
-        display: flex !important;
-        width: max-content !important;
-        flex-wrap: nowrap !important;
-        gap: 16px !important;
-        animation: mobileReelScroll 30s linear infinite !important;
-        padding-left: 16px !important;
-    }
-
+    /* Kill animations */
+    .reel-track,
     .reel-item {
-        width: 160px !important;
-        aspect-ratio: 3/4 !important;
-        flex: 0 0 auto !important;
-        background: #111;
-        border-radius: 12px;
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        position: relative;
-    }
-
-    @keyframes mobileReelScroll {
-        0% {
-            transform: translateX(0);
-        }
-
-        100% {
-            transform: translateX(-50%);
-        }
+        animation: none !important;
     }
 
     /* 7. Services Size Fix */
