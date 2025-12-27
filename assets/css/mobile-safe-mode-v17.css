@@ -240,8 +240,8 @@
         padding: 1.5rem !important;
     }
 
-    /* Aggressive Hiding for Closed State */
-    .faq-item:not(.active) .faq-answer {
+    /* Aggressive Hiding for Closed State - using faq-active to decouple from scroll reveal */
+    .faq-item:not(.faq-active) .faq-answer {
         display: none !important;
         height: 0 !important;
         overflow: hidden !important;
@@ -253,7 +253,7 @@
     }
 
     /* Explicit Open State */
-    .faq-item.active .faq-answer {
+    .faq-item.faq-active .faq-answer {
         display: block !important;
         height: auto !important;
         opacity: 1 !important;
@@ -264,12 +264,12 @@
         animation: fadeIn 0.4s ease forwards !important;
     }
 
-    .faq-item.active {
+    .faq-item.faq-active {
         background: rgba(212, 175, 55, 0.05) !important;
         border-color: rgba(212, 175, 55, 0.3) !important;
     }
 
-    .faq-item.active .faq-question span {
+    .faq-item.faq-active .faq-question span {
         transform: rotate(45deg) !important;
         display: inline-block !important;
         transition: transform 0.3s ease !important;
