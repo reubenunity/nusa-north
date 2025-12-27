@@ -154,8 +154,9 @@
     }
 
     /* 4. Universal Section Padding & Stacking */
+    /* 4. Universal Section Padding & Stacking */
     section,
-    .hero,
+    /* .hero, REMOVED HERO from generic padding to allow specific centering */
     footer,
     .footer-content {
         padding: 4rem 1rem !important;
@@ -167,6 +168,21 @@
         text-align: center !important;
         height: auto !important;
         min-height: auto !important;
+    }
+
+    /* HERO SPECIFIC - CENTERING FIX */
+    .hero {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        /* Vertical Center */
+        align-items: center !important;
+        text-align: center !important;
+        min-height: 100vh !important;
+        /* Full screen height */
+        padding: 0 20px !important;
+        position: relative !important;
+        overflow: hidden !important;
     }
 
     /* 5. Typography mimicking Defiant Digital (Safe & Impactful) */
@@ -360,16 +376,24 @@
     }
 
     .reel-item {
-        width: 220px !important;
-        /* Much smaller than 280px */
-        aspect-ratio: 9/16 !important;
-        /* Maintains full screen ratio but scaled down */
+        width: 160px !important;
+        /* Small box size */
+        aspect-ratio: 3/4 !important;
+        /* Portrait box */
         flex: 0 0 auto !important;
-        scroll-snap-align: center;
+        scroll-snap-align: start;
+        /* Align to start */
         margin: 0 !important;
         background: #111;
-        border-radius: 20px;
+        border-radius: 16px;
+        /* Smooth corners */
         overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Hide the play button overlay for cleaner look if requested, or make it small */
+    .reel-overlay {
+        background: rgba(0, 0, 0, 0.3) !important;
     }
 
 }
