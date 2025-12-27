@@ -132,7 +132,8 @@
         overflow-x: auto !important;
         scroll-snap-type: x mandatory;
         gap: 0.75rem !important;
-        padding: 1rem !important;
+        /* Center first card: (100vw - 90vw) / 2 = 5vw padding on each side */
+        padding: 1rem 5vw !important;
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
         /* Hide scrollbar but allow scroll */
