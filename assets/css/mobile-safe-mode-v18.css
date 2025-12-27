@@ -209,7 +209,7 @@
         animation: none !important;
     }
 
-    /* 7. Services Size Fix */
+    /* 7. Services Size Fix & NEW 3D CAROUSEL TARGETS */
     .mastered-sections {
         padding: 4rem 0 !important;
         overflow: hidden !important;
@@ -234,6 +234,69 @@
         width: 160px !important;
         aspect-ratio: 9/16 !important;
         border-radius: 12px !important;
+    }
+
+    /* 7b. SHARED 3D CAROUSEL STYLES (Built For / Team) */
+    .built-for-grid,
+    .team-marquee,
+    .stats-grid {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: scroll !important;
+        scroll-snap-type: x mandatory;
+        gap: 0 !important;
+        padding: 2rem 50% 4rem 2rem !important;
+        margin-left: -2rem !important;
+        margin-right: -2rem !important;
+        width: calc(100% + 4rem) !important;
+        perspective: 1000px;
+        -webkit-overflow-scrolling: touch;
+        /* Disable native grid if present */
+        grid-template-columns: none !important;
+    }
+
+    .team-track {
+        display: contents !important;
+        /* Flatten team track */
+    }
+
+    /* Cards */
+    .built-for-card,
+    .team-card,
+    .stat-item {
+        flex: 0 0 70vw !important;
+        /* Wider for info cards */
+        min-width: 70vw !important;
+        scroll-snap-align: center;
+        margin: 0 -5vw !important;
+        transform-style: preserve-3d;
+        will-change: transform, opacity, z-index;
+        backface-visibility: hidden;
+        background: #0a0a0a;
+        /* Ensure solid bg */
+        border-radius: 20px !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+        /* Reset heights */
+        height: auto !important;
+        aspect-ratio: auto !important;
+    }
+
+    /* Stats Specific */
+    .stat-item {
+        flex: 0 0 50vw !important;
+        min-width: 50vw !important;
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+
+    /* Initial State */
+    .built-for-card,
+    .team-card,
+    .stat-item {
+        transform: scale(0.7) rotateY(0deg);
+        opacity: 0.4;
+        z-index: 0;
     }
 
     /* 8. SERVICE PAGES: SCROLLABLE STEPS (Default / Performance Creative) */
