@@ -2372,13 +2372,14 @@
             box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
         }
 
-        /* === INLINE MOBILE 3D CAROUSEL (Cover Flow v2 - Stabilized) === */
+        /* === INLINE MOBILE 3D CAROUSEL (Cover Flow v3 - Target Fix & Stronger Overlap) === */
         @media (max-width: 768px) {
 
-            /* Carousel Container (Applied to all 3 grids) */
+            /* Carousel Container (Included .deliverables-grid) */
             .ugc-grid,
             .work-grid,
-            .proof-grid {
+            .proof-grid,
+            .deliverables-grid {
                 display: flex !important;
                 overflow-x: scroll !important;
                 scroll-snap-type: x mandatory;
@@ -2390,41 +2391,57 @@
                 margin-right: -2rem !important;
                 width: calc(100% + 4rem) !important;
                 box-sizing: border-box;
-                perspective: 1200px;
-                /* Increased perspective for less distortion */
+                perspective: 1000px;
+                /* Tighter perspective for more depth */
             }
 
             /* Spacer */
             .ugc-grid::before,
             .work-grid::before,
             .proof-grid::before,
+            .deliverables-grid::before,
             .ugc-grid::after,
             .work-grid::after,
-            .proof-grid::after {
+            .proof-grid::after,
+            .deliverables-grid::after {
                 content: '';
                 flex: 0 0 25vw;
                 min-width: 25vw;
             }
 
-            /* Card Styling */
+            /* Card Styling (Included .deliverable-link) */
             .ugc-card,
             .work-card,
-            .proof-card {
+            .proof-card,
+            .deliverable-link {
                 flex: 0 0 60vw !important;
                 min-width: 60vw !important;
                 scroll-snap-align: center;
-                margin: 0 -12vw !important;
-                /* Increased overlap slightly */
+                margin: 0 -15vw !important;
+                /* Stronger Overlap requested */
                 transform-style: preserve-3d;
-                /* Removed transition: transform to let JS drive it fully */
                 will-change: transform, opacity, z-index;
                 border-radius: 20px !important;
-                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6) !important;
+                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6) !important;
                 background: #0a0a0a;
-                /* Ensure background prevents see-through glitches */
             }
 
-            /* Proof Card Specifics (adjust padding since it has text) */
+            /* Deliverable Specifics */
+            .deliverable-link {
+                display: block !important;
+                text-decoration: none;
+                height: auto;
+            }
+
+            /* Ensure inner content fills the card */
+            .deliverable-item {
+                height: 100%;
+                width: 100%;
+                border-radius: 20px;
+                overflow: hidden;
+                position: relative;
+            }
+
             .proof-card {
                 padding: 2rem 1.5rem !important;
                 height: auto !important;
@@ -2436,7 +2453,8 @@
             /* Initial State */
             .ugc-card,
             .work-card,
-            .proof-card {
+            .proof-card,
+            .deliverable-link {
                 transform: scale(0.7) rotateY(0deg);
                 opacity: 0.4;
                 z-index: 0;
@@ -2449,21 +2467,21 @@
         }
     </style>
 
-    <!-- 3D Carousel Logic (Performance Optimized v2) -->
+    <!-- 3D Carousel Logic (Performance Optimized v3) -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Target all 3 grids now
-            const carousels = document.querySelectorAll('.ugc-grid, .work-grid, .proof-grid');
+            // Target all grids including deliverables
+            const carousels = document.querySelectorAll('.ugc-grid, .work-grid, .proof-grid, .deliverables-grid');
 
             if (window.innerWidth <= 768) {
                 carousels.forEach(carousel => {
-                    // Collect all card types
-                    const cards = Array.from(carousel.querySelectorAll('.ugc-card, .work-card, .proof-card'));
+                    // Collect cards (including links for deliverables)
+                    const cards = Array.from(carousel.querySelectorAll('.ugc-card, .work-card, .proof-card, .deliverable-link'));
                     let ticking = false;
 
                     const updateCarousel = () => {
                         const center = carousel.scrollLeft + (carousel.offsetWidth / 2);
-                        const maxDist = carousel.offsetWidth / 1.6; // Tweak for falloff
+                        const maxDist = carousel.offsetWidth / 1.5;
 
                         cards.forEach(card => {
                             const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
@@ -2473,7 +2491,7 @@
                             // Optimization: Skip calculations for far items
                             if (absDistance > maxDist * 1.8) {
                                 if (card.dataset.state !== 'far') {
-                                    card.style.transform = 'scale(0.65) rotateY(0deg)';
+                                    card.style.transform = 'scale(0.6) rotateY(0deg)';
                                     card.style.opacity = '0.2';
                                     card.style.zIndex = '0';
                                     card.dataset.state = 'far';
@@ -2490,7 +2508,7 @@
                             const opacity = 0.3 + (0.7 * safeProgress);
                             const rotate = (distance / maxDist) * 45;
 
-                            // Z-Index Stabilization: Curve it sharply so there's a clear winner
+                            // Z-Index Stabilization: Curve it sharply
                             const zIndex = Math.round(Math.pow(safeProgress, 3) * 100);
 
                             // Apply
