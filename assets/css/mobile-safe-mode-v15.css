@@ -1,0 +1,218 @@
+/* === GLOBAL EMERGENCY SAFE MODE MOBILE CSS (v15) === */
+/* Fixes: Single Line Videos, Marquee Math, No Play Buttons */
+
+@media (max-width: 768px) {
+
+    /* 1. Global Reset */
+    html,
+    body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+    }
+
+    * {
+        box-sizing: border-box !important;
+    }
+
+    /* 2. Header (Maintained) */
+    nav {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        padding: 20px 24px !important;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 0) 100%) !important;
+        z-index: 1001 !important;
+        justify-content: space-between !important;
+        border-bottom: none !important;
+    }
+
+    .nav-logo,
+    nav img {
+        height: 24px !important;
+        width: auto !important;
+    }
+
+    .mobile-menu-btn {
+        margin-right: -4px !important;
+    }
+
+    /* 3. Hero Centering (Maintained) */
+    .hero {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+        min-height: 100vh !important;
+        padding: 0 20px !important;
+        position: relative !important;
+    }
+
+    .floating-grid {
+        display: flex !important;
+        width: 200vw !important;
+        left: -50vw !important;
+        top: 0 !important;
+        transform: scale(0.5) rotate(-12deg) !important;
+        opacity: 0.15 !important;
+        filter: grayscale(100%) brightness(0.4) !important;
+    }
+
+    /* 4. Clients / Trusted By - MATHEMATICAL GAP FIX */
+    .logos-section {
+        overflow: hidden !important;
+        width: 100% !important;
+        padding: 3rem 0 !important;
+        background: #000 !important;
+    }
+
+    .logos-track {
+        display: flex !important;
+        width: max-content !important;
+        /* GAP REMOVED to fix loop calculation */
+        gap: 0 !important;
+        margin: 0 !important;
+        padding-left: 0 !important;
+        animation: mobileLogoScroll 40s linear infinite !important;
+    }
+
+    /* Padding handles spacing for perfect 50% split */
+    .logo-item {
+        padding-right: 4rem !important;
+        font-size: 1.1rem !important;
+        color: #555 !important;
+        white-space: nowrap !important;
+        font-weight: 500 !important;
+        text-transform: uppercase !important;
+    }
+
+    @keyframes mobileLogoScroll {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    /* 5. Generic Sections (Maintained) */
+    section,
+    .welcome-section,
+    .stats-section,
+    .deep-dive-section {
+        text-align: center !important;
+        align-items: center !important;
+        padding: 4rem 1.5rem !important;
+    }
+
+    .section-title,
+    h2,
+    .portfolio-header h2 {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* 6. "Our Work" - SINGLE LINE & CLEANER */
+
+    /* Hide the second track completely on mobile for "One Line" look */
+    .reel-track.track-right {
+        display: none !important;
+    }
+
+    .video-reel-section {
+        display: block !important;
+        width: 100% !important;
+        overflow: hidden !important;
+        padding-bottom: 20px !important;
+        /* Reduced padding since only 1 line */
+    }
+
+    /* Hide Play Buttons (Ugly) */
+    .reel-overlay,
+    .play-icon {
+        display: none !important;
+    }
+
+    .reel-track {
+        display: flex !important;
+        width: max-content !important;
+        flex-wrap: nowrap !important;
+        gap: 16px !important;
+        /* Smoother, slower pan */
+        animation: mobileReelScroll 30s linear infinite !important;
+        padding-left: 16px !important;
+    }
+
+    .reel-item {
+        width: 160px !important;
+        aspect-ratio: 3/4 !important;
+        flex: 0 0 auto !important;
+        background: #111;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        position: relative;
+    }
+
+    /* 7. Services Size Fix (Maintained) */
+    .mastered-section {
+        padding: 4rem 0 !important;
+        overflow: hidden !important;
+    }
+
+    .mastered-grid {
+        width: 100% !important;
+        overflow: hidden !important;
+    }
+
+    .mastered-carousel-track {
+        display: flex !important;
+        width: max-content !important;
+        flex-wrap: nowrap !important;
+        gap: 16px !important;
+        animation: mobileReelScroll 40s linear infinite !important;
+        padding-left: 16px !important;
+    }
+
+    .mastered-card {
+        flex: 0 0 160px !important;
+        width: 160px !important;
+        aspect-ratio: 9/16 !important;
+        border-radius: 12px !important;
+    }
+
+    /* 8. Text Alignment (Center) */
+    .portfolio-header {
+        margin-bottom: 2rem !important;
+        padding: 0 20px !important;
+        text-align: center !important;
+    }
+
+    .portfolio-subtext {
+        text-align: center !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        opacity: 0.7 !important;
+    }
+
+    /* Animation Keyframe */
+    @keyframes mobileReelScroll {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    h1 {
+        font-size: clamp(40px, 11vw, 56px) !important;
+        line-height: 0.95 !important;
+        margin-bottom: 1.5rem !important;
+    }
+}
