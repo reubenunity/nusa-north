@@ -116,7 +116,7 @@
     }
 
     /* 6. "Our Work" - Simple Centered Scroll */
-    .video-reel-section {
+    #work.video-reel-section {
         display: block !important;
         width: 100% !important;
         max-width: none !important;
