@@ -68,7 +68,8 @@
 
     /* 3. Navigation */
     nav {
-        padding: 1rem 1.5rem !important;
+        padding: 1rem 1rem !important;
+        /* Defiant: 16px */
         width: 100%;
         justify-content: space-between;
     }
@@ -78,7 +79,8 @@
     .hero,
     footer,
     .footer-content {
-        padding: 3rem 1.5rem !important;
+        padding: 4rem 1rem !important;
+        /* Defiant: 16px side padding, generous vertical */
         width: 100% !important;
         display: flex !important;
         flex-direction: column !important;
@@ -88,46 +90,74 @@
         min-height: auto !important;
     }
 
-    /* 5. Typography Taming */
+    /* 5. Typography mimicking Defiant Digital */
     h1,
-    h2,
-    h3 {
+    .hero-span-results {
+        font-size: 40px !important;
+        /* Defiant H1 */
+        line-height: 1.1 !important;
+        font-weight: 800 !important;
+        letter-spacing: -0.02em !important;
         width: 100%;
-        word-wrap: break-word;
+        margin-bottom: 1.5rem !important;
     }
 
-    .hero {
-        padding-top: 6rem !important;
-        /* Clear nav */
-        display: block !important;
+    h2,
+    .section-title {
+        font-size: 36px !important;
+        /* Defiant H2 equivalent */
+        line-height: 1.1 !important;
+        font-weight: 700 !important;
+        margin-bottom: 1.5rem !important;
+        width: 100%;
     }
 
+    p,
+    .hero-subtitle,
+    .lead-text {
+        font-size: 19px !important;
+        /* Defiant Body */
+        line-height: 1.5 !important;
+        color: #e0e0e0 !important;
+    }
+
+    /* Button Styling mimicking Defiant */
+    .hero-cta,
+    .btn,
+    .button,
+    .nav-cta,
+    .submit-btn {
+        padding: 18px 36px !important;
+        /* Defiant: 18px 36px */
+        font-size: 15px !important;
+        border-radius: 50px !important;
+        font-weight: 600 !important;
+        width: auto !important;
+        /* Not full width */
+        display: inline-flex !important;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+    }
+
+    .hero-span-we,
+    .hero-span-deliver {
+        display: block;
+        font-size: 20px !important;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        opacity: 0.8;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Reset some specific overrides to match new typography */
     .hero-content {
         padding: 0 !important;
         width: 100% !important;
         align-items: center;
-    }
-
-    .hero-span-we {
-        font-size: 2rem !important;
-    }
-
-    .hero-span-deliver {
-        font-size: 2.5rem !important;
-    }
-
-    .hero-span-results {
-        font-size: clamp(3rem, 12vw, 4rem) !important;
-        /* Cap at 4rem */
-        line-height: 1;
-        margin: 0.5rem 0 1rem !important;
-    }
-
-    .hero-cta {
-        font-size: 1rem !important;
-        padding: 0.8rem 1.5rem !important;
-        width: auto !important;
-        max-width: 90vw !important;
+        text-align: center;
     }
 
     /* 6. Grid & Layout Flattening */
