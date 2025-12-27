@@ -1873,45 +1873,48 @@
         }
 
 
-        .logos-section,
-        .video-reel-section,
-        .team-marquee {
-            width: 100vw !important;
-            margin-left: -1.5rem !important;
-            padding-left: 1.5rem !important;
-            overflow: hidden !important;
-        }
+        @media (max-width: 1024px) {
 
-        /* 9. Comparison Table Specifics */
-        .comparison-cell {
-            justify-content: center !important;
-            padding: 0.5rem !important;
-            text-align: center;
-            border: none !important;
-        }
+            .logos-section,
+            .video-reel-section,
+            .team-marquee {
+                width: 100vw !important;
+                margin-left: -1.5rem !important;
+                padding-left: 1.5rem !important;
+                overflow: hidden !important;
+            }
 
-        .comparison-row {
-            background: var(--bg-card);
-            border-radius: 12px;
-            padding: 1.5rem;
-            gap: 0.5rem;
-            display: flex !important;
-        }
+            /* 9. Comparison Table Specifics */
+            .comparison-cell {
+                justify-content: center !important;
+                padding: 0.5rem !important;
+                text-align: center;
+                border: none !important;
+            }
 
-        /* 10. Nav Dropdown Visibility Override */
-        .nav-dropdown {
-            display: flex !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-            position: static !important;
-            transform: none !important;
-            width: 100% !important;
-            margin-top: 1rem;
-        }
+            .comparison-row {
+                background: var(--bg-card);
+                border-radius: 12px;
+                padding: 1.5rem;
+                gap: 0.5rem;
+                display: flex !important;
+            }
 
-        .nav-item-group {
-            flex-direction: column !important;
-            align-items: center !important;
+            /* 10. Nav Dropdown Visibility Override */
+            .nav-dropdown {
+                display: flex !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                position: static !important;
+                transform: none !important;
+                width: 100% !important;
+                margin-top: 1rem;
+            }
+
+            .nav-item-group {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
         }
 
         /* Animations */
