@@ -2371,8 +2371,147 @@
             overflow: hidden;
             box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
         }
+
+        /* === INLINE MOBILE 3D CAROUSEL (Cover Flow) === */
+        @media (max-width: 768px) {
+
+            /* Carousel Container */
+            .ugc-grid,
+            .work-grid {
+                display: flex !important;
+                overflow-x: scroll !important;
+                scroll-snap-type: x mandatory;
+                gap: 0 !important;
+                /* Managed by padding */
+                padding: 2rem 50% 4rem 2rem !important;
+                /* Right padding creates space for centering */
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                margin-left: -2rem !important;
+                /* Full bleed */
+                margin-right: -2rem !important;
+                width: calc(100% + 4rem) !important;
+                box-sizing: border-box;
+                perspective: 1000px;
+                /* Essential for 3D effect */
+            }
+
+            /* Spacer to help center the first/last items */
+            .ugc-grid::before,
+            .work-grid::before,
+            .ugc-grid::after,
+            .work-grid::after {
+                content: '';
+                flex: 0 0 25vw;
+                /* Spacer width */
+            }
+
+            /* Card Styling */
+            .ugc-card,
+            .work-card {
+                flex: 0 0 60vw !important;
+                /* Card Width */
+                scroll-snap-align: center;
+                margin: 0 -10vw !important;
+                /* Negative margin for overlap feel */
+                transform-style: preserve-3d;
+                transition: transform 0.1s ease-out;
+                /* Smooth JS updates */
+                will-change: transform;
+                border-radius: 20px !important;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+            }
+
+            /* Initial State (JS will override this) */
+            .ugc-card,
+            .work-card {
+                transform: scale(0.8) rotateY(0deg);
+                opacity: 0.5;
+                z-index: 1;
+            }
+
+            /* Active State (Visual fallback) */
+            .ugc-card.active,
+            .work-card.active {
+                opacity: 1;
+                z-index: 10;
+            }
+
+            /* Hide non-essential desktop elements */
+            .work-cta,
+            .clients-label {
+                display: block;
+            }
+
+            /* Keep these */
+        }
     </style>
-</head>
+
+    <!-- 3D Carousel Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const carousels = document.querySelectorAll('.ugc-grid, .work-grid');
+
+            if (window.innerWidth <= 768) {
+                carousels.forEach(carousel => {
+                    const cards = carousel.querySelectorAll('.ugc-card, .work-card');
+
+                    const updateCarousel = () => {
+                        const center = carousel.scrollLeft + (carousel.offsetWidth / 2);
+
+                        cards.forEach(card => {
+                            const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
+                            const distance = center - cardCenter;
+                            const absDistance = Math.abs(distance);
+                            const maxDist = carousel.offsetWidth / 1.5;
+
+                            // Calculate 3D values
+                            let scale = 1;
+                            let rotate = 0;
+                            let opacity = 1;
+                            let zIndex = 1;
+
+                            if (absDistance < maxDist) {
+                                // Active/Near Center
+                                const progress = 1 - (absDistance / maxDist);
+                                scale = 0.7 + (0.3 * progress); // Scale from 0.7 to 1.0
+                                opacity = 0.3 + (0.7 * progress);
+                                rotate = (distance / maxDist) * 45; // Rotate up to 45deg
+                                zIndex = Math.round(progress * 100);
+                            } else {
+                                // Far edges
+                                scale = 0.7;
+                                opacity = 0.3;
+                                rotate = distance > 0 ? 45 : -45;
+                                zIndex = 0;
+                            }
+
+                            // Apply Styles
+                            card.style.transform = `scale(${scale}) rotateY(${rotate}deg)`;
+                            card.style.opacity = opacity;
+                            card.style.zIndex = zIndex;
+                        });
+                    };
+
+                    // Listeners
+                    carousel.addEventListener('scroll', updateCarousel);
+                    window.addEventListener('resize', updateCarousel);
+
+                    // Initialize
+                    updateCarousel();
+
+                    // Center initial item (optional delay)
+                    setTimeout(() => {
+                        const firstCard = cards[0];
+                        if (firstCard) {
+                            const scrollPos = firstCard.offsetLeft - (carousel.offsetWidth / 2) + (firstCard.offsetWidth / 2);
+                            carousel.scrollLeft = scrollPos;
+                        }
+                    }, 100);
+                });
+            }
+        });
+    </script>
 
 <body>
 
