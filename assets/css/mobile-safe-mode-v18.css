@@ -599,5 +599,92 @@
     html body .showcase-card {
         margin-top: 2rem !important;
         padding: 2rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+        height: auto !important;
+        min-height: 0 !important;
+    }
+
+    html body .card-content {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+        position: relative !important;
+        z-index: 2 !important;
+    }
+
+    /* 1. Text Top */
+    html body .card-left {
+        width: 100% !important;
+        text-align: center !important;
+        order: 1 !important;
+    }
+
+    html body .card-left h2 {
+        font-size: 1.75rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    html body .card-description {
+        font-size: 1rem !important;
+        opacity: 0.8 !important;
+        max-width: 100% !important;
+    }
+
+    html body .card-copyright {
+        display: none !important;
+        /* Hide noise */
+    }
+
+    /* 2. Visual Middle - SIMPLIFIED */
+    html body .card-center {
+        width: 100% !important;
+        height: auto !important;
+        order: 2 !important;
+        position: relative !important;
+        margin: 0 !important;
+        transform: none !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    /* Hide the complex floating/rotating mess */
+    html body .floating-asset {
+        display: none !important;
+    }
+
+    /* Static Phone */
+    html body .phone-mockup {
+        position: relative !important;
+        width: 200px !important;
+        /* Controlled width */
+        height: auto !important;
+        transform: none !important;
+        margin: 0 auto !important;
+        left: auto !important;
+        top: auto !important;
+        opacity: 1 !important;
+    }
+
+    html body .phone-screen {
+        transform: none !important;
+        animation: none !important;
+    }
+
+    /* 3. CTA Bottom */
+    html body .card-right {
+        width: 100% !important;
+        order: 3 !important;
+        display: flex !important;
+        justify-content: center !important;
+        padding: 0 !important;
+    }
+
+    html body .card-right .hero-cta {
+        width: 100% !important;
+        justify-content: center !important;
     }
 }
+
+```
