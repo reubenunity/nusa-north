@@ -569,4 +569,35 @@
         line-height: 0.95 !important;
         margin-bottom: 1.5rem !important;
     }
+
+    /* 11. UNFAIR ADVANTAGE / COMMERCIAL MASTERY ADJUSTMENTS */
+    html body .mastery-section {
+        padding: 4rem 1.5rem !important;
+        height: auto !important;
+        min-height: 0 !important;
+    }
+
+    html body .mastery-header-top {
+        margin-bottom: 2rem !important;
+    }
+
+    html body .mastery-header-top h2 {
+        font-size: clamp(2rem, 8vw, 2.75rem) !important;
+        line-height: 1.1 !important;
+        margin-bottom: 1rem !important;
+    }
+
+    html body .mastery-subtitle {
+        font-size: 1rem !important;
+        margin-bottom: 2rem !important;
+    }
+
+    html body .mastery-intro p {
+        font-size: 1.25rem !important;
+    }
+
+    html body .showcase-card {
+        margin-top: 2rem !important;
+        padding: 2rem !important;
+    }
 }
