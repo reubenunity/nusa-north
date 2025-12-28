@@ -670,6 +670,24 @@
     html body .phone-screen {
         transform: none !important;
         animation: none !important;
+        height: auto !important;
+        display: block !important;
+        overflow: visible !important;
+    }
+
+    html body .phone-screen img {
+        position: relative !important;
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        object-fit: contain !important;
+    }
+
+    /* Hide the second image if it's meant to be a slideshow, just show the first one */
+    html body .phone-screen img:not(:first-child) {
+        display: none !important;
     }
 
     /* 3. CTA Bottom */
