@@ -289,8 +289,8 @@
     }
 
     /* 7b. SIMPLE SCROLL STYLES (Built For / Team / Stats) */
+    html body .team-marquee,
     .built-for-grid,
-    .team-marquee,
     .stats-grid {
         display: flex !important;
         flex-direction: row !important;
@@ -298,12 +298,28 @@
         overflow-x: auto !important;
         scroll-snap-type: x mandatory;
         gap: 1rem !important;
-        padding: 1rem !important;
+
+        /* Breakout to full viewport width (Nuclear) */
+        width: 100vw !important;
+        max-width: none !important;
+        margin-left: 50% !important;
+        transform: translateX(-50%) !important;
+
+        /* Center first item padding: 50vw - (cardWidth/2) */
+        /* Team card width is 85vw -> Center is tricky since it's almost full width */
+        /* Let's stick to standard padding for 85vw cards to keep it simple: 1rem sides */
+        padding: 0 1rem !important;
+
         /* Hide scrollbar */
         scrollbar-width: none;
         -ms-overflow-style: none;
         /* Disable native grid if present */
         grid-template-columns: none !important;
+    }
+
+    /* Hide Duplicates for Team Marquee (Assume 6 unique members) */
+    html body .team-marquee .team-card:nth-child(n+7) {
+        display: none !important;
     }
 
     .built-for-grid::-webkit-scrollbar,
