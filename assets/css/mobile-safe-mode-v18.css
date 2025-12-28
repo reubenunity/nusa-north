@@ -703,6 +703,105 @@
         width: 100% !important;
         justify-content: center !important;
     }
-}
 
-```
+    /* 13. FORMULA & TESTIMONIALS CAROUSELS (Mobile) */
+    html body .process-tabs,
+    html body .process-content,
+    html body .process-header p {
+        display: none !important;
+    }
+
+    html body .formula-carousel {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        gap: 1rem !important;
+        padding: 0 1.5rem 1.5rem 1.5rem !important;
+        width: 100vw !important;
+        margin-left: 50% !important;
+        transform: translateX(-50%) !important;
+        scrollbar-width: none;
+        margin-top: 2rem !important;
+    }
+
+    html body .formula-carousel::-webkit-scrollbar,
+    html body .testimonials-grid::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    html body .formula-card {
+        flex: 0 0 85vw !important;
+        width: 85vw !important;
+        scroll-snap-align: center !important;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 2rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        margin: 0 !important;
+    }
+
+    html body .formula-card h3 {
+        font-size: 1.5rem !important;
+        margin-bottom: 1rem !important;
+        color: #fff !important;
+    }
+
+    html body .formula-card h3 em {
+        color: #d4af37 !important;
+        font-style: italic !important;
+    }
+
+    html body .formula-card p {
+        font-size: 1rem !important;
+        line-height: 1.5 !important;
+        margin: 0 !important;
+    }
+
+    html body .testimonials-grid {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        gap: 1rem !important;
+        padding: 0 1.5rem 1.5rem 1.5rem !important;
+        width: 100vw !important;
+        margin-left: 50% !important;
+        transform: translateX(-50%) !important;
+        scrollbar-width: none;
+        grid-template-columns: none !important;
+    }
+
+    html body .testimonial-card {
+        flex: 0 0 85vw !important;
+        width: 85vw !important;
+        scroll-snap-align: center !important;
+        height: auto !important;
+        margin: 0 !important;
+    }
+
+    /* Swipe Indicator for key sections */
+    html body .formula-carousel::after,
+    html body .testimonials-grid::after {
+        content: '' !important;
+        display: block !important;
+        min-width: 1.5rem !important;
+        /* Padding spacer */
+    }
+
+    html body .process-section::after,
+    html body .testimonials-section::after {
+        content: 'Swipe \2192';
+        display: block;
+        text-align: center;
+        color: #d4af37;
+        font-size: 0.9rem;
+        margin-top: 1rem;
+        opacity: 0.7;
+        font-family: 'Outfit', sans-serif;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        pointer-events: none;
+    }
+}
