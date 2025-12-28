@@ -736,24 +736,24 @@
         background: rgba(255, 255, 255, 0.03);
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 12px !important;
-        padding: 1.25rem !important;
-        /* Tight padding */
+        padding: 1.15rem !important;
+        /* Minimal comfortable padding */
         display: flex !important;
         flex-direction: column !important;
         justify-content: flex-start !important;
         margin: 0 !important;
         height: auto !important;
-        max-height: 350px !important;
-        /* Strict height cap */
+        max-height: 260px !important;
+        /* Aggressive height cap */
         overflow-y: auto !important;
     }
 
     html body .formula-card h3 {
-        font-size: 1.1rem !important;
-        /* Compact title */
-        margin-bottom: 0.5rem !important;
+        font-size: 1rem !important;
+        /* Very compact title */
+        margin-bottom: 0.4rem !important;
         color: #fff !important;
-        line-height: 1.2 !important;
+        line-height: 1.1 !important;
     }
 
     html body .formula-card h3 em {
@@ -762,9 +762,9 @@
     }
 
     html body .formula-card p {
-        font-size: 0.9rem !important;
-        /* Compact text */
-        line-height: 1.35 !important;
+        font-size: 0.85rem !important;
+        /* Small but readable text */
+        line-height: 1.3 !important;
         margin: 0 !important;
         opacity: 0.8 !important;
     }
@@ -787,18 +787,18 @@
         width: 85vw !important;
         scroll-snap-align: center !important;
         height: auto !important;
-        max-height: 350px !important;
-        /* Cap testimonial height too */
+        max-height: 260px !important;
+        /* Cap testimonial height */
         margin: 0 !important;
-        padding: 1.25rem !important;
+        padding: 1.15rem !important;
         overflow-y: auto !important;
     }
 
     html body .testimonial-card img {
-        max-width: 80% !important;
-        /* Reduce logo size slightly */
+        max-width: 65% !important;
+        /* Much smaller logo */
         height: auto !important;
-        margin-bottom: 0.5rem !important;
+        margin-bottom: 0.25rem !important;
     }
 
     /* Swipe Indicator for key sections */
