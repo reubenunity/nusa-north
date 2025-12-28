@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nusa & North - Meta Ads Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #050505;
+            --accent: #d4af37;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --font-display: 'Outfit', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        body {
+            background-color: #111;
+            color: var(--text-primary);
+            font-family: var(--font-display);
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .preview-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .preview-label {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Ad Container - 1:1 Aspect Ratio (Square) */
+        .ad-canvas {
+            width: 500px;
+            /* Scaled down for preview, actual would be 1080px */
+            height: 500px;
+            background-color: var(--bg-primary);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid #333;
+        }
+
+        /* Portrait Aspect Ratio (4:5) Container */
+        .ad-canvas.portrait {
+            height: 625px;
+            /* 4:5 ratio relative to 500px width */
+        }
+
+        /* --- Global Ad Elements --- */
+        .logo-mark {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            color: #000;
+            font-size: 24px;
+            z-index: 10;
+        }
+
+        .tagline {
+            position: absolute;
+            bottom: 35px;
+            right: 30px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-align: right;
+            z-index: 10;
+        }
+
+        /* --- Ad Variant 1: Bold Typography (The Problem) --- */
+        .ad-v1 {
+            padding: 40px;
+            justify-content: center;
+            background: radial-gradient(circle at top right, #1a1a1a 0%, #000 70%);
+        }
+
+        .ad-v1 h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .ad-v1 h1 em {
+            font-family: var(--font-serif);
+            color: var(--text-secondary);
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        /* Notification Pop */
+        .notification-card {
+            background: rgba(30, 30, 30, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: rotate(-2deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            max-width: 90%;
+        }
+
+        .notif-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .notif-header .app-icon {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .slack-sq {
+            width: 14px;
+            height: 14px;
+            background: #E01E5A;
+            /* Slack-ish color or Green per example */
+            border-radius: 3px;
+        }
+
+        /* Using Green as per example "Messages" */
+        .msg-icon {
+            width: 16px;
+            height: 16px;
+            background: #4CD964;
+            border-radius: 4px;
+        }
+
+        .notif-sender {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 6px;
+            color: #fff;
+        }
+
+        .notif-body {
+            font-size: 15px;
+            line-height: 1.4;
+            color: #ddd;
+        }
+
+
+        /* --- Ad Variant 2: The Solution (Graph/Results) --- */
+        .ad-v2 {
+            background: #000;
+            position: relative;
+        }
+
+        .ad-v2-content {
+            padding: 50px 40px;
+            z-index: 2;
+        }
+
+        .ad-v2 h2 {
+            font-size: 2.2rem;
+            line-height: 1.1;
+            margin: 0 0 15px 0;
+        }
+
+        .ad-v2 h2 em {
+            font-family: var(--font-serif);
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .ad-v2 p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0;
+            max-width: 90%;
+        }
+
+        /* Mock Dashboard UI */
+        .dashboard-ui {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            height: 280px;
+            background: #111;
+            border-radius: 20px 20px 0 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: none;
+            padding: 20px;
+            box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dash-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 15px;
+        }
+
+        .dash-metric {
+            text-align: left;
+        }
+
+        .dash-label {
+            font-size: 10px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .dash-val {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .dash-val.highlight {
+            color: var(--accent);
+        }
+
+        /* CSS Chart */
+        .chart-area {
+            flex-grow: 1;
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+            padding-top: 20px;
+            position: relative;
+        }
+
+        /* Line graph simulation using CSS clip-path or simple bars for easier implementation */
+        .chart-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* SVG would be better but keeping it single file no external assets */
+        }
+
+        .bar {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px 4px 0 0;
+            position: relative;
+            transition: height 1s ease;
+        }
+
+        .bar.growth {
+            background: linear-gradient(to top, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.6));
+        }
+
+        /* Connecting arrow doodle */
+        .arrow-doodle {
+            position: absolute;
+            top: 140px;
+            right: 40px;
+            width: 60px;
+            height: 40px;
+            border-left: 2px solid white;
+            border-bottom: 2px solid white;
+            border-radius: 0 0 0 20px;
+            transform: rotate(-10deg);
+            opacity: 0.5;
+        }
+
+        .arrow-text {
+            position: absolute;
+            top: 110px;
+            right: 15px;
+            font-family: 'Marker Felt', cursive, sans-serif;
+            /* Fallback */
+            font-size: 14px;
+            color: #fff;
+            transform: rotate(-10deg);
+        }
+
+        /* --- Ad Variant 3: "The Formula" (Text Heavy/Direct) --- */
+        .ad-v3 {
+            background-color: var(--bg-primary);
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid var(--accent);
+        }
+
+        .headline-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .headline-stack h2 {
+            font-size: 3rem;
+            line-height: 0.95;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .text-outline {
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.6);
+            color: transparent;
+        }
+
+        .text-filled {
+            color: #fff;
+        }
+
+        .text-highlight {
+            color: var(--accent);
+        }
+
+        .ad-v3 p {
+            margin-top: 30px;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+            border-left: 2px solid var(--accent);
+            padding-left: 20px;
+        }
+
+        .cta-button {
+            margin-top: 40px;
+            align-self: flex-start;
+            padding: 12px 30px;
+            background: #fff;
+            color: #000;
+            font-weight: 700;
+            border-radius: 100px;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Variant 1 -->
+    <div class="preview-container">
+        <div class="preview-label">Concept 1: The "Trigger"</div>
+        <div class="ad-canvas ad-v1 portrait">
+            <h1>Another quarter,<br>another <em>aggressive</em><br>target?</h1>
+
+            <div class="notification-card">
+                <div class="notif-header">
+                    <div class="app-icon">
+                        <div class="msg-icon"></div> Messages
+                    </div>
+                    <span>now</span>
+                </div>
+                <div class="notif-sender">VP of Growth</div>
+                <div class="notif-body">We need to hit $5M this quarter. Put together a plan by EOW please.</div>
+            </div>
+
+            <div class="logo-mark">N</div>
+            <div class="tagline">The growth partner<br>for teams under pressure</div>
+        </div>
+    </div>
+
+    <!-- Variant 2 -->
+    <div class="preview-container">
+        <div class="preview-label">Concept 2: The "Scale"</div>
+        <div class="ad-canvas ad-v2 portrait">
+            <div class="ad-v2-content">
+                <h2>Stuck at $5M/year<br>because you're<br><em>scaling wrong.</em></h2>
+                <p>Brands that spend $20k - $50k/day on ads don't scale on hacks. They scale with better economics.</p>
+            </div>
+
+            <div class="arrow-text">Real scale starts here</div>
+            <div class="arrow-doodle"></div>
+
+            <div class="dashboard-ui">
+                <div class="dash-header">
+                    <div class="dash-metric">
+                        <div class="dash-label">Total Sales</div>
+                        <div class="dash-val">€2,405,091</div>
+                    </div>
+                    <div class="dash-metric">
+                        <div class="dash-label">ROAS</div>
+                        <div class="dash-val highlight">4.82x</div>
+                    </div>
+                </div>
+
+                <div class="chart-area">
+                    <div class="bar" style="height: 20%"></div>
+                    <div class="bar" style="height: 35%"></div>
+                    <div class="bar" style="height: 30%"></div>
+                    <div class="bar" style="height: 45%"></div>
+                    <div class="bar growth" style="height: 60%"></div>
+                    <div class="bar growth" style="height: 85%"></div>
+                    <div class="bar growth" style="height: 100%"></div>
+                </div>
+            </div>
+
+            <div class="logo-mark">N</div>
+        </div>
+    </div>
+
+    <!-- Variant 3 -->
+    <div class="preview-container">
+        <div class="preview-label">Concept 3: The "Typography"</div>
+        <div class="ad-canvas ad-v3">
+            <div class="headline-stack">
+                <h2 class="text-outline">Is your</h2>
+                <h2 class="text-filled">Creative</h2>
+                <h2 class="text-outline">Output</h2>
+                <h2 class="text-highlight">Keeping Up?</h2>
+            </div>
+
+            <p>See why €10M+ brands trust Nusa & North to scale with creative velocity.</p>
+
+            <div class="cta-button">See Our Work</div>
+
+            <div class="logo-mark"
+                style="bottom: auto; top: 30px; right: 30px; left: auto; background: transparent; color: #fff; border: 1px solid #333;">
+                N</div>
+        </div>
+    </div>
+
+</body>
+
+</html>
