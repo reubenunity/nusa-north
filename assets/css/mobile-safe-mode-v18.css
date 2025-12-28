@@ -737,23 +737,23 @@
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 12px !important;
         padding: 1.25rem !important;
-        /* Slightly more breathing room than 1.15 */
         display: flex !important;
         flex-direction: column !important;
         justify-content: flex-start !important;
         margin: 0 !important;
         height: auto !important;
         max-height: 260px !important;
-        overflow-y: auto !important;
+        overflow: hidden !important;
+        /* NO SCROLLING */
     }
 
     html body .formula-card h3 {
         font-size: 1.1rem !important;
-        /* Restored slight size for hierarchy */
         margin-bottom: 0.5rem !important;
         color: #fff !important;
         line-height: 1.3 !important;
-        /* Better line height */
+        flex-shrink: 0 !important;
+        /* Prevent title from squishing */
     }
 
     html body .formula-card h3 em {
@@ -763,12 +763,15 @@
 
     html body .formula-card p {
         font-size: 0.9rem !important;
-        /* Standard readable size */
-        line-height: 1.5 !important;
-        /* Relaxed line height */
+        line-height: 1.4 !important;
         margin: 0 !important;
         opacity: 0.9 !important;
-        /* Higher contrast */
+        display: -webkit-box !important;
+        -webkit-line-clamp: 6;
+        /* Show max 6 lines */
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
     }
 
     html body .testimonials-grid {
@@ -792,30 +795,37 @@
         max-height: 260px !important;
         margin: 0 !important;
         padding: 1.25rem !important;
-        overflow-y: auto !important;
+        overflow: hidden !important;
+        /* NO SCROLLING */
         display: flex !important;
         flex-direction: column !important;
     }
 
-    /* Target the big testimonial quote specifically */
     html body .testimonial-card h3,
     html body .testimonial-card blockquote {
         font-size: 1.1rem !important;
-        /* Clamp the quote size */
-        line-height: 1.4 !important;
-        margin-bottom: 0.75rem !important;
+        line-height: 1.35 !important;
+        margin-bottom: 0.5rem !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 5;
+        /* Truncate long quotes */
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
     }
 
     html body .testimonial-card p {
-        font-size: 0.9rem !important;
+        font-size: 0.85rem !important;
+        margin-top: auto !important;
+        /* Push to bottom */
+        opacity: 0.7;
     }
 
     html body .testimonial-card img {
-        max-width: 120px !important;
-        /* Fixed width rather than % to ensure consistency */
+        max-width: 100px !important;
         height: auto !important;
         margin-bottom: 0.75rem !important;
         align-self: flex-start !important;
+        flex-shrink: 0 !important;
     }
 
     /* Swipe Indicator for key sections */
