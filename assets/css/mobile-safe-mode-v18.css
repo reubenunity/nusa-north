@@ -735,25 +735,23 @@
         scroll-snap-align: center !important;
         background: rgba(255, 255, 255, 0.03);
         border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 16px !important;
-        padding: 1.5rem !important;
-        /* Reduced padding */
+        border-radius: 12px !important;
+        padding: 1.25rem !important;
+        /* Tight padding */
         display: flex !important;
         flex-direction: column !important;
         justify-content: flex-start !important;
-        /* Align top */
         margin: 0 !important;
         height: auto !important;
-        max-height: 400px !important;
-        /* Cap height just in case */
+        max-height: 350px !important;
+        /* Strict height cap */
         overflow-y: auto !important;
-        /* Allow internal scroll if absolutely needed, but prefer clamping */
     }
 
     html body .formula-card h3 {
-        font-size: 1.25rem !important;
-        /* Smaller title */
-        margin-bottom: 0.75rem !important;
+        font-size: 1.1rem !important;
+        /* Compact title */
+        margin-bottom: 0.5rem !important;
         color: #fff !important;
         line-height: 1.2 !important;
     }
@@ -764,18 +762,18 @@
     }
 
     html body .formula-card p {
-        font-size: 0.95rem !important;
-        /* Smaller text */
-        line-height: 1.4 !important;
+        font-size: 0.9rem !important;
+        /* Compact text */
+        line-height: 1.35 !important;
         margin: 0 !important;
-        opacity: 0.85 !important;
+        opacity: 0.8 !important;
     }
 
     html body .testimonials-grid {
         display: flex !important;
         overflow-x: auto !important;
         scroll-snap-type: x mandatory;
-        gap: 1rem !important;
+        gap: 0.75rem !important;
         padding: 0 1.5rem 1.5rem 1.5rem !important;
         width: 100vw !important;
         margin-left: 50% !important;
@@ -789,15 +787,18 @@
         width: 85vw !important;
         scroll-snap-align: center !important;
         height: auto !important;
+        max-height: 350px !important;
+        /* Cap testimonial height too */
         margin: 0 !important;
-        padding: 1.5rem !important;
-        /* Ensure tight padding */
+        padding: 1.25rem !important;
+        overflow-y: auto !important;
     }
 
-    /* Force image containment in testimonials to prevent blowouts */
     html body .testimonial-card img {
-        max-width: 100% !important;
+        max-width: 80% !important;
+        /* Reduce logo size slightly */
         height: auto !important;
+        margin-bottom: 0.5rem !important;
     }
 
     /* Swipe Indicator for key sections */
