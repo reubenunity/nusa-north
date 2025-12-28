@@ -735,18 +735,27 @@
         scroll-snap-align: center !important;
         background: rgba(255, 255, 255, 0.03);
         border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 20px;
-        padding: 2rem !important;
+        border-radius: 16px !important;
+        padding: 1.5rem !important;
+        /* Reduced padding */
         display: flex !important;
         flex-direction: column !important;
-        justify-content: center !important;
+        justify-content: flex-start !important;
+        /* Align top */
         margin: 0 !important;
+        height: auto !important;
+        max-height: 400px !important;
+        /* Cap height just in case */
+        overflow-y: auto !important;
+        /* Allow internal scroll if absolutely needed, but prefer clamping */
     }
 
     html body .formula-card h3 {
-        font-size: 1.5rem !important;
-        margin-bottom: 1rem !important;
+        font-size: 1.25rem !important;
+        /* Smaller title */
+        margin-bottom: 0.75rem !important;
         color: #fff !important;
+        line-height: 1.2 !important;
     }
 
     html body .formula-card h3 em {
@@ -755,9 +764,11 @@
     }
 
     html body .formula-card p {
-        font-size: 1rem !important;
-        line-height: 1.5 !important;
+        font-size: 0.95rem !important;
+        /* Smaller text */
+        line-height: 1.4 !important;
         margin: 0 !important;
+        opacity: 0.85 !important;
     }
 
     html body .testimonials-grid {
@@ -779,6 +790,14 @@
         scroll-snap-align: center !important;
         height: auto !important;
         margin: 0 !important;
+        padding: 1.5rem !important;
+        /* Ensure tight padding */
+    }
+
+    /* Force image containment in testimonials to prevent blowouts */
+    html body .testimonial-card img {
+        max-width: 100% !important;
+        height: auto !important;
     }
 
     /* Swipe Indicator for key sections */
