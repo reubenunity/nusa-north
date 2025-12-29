@@ -1439,19 +1439,18 @@ footer,
     .comp-slide {
         flex: 0 0 85vw;
         scroll-snap-align: center;
-        background: #0f0f0f !important;
-        /* Force distinct background */
-        border: 1px solid rgba(255, 255, 255, 0.15) !important;
-        /* Stronger border */
+        background: #151515 !important;
+        /* Lighter background for contrast */
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        /* Brighter border */
         border-radius: 20px;
         padding: 2rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-        /* Add depth */
-        min-height: 300px;
-        /* Ensure structure */
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        /* Stronger shadow */
+        min-height: 320px;
     }
 
     .comp-slide h3 {
