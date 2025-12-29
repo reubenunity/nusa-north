@@ -38,9 +38,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/css/mobile-menu.css?v=7">
+    <link rel="stylesheet" href="../../assets/css/mobile-menu.css?v=11">
     <!-- Mobile Safe Mode (Global Stabilization) -->
-    <link rel="stylesheet" href="../../assets/css/mobile-safe-mode-v18.css?v=7">
+    <link rel="stylesheet" href="../../assets/css/mobile-safe-mode-v18.css?v=11">
     <style>
         :root {
             --bg-primary: #000000;
@@ -1277,7 +1277,7 @@
         }
     </style>
     <link rel="icon" type="image/png" href="../../assets/images/favicon-new.png">
-    <link rel="icon" type="image/png" href="../../assets/images/favicon-new.png" </head>
+</head>
 
 <body>
 
@@ -1453,6 +1453,22 @@
         </div>
     </section>
 
+    <!-- MOBILE: Simple Photo Carousel (replaces Parallax Stream) -->
+    <div class="mobile-photo-carousel" style="display: none;">
+        <h3>Selected Work</h3>
+        <div class="mobile-carousel-track">
+            <img src="../../images/hero-gallery-03.webp" alt="Gallery">
+            <img src="../../images/photo-four-seasons.webp" alt="Four Seasons">
+            <img src="../../images/photo-hello-body.webp" alt="Hello Body">
+            <img src="../../images/photo-restaurant.webp" alt="Restaurant">
+            <img src="../../images/photo-culinary.webp" alt="Culinary">
+            <img src="../../images/illuzion-hero.webp" alt="Illuzion">
+            <img src="../../images/bangkok-cultural.webp" alt="Bangkok">
+            <img src="../../images/pool-resort.webp" alt="Pool">
+        </div>
+        <p class="swipe-hint">Swipe to explore &rarr;</p>
+    </div>
+
     <section class="services-section">
         <div class="services-header">
             <h2>What We <em>Capture</em></h2>
@@ -1552,6 +1568,40 @@
                 </tr>
             </tbody>
         </table>
+
+        <!-- MOBILE: Comparison List (replaces Table) -->
+        <div class="mobile-comparison-list" style="display: none;">
+            <div class="comparison-card">
+                <h4>Hospitality Expertise</h4>
+                <div class="comp-row"><span class="comp-label">nusa&north</span><span class="check">✓</span></div>
+                <div class="comp-row mute"><span class="comp-label">Stock</span><span class="cross">✕</span></div>
+                <div class="comp-row mute"><span class="comp-label">Local</span><span class="cross">✕</span></div>
+            </div>
+            <div class="comparison-card">
+                <h4>Magazine Quality</h4>
+                <div class="comp-row"><span class="comp-label">nusa&north</span><span class="check">✓</span></div>
+                <div class="comp-row mute"><span class="comp-label">Stock</span><span class="cross">✕</span></div>
+                <div class="comp-row mute"><span class="comp-label">Local</span><span class="cross">✕</span></div>
+            </div>
+            <div class="comparison-card">
+                <h4>Multi-Platform Opt.</h4>
+                <div class="comp-row"><span class="comp-label">nusa&north</span><span class="check">✓</span></div>
+                <div class="comp-row mute"><span class="comp-label">Stock</span><span class="cross">✕</span></div>
+                <div class="comp-row mute"><span class="comp-label">Local</span><span class="cross">✕</span></div>
+            </div>
+            <div class="comparison-card">
+                <h4>Video Capability</h4>
+                <div class="comp-row"><span class="comp-label">nusa&north</span><span class="check">✓</span></div>
+                <div class="comp-row mute"><span class="comp-label">Stock</span><span class="cross">✕</span></div>
+                <div class="comp-row mute"><span class="comp-label">Local</span><span class="cross">✕</span></div>
+            </div>
+            <div class="comparison-card">
+                <h4>Brand Consistency</h4>
+                <div class="comp-row"><span class="comp-label">nusa&north</span><span class="check">✓</span></div>
+                <div class="comp-row mute"><span class="comp-label">Stock</span><span class="cross">✕</span></div>
+                <div class="comp-row"><span class="comp-label">Local</span><span class="check">✓</span></div>
+            </div>
+        </div>
     </section>
 
     <section class="faq-section">

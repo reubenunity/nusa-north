@@ -952,4 +952,143 @@
         text-transform: uppercase;
         pointer-events: none;
     }
+
+    /* 14. PHOTOGRAPHY PAGE SPECIFIC FIXES (REFINED) */
+
+    /* Hero Adjustments */
+    .hero-content {
+        padding: 0 1.5rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .hero h1 {
+        font-size: 3rem !important;
+        /* Prevent edge touching */
+        line-height: 1.1 !important;
+    }
+
+    .hero-cta {
+        max-width: 100% !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        justify-content: center !important;
+    }
+
+    /* Hide Desktop Parallax & Table */
+    .horizontal-scroll-container,
+    .comparison-table {
+        display: none !important;
+    }
+
+    /* Show Mobile Replacements - Refined Slideshow */
+    .mobile-photo-carousel {
+        display: block !important;
+        padding: 2rem 0 4rem 0 !important;
+        /* Reduced top padding to minimize gap */
+        background: #050505 !important;
+        text-align: center !important;
+    }
+
+    .mobile-photo-carousel h3 {
+        font-family: 'Outfit', sans-serif !important;
+        font-size: 1.75rem !important;
+        /* Slightly smaller for balance */
+        margin-bottom: 2rem !important;
+        color: #fff !important;
+        text-align: center !important;
+        padding: 0 1.5rem !important;
+    }
+
+    .mobile-carousel-track {
+        display: flex !important;
+        gap: 1rem !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        padding: 0 7.5vw 2rem 7.5vw !important;
+        /* Center the active 85vw card */
+        scrollbar-width: none !important;
+    }
+
+    .mobile-carousel-track::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .mobile-carousel-track img {
+        height: auto !important;
+        width: 85vw !important;
+        /* Single Focus Card */
+        aspect-ratio: 3/4 !important;
+        /* Portrait Ratio */
+        object-fit: cover !important;
+        border-radius: 12px !important;
+        scroll-snap-align: center !important;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+    /* Comparison Header Fit */
+    .comparison-header h2 {
+        font-size: 2rem !important;
+        line-height: 1.2 !important;
+        padding: 0 1rem !important;
+    }
+
+    /* Mobile Comparison List */
+    .mobile-comparison-list {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+        padding: 0 0 2rem 0 !important;
+        /* Adjusted padding */
+    }
+
+    .comparison-card {
+        background: #111 !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 12px !important;
+        padding: 1.5rem !important;
+    }
+
+    .comparison-card h4 {
+        margin-bottom: 1rem !important;
+        font-size: 1.1rem !important;
+        color: #fff !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        padding-bottom: 0.5rem !important;
+    }
+
+    .comp-row {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 0.5rem 0 !important;
+    }
+
+    .comp-row.mute {
+        opacity: 0.5 !important;
+    }
+
+    .comp-label {
+        font-size: 0.9rem !important;
+        color: #ccc !important;
+    }
+
+    /* Fix Services Grid Stacking */
+    .services-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    /* Fix Excessive Padding Globally */
+    .services-section,
+    .comparison-section,
+    .stats-section,
+    .cta-section {
+        padding: 3rem 1.5rem !important;
+        /* Reduced from 4rem */
+    }
 }
