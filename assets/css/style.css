@@ -1930,3 +1930,66 @@ footer {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
 }
+/* =========================================
+   Tech Stack Marquee (Globalized)
+   ========================================= */
+.tech-stack-section {
+    padding: 4rem 0 2rem;
+    background: #000;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    overflow-x: hidden;
+}
+
+.tech-marquee {
+    display: flex;
+    width: 100%;
+}
+
+.tech-track {
+    display: flex;
+    gap: 4rem;
+    width: max-content;
+    animation: scrollTech 40s linear infinite;
+}
+
+.tech-track:hover {
+    animation-play-state: paused;
+}
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.tech-item svg {
+    width: 28px;
+    height: 28px;
+    opacity: 0.6;
+}
+
+.tech-item:hover {
+    color: #fff;
+}
+
+.tech-item:hover svg {
+    opacity: 1;
+    color: #d4af37; /* Gold accent */
+}
+
+@keyframes scrollTech {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
