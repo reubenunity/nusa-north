@@ -1410,6 +1410,95 @@ footer,
     font-weight: 600;
 }
 
+/* Mobile Comparison Slider */
+.comparison-mobile-slider {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .comparison-table {
+        display: none;
+    }
+
+    .comparison-mobile-slider {
+        display: flex;
+        overflow-x: auto;
+        gap: 1rem;
+        padding: 1rem 5vw;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    .comparison-mobile-slider::-webkit-scrollbar {
+        display: none;
+        /* Chrome/Safari */
+    }
+
+    .comp-slide {
+        flex: 0 0 85vw;
+        scroll-snap-align: center;
+        background: var(--bg-card);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .comp-slide h3 {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    .comp-slide h3 em {
+        font-family: var(--font-serif);
+        font-style: italic;
+        color: var(--accent);
+        font-weight: 400;
+    }
+
+    .comp-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .comp-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 12px;
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+    }
+
+    .comp-item.highlight {
+        background: rgba(212, 175, 55, 0.1);
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        color: #fff;
+    }
+
+    .comp-item .check {
+        color: #4ade80;
+        font-size: 1.2rem;
+    }
+
+    .comp-item .cross {
+        color: #ef4444;
+        /* Red for cross */
+        font-size: 1.2rem;
+        opacity: 0.6;
+    }
+}
+
 .check {
     color: #4ade80;
     font-size: 1.2rem;
