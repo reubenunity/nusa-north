@@ -1,34 +1,40 @@
 import requests
 import json
 
-# HP and the other user link
 videos = [
-    {"url": "https://vimeo.com/1143266792/307333a803"}, # HP
-    {"url": "https://vimeo.com/user239826119/2"}        # User link
+    "https://vimeo.com/1133899956/97ac212d90",
+    "https://vimeo.com/1133529757/e8519ee984",
+    "https://vimeo.com/1123943736/b2bba13bf5",
+    "https://vimeo.com/1122744728/c10d5281d7",
+    "https://vimeo.com/1118772124/85090fa653",
+    "https://vimeo.com/1116517915/07cbb39ccc",
+    "https://vimeo.com/1102123333/f7f9b3e6e1",
+    "https://vimeo.com/1082754781/6636bc5898",
+    "https://vimeo.com/1084881951/3f2ec5e0f9",
+    "https://vimeo.com/1084885516/2d1d16fadb",
+    "https://vimeo.com/1084883669/83cc6d80ca",
+    "https://vimeo.com/1084875985/733ca8b56c",
+    "https://vimeo.com/1084877907/7105a166d7"
 ]
 
-print("| URL | ID | Hash | Thumbnail URL | Title |")
-print("|---|---|---|---|---|")
+print("| URL | Title | Thumbnail | Upload Date |")
+print("|---|---|---|---|")
 
-for v in videos:
+for v_url in videos:
     try:
-        url = f"https://vimeo.com/api/oembed.json?url={v['url']}"
-        response = requests.get(url)
+        # Clean URL parameters for oEmbed
+        clean_url = v_url.split('?')[0]
+        api_url = f"https://vimeo.com/api/oembed.json?url={clean_url}"
+        
+        response = requests.get(api_url)
         if response.status_code == 200:
             data = response.json()
-            # Extract ID from video_id field
-            vid_id = data.get('video_id')
-            # Hash isn't always in oembed, but we have it in URL for HP. For the second one, we might need to assume it's public or extract from data.
-            # Actually oEmbed usually returns the public URL.
-            # If the input URL had a hash, we preserve it.
+            title = data.get('title', 'Unknown')
+            thumb = data.get('thumbnail_url', '')
+            date = data.get('upload_date', '') # oEmbed might not verify date, but we check what we get
             
-            # Try to parse ID/Hash from local URL if oEmbed doesn't give hash
-            # But for the output, we need what the player needs.
-            # Start with provided URL parts
-            input_url = v['url']
-            
-            print(f"| {input_url} | {vid_id} | (Manual Check) | {data['thumbnail_url']} | {data['title']} |")
+            print(f"| {clean_url} | {title} | {thumb} | {date} |")
         else:
-            print(f"| {v['url']} | - | - | FAILED ({response.status_code}) | - |")
+            print(f"| {v_url} | FAILED ({response.status_code}) | - | - |")
     except Exception as e:
-        print(f"| {v['url']} | - | - | ERROR: {e} | - |")
+        print(f"| {v_url} | ERROR: {e} | - | - |")
