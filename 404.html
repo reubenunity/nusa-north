@@ -1,201 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IE">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 | Page Not Found | Nusa & North</title>
+    <link rel="icon" href="/favicon.png" sizes="48x48" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/images/favicon-new.png">
+    <title>Page Not Found | Nusa & North</title>
     <!-- Social & SEO -->
+    <meta name="description" content="The page you are looking for does not exist.">
     <meta name="robots" content="noindex, follow">
-    <link rel="icon" type="image/png" href="assets/images/favicon-new.png">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
         rel="stylesheet">
 
-    <!-- Core CSS (Re-using strictly necessary parts) -->
-    <style>
-        :root {
-            --bg-primary: #000000;
-            --text-primary: #ffffff;
-            --text-secondary: #b8c5c1;
-            --accent: #d4af37;
-            --font-display: 'Outfit', sans-serif;
-            --font-serif: 'Playfair Display', serif;
-        }
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css?v=200">
+    <link rel="stylesheet" href="assets/css/mobile-menu.css">
 
-        * {
+    <style>
+        /* Inline critical CSS to ensure no FOUC on error page */
+        body {
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
-        body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: var(--font-display);
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        /* Ambient Glow */
-        .ambient-glow {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .glow-orb {
-            position: absolute;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.6;
-        }
-
-        .glow-orb:nth-child(1) {
-            top: -20%;
-            left: -10%;
-            width: 80vw;
-            height: 80vw;
-        }
-
-        .glow-orb:nth-child(2) {
-            bottom: -20%;
-            right: -10%;
-            width: 60vw;
-            height: 60vw;
-            background: radial-gradient(circle, rgba(17, 45, 39, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
-        }
-
-        /* Main Content */
         main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            padding: 2rem;
-        }
-
-        .error-code {
-            font-size: clamp(6rem, 20vw, 12rem);
-            font-family: var(--font-serif);
-            font-style: italic;
-            line-height: 0.8;
-            background: linear-gradient(135deg, #fff 0%, #666 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            opacity: 0.9;
-            margin-bottom: 1rem;
-        }
-
-        .error-title {
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
-            margin-bottom: 1.5rem;
-            font-weight: 300;
-        }
-
-        .error-msg {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 500px;
-            margin-bottom: 3rem;
-        }
-
-        /* Buttons */
-        .btn-group {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 100px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 10;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: #000;
-            border: 1px solid var(--accent);
-        }
-
-        .btn-primary:hover {
-            background: transparent;
-            color: var(--accent);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-secondary:hover {
-            border-color: #fff;
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        /* Logo */
-        .logo {
-            position: absolute;
-            top: 2.5rem;
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            text-decoration: none;
-            z-index: 10;
-        }
-
-        .logo span {
-            color: var(--accent);
+            padding-top: 100px;
+            /* Space for fixed nav */
         }
     </style>
 </head>
 
 <body>
-    <div class="ambient-glow">
-        <div class="glow-orb"></div>
-        <div class="glow-orb"></div>
+
+    <nav>
+        <a href="index.html" class="logo">nusa<span>&</span>north</a>
+
+        <div class="nav-controls"><a href="index.html#contact" class="mobile-nav-cta">Book</a>
+            <button class="mobile-menu-btn" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html#services">Services</a>
+            <a href="index.html#work">Work</a>
+            <a href="insights/index.html">Insights</a>
+            <a href="index.html#contact" class="nav-cta">Book Discovery Call<span class="nav-cta-icon">n.</span></a>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay">
+        <div class="mobile-menu-content">
+            <a href="index.html#services" class="mobile-link">Services <span class="arrow">→</span></a>
+            <a href="index.html#work" class="mobile-link">Work <span class="arrow">→</span></a>
+            <a href="insights/index.html" class="mobile-link">Insights <span class="arrow">→</span></a>
+            <hr style="border-color: rgba(255,255,255,0.1); margin: 2rem 0;">
+            <a href="index.html#contact" class="mobile-cta-large">Book Discovery Call</a>
+        </div>
     </div>
 
-    <a href="/" class="logo">nusa<span>&</span>north</a>
-
     <main>
-        <div class="error-code">404</div>
-        <h1 class="error-title">You've ventured off the map.</h1>
-        <p class="error-msg">The page you are looking for has been moved, deleted, or never existed. Let's get you back
-            to familiar territory.</p>
-
-        <div class="btn-group">
-            <a href="/" class="btn btn-primary">Return Home</a>
-            <a href="/insights/index.html" class="btn btn-secondary">Read Insights</a>
+        <div class="error-page-container">
+            <div class="error-code">404</div>
+            <h1 class="error-title">Lost in the Algorithm?</h1>
+            <p class="error-subtitle">The page you are looking for has expired or moved. Let's get you back to scaling.
+            </p>
+            <a href="index.html" class="hero-cta">Return Home</a>
         </div>
     </main>
 
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">nusa<span>&</span>north</a>
+                <p>Dublin's Premier Growth Partner.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <a href="services/meta-ads/index.html">Meta Ads</a>
+                <a href="services/google-ads/index.html">Google Ads</a>
+                <a href="services/performance-creative/index.html">Performance Creative</a>
+            </div>
+            <div class="footer-links">
+                <h4>Agency</h4>
+                <a href="index.html#work">Our Work</a>
+                <a href="insights/index.html">Insights</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Nusa & North.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/mobile-menu.js"></script>
     <script src="assets/js/instantpage.js" type="module"></script>
 </body>
 
