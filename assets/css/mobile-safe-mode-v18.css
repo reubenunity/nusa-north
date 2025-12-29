@@ -106,6 +106,45 @@
         }
     }
 
+    @keyframes mobileMarqueeScroll3Set {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-33.333%);
+        }
+    }
+
+    /* Target the ACTUAL classes used in Service Pages (.marquee-track) */
+    .logo-marquee-section .marquee-track,
+    .tech-marquee .tech-track {
+        display: flex !important;
+        width: max-content !important;
+        gap: 2rem !important;
+        /* Proper spacing, not 0 */
+        margin: 0 !important;
+        padding-left: 0 !important;
+        animation: mobileLogoScroll 30s linear infinite !important;
+    }
+
+    /* Special case for Service Pages with 3 sets of logos */
+    .logo-marquee-section .marquee-track {
+        animation-name: mobileMarqueeScroll3Set !important;
+        animation-duration: 20s !important;
+    }
+
+    .logo-marquee-section img,
+    .tech-marquee .tech-item {
+        max-height: 40px !important;
+        width: auto !important;
+        padding-right: 0 !important;
+        /* Remove huge padding */
+        margin-right: 2rem !important;
+        /* Use margin for spacing */
+        flex-shrink: 0 !important;
+    }
+
     /* 5. Generic Sections */
     section,
     .welcome-section,
