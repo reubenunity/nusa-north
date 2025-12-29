@@ -447,6 +447,10 @@
     }
 
     /* 8b. SERVICE PAGES: VERTICAL STACK (Meta/Google Ads - Option 1) */
+    .process-section.mobile-stack {
+        counter-reset: step-counter !important;
+    }
+
     .process-section.mobile-stack .process-tabs {
         display: none !important;
     }
@@ -457,8 +461,6 @@
         gap: 3rem !important;
         height: auto !important;
         overflow: visible !important;
-        counter-reset: step-counter;
-        /* Init counter */
     }
 
     .process-section.mobile-stack .process-slide {
