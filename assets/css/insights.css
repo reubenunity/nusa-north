@@ -29,7 +29,7 @@ body.insights-page::before {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url('../assets/images/grain.webp');
+    background-image: url('../images/grain.webp');
     opacity: 0.15;
     mix-blend-mode: overlay;
     pointer-events: none;

@@ -219,8 +219,9 @@ META_JSON
         
         # Hacky Body Replacement: Find the first <h2> or <p> after single-post-content and replace until end of article?
         # Let's regex replace the content div.
+        # Correct Body Replacement: Target the <article class="article-body"> tag in the template
         new_content = re.sub(
-            r'(<div class="single-post-content">)(.*?)(</div>\s*</article>)', 
+            r'(<article class="article-body">)(.*?)(</article>)', 
             f'\\1\\n{body}\\n\\3', 
             new_content, 
             flags=re.DOTALL
