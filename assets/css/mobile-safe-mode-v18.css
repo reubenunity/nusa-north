@@ -1033,11 +1033,11 @@
         height: auto !important;
         width: 80vw !important;
         /* Slightly smaller to see next card */
-        aspect-ratio: 16/9 !important;
-        /* Landscape Ratio - Safer */
+        aspect-ratio: 4/5 !important;
+        /* Vertical/Portrait Ratio - Shows more image */
         object-fit: cover !important;
-        object-position: top center !important;
-        /* Prevent heads from being cut off */
+        object-position: center center !important;
+        /* Center focus */
         border-radius: 12px !important;
         scroll-snap-align: center !important;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
