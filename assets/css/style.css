@@ -1439,13 +1439,19 @@ footer,
     .comp-slide {
         flex: 0 0 85vw;
         scroll-snap-align: center;
-        background: var(--bg-card);
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        background: #0f0f0f !important;
+        /* Force distinct background */
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        /* Stronger border */
         border-radius: 20px;
         padding: 2rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        /* Add depth */
+        min-height: 300px;
+        /* Ensure structure */
     }
 
     .comp-slide h3 {
