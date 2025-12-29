@@ -1,0 +1,400 @@
+/* =========================================
+   Insights Section - Isolated Styles (V2 Refined)
+   ========================================= */
+
+:root {
+    --insights-bg: #050505;
+    --insights-card-bg: #0a0a0a;
+    --insights-text: #e0e0e0;
+    --insights-accent: #00d26a;
+    /* Vivid Emerald */
+    --insights-accent: #d4af37;
+    /* Luxury Gold */
+    --insights-emerald: #00d26a;
+    /* Vivid Emerald for Glows/Mix */
+    --insights-border: #2a2a2a;
+    --insights-border-hover: #d4af37;
+}
+
+body.insights-page {
+    background-color: var(--insights-bg);
+    color: var(--insights-text);
+}
+
+.insights-nav-spacer {
+    height: 120px;
+}
+
+/* ----------------------------------
+   Header
+   ---------------------------------- */
+.insights-header {
+    text-align: center;
+    padding: 2rem 1rem 5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.insights-title {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.insights-subtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: #888;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ----------------------------------
+   Grid Layout (Symmetrical 3-Column)
+   ---------------------------------- */
+.insights-grid-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem 8rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Rigid 3 cols for desktop */
+    gap: 2rem;
+    align-items: start;
+}
+
+/* ----------------------------------
+   Card Styles
+   ---------------------------------- */
+.insight-card {
+    background: var(--insights-card-bg);
+    border: 1px solid var(--insights-border);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
+    height: 100%;
+}
+
+.insight-thumb-wrapper {
+    height: 240px;
+    /* Standard ratio, not cinematic tall */
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid var(--insights-border);
+}
+
+.insight-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+/* Hover Effects */
+.insight-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--insights-border-hover);
+    box-shadow: 0 10px 40px -10px rgba(0, 210, 106, 0.2);
+}
+
+.insight-card:hover .insight-thumb {
+    transform: scale(1.05);
+    filter: none;
+    /* Reveal true color on hover */
+}
+
+/* Content */
+.insight-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Pill Tag */
+.insight-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background-color: var(--insights-accent);
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    align-self: flex-start;
+}
+
+.insight-headline {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.3;
+    color: #fff;
+    margin-bottom: 0.8rem;
+}
+
+.insight-excerpt {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #888;
+    margin-bottom: 1.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Meta */
+.insight-meta {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.insight-author-img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #333;
+}
+
+.insight-author-text {
+    font-size: 0.75rem;
+    color: #555;
+}
+
+/* ----------------------------------
+   Featured Glow (Center Card)
+   ---------------------------------- */
+.featured-glow {
+    box-shadow: 0 0 80px rgba(0, 210, 106, 0.15);
+    /* Emerald Glow */
+    border-color: rgba(212, 175, 55, 0.6);
+    /* Gold Border */
+}
+
+.featured-glow::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140%;
+    height: 140%;
+    background: radial-gradient(circle, rgba(0, 210, 106, 0.15) 0%, transparent 70%);
+    /* Emerald Ambient */
+    z-index: -1;
+    pointer-events: none;
+    filter: blur(40px);
+}
+
+/* Hide Buttons per request */
+.single-post-footer,
+.cta-button {
+    display: none !important;
+}
+
+/* ----------------------------------
+   Responsive
+   ---------------------------------- */
+@media (max-width: 1024px) {
+    .insights-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .insights-grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .insights-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* ----------------------------------
+   Single Post Styles (Added for Article Template)
+   ---------------------------------- */
+.single-post-container {
+    max-width: 1200px;
+    /* Widened for cinematic hero */
+    margin: 0 auto;
+    padding: 0 1.5rem 8rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Constrain text elements to center */
+.single-post-header,
+.single-post-content {
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.single-post-header {
+    text-align: center;
+    padding: 4rem 0 3rem;
+}
+
+.single-post-titles {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+.single-post-meta {
+    color: #888;
+    font-size: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 0;
+    display: inline-block;
+}
+
+.single-post-hero {
+    margin-bottom: 5rem;
+    border-radius: 4px;
+    /* Sharper, more editorial */
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--insights-border);
+    /* Hero spans full 1200px container */
+    width: 100%;
+}
+
+.single-hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Ensure no filter is applied here */
+    filter: none;
+}
+
+.single-post-content {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    line-height: 1.8;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    /* Larger, easier to read */
+    line-height: 1.8;
+    color: #ccc;
+}
+
+/* Gold Drop Cap */
+.single-post-content p.intro-paragraph::first-letter {
+    float: left;
+    font-family: var(--font-serif);
+    font-size: 4.5rem;
+    line-height: 0.85;
+    font-weight: 500;
+    color: var(--insights-accent);
+    margin-right: 0.7rem;
+    margin-top: 0.3rem;
+}
+
+.single-post-content p {
+    margin-bottom: 1.5rem;
+}
+
+.single-post-content h2 {
+    color: #fff;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-display);
+    font-size: 2rem;
+}
+
+.single-post-content ul,
+.single-post-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    color: #ccc;
+}
+
+.single-post-content li {
+    margin-bottom: 0.5rem;
+}
+
+.single-post-footer {
+    margin-top: 4rem;
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.back-link:hover {
+    color: var(--insights-accent);
+}
+
+blockquote {
+    border-left: 3px solid var(--insights-accent);
+    padding: 2rem 2.5rem;
+    margin: 3rem -2rem;
+    /* Pull out slightly */
+    font-style: italic;
+    color: #fff;
+    font-size: 1.6rem;
+    font-family: var(--font-serif);
+    background: linear-gradient(90deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
+    border-radius: 0 12px 12px 0;
+}
+
+.cta-button {
+    display: inline-block;
+    background: var(--insights-accent);
+    color: #000;
+    padding: 1rem 2.5rem;
+    border-radius: 100px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(143, 168, 122, 0.3);
+}
+
+/* Header Typography Mix */
+.insights-title em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--insights-accent);
+    margin: 0 0.1em;
+}

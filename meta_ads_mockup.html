@@ -4,455 +4,1021 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nusa & North - Meta Ads Preview</title>
+    <title>Nusa & North - Meta Ads Suite (All Ratios)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --bg-primary: #050505;
             --accent: #d4af37;
+            --bg-elevated: #1a1a1a;
             --text-primary: #ffffff;
             --text-secondary: #a0a0a0;
             --font-display: 'Outfit', sans-serif;
             --font-serif: 'Playfair Display', serif;
+            --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         body {
-            background-color: #111;
+            background-color: #0c0c0c;
             color: var(--text-primary);
             font-family: var(--font-display);
             margin: 0;
             padding: 40px;
+        }
+
+        h1.page-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 60px;
+            color: #666;
+            font-weight: 300;
+        }
+
+        .concept-row {
+            margin-bottom: 100px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 60px;
+        }
+
+        .concept-title {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .ratio-grid {
             display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
             justify-content: center;
             align-items: flex-start;
+            gap: 40px;
+            flex-wrap: wrap;
         }
 
-        .preview-container {
+        .ad-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 10px;
             align-items: center;
+            gap: 15px;
         }
 
-        .preview-label {
-            font-size: 0.9rem;
+        .ratio-label {
+            font-size: 0.8rem;
             color: #666;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        /* Ad Container - 1:1 Aspect Ratio (Square) */
+        /* --- Canvas Base Settings --- */
+        /* We scale everything relative to a 1080px base width, but display it smaller */
+        /* Using a fixed CSS pixel width for display to keep them viewable on desktop */
+
         .ad-canvas {
-            width: 500px;
-            /* Scaled down for preview, actual would be 1080px */
-            height: 500px;
-            background-color: var(--bg-primary);
+            background-color: #000;
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-            border: 1px solid #333;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid #222;
+            /* Flex center content by default */
         }
 
-        /* Portrait Aspect Ratio (4:5) Container */
-        .ad-canvas.portrait {
-            height: 625px;
-            /* 4:5 ratio relative to 500px width */
+        /* Sizes (Scaled down by ~3x for viewing) */
+        /* 1:1 Square (Original: 1080x1080) -> Display: 360x360 */
+        .size-square {
+            width: 360px;
+            height: 360px;
         }
 
-        /* --- Global Ad Elements --- */
+        /* 4:5 Portrait (Original: 1080x1350) -> Display: 360x450 */
+        .size-portrait {
+            width: 360px;
+            height: 450px;
+        }
+
+        /* 9:16 Story (Original: 1080x1920) -> Display: 304x540 (Narrower to fit screen better) */
+        .size-story {
+            width: 304px;
+            height: 540px;
+        }
+
+
+        /* --- COMMON ELEMENTS --- */
         .logo-mark {
             position: absolute;
-            bottom: 30px;
-            left: 30px;
-            width: 40px;
-            height: 40px;
             background: var(--accent);
-            border-radius: 8px;
+            border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 900;
             color: #000;
-            font-size: 24px;
-            z-index: 10;
+            z-index: 20;
+            /* Scale logo based on container */
+            width: 28px;
+            height: 28px;
+            font-size: 16px;
         }
 
-        .tagline {
-            position: absolute;
-            bottom: 35px;
-            right: 30px;
-            font-size: 12px;
-            color: var(--text-secondary);
-            text-align: right;
-            z-index: 10;
+        .logo-mark.top-left {
+            top: 20px;
+            left: 20px;
         }
 
-        /* --- Ad Variant 1: Bold Typography (The Problem) --- */
-        .ad-v1 {
-            padding: 40px;
-            justify-content: center;
-            background: radial-gradient(circle at top right, #1a1a1a 0%, #000 70%);
+        .logo-mark.bottom-right {
+            bottom: 20px;
+            right: 20px;
         }
 
-        .ad-v1 h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin: 0;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-
-        .ad-v1 h1 em {
-            font-family: var(--font-serif);
-            color: var(--text-secondary);
-            font-style: italic;
-            font-weight: 400;
-        }
-
-        /* Notification Pop */
-        .notification-card {
-            background: rgba(30, 30, 30, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 20px;
-            margin-top: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transform: rotate(-2deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            max-width: 90%;
-        }
-
-        .notif-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            font-size: 12px;
-            color: #888;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .notif-header .app-icon {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            color: #fff;
-            font-weight: 600;
-        }
-
-        .slack-sq {
-            width: 14px;
-            height: 14px;
-            background: #E01E5A;
-            /* Slack-ish color or Green per example */
-            border-radius: 3px;
-        }
-
-        /* Using Green as per example "Messages" */
-        .msg-icon {
-            width: 16px;
-            height: 16px;
-            background: #4CD964;
-            border-radius: 4px;
-        }
-
-        .notif-sender {
-            font-weight: 600;
-            font-size: 15px;
-            margin-bottom: 6px;
-            color: #fff;
-        }
-
-        .notif-body {
-            font-size: 15px;
-            line-height: 1.4;
-            color: #ddd;
-        }
-
-
-        /* --- Ad Variant 2: The Solution (Graph/Results) --- */
-        .ad-v2 {
-            background: #000;
-            position: relative;
-        }
-
-        .ad-v2-content {
-            padding: 50px 40px;
-            z-index: 2;
-        }
-
-        .ad-v2 h2 {
-            font-size: 2.2rem;
-            line-height: 1.1;
-            margin: 0 0 15px 0;
-        }
-
-        .ad-v2 h2 em {
-            font-family: var(--font-serif);
-            color: var(--accent);
-            font-style: italic;
-        }
-
-        .ad-v2 p {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.5;
-            margin: 0;
-            max-width: 90%;
-        }
-
-        /* Mock Dashboard UI */
-        .dashboard-ui {
-            position: absolute;
-            bottom: -40px;
+        .logo-mark.center-bottom {
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
-            width: 85%;
-            height: 280px;
-            background: #111;
-            border-radius: 20px 20px 0 0;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-bottom: none;
-            padding: 20px;
-            box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.8);
+        }
+
+        /* --- CONCEPT 1: PANIC (iOS Messages) --- */
+        .ad-v1 {
+            background: linear-gradient(180deg, #000 0%, #111 100%);
+        }
+
+        .ad-v1::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -20%;
+            width: 80%;
+            padding-bottom: 80%;
+            background: rgba(212, 175, 55, 0.15);
+            filter: blur(60px);
+            border-radius: 50%;
+        }
+
+        .v1-content-wrapper {
             display: flex;
             flex-direction: column;
-        }
-
-        .dash-header {
-            display: flex;
             justify-content: space-between;
-            margin-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding-bottom: 15px;
+            height: 100%;
+            padding: 30px;
         }
 
-        .dash-metric {
-            text-align: left;
+        .ios-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 20px;
         }
 
-        .dash-label {
-            font-size: 10px;
-            color: #666;
+        .ios-notif {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 10px;
+            font-family: var(--font-ui);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transform: scale(0.9);
+        }
+
+        .ios-app {
+            font-size: 9px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            display: flex;
+            gap: 4px;
+            align-items: center;
             margin-bottom: 4px;
         }
 
-        .dash-val {
-            font-size: 18px;
-            font-weight: 700;
+        .ios-body {
+            font-size: 11px;
+            line-height: 1.35;
+        }
+
+        .v1-hook {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .v1-hook h2 {
+            font-size: 1.8rem;
+            line-height: 1.1;
+            margin: 0;
+            background: linear-gradient(to right, #fff, #bbb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Adjustments for Story */
+        .size-story .ios-stack {
+            margin-top: 80px;
+            transform: scale(1.1);
+        }
+
+        .size-story .v1-hook {
+            margin-bottom: 100px;
+            transform: scale(1.2);
+        }
+
+
+        /* --- CONCEPT 2: MATH (Graph) --- */
+        .ad-v2 {
+            background: #080808;
+            padding: 25px;
+        }
+
+        .v2-wrapper {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .v2-header h2 {
+            font-size: 1.4rem;
+            margin: 0;
+            line-height: 1.1;
             color: #fff;
         }
 
-        .dash-val.highlight {
-            color: var(--accent);
+        .v2-header p {
+            font-size: 0.8rem;
+            color: #888;
+            margin: 5px 0 0 0;
         }
 
-        /* CSS Chart */
-        .chart-area {
+        .v2-graph {
             flex-grow: 1;
-            display: flex;
-            align-items: flex-end;
-            gap: 8px;
-            padding-top: 20px;
             position: relative;
+            margin: 20px 0;
+            border-left: 1px solid #333;
+            border-bottom: 1px solid #333;
         }
 
-        /* Line graph simulation using CSS clip-path or simple bars for easier implementation */
-        .chart-line {
-            position: absolute;
-            bottom: 0;
-            left: 0;
+        .v2-graph svg {
             width: 100%;
             height: 100%;
-            /* SVG would be better but keeping it single file no external assets */
+            overflow: visible;
         }
 
-        .bar {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 4px 4px 0 0;
-            position: relative;
-            transition: height 1s ease;
+        .line-flat {
+            stroke: #444;
+            stroke-width: 2;
+            stroke-dasharray: 4;
+            fill: none;
         }
 
-        .bar.growth {
-            background: linear-gradient(to top, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.6));
+        .line-growth {
+            stroke: var(--accent);
+            stroke-width: 3;
+            fill: none;
+            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
         }
 
-        /* Connecting arrow doodle */
-        .arrow-doodle {
+        .v2-anno {
             position: absolute;
-            top: 140px;
-            right: 40px;
-            width: 60px;
-            height: 40px;
-            border-left: 2px solid white;
-            border-bottom: 2px solid white;
-            border-radius: 0 0 0 20px;
-            transform: rotate(-10deg);
-            opacity: 0.5;
-        }
-
-        .arrow-text {
-            position: absolute;
-            top: 110px;
-            right: 15px;
-            font-family: 'Marker Felt', cursive, sans-serif;
-            /* Fallback */
-            font-size: 14px;
+            font-size: 8px;
             color: #fff;
-            transform: rotate(-10deg);
+            padding: 4px 6px;
+            background: #1a1a1a;
+            border-radius: 4px;
+            border: 1px solid #333;
+            font-family: var(--font-ui);
         }
 
-        /* --- Ad Variant 3: "The Formula" (Text Heavy/Direct) --- */
-        .ad-v3 {
-            background-color: var(--bg-primary);
-            padding: 50px;
+        .v2-stats {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            border: 1px solid var(--accent);
+            justify-content: space-between;
+            background: #111;
+            padding: 10px;
+            border-radius: 6px;
         }
 
-        .headline-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .headline-stack h2 {
-            font-size: 3rem;
-            line-height: 0.95;
-            margin: 0;
+        .stat-l {
+            font-size: 8px;
+            color: #666;
             text-transform: uppercase;
         }
 
-        .text-outline {
-            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.6);
-            color: transparent;
-        }
-
-        .text-filled {
+        .stat-v {
+            font-size: 12px;
+            font-weight: 700;
             color: #fff;
         }
 
-        .text-highlight {
+        .green {
+            color: #4CD964;
+        }
+
+        .size-story .v2-header {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .size-story .v2-header h2 {
+            font-size: 1.8rem;
+        }
+
+        .size-story .v2-graph {
+            margin: 40px 0;
+        }
+
+
+        /* --- CONCEPT 3: CALENDAR (Social Proof) --- */
+        .ad-v3 {
+            background: #fff;
+            color: #000;
+            position: relative;
+        }
+
+        .cal-wrapper {
+            width: 100%;
+            height: 100%;
+            transform: scale(1.1) rotate(-2deg);
+            opacity: 0.85;
+        }
+
+        .cal-row {
+            display: grid;
+            grid-template-columns: 40px 1fr;
+            margin-bottom: 0px;
+        }
+
+        .cal-time {
+            font-size: 9px;
+            color: #aaa;
+            text-align: right;
+            padding-right: 8px;
+            padding-top: 15px;
+            font-family: var(--font-ui);
+            border-right: 1px solid #f0f0f0;
+        }
+
+        .cal-content {
+            position: relative;
+            height: 60px;
+            border-bottom: 1px solid #f9f9f9;
+        }
+
+        .cal-card {
+            position: absolute;
+            left: 4px;
+            right: 4px;
+            top: 10px;
+            bottom: 5px;
+            background: #fff;
+            border-left: 3px solid var(--accent);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+            border-radius: 4px;
+            padding: 6px;
+            font-size: 9px;
+            font-family: var(--font-ui);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .cal-card.dark {
+            background: #111;
+            color: #fff;
+        }
+
+        .cal-card.muted {
+            background: #f4f4f4;
+            color: #ccc;
+            border: none;
+        }
+
+        .v3-overlay {
+            position: absolute;
+            bottom: 30px;
+            left: 20px;
+            right: 20px;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(8px);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .v3-overlay h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .v3-overlay p {
+            margin: 5px 0 0;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        .size-story .v3-overlay {
+            bottom: 80px;
+        }
+
+
+        /* --- CONCEPT 4: OLD VS NEW --- */
+        .ad-v4 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .v4-split {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 25px;
+            position: relative;
+        }
+
+        .v4-top {
+            background: #1a1a1a;
+            filter: grayscale(100%);
+            color: #666;
+            border-bottom: 1px solid #333;
+        }
+
+        .v4-bot {
+            background: #050505;
+            color: #fff;
+        }
+
+        .split-l {
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .split-t {
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .split-v {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .red {
+            color: #f44336;
+        }
+
+        .green {
+            color: #4CD964;
+        }
+
+        .v4-badge {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background: #fff;
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 10px;
+            border: 4px solid #000;
+            z-index: 10;
+        }
+
+        /* --- CONCEPT 5: BOLD TYPO --- */
+        .ad-v5 {
+            background: #000;
+            padding: 30px;
+            justify-content: center;
+        }
+
+        .v5-text h1 {
+            font-size: 2.2rem;
+            line-height: 0.85;
+            margin: 0;
+            text-transform: uppercase;
+            color: #333;
+            letter-spacing: -1px;
+        }
+
+        .v5-text h1 span {
+            color: #fff;
+        }
+
+        .v5-text h1 .gold {
             color: var(--accent);
         }
 
-        .ad-v3 p {
+        .v5-sub {
             margin-top: 30px;
-            font-size: 1.1rem;
-            line-height: 1.5;
-            color: var(--text-secondary);
-            border-left: 2px solid var(--accent);
-            padding-left: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .cta-button {
-            margin-top: 40px;
-            align-self: flex-start;
-            padding: 12px 30px;
-            background: #fff;
-            color: #000;
-            font-weight: 700;
-            border-radius: 100px;
-            text-transform: uppercase;
-            font-size: 14px;
-            letter-spacing: 1px;
+        .v5-sub p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: #888;
+            max-width: 120px;
+        }
+
+        .v5-arrow {
+            width: 30px;
+            height: 30px;
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 12px;
+        }
+
+        .size-story .v5-text h1 {
+            font-size: 3rem;
+        }
+
+        .size-story .ad-v5 {
+            padding: 40px;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Variant 1 -->
-    <div class="preview-container">
-        <div class="preview-label">Concept 1: The "Trigger"</div>
-        <div class="ad-canvas ad-v1 portrait">
-            <h1>Another quarter,<br>another <em>aggressive</em><br>target?</h1>
+    <h1 class="page-title">Meta Ad Concepts (All Aspect Ratios)</h1>
 
-            <div class="notification-card">
-                <div class="notif-header">
-                    <div class="app-icon">
-                        <div class="msg-icon"></div> Messages
+    <!-- CONCEPT 1 -->
+    <div class="concept-row">
+        <div class="concept-title">1. The "Panic" Hook</div>
+        <div class="ratio-grid">
+            <!-- Square -->
+            <div class="ad-wrapper">
+                <div class="ad-canvas size-square ad-v1">
+                    <div class="v1-content-wrapper">
+                        <div class="ios-stack">
+                            <div class="ios-notif">
+                                <div class="ios-app"><i class="fas fa-comment"></i> Messages</div>
+                                <div class="ios-body" style="font-weight: 600">We're missing Q3 targets. Fix it.</div>
+                            </div>
+                            <div class="ios-notif">
+                                <div class="ios-app"><i class="fab fa-slack"></i> Slack</div>
+                                <div class="ios-body">We need creative velocity. Book Nusa.</div>
+                            </div>
+                        </div>
+                        <div class="v1-hook">
+                            <h2>Stop the <span style="font-style:italic; color: #888">panic.</span><br>Start the <span
+                                    style="color:var(--accent)">scale.</span></h2>
+                        </div>
                     </div>
-                    <span>now</span>
+                    <div class="logo-mark bottom-right">N</div>
                 </div>
-                <div class="notif-sender">VP of Growth</div>
-                <div class="notif-body">We need to hit $5M this quarter. Put together a plan by EOW please.</div>
+                <div class="ratio-label">Square (1:1)</div>
             </div>
-
-            <div class="logo-mark">N</div>
-            <div class="tagline">The growth partner<br>for teams under pressure</div>
+            <!-- Portrait -->
+            <div class="ad-wrapper">
+                <div class="ad-canvas size-portrait ad-v1">
+                    <div class="v1-content-wrapper">
+                        <div class="ios-stack">
+                            <div class="ios-notif" style="opacity:0.6">
+                                <div class="ios-app">
+                                    <div style="background:#55acee;width:10px;height:10px;border-radius:2px;"></div>
+                                    Fin-Team
+                                </div>
+                                <div class="ios-body">CAC is up 40%. Stabilize now.</div>
+                            </div>
+                            <div class="ios-notif">
+                                <div class="ios-app"><i class="fas fa-comment"></i> Messages</div>
+                                <div class="ios-body" style="font-weight: 600">Marketing is burning cash.</div>
+                            </div>
+                            <div class="ios-notif">
+                                <div class="ios-app"><i class="fab fa-slack"></i> Slack</div>
+                                <div class="ios-body">We need a real partner. Book Nusa.</div>
+                            </div>
+                        </div>
+                        <div class="v1-hook">
+                            <h2>Stop the <span style="font-style:italic; color: #888">panic.</span><br>Start the <span
+                                    style="color:var(--accent)">scale.</span></h2>
+                        </div>
+                    </div>
+                    <div class="logo-mark bottom-right">N</div>
+                </div>
+                <div class="ratio-label">Portrait (4:5)</div>
+            </div>
+            <!-- Story -->
+            <div class="ad-wrapper">
+                <div class="ad-canvas size-story ad-v1">
+                    <div class="v1-content-wrapper">
+                        <div class="ios-stack">
+                            <div class="ios-notif">
+                                <div class="ios-app"><i class="fas fa-comment"></i> CFO</div>
+                                <div class="ios-body" style="font-weight: 600">Why are we missing targets?</div>
+                            </div>
+                            <div class="ios-notif">
+                                <div class="ios-app"><i class="fas fa-comment"></i> CMO</div>
+                                <div class="ios-body">Creative fatigue. We need volume.</div>
+                            </div>
+                            <div class="ios-notif">
+                                <div class="ios-app"><i class="fab fa-slack"></i> Slack</div>
+                                <div class="ios-body">Nusa & North just sent the new assets. 🚀</div>
+                            </div>
+                        </div>
+                        <div class="v1-hook">
+                            <h2>Stop the <span style="font-style:italic; color: #888">panic.</span><br>Start the <span
+                                    style="color:var(--accent)">scale.</span></h2>
+                        </div>
+                    </div>
+                    <div class="logo-mark center-bottom">N</div>
+                </div>
+                <div class="ratio-label">Story (9:16)</div>
+            </div>
         </div>
     </div>
 
-    <!-- Variant 2 -->
-    <div class="preview-container">
-        <div class="preview-label">Concept 2: The "Scale"</div>
-        <div class="ad-canvas ad-v2 portrait">
-            <div class="ad-v2-content">
-                <h2>Stuck at $5M/year<br>because you're<br><em>scaling wrong.</em></h2>
-                <p>Brands that spend $20k - $50k/day on ads don't scale on hacks. They scale with better economics.</p>
-            </div>
-
-            <div class="arrow-text">Real scale starts here</div>
-            <div class="arrow-doodle"></div>
-
-            <div class="dashboard-ui">
-                <div class="dash-header">
-                    <div class="dash-metric">
-                        <div class="dash-label">Total Sales</div>
-                        <div class="dash-val">€2,405,091</div>
+    <!-- CONCEPT 2 -->
+    <div class="concept-row">
+        <div class="concept-title">2. The "Math" Hook</div>
+        <div class="ratio-grid">
+            <!-- Square -->
+            <div class="ad-wrapper">
+                <div class="ad-canvas size-square ad-v2">
+                    <div class="v2-wrapper">
+                        <div class="v2-header">
+                            <h2>The Gap</h2>
+                            <p>Spending more isn't scaling.</p>
+                        </div>
+                        <div class="v2-graph">
+                            <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                                <path d="M0,80 L100,75" class="line-flat" />
+                                <path d="M0,80 Q50,70 60,40 T100,10" class="line-growth" />
+                            </svg>
+                            <div class="v2-anno"
+                                style="top:20%; right:0; color:var(--accent); border-color:var(--accent)">Creative
+                                Velocity</div>
+                        </div>
+                        <div class="v2-stats">
+                            <div class="stat-box">
+                                <div class="stat-l">ROAS</div>
+                                <div class="stat-v green">4.2x</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-l">Profit</div>
+                                <div class="stat-v">+$160k</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="dash-metric">
-                        <div class="dash-label">ROAS</div>
-                        <div class="dash-val highlight">4.82x</div>
-                    </div>
+                    <div class="logo-mark top-left">N</div>
                 </div>
-
-                <div class="chart-area">
-                    <div class="bar" style="height: 20%"></div>
-                    <div class="bar" style="height: 35%"></div>
-                    <div class="bar" style="height: 30%"></div>
-                    <div class="bar" style="height: 45%"></div>
-                    <div class="bar growth" style="height: 60%"></div>
-                    <div class="bar growth" style="height: 85%"></div>
-                    <div class="bar growth" style="height: 100%"></div>
-                </div>
+                <div class="ratio-label">Square (1:1)</div>
             </div>
-
-            <div class="logo-mark">N</div>
+            <!-- Portrait -->
+            <div class="ad-wrapper">
+                <div class="ad-canvas size-portrait ad-v2">
+                    <div class="v2-wrapper">
+                        <div class="v2-header">
+                            <h2>The "Scaling" Gap</h2>
+                            <p>Increasing budget kills ROAS without creative velocity.</p>
+                        </div>
+                        <div class="v2-graph">
+                            <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                                <path d="M0,80 L100,75" class="line-flat" />
+                                <path d="M0,80 Q50,70 60,40 T100,10" class="line-growth" />
+                            </svg>
+                            <div class="v2-anno" style="top:60%; left:20%;">Media Buying</div>
+                            <div class="v2-anno"
+                                style="top:15%; right:0; color:var(--accent); border-color:var(--accent)">Creative
+                                Velocity</div>
+                        </div>
+                        <div class="v2-stats">
+                            <div class="stat-box">
+                                <div class="stat-l">Spend</div>
+                                <div class="stat-v">$50k</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-l">ROAS</div>
+                                <div class="stat-v green">4.2x</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-l">Profit</div>
+                                <div class="stat-v">+$160k</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logo-mark top-left">N</div>
+                </div>
+                <div class="ratio-label">Portrait (4:5)</div>
+            </div>
+            <!-- Story -->
+            <div class="ad-wrapper">
+                <div class="ad-canvas size-story ad-v2">
+                    <div class="v2-wrapper">
+                        <div class="v2-header">
+                            <h2>Stop Feeding<br>Broken Funnels</h2>
+                        </div>
+                        <div class="v2-graph">
+                            <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                                <path d="M0,90 L100,85" class="line-flat" />
+                                <path d="M0,90 Q40,80 60,40 T100,10" class="line-growth" />
+                            </svg>
+                            <div class="v2-anno"
+                                style="top:25%; left:10%; color:var(--accent); border-color:var(--accent); font-size: 10px;">
+                                Creative Velocity</div>
+                        </div>
+                        <div class="v2-stats"
+                            style="flex-direction:column; align-items:center; text-align:center; gap:10px;">
+                            <div class="stat-box">
+                                <div class="stat-l">Result</div>
+                                <div class="stat-v green" style="font-size:18px;">4.2x ROAS</div>
+                            </div>
+                            <div style="font-size:10px; color:#666">Scale with Nusa & North</div>
+                        </div>
+                    </div>
+                    <div class="logo-mark bottom-right">N</div>
+                </div>
+                <div class="ratio-label">Story (9:16)</div>
+            </div>
         </div>
     </div>
 
-    <!-- Variant 3 -->
-    <div class="preview-container">
-        <div class="preview-label">Concept 3: The "Typography"</div>
-        <div class="ad-canvas ad-v3">
-            <div class="headline-stack">
-                <h2 class="text-outline">Is your</h2>
-                <h2 class="text-filled">Creative</h2>
-                <h2 class="text-outline">Output</h2>
-                <h2 class="text-highlight">Keeping Up?</h2>
+    <!-- CONCEPT 3 -->
+    <div class="concept-row">
+        <div class="concept-title">3. The "Social Proof" Hook</div>
+        <div class="ratio-grid">
+            <!-- Square -->
+            <div class="ad-wrapper">
+                <div class="ad-canvas size-square ad-v3">
+                    <div class="cal-wrapper">
+                        <div class="cal-row">
+                            <div class="cal-time">9 AM</div>
+                            <div class="cal-content">
+                                <div class="cal-card dark"><i class="fas fa-check"></i> Strategy Call</div>
+                            </div>
+                        </div>
+                        <div class="cal-row">
+                            <div class="cal-time">10 AM</div>
+                            <div class="cal-content">
+                                <div class="cal-card muted" style="left:50%">Sync</div>
+                            </div>
+                        </div>
+                        <div class="cal-row">
+                            <div class="cal-time">11 AM</div>
+                            <div class="cal-content">
+                                <div class="cal-card dark"><i class="fas fa-video"></i> Review</div>
+                            </div>
+                        </div>
+                        <div class="cal-row">
+                            <div class="cal-time">12 PM</div>
+                            <div class="cal-content"></div>
+                        </div>
+                        <div class="cal-row">
+                            <div class="cal-time">1 PM</div>
+                            <div class="cal-content">
+                                <div class="cal-card dark"><i class="fas fa-rocket"></i> Onboarding</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="v3-overlay">
+                        <h3>Pipeline: Full</h3>
+                    </div>
+                </div>
+                <div class="ratio-label">Square (1:1)</div>
             </div>
+            <!-- Portrait -->
+            <div class="ad-wrapper">
+                <div class="ad-canvas size-portrait ad-v3">
+                    <div class="cal-wrapper">
+                        <div class="cal-row">
+                            <div class="cal-time">9 AM</div>
+                            <div class="cal-content">
+                                <div class="cal-card dark"><i class="fas fa-check"></i> Strategy Call: Fintech</div>
+                            </div>
+                        </div>
+                        <div class="cal-row">
+                            <div class="cal-time">10 AM</div>
+                            <div class="cal-content">
+                                <div class="cal-card muted" style="width: 40%">Internal</div>
+                            </div>
+                        </div>
+                        <div class="cal-row">
+                            <div class="cal-time">11 AM</div>
+                            <div class="cal-content">
+                                <div class="cal-card dark"><i class="fas fa-video"></i> Creative Review: Ecom</div>
+                            </div>
+                        </div>
+                        <div class="cal-row">
+                            <div class="cal-time">12 PM</div>
+                            <div class="cal-content"></div>
+                        </div>
+                        <div class="cal-row">
+                            <div class="cal-time">1 PM</div>
+                            <div class="cal-content">
+                                <div class="cal-card dark"><i class="fas fa-rocket"></i> Onboarding: SaaS</div>
+                            </div>
+                        </div>
+                        <div class="cal-row">
+                            <div class="cal-time">2 PM</div>
+                            <div class="cal-content">
+                                <div class="cal-card dark"><i class="fas fa-chart-line"></i> Report</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="v3-overlay">
+                        <h3>Pipeline: Full</h3>
+                        <p>Creative that books calendars.</p>
+                    </div>
+                </div>
+                <div class="ratio-label">Portrait (4:5)</div>
+            </div>
+            <!-- Story -->
+            <div class="ad-wrapper">
+                <div class="ad-canvas size-story ad-v3">
+                    <div class="cal-wrapper" style="transform: scale(1.2) rotate(-3deg) translateY(50px);">
+                        <div class="cal-row">
+                            <div class="cal-time">8 AM</div>
+                            <div class="cal-content">
+                                <div class="cal-card muted" style="width:60%">Planning</div>
+                            </div>
+                        </div>
+                        <div class="cal-row">
+                            <div class="cal-time">9 AM</div>
+                            <div class="cal-content">
+                                <div class="cal-card dark"><i class="fas fa-check"></i> Strategy Call</div>
+                            </div>
+                        </div>
+                        <div class="cal-row">
+                            <div class="cal-time">10 AM</div>
+                            <div class="cal-content">
+                                <div class="cal-card dark"><i class="fas fa-video"></i> Production</div>
+                            </div>
+                        </div>
+                        <div class="cal-row">
+                            <div class="cal-time">11 AM</div>
+                            <div class="cal-content">
+                                <div class="cal-card dark"><i class="fas fa-edit"></i> Edit Review</div>
+                            </div>
+                        </div>
+                        <div class="cal-row">
+                            <div class="cal-time">12 PM</div>
+                            <div class="cal-content"></div>
+                        </div>
+                        <div class="cal-row">
+                            <div class="cal-time">1 PM</div>
+                            <div class="cal-content">
+                                <div class="cal-card dark"><i class="fas fa-rocket"></i> Launch</div>
+                            </div>
+                        </div>
+                        <div class="cal-row">
+                            <div class="cal-time">2 PM</div>
+                            <div class="cal-content">
+                                <div class="cal-card dark"><i class="fas fa-rocket"></i> Launch</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="v3-overlay">
+                        <h3>Pipeline: Full</h3>
+                        <p>Results oriented creative.</p>
+                    </div>
+                </div>
+                <div class="ratio-label">Story (9:16)</div>
+            </div>
+        </div>
+    </div>
 
-            <p>See why €10M+ brands trust Nusa & North to scale with creative velocity.</p>
+    <!-- CONCEPT 4 -->
+    <div class="concept-row">
+        <div class="concept-title">4. The "Old vs New" Hook</div>
+        <div class="ratio-grid">
+            <!-- Square -->
+            <div class="ad-wrapper">
+                <div class="ad-canvas size-square ad-v4">
+                    <div class="v4-badge">VS</div>
+                    <div class="v4-split v4-top">
+                        <div class="split-c">
+                            <div class="split-l">Old Way</div>
+                            <div class="split-t">Static Img</div>
+                        </div>
+                        <div class="split-v red">1.2x</div>
+                    </div>
+                    <div class="v4-split v4-bot">
+                        <div class="split-c">
+                            <div class="split-l" style="color:var(--accent)">Nusa Way</div>
+                            <div class="split-t">Motion</div>
+                        </div>
+                        <div class="split-v green">5.4x</div>
+                    </div>
+                </div>
+                <div class="ratio-label">Square (1:1)</div>
+            </div>
+            <!-- Portrait -->
+            <div class="ad-wrapper">
+                <div class="ad-canvas size-portrait ad-v4">
+                    <div class="v4-badge">VS</div>
+                    <div class="v4-split v4-top">
+                        <div class="split-c">
+                            <div class="split-l">The Old Way</div>
+                            <div class="split-t">Static Images &<br>Generic Stock</div>
+                        </div>
+                        <div class="split-v red">1.2x</div>
+                    </div>
+                    <div class="v4-split v4-bot">
+                        <div class="split-c">
+                            <div class="split-l" style="color:var(--accent)">The Nusa Way</div>
+                            <div class="split-t">Performance<br>Motion & Video</div>
+                        </div>
+                        <div class="split-v green">5.4x</div>
+                    </div>
+                    <div class="logo-mark top-left" style="top:auto; bottom:20px; left:20px;">N</div>
+                </div>
+                <div class="ratio-label">Portrait (4:5)</div>
+            </div>
+            <!-- Story -->
+            <div class="ad-wrapper">
+                <div class="ad-canvas size-story ad-v4">
+                    <div class="v4-badge">VS</div>
+                    <div class="v4-split v4-top"
+                        style="flex-direction:column; justify-content:center; text-align:center; gap:10px;">
+                        <div class="split-l">The Old Way</div>
+                        <div class="split-t">Static Images</div>
+                        <div class="split-v red">1.2x ROAS</div>
+                    </div>
+                    <div class="v4-split v4-bot"
+                        style="flex-direction:column; justify-content:center; text-align:center; gap:10px;">
+                        <div class="split-l" style="color:var(--accent)">The Nusa Way</div>
+                        <div class="split-t">Performance Video</div>
+                        <div class="split-v green">5.4x ROAS</div>
+                    </div>
+                    <div class="logo-mark center-bottom">N</div>
+                </div>
+                <div class="ratio-label">Story (9:16)</div>
+            </div>
+        </div>
+    </div>
 
-            <div class="cta-button">See Our Work</div>
-
-            <div class="logo-mark"
-                style="bottom: auto; top: 30px; right: 30px; left: auto; background: transparent; color: #fff; border: 1px solid #333;">
-                N</div>
+    <!-- CONCEPT 5 -->
+    <div class="concept-row">
+        <div class="concept-title">5. The "Bold" Hook</div>
+        <div class="ratio-grid">
+            <!-- Square -->
+            <div class="ad-wrapper">
+                <div class="ad-canvas size-square ad-v5">
+                    <div class="v5-text">
+                        <h1>WE DON'T<br>SELL <span>VIDEOS.</span></h1>
+                        <h1 style="margin-top:10px">WE SELL<br><span class="gold">PROFIT.</span></h1>
+                    </div>
+                    <div class="v5-sub">
+                        <p>Stop paying for "pretty".</p>
+                        <div class="v5-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </div>
+                    <div class="logo-mark top-left">N</div>
+                </div>
+                <div class="ratio-label">Square (1:1)</div>
+            </div>
+            <!-- Portrait -->
+            <div class="ad-wrapper">
+                <div class="ad-canvas size-portrait ad-v5">
+                    <div class="v5-text">
+                        <h1>WE DON'T<br>SELL<br><span>VIDEOS.</span></h1>
+                        <h1 style="margin-top:20px">WE SELL<br><span class="gold">PERFORMANCE.</span></h1>
+                    </div>
+                    <div class="v5-sub">
+                        <p>Stop paying for "pretty". Start paying for profit.</p>
+                        <div class="v5-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </div>
+                    <div class="logo-mark top-left">N</div>
+                </div>
+                <div class="ratio-label">Portrait (4:5)</div>
+            </div>
+            <!-- Story -->
+            <div class="ad-wrapper">
+                <div class="ad-canvas size-story ad-v5">
+                    <div class="v5-text">
+                        <h1>WE DON'T<br>SELL<br><span>VIDEOS.</span></h1>
+                        <h1 style="margin-top:30px">WE SELL<br><span class="gold">SCALE.</span></h1>
+                    </div>
+                    <div class="v5-sub">
+                        <p>The growth partner for brands under pressure.</p>
+                        <div class="v5-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </div>
+                    <div class="logo-mark center-bottom">N</div>
+                </div>
+                <div class="ratio-label">Story (9:16)</div>
+            </div>
         </div>
     </div>
 
