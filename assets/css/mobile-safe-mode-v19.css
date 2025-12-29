@@ -68,24 +68,71 @@
         flex-direction: column !important;
         gap: 1.5rem !important;
         padding: 0 1rem !important;
+        position: relative !important;
+        /* Reset from absolute */
+        pointer-events: auto !important;
+        /* Allow clicks */
+        inset: auto !important;
+        /* Release pinned edges */
+        height: auto !important;
+        margin-top: 2rem !important;
     }
 
     .fw-card {
         width: 100% !important;
         max-width: none !important;
         margin-bottom: 0 !important;
+        position: relative !important;
+        /* Crucial: reset from absolute to stack correctly */
+        left: auto !important;
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        /* Kill the 3D float animation */
+        opacity: 1 !important;
     }
 
-    /* 3. Fix Section Headers Typography */
+    /* 3. Fix Section Headers & Spacing */
     h1 {
-        font-size: 2.5rem !important;
-        /* Reduce from giant clamp */
+        font-size: clamp(2rem, 5vw, 2.5rem) !important;
+        /* Fluid typography */
         line-height: 1.1 !important;
     }
 
     .hero-subtitle {
         font-size: 1.1rem !important;
         padding: 0 1rem !important;
+    }
+
+    /* 4. Fix Google Ads Orbit (Scale Down) */
+    .orbital-system {
+        width: 100% !important;
+        height: 350px !important;
+        /* Constrain height */
+        transform: scale(0.65) !important;
+        /* Shrink to fit */
+        transform-origin: center center !important;
+        margin-top: -2rem !important;
+    }
+
+    .central-g {
+        font-size: 15rem !important;
+        /* Smaller G */
+    }
+
+    /* 5. Tighter Global Spacing */
+    section,
+    .welcome-section,
+    .stats-section,
+    .deep-dive-section {
+        padding: 3rem 1.25rem !important;
+        /* Reduced from 4rem */
+    }
+
+    .hero {
+        padding: 6rem 1.25rem 2rem !important;
+        /* Adjusted hero padding */
     }
 }
 
