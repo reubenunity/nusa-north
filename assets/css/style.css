@@ -804,10 +804,9 @@ footer,
     }
 
 
-    /* Ensure no horizontal scroll */
+    /* Ensure no horizontal scroll - Managed by mobile-safe-mode now */
     html,
     body {
-        overflow-x: hidden;
         width: 100%;
         position: relative;
     }

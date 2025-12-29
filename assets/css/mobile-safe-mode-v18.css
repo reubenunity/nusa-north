@@ -7,7 +7,7 @@
     /* 1. Global Reset */
     html,
     body {
-        overflow-x: hidden !important;
+        /* overflow-x: hidden !important; REMOVED to fix Mac Swipe */
         width: 100% !important;
         max-width: 100vw !important;
     }
