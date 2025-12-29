@@ -1196,3 +1196,27 @@
         z-index: 2 !important;
     }
 }
+
+/* 16. TECH STACK MARQUEE MOBILE RESIZE */
+.tech-stack-section {
+    padding: 2rem 0 1.5rem !important;
+    /* Reduced padding */
+    border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.tech-track {
+    gap: 2rem !important;
+    /* Reduce gap between items */
+}
+
+.tech-item {
+    gap: 0.5rem !important;
+    font-size: 0.9rem !important;
+    /* Smaller text */
+}
+
+.tech-item svg {
+    width: 20px !important;
+    /* Smaller icons */
+    height: 20px !important;
+}
