@@ -2,7 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.nusaandnorth.com/</loc>
-    <lastmod>2025-12-28</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
@@ -25,8 +24,116 @@
     <loc>https://www.nusaandnorth.com/services/content-strategy/</loc>
     <priority>0.8</priority>
   </url>
-   <url>
-    <loc>https://www.nusaandnorth.com/booking.html</loc>
+  <url>
+    <loc>https://www.nusaandnorth.com/booking.html/</loc>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/the-death-of-the-link-in-bio.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/educational-luxury-psychology.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/hp-media-markt.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/email-segmentation-for-vips.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/why-best-practice-is-a-trap.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/why-your-roas-is-lying-to-you.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/placeholder-6.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/educational-quiet-luxury.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/placeholder-1.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/the-vietage.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/educational-video-roi.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/the-newsletter-reinassance.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/educational-roas-vs-poas.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/educational-ugc-luxury.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/google-performance-max-friend-or-foe.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/placeholder-3.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/educational-scaling-creative.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/educational-google-vs-meta.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/placeholder-2.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/harpers-bazaar.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/video-length-the-goldilocks-zone.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/four-seasons-bangkok.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/placeholder-5.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/educational-email-flow.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/placeholder-4.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nusaandnorth.com/insights/posts/the-rise-of-silent-video.html</loc>
+    <priority>0.7</priority>
   </url>
 </urlset>
