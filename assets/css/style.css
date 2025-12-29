@@ -646,7 +646,8 @@ footer,
     }
 
     100% {
-        transform: translateX(-50%);
+        transform: translateX(-25%);
+        /* Move past 1/4 sets (seamless loop) */
     }
 }
 
