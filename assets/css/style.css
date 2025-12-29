@@ -2131,3 +2131,44 @@ footer {
         /* Shown on mobile via mobile-menu.css, but useful fallback here */
     }
 }
+
+/* =========================================
+   404 Error Page
+   ========================================= */
+.error-page-container {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.error-code {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(8rem, 20vw, 15rem);
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+    margin-bottom: 2rem;
+    opacity: 0.5;
+}
+
+.error-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.error-subtitle {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 500px;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
