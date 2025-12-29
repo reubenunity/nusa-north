@@ -2015,6 +2015,7 @@ footer {
 /* =========================================
    Holistic Growth Interlink (Visibility Boost)
    ========================================= */
+.holistic-growth-section,
 .holistic-growth-final {
     background: linear-gradient(145deg, rgba(20, 20, 20, 0.8) 0%, rgba(10, 10, 10, 0.95) 100%);
     border: 1px solid rgba(212, 175, 55, 0.2);
@@ -2030,6 +2031,7 @@ footer {
 }
 
 /* Add a subtle glow/shine */
+.holistic-growth-section::before,
 .holistic-growth-final::before {
     content: '';
     position: absolute;
@@ -2056,6 +2058,8 @@ footer {
 }
 
 @media (max-width: 768px) {
+
+    .holistic-growth-section,
     .holistic-growth-final {
         margin: 4rem 1.5rem 8rem !important;
         /* Ensure side margins on mobile */
