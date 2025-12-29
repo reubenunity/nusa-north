@@ -60,3 +60,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+/* -----------------------------------------------------------
+ *  Newsletter Integration (Mailchimp)
+ * ----------------------------------------------------------- */
+document.addEventListener('DOMContentLoaded', () => {
+    const forms = document.querySelectorAll('.newsletter-form');
+
+    if (forms.length > 0) {
+        console.log('Nusa & North: Initializing ' + forms.length + ' newsletter forms');
+
+        const mcAction = "https://nusaandnorth.us12.list-manage.com/subscribe/post?u=466a0a76c281807e8ba35cb92&id=1801094036&f_id=000082e3f0";
+        const honeypotName = "b_466a0a76c281807e8ba35cb92_1801094036";
+
+        forms.forEach(form => {
+            // 1. Remove dummy handlers
+            form.removeAttribute('onsubmit');
+
+            // 2. Set Mailchimp Properties
+            form.action = mcAction;
+            form.method = "POST";
+            form.target = "_blank"; // Open in new tab for standard double-opt-in flow
+
+            // 3. Ensure Email Input has correct name
+            const emailInput = form.querySelector('input[type="email"]');
+            if (emailInput) {
+                emailInput.name = "EMAIL";
+            }
+
+            // 4. Inject Honeypot (Anti-Bot)
+            // Only add if it doesn't exist yet
+            if (!form.querySelector(`input[name="${honeypotName}"]`)) {
+                const honeyDiv = document.createElement('div');
+                honeyDiv.style.position = 'absolute';
+                honeyDiv.style.left = '-5000px';
+                honeyDiv.ariaHidden = 'true';
+                honeyDiv.innerHTML = `<input type="text" name="${honeypotName}" tabindex="-1" value="">`;
+                form.appendChild(honeyDiv);
+            }
+        });
+    }
+});
