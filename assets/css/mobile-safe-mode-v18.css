@@ -1133,7 +1133,7 @@
 
 /* 15. MOBILE HERO BACKGROUND (HOME) */
 /* Hero Adjustments */
-.hero-content {
+.home-hero-content {
     padding: 0 1.5rem !important;
     /* Reset padding */
     width: 100% !important;
@@ -1143,6 +1143,11 @@
     backdrop-filter: none !important;
     border-radius: 0 !important;
     margin-bottom: 2rem !important;
+}
+
+/* Add Shadow only for Home where box is gone */
+.home-hero-content h1 {
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .hero h1 {
