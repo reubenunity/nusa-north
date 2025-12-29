@@ -181,7 +181,7 @@
         padding-left: 0 !important;
         background: #000000 !important;
         /* Ensure track is black */
-        animation: mobileLogoScroll 25s linear infinite !important;
+        animation: mobileLogoScrollFinal 25s linear infinite !important;
         /* Restored speed */
     }
 
@@ -195,7 +195,7 @@
         text-transform: uppercase !important;
     }
 
-    @keyframes mobileLogoScroll {
+    @keyframes mobileLogoScrollFinal {
         0% {
             transform: translateX(0);
         }
