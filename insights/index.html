@@ -39,10 +39,14 @@
     <!-- End Meta Pixel Code -->
 
     <!-- Core Styles (Global) -->
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css?v=999">
+    <!-- Mobile Safe Mode (Global Stabilization) -->
+    <link rel="stylesheet" href="../assets/css/mobile-safe-mode-v18.css?v=38" media="(max-width: 1024px)">
 
     <!-- Isolated Insights Styles -->
-    <link rel="stylesheet" href="../assets/css/insights.css">
+    <link rel="stylesheet" href="../assets/css/insights.css?v=999">
+    <link rel="stylesheet" href="../assets/css/mobile-menu.css?v=3">
+    <link rel="stylesheet" href="../assets/css/mobile-menu.css?v=3">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,38 +61,169 @@
 
     <!-- Navigation (Simplified for Insights) -->
     <nav>
-        <a href="/" class="logo">nusa<span>&</span>north</a>
+        <a href="../index.html" class="logo">nusa<span>&</span>north</a>
 
-        <button class="mobile-menu-btn" aria-label="Toggle Navigation" style="display: none;">
+        <button class="mobile-menu-btn" aria-label="Toggle Navigation">
             <span></span>
             <span></span>
             <span></span>
         </button>
 
-        <!-- Using same nav structure but linking back to home for anchors -->
         <div class="nav-links">
-            <a href="../index.html#services">Services</a>
-            <a href="../index.html#work">Work</a>
+            <div class="nav-item-group">
+                <a href="../index.html#services" class="nav-link-trigger">Services</a>
+                <div class="nav-dropdown">
+                    <a href="../services/google-ads/index.html">Google Ads</a>
+                    <a href="../services/meta-ads/index.html">Meta Ads</a>
+                    <a href="../services/performance-creative/index.html">Performance Creative</a>
+                    <a href="../services/email-marketing/index.html">Email Marketing</a>
+                    <a href="../services/content-strategy/index.html">Content Strategy</a>
+                    <a href="../services/photography/index.html">Photography</a>
+                </div>
+            </div>
             <a href="index.html" class="active">Insights</a>
+            <a href="../index.html#work">Work</a>
+            <a href="../index.html#about">About</a>
             <a href="../index.html#contact" class="nav-cta">Book Discovery Call<span class="nav-cta-icon">n.</span></a>
         </div>
     </nav>
+
+
     <div class="insights-nav-spacer"></div>
 
     <!-- Header -->
     <header class="insights-header">
-        <h1 class="insights-title">INSIGHTS <em>&</em> INTELLIGENCE</h1>
+        <span class="journal-tag">JOURNAL</span>
+        <h1 class="insights-title">INSIGHTS <em>&</em> <br>INTELLIGENCE</h1>
         <p class="insights-subtitle">
-            Strategic actions at the intersection of cinematic video, performance data, and luxury brand growth. Read
-            our latest thinking on how to scale without sacrificing prestige.
+            Strategic thinking at the intersection of cinematic video, performance data, and luxury brand growth.
         </p>
     </header>
 
+    <!-- Filters & Controls -->
+    <div class="insights-controls-container">
+        <!-- Filter Pills -->
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="strategy">Strategy</button>
+            <button class="filter-btn" data-filter="trends">Trends</button>
+            <button class="filter-btn" data-filter="creative">Creative</button>
+            <button class="filter-btn" data-filter="email">Email</button>
+            <button class="filter-btn" data-filter="technology">Technology</button>
+        </div>
+
+        <!-- Grid Header (Showing X articles + Arrows) -->
+        <div class="grid-header-row">
+            <h2 class="showing-text">Showing <span class="current-category">Strategy</span> articles</h2>
+            <div class="grid-nav-arrows">
+                <button class="grid-arrow prev" aria-label="Previous page">←</button>
+                <button class="grid-arrow next" aria-label="Next page">→</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Main Grid -->
-    <main class="insights-grid-container" id="articles-grid">
+    <!-- Main Grid -->
+    <main class="insights-grid-container" id="articles-grid" style="position: relative; z-index: 5;">
+
+        <!-- Article: The Death of the 'Link in Bio' -->
+        <a href="posts/the-death-of-the-link-in-bio.html" class="insight-card" data-category="trends">
+            <div class="insight-thumb-wrapper">
+                <img src="../assets/images/hero/img3.webp" alt="The Death of the 'Link in Bio'" class="insight-thumb">
+            </div>
+            <div class="insight-content">
+                <span class="insight-tag">TRENDS</span>
+                <h2 class="insight-headline">The Death of the 'Link in Bio'</h2>
+                <p class="insight-excerpt">Instagram's algorithm is burying external links. Here is the 'Zero-Click' content strategy we use to drive traffic without leaving the app.</p>
+                <div class="insight-meta">
+                    <div class="insight-author-img" style="background-image: url('../assets/images/hero/img1.webp'); background-size: cover;"></div>
+                    <div class="insight-author-text">
+                        Reuben Hester • Dec 29
+                    </div>
+                </div>
+            </div>
+        </a>
+        
+
+        <!-- Article: Email Segmentation for VIPs -->
+        <a href="posts/email-segmentation-for-vips.html" class="insight-card" data-category="email">
+            <div class="insight-thumb-wrapper">
+                <img src="../assets/images/hero/img2.webp" alt="Email Segmentation for VIPs" class="insight-thumb">
+            </div>
+            <div class="insight-content">
+                <span class="insight-tag">EMAIL</span>
+                <h2 class="insight-headline">Email Segmentation for VIPs</h2>
+                <p class="insight-excerpt">Treating your top 1% of customers the same as your newsletter subscribers is costing you six figures. Here's the fix.</p>
+                <div class="insight-meta">
+                    <div class="insight-author-img" style="background-image: url('../assets/images/hero/img1.webp'); background-size: cover;"></div>
+                    <div class="insight-author-text">
+                        Reuben Hester • Dec 29
+                    </div>
+                </div>
+            </div>
+        </a>
+        
+
+        <!-- Article: Why 'Best Practice' is a Trap -->
+        <a href="posts/why-best-practice-is-a-trap.html" class="insight-card" data-category="strategy">
+            <div class="insight-thumb-wrapper">
+                <img src="../assets/images/hero/img3.webp" alt="Why 'Best Practice' is a Trap" class="insight-thumb">
+            </div>
+            <div class="insight-content">
+                <span class="insight-tag">STRATEGY</span>
+                <h2 class="insight-headline">Why 'Best Practice' is a Trap</h2>
+                <p class="insight-excerpt">When everyone follows the same playbook, the playbook stops working. Contrarian marketing wins in 2026.</p>
+                <div class="insight-meta">
+                    <div class="insight-author-img" style="background-image: url('../assets/images/hero/img1.webp'); background-size: cover;"></div>
+                    <div class="insight-author-text">
+                        Reuben Hester • Dec 29
+                    </div>
+                </div>
+            </div>
+        </a>
+        
+
+        <!-- Article: Why Your ROAS is Lying to You -->
+        <a href="posts/why-your-roas-is-lying-to-you.html" class="insight-card" data-category="strategy">
+            <div class="insight-thumb-wrapper">
+                <img src="../assets/images/hero/img2.webp" alt="Why Your ROAS is Lying to You" class="insight-thumb">
+            </div>
+            <div class="insight-content">
+                <span class="insight-tag">STRATEGY</span>
+                <h2 class="insight-headline">Why Your ROAS is Lying to You</h2>
+                <p class="insight-excerpt">Attribution tools claim a 6x ROAS, but your bank account disagrees. We expose the 'View-Through' inflation trap.</p>
+                <div class="insight-meta">
+                    <div class="insight-author-img" style="background-image: url('../assets/images/hero/img1.webp'); background-size: cover;"></div>
+                    <div class="insight-author-text">
+                        Reuben Hester • Dec 29
+                    </div>
+                </div>
+            </div>
+        </a>
+        
+
+        <!-- Article: The Newsletter Reinassance -->
+        <a href="posts/the-newsletter-reinassance.html" class="insight-card" data-category="email">
+            <div class="insight-thumb-wrapper">
+                <img src="../assets/images/hero/img2.webp" alt="The Newsletter Reinassance" class="insight-thumb">
+            </div>
+            <div class="insight-content">
+                <span class="insight-tag">EMAIL</span>
+                <h2 class="insight-headline">The Newsletter Reinassance</h2>
+                <p class="insight-excerpt">Social reach is rented. Email is owned. Why smart brands are turning their newsletters into media products.</p>
+                <div class="insight-meta">
+                    <div class="insight-author-img" style="background-image: url('../assets/images/hero/img1.webp'); background-size: cover;"></div>
+                    <div class="insight-author-text">
+                        Reuben Hester • Dec 29
+                    </div>
+                </div>
+            </div>
+        </a>
+        
+
 
         <!-- Article 1: Quiet Luxury -->
-        <a href="posts/educational-quiet-luxury.html" class="insight-card">
+        <a href="posts/educational-quiet-luxury.html" class="insight-card" data-category="trends">
             <div class="insight-thumb-wrapper">
                 <img src="../assets/images/insights/thumb_quiet_luxury_people_1766972646266.png"
                     alt="Fashion Designer with Fabric" class="insight-thumb">
@@ -109,7 +244,7 @@
         </a>
 
         <!-- Article 2 (Featured Glow): Video ROI -->
-        <a href="posts/educational-video-roi.html" class="insight-card featured-glow">
+        <a href="posts/educational-video-roi.html" class="insight-card featured-glow" data-category="strategy">
             <div class="insight-thumb-wrapper">
                 <img src="../assets/images/insights/thumb_video_roi_people_1766972536814.png" alt="Director on Film Set"
                     class="insight-thumb">
@@ -130,7 +265,7 @@
         </a>
 
         <!-- Article 3: Email Flow -->
-        <a href="posts/educational-email-flow.html" class="insight-card">
+        <a href="posts/educational-email-flow.html" class="insight-card" data-category="email">
             <div class="insight-thumb-wrapper">
                 <img src="../assets/images/insights/thumb_email_flow_people_1766972592459.png"
                     alt="Email Marketing Professional" class="insight-thumb">
@@ -151,13 +286,13 @@
         </a>
 
         <!-- Article 4: Luxury Psychology -->
-        <a href="posts/educational-luxury-psychology.html" class="insight-card">
+        <a href="posts/educational-luxury-psychology.html" class="insight-card" data-category="strategy">
             <div class="insight-thumb-wrapper">
                 <img src="../assets/images/insights/thumb_luxury_psych_people_1766972550624.png"
                     alt="High Fashion Model Profile" class="insight-thumb">
             </div>
             <div class="insight-content">
-                <span class="insight-tag">Psychology</span>
+                <span class="insight-tag">Strategy</span>
                 <h2 class="insight-headline">Selling to High-Net-Worth Individuals</h2>
                 <p class="insight-excerpt">Selling a €2,000 handbag is about identity, not convenience. The shift from
                     "New" to "True".</p>
@@ -172,13 +307,13 @@
         </a>
 
         <!-- Article 5: Scaling Creative -->
-        <a href="posts/educational-scaling-creative.html" class="insight-card">
+        <a href="posts/educational-scaling-creative.html" class="insight-card" data-category="creative">
             <div class="insight-thumb-wrapper">
                 <img src="../assets/images/insights/thumb_creative_people_1766972565160.png"
                     alt="Creative Director Brainstorming" class="insight-thumb">
             </div>
             <div class="insight-content">
-                <span class="insight-tag">Performance</span>
+                <span class="insight-tag">Creative</span>
                 <h2 class="insight-headline">Scaling Past €50k/Month Strategy</h2>
                 <p class="insight-excerpt">The algorithm is now your targeting. If you're spending more time in Ads
                     Manager than creative, you're losing.</p>
@@ -193,13 +328,13 @@
         </a>
 
         <!-- Article 6: ROAS vs POAS -->
-        <a href="posts/educational-roas-vs-poas.html" class="insight-card">
+        <a href="posts/educational-roas-vs-poas.html" class="insight-card" data-category="strategy">
             <div class="insight-thumb-wrapper">
                 <img src="../assets/images/insights/thumb_roas_metric_people_1766972606720.png"
                     alt="Data Analyst with Charts" class="insight-thumb">
             </div>
             <div class="insight-content">
-                <span class="insight-tag">Analytics</span>
+                <span class="insight-tag">Strategy</span>
                 <h2 class="insight-headline">ROAS vs. POAS: The Vanity Metric Trap</h2>
                 <p class="insight-excerpt">Is your 4.0 ROAS actually profitable? Why smart brands are switching to
                     Profit on Ad Spend.</p>
@@ -214,13 +349,13 @@
         </a>
 
         <!-- Article 7: Google vs Meta -->
-        <a href="posts/educational-google-vs-meta.html" class="insight-card">
+        <a href="posts/educational-google-vs-meta.html" class="insight-card" data-category="strategy">
             <div class="insight-thumb-wrapper">
                 <img src="../assets/images/insights/thumb_google_meta_people_1766972620645.png"
                     alt="Marketing Team Logic" class="insight-thumb">
             </div>
             <div class="insight-content">
-                <span class="insight-tag">Platforms</span>
+                <span class="insight-tag">Strategy</span>
                 <h2 class="insight-headline">Google Ads vs. Meta for High-Ticket?</h2>
                 <p class="insight-excerpt">We analyze 50+ client accounts to determine which platform drives higher LTV
                     for luxury.</p>
@@ -235,13 +370,13 @@
         </a>
 
         <!-- Article 8: Luxury UGC -->
-        <a href="posts/educational-ugc-luxury.html" class="insight-card">
+        <a href="posts/educational-ugc-luxury.html" class="insight-card" data-category="creative">
             <div class="insight-thumb-wrapper">
                 <img src="../assets/images/insights/thumb_ugc_luxury_people_1766972659454.png" alt="Creator Filming UGC"
                     class="insight-thumb">
             </div>
             <div class="insight-content">
-                <span class="insight-tag">Content</span>
+                <span class="insight-tag">Creative</span>
                 <h2 class="insight-headline">Producing UGC That Doesn't Look Cheap</h2>
                 <p class="insight-excerpt">UGC is powerful, but "messy" doesn't work for luxury. Learn our framework for
                     "Polished UGC".</p>
@@ -256,13 +391,13 @@
         </a>
 
         <!-- Article 9: Event Video -->
-        <a href="posts/hp-media-markt.html" class="insight-card">
+        <a href="posts/hp-media-markt.html" class="insight-card" data-category="creative">
             <div class="insight-thumb-wrapper">
                 <img src="../assets/images/insights/thumb_events_cinematic_people_1766972694736.png"
                     alt="Event Videographer" class="insight-thumb">
             </div>
             <div class="insight-content">
-                <span class="insight-tag">Events</span>
+                <span class="insight-tag">Creative</span>
                 <h2 class="insight-headline">Elevating Event Coverage: HP x Media Markt</h2>
                 <p class="insight-excerpt">Event videos don't have to be boring recaps. We turned a tech popup into a
                     vibrant highlight reel.</p>
@@ -278,13 +413,29 @@
 
     </main>
 
-    <!-- Footer (Simplified) -->
-    <footer style="text-align:center; padding: 4rem; border-top: 1px solid rgba(255,255,255,0.05); color: #666;">
-<p style="text-align: center; color: #666; font-size: 0.9rem;">&copy; 2015 Nusa & North. All rights reserved.</p>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">nusa<span>&</span>north</div>
+        <div class="footer-links">
+            <a href="../services/performance-creative/index.html">Video Production</a>
+            <a href="../services/photography/index.html">Photography</a>
+            <a href="../services/meta-ads/index.html">Meta Ads</a>
+            <a href="../services/email-marketing/index.html">Email Marketing</a>
+            <a href="../services/google-ads/index.html">Google Ads</a>
+            <a href="../services/content-strategy/index.html">Content Strategy</a>
+            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="../terms.html">Terms of Service</a>
+        </div>
+        <p style="text-align: center; color: #666; font-size: 0.9rem;">&copy; 2015 Nusa & North. All rights reserved.
+        </p>
     </footer>
 
     <!-- Scripts -->
-    <script src="../assets/js/mobile-menu.js"></script>
+    <!-- Scripts -->
+    <script src="../assets/js/mobile-menu.js" defer></script>
+    <script src="../assets/js/insights.js" defer></script>
+    <script src="../assets/js/main.js" defer></script>
 
 </body>
 
