@@ -1132,29 +1132,32 @@
 }
 
 /* 15. MOBILE HERO BACKGROUND (HOME) */
-/* Hero Adjustments */
-.home-hero-content {
-    padding: 0 1.5rem !important;
-    /* Reset padding */
-    width: 100% !important;
-    max-width: 100% !important;
-    background: transparent !important;
-    /* Remove box */
-    backdrop-filter: none !important;
-    border-radius: 0 !important;
-    margin-bottom: 2rem !important;
-}
+@media (max-width: 768px) {
 
-/* Add Shadow only for Home where box is gone */
-.home-hero-content h1 {
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-}
+    /* Hero Adjustments */
+    .home-hero-content {
+        padding: 0 1.5rem !important;
+        /* Reset padding */
+        width: 100% !important;
+        max-width: 100% !important;
+        background: transparent !important;
+        /* Remove box */
+        backdrop-filter: none !important;
+        border-radius: 0 !important;
+        margin-bottom: 2rem !important;
+    }
 
-.hero h1 {
-    font-size: 2.25rem !important;
-    /* Reduced from 3rem */
-    line-height: 1.1 !important;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    /* Add Shadow only for Home where box is gone */
+    .home-hero-content h1 {
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero h1 {
+        font-size: 2.25rem !important;
+        /* Reduced from 3rem */
+        line-height: 1.1 !important;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
 }
 
 /* ... existing styles ... */
@@ -1195,28 +1198,4 @@
         position: relative !important;
         z-index: 2 !important;
     }
-}
-
-/* 16. TECH STACK MARQUEE MOBILE RESIZE */
-.tech-stack-section {
-    padding: 2rem 0 1.5rem !important;
-    /* Reduced padding */
-    border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
-}
-
-.tech-track {
-    gap: 2rem !important;
-    /* Reduce gap between items */
-}
-
-.tech-item {
-    gap: 0.5rem !important;
-    font-size: 0.9rem !important;
-    /* Smaller text */
-}
-
-.tech-item svg {
-    width: 20px !important;
-    /* Smaller icons */
-    height: 20px !important;
 }
