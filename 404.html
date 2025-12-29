@@ -37,6 +37,27 @@
             /* Space for fixed nav */
         }
 
+        /* Ensure mobile menu is hidden by default to prevent rogue links */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #000;
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
         /* 404 Specific Styles */
         .error-page-container {
             min-height: 80vh;
@@ -55,9 +76,11 @@
             font-size: clamp(8rem, 20vw, 15rem);
             line-height: 1;
             color: transparent;
-            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+            -webkit-text-stroke: 2px rgba(255, 255, 255, 0.3);
+            /* Increased visibility */
             margin-bottom: 2rem;
-            opacity: 0.5;
+            opacity: 0.8;
+            /* Increased opacity */
         }
 
         .error-title {
@@ -70,10 +93,28 @@
         .error-subtitle {
             font-family: 'Outfit', sans-serif;
             font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.8);
             max-width: 500px;
             margin-bottom: 3rem;
             line-height: 1.6;
+        }
+
+        /* Button Fallback */
+        .hero-cta {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border: 1px solid #D4AF37;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .hero-cta:hover {
+            background: #D4AF37;
+            color: #000;
         }
     </style>
 
