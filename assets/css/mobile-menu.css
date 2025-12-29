@@ -19,10 +19,47 @@
     transition: all 0.3s ease;
 }
 
+/* Hide Mobile CTA on Desktop by default */
+.mobile-nav-cta {
+    display: none;
+}
+
 @media (max-width: 1024px) {
     .mobile-menu-btn {
         display: flex !important;
+        /* margin-left: auto; Removed to allow grouping */
     }
+
+    /* New Nav Controls Container (Button + Hamburger) */
+    .nav-controls {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    /* Mobile Navbar CTA - Always Visible */
+    .mobile-nav-cta {
+        display: flex !important;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(212, 175, 55, 0.1);
+        border: 1px solid rgba(212, 175, 55, 0.4);
+        padding: 0.5rem 1rem;
+        border-radius: 100px;
+        text-decoration: none;
+        color: #d4af37;
+        font-size: 0.85rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-nav-cta:hover {
+        background: #d4af37;
+        color: #000;
+    }
+
+    /* Hide text on very small screens if needed, or keep short "Book" */
+
 
     .nav-links {
         position: fixed !important;
