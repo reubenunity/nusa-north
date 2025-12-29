@@ -163,1141 +163,1140 @@
 
     /* 4. Clients / Trusted By */
     .logos-section {
-        .logos-section {
-            overflow: hidden !important;
-            width: 100vw !important;
-            /* Force full viewport width */
-            margin-left: calc(-50vw + 50%) !important;
-            /* Center if in container */
-            margin-right: calc(-50vw + 50%) !important;
-            padding: 3rem 0 !important;
-            background: #000000 !important;
-        }
-
-        .logos-track {
-            display: flex !important;
-            width: max-content !important;
-            gap: 0 !important;
-            margin: 0 !important;
-            padding-left: 0 !important;
-            background: #000000 !important;
-            /* Ensure track is black */
-            animation: mobileLogoScroll 25s linear infinite !important;
-            /* Restored speed */
-        }
-
-        .logo-item {
-            padding-right: 2rem !important;
-            /* Reduced from 4rem to remove gaps */
-            font-size: 1.1rem !important;
-            color: #555 !important;
-            white-space: nowrap !important;
-            font-weight: 500 !important;
-            text-transform: uppercase !important;
-        }
-
-        @keyframes mobileLogoScroll {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-25%);
-            }
-        }
-
-        @keyframes mobileMarqueeScroll3Set {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-33.333%);
-            }
-        }
-
-        /* Target the ACTUAL classes used in Service Pages (.marquee-track) */
-        .logo-marquee-section .marquee-track,
-        .tech-marquee .tech-track {
-            display: flex !important;
-            width: max-content !important;
-            gap: 2rem !important;
-            /* Proper spacing, not 0 */
-            margin: 0 !important;
-            padding-left: 0 !important;
-            animation: mobileLogoScroll 30s linear infinite !important;
-        }
-
-        /* Special case for Service Pages with 3 sets of logos */
-        .logo-marquee-section .marquee-track {
-            animation-name: mobileMarqueeScroll3Set !important;
-            animation-duration: 20s !important;
-        }
-
-        .logo-marquee-section img,
-        .tech-marquee .tech-item {
-            max-height: 40px !important;
-            width: auto !important;
-            padding-right: 0 !important;
-            /* Remove huge padding */
-            margin-right: 2rem !important;
-            /* Use margin for spacing */
-            flex-shrink: 0 !important;
-        }
-
-        /* 5. Generic Sections */
-        section,
-        .welcome-section,
-        .stats-section,
-        .deep-dive-section {
-            text-align: center !important;
-            align-items: center !important;
-            padding: 4rem 1.5rem !important;
-        }
-
-        .section-title,
-        h2,
-        .portfolio-header h2 {
-            text-align: center !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
-        }
-
-        /* 6. "Our Work" - Simple Centered Scroll */
-        /* NUCLEAR SPECIFICITY: Override all desktop styles */
-        html body #work.video-reel-section {
-            display: block !important;
-            width: 100% !important;
-            min-width: 100vw !important;
-            /* Force full width */
-            max-width: none !important;
-            margin: 0 !important;
-            /* Reset -24px margins */
-            padding: 0 0 2.5rem 0 !important;
-            /* Reset 24px padding, keep bottom */
-            overflow: visible !important;
-            position: relative !important;
-            left: 0 !important;
-            right: 0 !important;
-        }
-
-        /* Container: Simple horizontal scroll - Full bleed to viewport */
-        .reel-container {
-            display: flex !important;
-            flex-direction: row !important;
-            flex-wrap: nowrap !important;
-            overflow-x: auto !important;
-            scroll-snap-type: x mandatory;
-            gap: 1rem !important;
-
-            /* FULL BLEED BREAKOUT: Force full viewport width regardless of parent */
-            width: 100vw !important;
-            max-width: none !important;
-            margin-left: 50% !important;
-            transform: translateX(-50%) !important;
-
-            /* Add internal padding to center first card (88vw card need 6vw sides) */
-            padding: 1rem 6vw !important;
-
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-            /* Hide scrollbar but allow scroll */
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        .reel-container::-webkit-scrollbar {
-            display: none;
-        }
-
-        /* Flatten Tracks for Mobile */
-        .reel-track {
-            display: contents !important;
-        }
-
-        html body #work .reel-track.track-right {
-            display: contents !important;
-            /* Show second track on mobile to reveal all 10 unique videos */
-        }
-
-        /* Hide Marquee Duplicates (Items 6+) on Mobile for a clean 10-item list */
-        html body #work .reel-track .reel-item:nth-child(n+6) {
-            display: none !important;
-        }
-
-        /* Card Styling: Clean, fills most of screen, leaves peek on sides */
-        .reel-item {
-            flex: 0 0 88vw !important;
-            min-width: 88vw !important;
-            scroll-snap-align: center;
-            margin: 0 !important;
-            border-radius: 16px !important;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
-            background: #0a0a0a;
-            aspect-ratio: 16/9 !important;
-            height: auto !important;
-            /* Remove all 3D transforms */
-            transform: none !important;
-            opacity: 1 !important;
-        }
-
-        /* Scroll indicator on SECTION (not container - overflow issue) */
-        .video-reel-section::after {
-            content: 'swipe →';
-            display: block;
-            position: absolute;
-            bottom: 0.5rem;
-            right: 1rem;
-            font-size: 0.65rem;
-            color: rgba(255, 255, 255, 0.5);
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            pointer-events: none;
-        }
-
-        .reel-overlay,
-        .play-icon {
-            display: none !important;
-        }
-
-        /* Kill animations */
-        .reel-track,
-        .reel-item {
-            animation: none !important;
-        }
-
-        /* 7. "We Mastered" Services Section - Swipeable Scroll */
-        .mastered-section {
-            position: relative;
-            padding-bottom: 3rem !important;
-        }
-
-        .mastered-grid {
-            display: flex !important;
-            overflow-x: auto !important;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-
-            /* Breakout to full viewport width */
-            width: 100vw !important;
-            max-width: none !important;
-            margin-left: 50% !important;
-            transform: translateX(-50%) !important;
-        }
-
-        .mastered-grid::-webkit-scrollbar {
-            display: none;
-        }
-
-        .mastered-carousel-track {
-            display: flex !important;
-            width: max-content !important;
-            flex-wrap: nowrap !important;
-            gap: 1rem !important;
-            /* Center the first item: 50vw - (cardWidth/2) */
-            /* Card width is 140px, so half is 70px */
-            padding: 0 calc(50vw - 70px) !important;
-            animation: none !important;
-        }
-
-        .mastered-card {
-            flex: 0 0 140px !important;
-            width: 140px !important;
-            aspect-ratio: 9/16 !important;
-            border-radius: 12px !important;
-            scroll-snap-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Scroll Indicator - On SECTION level (not containers - overflow clips them) */
-        .mastered-section::after,
-        .built-for-section::after,
-        .team-section::after {
-            content: 'swipe →';
-            display: block;
-            position: absolute;
-            bottom: 0.5rem;
-            right: 1rem;
-            font-size: 0.65rem;
-            color: rgba(255, 255, 255, 0.5);
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            pointer-events: none;
-        }
-
-        /* Ensure sections have relative positioning for the indicator */
-        .mastered-section,
-        .built-for-section,
-        .team-section {
-            position: relative !important;
-            padding-bottom: 2.5rem !important;
-        }
-
-        /* 7b. SIMPLE SCROLL STYLES (Built For / Team / Stats) */
-        html body .team-marquee,
-        .built-for-grid,
-        .stats-grid {
-            display: flex !important;
-            flex-direction: row !important;
-            flex-wrap: nowrap !important;
-            overflow-x: auto !important;
-            scroll-snap-type: x mandatory;
-            gap: 1rem !important;
-
-            /* Breakout to full viewport width (Nuclear) */
-            width: 100vw !important;
-            max-width: none !important;
-            margin-left: 50% !important;
-            transform: translateX(-50%) !important;
-
-            /* Reset any inherited margins */
-            margin-right: 0 !important;
-
-            /* Center first item padding: 50vw - (cardWidth/2) */
-            /* Team card width is 85vw -> Center is tricky since it's almost full width */
-            /* Let's stick to standard padding for 85vw cards to keep it simple: 1rem sides */
-            padding: 0 1rem !important;
-
-            /* Hide scrollbar */
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            /* Disable native grid if present */
-            grid-template-columns: none !important;
-        }
-
-        /* Hide Duplicates for Team Marquee (Assume 6 unique members) */
-        html body .team-marquee .team-card:nth-child(n+7) {
-            display: none !important;
-        }
-
-        .built-for-grid::-webkit-scrollbar,
-        .team-marquee::-webkit-scrollbar,
-        .stats-grid::-webkit-scrollbar {
-            display: none;
-        }
-
-        .team-track {
-            display: contents !important;
-        }
-
-        /* Cards: Clean, no 3D */
-        .built-for-card,
-        .team-card,
-        .stat-item {
-            flex: 0 0 85vw !important;
-            min-width: 85vw !important;
-            scroll-snap-align: center;
-            margin: 0 !important;
-            background: rgba(20, 20, 20, 0.8) !important;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            border-radius: 16px !important;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
-            height: auto !important;
-            padding: 1.5rem !important;
-            /* Remove all transforms */
-            transform: none !important;
-            opacity: 1 !important;
-        }
-
-        .stat-item {
-            flex: 0 0 45vw !important;
-            min-width: 45vw !important;
-            background: transparent !important;
-            border: none !important;
-            box-shadow: none !important;
-        }
-
-        /* 8. SERVICE PAGES: SCROLLABLE STEPS (Default / Performance Creative) */
-        .process-tabs {
-            display: flex !important;
-            flex-direction: row !important;
-            overflow-x: auto !important;
-            overflow-y: hidden !important;
-            white-space: nowrap !important;
-            gap: 12px !important;
-            width: 100% !important;
-            justify-content: flex-start !important;
-            padding: 0 20px 20px 20px !important;
-            -webkit-overflow-scrolling: touch !important;
-            scrollbar-width: none !important;
-            -ms-overflow-style: none !important;
-        }
-
-        .process-tabs::-webkit-scrollbar {
-            display: none !important;
-        }
-
-        .process-tab {
-            flex: 0 0 auto !important;
-            width: auto !important;
-            min-width: 140px !important;
-            padding: 12px 20px !important;
-            background: rgba(255, 255, 255, 0.05) !important;
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
-            border-radius: 100px !important;
-        }
-
-        .process-tab.active {
-            background: #d4af37 !important;
-            color: #000 !important;
-            border-color: #d4af37 !important;
-        }
-
-        /* 8b. SERVICE PAGES: VERTICAL STACK (Meta/Google Ads - Option 1) */
-        .process-section.mobile-stack {
-            counter-reset: step-counter !important;
-        }
-
-        .process-section.mobile-stack .process-tabs {
-            display: none !important;
-        }
-
-        .process-section.mobile-stack .process-carousel {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 3rem !important;
-            height: auto !important;
-            overflow: visible !important;
-        }
-
-        .process-section.mobile-stack .process-slide {
-            display: flex !important;
-            flex-direction: column !important;
-            opacity: 1 !important;
-            visibility: visible !important;
-            position: relative !important;
-            height: auto !important;
-            transform: none !important;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            border-radius: 20px !important;
-            padding: 2rem !important;
-            background: linear-gradient(180deg, rgba(20, 20, 20, 0.5), rgba(10, 10, 10, 0.8)) !important;
-        }
-
-        /* Add "Step X" label dynamically */
-        .process-section.mobile-stack .process-slide::before {
-            counter-increment: step-counter;
-            content: "Step " counter(step-counter);
-            display: inline-block;
-            font-family: 'DM Sans', sans-serif;
-            /* Fallback safe font */
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: #d4af37;
-            /* Accent color */
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 0.4rem 1rem;
-            border-radius: 100px;
-            margin-bottom: 1.5rem;
-            align-self: flex-start;
-            background: rgba(212, 175, 55, 0.05);
-        }
-
-        .process-section.mobile-stack .slide-image {
-            margin-top: 1.5rem !important;
-            border-radius: 12px !important;
-            overflow: hidden !important;
-            order: 2 !important;
-        }
-
-        .process-section.mobile-stack .slide-content {
-            order: 1 !important;
-        }
-
-
-        /* 8c. CONTENT STRATEGY SPECIFIC OVERRIDES */
-        /* Hero De-clutter */
-        .hero-visual-container,
-        .floating-grid,
-        .mockup-card {
-            display: none !important;
-        }
-
-        /* Extend Mobile Stack to support .process-content (Content Strategy page structure) */
-        /* Boost specificity to force show all contents */
-        .process-section.mobile-stack div.process-content {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 1.5rem !important;
-            opacity: 1 !important;
-            visibility: visible !important;
-            position: relative !important;
-            height: auto !important;
-            transform: none !important;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            border-radius: 20px !important;
-            padding: 2rem !important;
-            background: linear-gradient(180deg, rgba(20, 20, 20, 0.5), rgba(10, 10, 10, 0.8)) !important;
-            margin-bottom: 2rem !important;
-            counter-increment: step-counter;
-            /* Increment shared counter */
-        }
-
-        /* Add "Step X" label dynamically for process-content too */
-        .process-section.mobile-stack div.process-content::before {
-            content: "Step " counter(step-counter);
-            display: inline-block;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: #d4af37;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 0.4rem 1rem;
-            border-radius: 100px;
-            margin-bottom: 1rem;
-            align-self: flex-start;
-            background: rgba(212, 175, 55, 0.05);
-        }
-
-        /* Fix internal Layout of process-content */
-        .process-section.mobile-stack .process-content .process-text {
-            order: 1;
-        }
-
-        /* REMOVED IMAGE AS REQUESTED */
-        .process-section.mobile-stack .process-content .process-visual {
-            display: none !important;
-        }
-
-        /* 9. SERVICE PAGES: COLLAPSIBLE FAQ (AGGRESSIVE FIX) */
-        .faq-grid {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 1rem !important;
-            grid-template-columns: 1fr !important;
-        }
-
-        .faq-item {
-            transition: all 0.3s ease !important;
-            height: auto !important;
-            /* Padding reduced for collapsed look */
-            padding: 1.5rem !important;
-        }
-
-        /* Aggressive Hiding for Closed State - using faq-active */
-        .faq-item:not(.faq-active) .faq-answer {
-            display: none !important;
-            height: 0 !important;
-            overflow: hidden !important;
-            opacity: 0 !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            border: none !important;
-            visibility: hidden !important;
-        }
-
-        /* Explicit Open State */
-        .faq-item.faq-active .faq-answer {
-            display: block !important;
-            height: auto !important;
-            opacity: 1 !important;
-            margin-top: 1rem !important;
-            padding-top: 1rem !important;
-            border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
-            visibility: visible !important;
-            animation: fadeIn 0.4s ease forwards !important;
-        }
-
-        .faq-item.faq-active {
-            background: rgba(212, 175, 55, 0.05) !important;
-            border-color: rgba(212, 175, 55, 0.3) !important;
-        }
-
-        .faq-item.faq-active .faq-question span {
-            transform: rotate(45deg) !important;
-            display: inline-block !important;
-            transition: transform 0.3s ease !important;
-        }
-
-        h1 {
-            font-size: clamp(40px, 11vw, 56px) !important;
-            line-height: 0.95 !important;
-            margin-bottom: 1.5rem !important;
-        }
-
-        /* 11. UNFAIR ADVANTAGE / COMMERCIAL MASTERY ADJUSTMENTS */
-        html body .mastery-section {
-            padding: 4rem 1.5rem !important;
-            height: auto !important;
-            min-height: 0 !important;
-        }
-
-        html body .mastery-header-top {
-            margin-bottom: 2rem !important;
-        }
-
-        html body .mastery-header-top h2 {
-            font-size: clamp(2rem, 8vw, 2.75rem) !important;
-            line-height: 1.1 !important;
-            margin-bottom: 1rem !important;
-        }
-
-        html body .mastery-subtitle {
-            font-size: 1rem !important;
-            margin-bottom: 2rem !important;
-        }
-
-        html body .mastery-intro p {
-            font-size: 1.25rem !important;
-        }
-
-        html body .showcase-card {
-            margin-top: 2rem !important;
-            padding: 2rem !important;
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 2rem !important;
-            height: auto !important;
-            min-height: 0 !important;
-        }
-
-        html body .card-content {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 1.5rem !important;
-            position: relative !important;
-            z-index: 2 !important;
-        }
-
-        /* 1. Text Top */
-        html body .card-left {
-            width: 100% !important;
-            text-align: center !important;
-            order: 1 !important;
-        }
-
-        html body .card-left h2 {
-            font-size: 1.75rem !important;
-            margin-bottom: 1rem !important;
-        }
-
-        html body .card-description {
-            font-size: 1rem !important;
-            opacity: 0.8 !important;
-            max-width: 100% !important;
-        }
-
-        html body .card-copyright {
-            display: none !important;
-            /* Hide noise */
-        }
-
-        /* 2. Visual Middle - SIMPLIFIED */
-        html body .card-center {
-            width: 100% !important;
-            height: auto !important;
-            order: 2 !important;
-            position: relative !important;
-            margin: 0 !important;
-            transform: none !important;
-            display: flex !important;
-            justify-content: center !important;
-        }
-
-        /* Hide the complex floating/rotating mess */
-        html body .floating-asset {
-            display: none !important;
-        }
-
-        /* Static Phone */
-        html body .phone-mockup {
-            position: relative !important;
-            width: 200px !important;
-            /* Controlled width */
-            height: auto !important;
-            transform: none !important;
-            margin: 0 auto !important;
-            left: auto !important;
-            top: auto !important;
-            opacity: 1 !important;
-        }
-
-        html body .phone-screen {
-            transform: none !important;
-            animation: none !important;
-            height: auto !important;
-            display: block !important;
-            overflow: visible !important;
-        }
-
-        html body .phone-screen img {
-            position: relative !important;
-            display: block !important;
-            width: 100% !important;
-            height: auto !important;
-            opacity: 1 !important;
-            visibility: visible !important;
-            object-fit: contain !important;
-        }
-
-        /* Hide the second image if it's meant to be a slideshow, just show the first one */
-        html body .phone-screen img:not(:first-child) {
-            display: none !important;
-        }
-
-        /* 3. CTA Bottom */
-        html body .card-right {
-            width: 100% !important;
-            order: 3 !important;
-            display: flex !important;
-            justify-content: center !important;
-            padding: 0 !important;
-        }
-
-        html body .card-right .hero-cta {
-            width: 100% !important;
-            justify-content: center !important;
-        }
-
-        /* 13. FORMULA & TESTIMONIALS CAROUSELS (Mobile) */
-        html body .process-tabs,
-        html body .process-content,
-        html body .process-header p {
-            display: none !important;
-        }
-
-        html body .formula-carousel {
-            display: flex !important;
-            overflow-x: auto !important;
-            scroll-snap-type: x mandatory;
-            gap: 1rem !important;
-            padding: 0 1.5rem 1.5rem 1.5rem !important;
-            width: 100vw !important;
-            margin-left: 50% !important;
-            transform: translateX(-50%) !important;
-            scrollbar-width: none;
-            margin-top: 2rem !important;
-        }
-
-        html body .formula-carousel::-webkit-scrollbar,
-        html body .testimonials-grid::-webkit-scrollbar {
-            display: none !important;
-        }
-
-        html body .formula-card {
-            flex: 0 0 85vw !important;
-            width: 85vw !important;
-            scroll-snap-align: center !important;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px !important;
-            padding: 1.25rem !important;
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: flex-start !important;
-            margin: 0 !important;
-            height: auto !important;
-            max-height: 260px !important;
-            overflow: hidden !important;
-            /* NO SCROLLING */
-        }
-
-        html body .formula-card h3 {
-            font-size: 1.1rem !important;
-            margin-bottom: 0.5rem !important;
-            color: #fff !important;
-            line-height: 1.3 !important;
-            flex-shrink: 0 !important;
-            /* Prevent title from squishing */
-        }
-
-        html body .formula-card h3 em {
-            color: #d4af37 !important;
-            font-style: italic !important;
-        }
-
-        html body .formula-card p {
-            font-size: 0.9rem !important;
-            line-height: 1.4 !important;
-            margin: 0 !important;
-            opacity: 0.9 !important;
-            display: -webkit-box !important;
-            -webkit-line-clamp: 6;
-            /* Show max 6 lines */
-            -webkit-box-orient: vertical !important;
-            overflow: hidden !important;
-            text-overflow: ellipsis !important;
-        }
-
-        html body .testimonials-grid {
-            display: flex !important;
-            overflow-x: auto !important;
-            scroll-snap-type: x mandatory;
-            gap: 0.75rem !important;
-            padding: 0 1.5rem 1.5rem 1.5rem !important;
-            width: 100vw !important;
-            margin-left: 50% !important;
-            transform: translateX(-50%) !important;
-            scrollbar-width: none;
-            grid-template-columns: none !important;
-        }
-
-        html body .testimonial-card {
-            flex: 0 0 85vw !important;
-            width: 85vw !important;
-            scroll-snap-align: center !important;
-            height: auto !important;
-            max-height: 260px !important;
-            margin: 0 !important;
-            /* Premium Dark Style */
-            background: #080808 !important;
-            /* Deep black/grey */
-            color: #ffffff !important;
-            border: 1px solid rgba(212, 175, 55, 0.2) !important;
-            /* Subtle gold border */
-            border-radius: 4px !important;
-            padding: 1.5rem 1rem !important;
-            overflow: hidden !important;
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            /* Center Everything */
-            text-align: center !important;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
-        }
-
-        html body .testimonial-card h3,
-        html body .testimonial-card blockquote {
-            font-size: 0.95rem !important;
-            line-height: 1.4 !important;
-            margin-bottom: 0.75rem !important;
-            color: #ffffff !important;
-            font-weight: 700 !important;
-            text-transform: uppercase !important;
-            display: -webkit-box !important;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical !important;
-            overflow: hidden !important;
-            letter-spacing: 0.05em !important;
-        }
-
-        html body .testimonial-card p {
-            font-size: 0.8rem !important;
-            color: #aaaaaa !important;
-            /* Soft grey for secondary text */
-            margin-top: auto !important;
-            font-style: italic !important;
-        }
-
-        html body .testimonial-card img {
-            width: 60px !important;
-            height: 60px !important;
-            border-radius: 50% !important;
-            object-fit: cover !important;
-            margin-bottom: 1rem !important;
-            align-self: center !important;
-            flex-shrink: 0 !important;
-            border: 1px solid #d4af37 !important;
-            /* Gold ring */
-        }
-
-        /* Apply similar Premium Dark logic to Formula Cards */
-        html body .formula-card {
-            flex: 0 0 85vw !important;
-            width: 85vw !important;
-            scroll-snap-align: center !important;
-            background: #080808 !important;
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
-            border-radius: 4px !important;
-            padding: 1.5rem !important;
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            text-align: center !important;
-            margin: 0 !important;
-            height: auto !important;
-            max-height: 260px !important;
-            overflow: hidden !important;
-        }
-
-        html body .formula-card h3 {
-            font-size: 1.1rem !important;
-            margin-bottom: 0.75rem !important;
-            color: #fff !important;
-            line-height: 1.3 !important;
-            flex-shrink: 0 !important;
-        }
-
-        html body .formula-card p {
-            font-size: 0.9rem !important;
-            color: #cccccc !important;
-            line-height: 1.5 !important;
-        }
-
-        /* Swipe Indicator for key sections */
-        html body .formula-carousel::after,
-        html body .testimonials-grid::after {
-            content: '' !important;
-            display: block !important;
-            min-width: 1.5rem !important;
-            /* Padding spacer */
-        }
-
-        html body .process-section::after,
-        html body .testimonials-section::after {
-            content: 'Swipe \2192';
-            display: block;
-            text-align: center;
-            color: #d4af37;
-            font-size: 0.9rem;
-            margin-top: 1rem;
-            opacity: 0.7;
-            font-family: 'Outfit', sans-serif;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            pointer-events: none;
-        }
-
+        overflow: hidden !important;
+        width: 100vw !important;
+        /* Force full viewport width */
+        margin-left: calc(-50vw + 50%) !important;
+        /* Center if in container */
+        margin-right: calc(-50vw + 50%) !important;
+        padding: 3rem 0 !important;
+        background: #000000 !important;
     }
 
+    .logos-track {
+        display: flex !important;
+        width: max-content !important;
+        gap: 0 !important;
+        margin: 0 !important;
+        padding-left: 0 !important;
+        background: #000000 !important;
+        /* Ensure track is black */
+        animation: mobileLogoScroll 25s linear infinite !important;
+        /* Restored speed */
+    }
 
-    /* 14. PHOTOGRAPHY PAGE SPECIFIC FIXES (REFINED) */
-    @media (max-width: 768px) {
+    .logo-item {
+        padding-right: 2rem !important;
+        /* Reduced from 4rem to remove gaps */
+        font-size: 1.1rem !important;
+        color: #555 !important;
+        white-space: nowrap !important;
+        font-weight: 500 !important;
+        text-transform: uppercase !important;
+    }
 
-        /* Hero Adjustments */
-        .hero-content {
-            padding: 2.5rem 1.5rem !important;
-            /* Increased padding */
-            width: 100% !important;
-            max-width: 100% !important;
-            box-sizing: border-box !important;
-            background: rgba(0, 0, 0, 0.6) !important;
-            /* Ensure box visibility */
-            -webkit-backdrop-filter: blur(10px) !important;
-            backdrop-filter: blur(10px) !important;
-            border-radius: 20px !important;
-            margin-bottom: 2rem !important;
+    @keyframes mobileLogoScroll {
+        0% {
+            transform: translateX(0);
         }
 
-        .hero h1 {
-            font-size: 2.25rem !important;
-            /* Reduced from 3rem */
-            /* Prevent edge touching */
-            line-height: 1.1 !important;
-        }
-
-        .hero-cta {
-            max-width: 100% !important;
-            white-space: nowrap !important;
-            overflow: hidden !important;
-            text-overflow: ellipsis !important;
-            justify-content: center !important;
-        }
-
-        /* Hide Desktop Parallax & Table */
-        .horizontal-scroll-container,
-        .comparison-table {
-            display: none !important;
-        }
-
-        /* Show Mobile Replacements - Refined Slideshow */
-        .mobile-photo-carousel {
-            display: block !important;
-            padding: 2rem 0 4rem 0 !important;
-            background: #050505 !important;
-            text-align: center !important;
-            position: relative !important;
-            z-index: 50 !important;
-            /* Ensure visibility over other elements */
-        }
-
-        .mobile-photo-carousel h3 {
-            font-family: 'Outfit', sans-serif !important;
-            font-size: 1.75rem !important;
-            /* Slightly smaller for balance */
-            margin-bottom: 2rem !important;
-            color: #fff !important;
-            text-align: center !important;
-            padding: 0 1.5rem !important;
-        }
-
-        .mobile-carousel-track {
-            display: flex !important;
-            gap: 1rem !important;
-            overflow-x: auto !important;
-            scroll-snap-type: x mandatory !important;
-            padding: 0 7.5vw 2rem 7.5vw !important;
-            /* Center the active 85vw card */
-            scrollbar-width: none !important;
-        }
-
-        .mobile-carousel-track::-webkit-scrollbar {
-            display: none !important;
-        }
-
-        .mobile-carousel-track img {
-            height: auto !important;
-            width: 80vw !important;
-            /* Slightly smaller to see next card */
-            aspect-ratio: 4/5 !important;
-            /* Vertical/Portrait Ratio - Shows more image */
-            object-fit: cover !important;
-            object-position: center center !important;
-            /* Center focus */
-            border-radius: 12px !important;
-            scroll-snap-align: center !important;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
-            flex-shrink: 0 !important;
-        }
-
-        /* Comparison Header Fit */
-        .comparison-header h2 {
-            font-size: 2rem !important;
-            line-height: 1.2 !important;
-            padding: 0 1rem !important;
-        }
-
-        /* Mobile Comparison List */
-        /* Mobile Comparison List - Horizontal Scroll */
-        .mobile-comparison-list {
-            display: flex !important;
-            flex-direction: row !important;
-            /* Horizontal */
-            overflow-x: auto !important;
-            scroll-snap-type: x mandatory !important;
-            gap: 1rem !important;
-            padding: 0 1.5rem 0.5rem 1.5rem !important;
-            /* Reduced bottom padding */
-            scrollbar-width: none !important;
-            margin-bottom: 0.5rem !important;
-        }
-
-        .mobile-comparison-list::-webkit-scrollbar {
-            display: none !important;
-        }
-
-        /* Reuse swipe-hint for comparison */
-        .mobile-comparison-list+.swipe-hint {
-            display: block !important;
-            text-align: center !important;
-            margin-bottom: 3rem !important;
-            /* Space after section */
-        }
-
-        .comparison-card {
-            min-width: 85vw !important;
-            /* Card width */
-            scroll-snap-align: center !important;
-            background: #111 !important;
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
-            border-radius: 12px !important;
-            padding: 1.5rem !important;
-            flex-shrink: 0 !important;
-        }
-
-        .comparison-card h4 {
-            margin-bottom: 1rem !important;
-            font-size: 1.1rem !important;
-            color: #fff !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-            padding-bottom: 0.5rem !important;
-        }
-
-        .comp-row {
-            display: flex !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-            padding: 0.5rem 0 !important;
-        }
-
-        .comp-row.mute {
-            opacity: 0.5 !important;
-        }
-
-        .comp-label {
-            font-size: 0.9rem !important;
-            color: #ccc !important;
-        }
-
-        /* Fix Services Grid Stacking */
-        .services-grid {
-            display: grid !important;
-            grid-template-columns: 1fr !important;
-            gap: 1.5rem !important;
-        }
-
-        /* Fix Excessive Padding Globally */
-        .services-section,
-        .comparison-section,
-        .stats-section,
-        .cta-section {
-            padding: 3rem 1.5rem !important;
-            /* Reduced from 4rem */
+        100% {
+            transform: translateX(-25%);
         }
     }
 
-    /* 15. MOBILE HERO BACKGROUND (HOME) */
-    @media (max-width: 768px) {
-
-        /* Hero Adjustments */
-        .home-hero-content {
-            padding: 0 1.5rem !important;
-            /* Reset padding */
-            width: 100% !important;
-            max-width: 100% !important;
-            background: transparent !important;
-            /* Remove box */
-            -webkit-backdrop-filter: none !important;
-            backdrop-filter: none !important;
-            border-radius: 0 !important;
-            margin-bottom: 2rem !important;
+    @keyframes mobileMarqueeScroll3Set {
+        0% {
+            transform: translateX(0);
         }
 
-        /* Add Shadow only for Home where box is gone */
-        .home-hero-content h1 {
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero h1 {
-            font-size: 2.25rem !important;
-            /* Reduced from 3rem */
-            line-height: 1.1 !important;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        100% {
+            transform: translateX(-33.333%);
         }
     }
 
-    /* ... existing styles ... */
+    /* Target the ACTUAL classes used in Service Pages (.marquee-track) */
+    .logo-marquee-section .marquee-track,
+    .tech-marquee .tech-track {
+        display: flex !important;
+        width: max-content !important;
+        gap: 2rem !important;
+        /* Proper spacing, not 0 */
+        margin: 0 !important;
+        padding-left: 0 !important;
+        animation: mobileLogoScroll 30s linear infinite !important;
+    }
 
-    /* 15. MOBILE HERO BACKGROUND (HOME) */
-    .mobile-hero-bg {
+    /* Special case for Service Pages with 3 sets of logos */
+    .logo-marquee-section .marquee-track {
+        animation-name: mobileMarqueeScroll3Set !important;
+        animation-duration: 20s !important;
+    }
+
+    .logo-marquee-section img,
+    .tech-marquee .tech-item {
+        max-height: 40px !important;
+        width: auto !important;
+        padding-right: 0 !important;
+        /* Remove huge padding */
+        margin-right: 2rem !important;
+        /* Use margin for spacing */
+        flex-shrink: 0 !important;
+    }
+
+    /* 5. Generic Sections */
+    section,
+    .welcome-section,
+    .stats-section,
+    .deep-dive-section {
+        text-align: center !important;
+        align-items: center !important;
+        padding: 4rem 1.5rem !important;
+    }
+
+    .section-title,
+    h2,
+    .portfolio-header h2 {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* 6. "Our Work" - Simple Centered Scroll */
+    /* NUCLEAR SPECIFICITY: Override all desktop styles */
+    html body #work.video-reel-section {
+        display: block !important;
+        width: 100% !important;
+        min-width: 100vw !important;
+        /* Force full width */
+        max-width: none !important;
+        margin: 0 !important;
+        /* Reset -24px margins */
+        padding: 0 0 2.5rem 0 !important;
+        /* Reset 24px padding, keep bottom */
+        overflow: visible !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+
+    /* Container: Simple horizontal scroll - Full bleed to viewport */
+    .reel-container {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        gap: 1rem !important;
+
+        /* FULL BLEED BREAKOUT: Force full viewport width regardless of parent */
+        width: 100vw !important;
+        max-width: none !important;
+        margin-left: 50% !important;
+        transform: translateX(-50%) !important;
+
+        /* Add internal padding to center first card (88vw card need 6vw sides) */
+        padding: 1rem 6vw !important;
+
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        /* Hide scrollbar but allow scroll */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .reel-container::-webkit-scrollbar {
         display: none;
-        /* Hidden by default */
     }
 
-    @media (max-width: 768px) {
-        .mobile-hero-bg {
-            display: block !important;
-            position: absolute !important;
-            top: 0 !important;
-            right: -20% !important;
-            /* Shift right */
-            left: auto !important;
-            width: 100% !important;
-            /* Reduced width */
-            height: 80vh !important;
-            /* Not full height */
-            z-index: -1 !important;
-            background-image: url('../images/mobile-hero-bg.jpg') !important;
-            background-size: contain !important;
-            /* Don't cover, contain to keep detail */
-            background-repeat: no-repeat !important;
-            background-position: center right !important;
-            opacity: 0.8 !important;
-            /* Higher opacity for visibility */
-            pointer-events: none !important;
-            mask-image: linear-gradient(to right, transparent 0%, black 50%) !important;
-            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 50%) !important;
-        }
-
-        /* Ensure hero content pops above it */
-        .hero-content {
-            position: relative !important;
-            z-index: 2 !important;
-        }
+    /* Flatten Tracks for Mobile */
+    .reel-track {
+        display: contents !important;
     }
+
+    html body #work .reel-track.track-right {
+        display: contents !important;
+        /* Show second track on mobile to reveal all 10 unique videos */
+    }
+
+    /* Hide Marquee Duplicates (Items 6+) on Mobile for a clean 10-item list */
+    html body #work .reel-track .reel-item:nth-child(n+6) {
+        display: none !important;
+    }
+
+    /* Card Styling: Clean, fills most of screen, leaves peek on sides */
+    .reel-item {
+        flex: 0 0 88vw !important;
+        min-width: 88vw !important;
+        scroll-snap-align: center;
+        margin: 0 !important;
+        border-radius: 16px !important;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+        background: #0a0a0a;
+        aspect-ratio: 16/9 !important;
+        height: auto !important;
+        /* Remove all 3D transforms */
+        transform: none !important;
+        opacity: 1 !important;
+    }
+
+    /* Scroll indicator on SECTION (not container - overflow issue) */
+    .video-reel-section::after {
+        content: 'swipe →';
+        display: block;
+        position: absolute;
+        bottom: 0.5rem;
+        right: 1rem;
+        font-size: 0.65rem;
+        color: rgba(255, 255, 255, 0.5);
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        pointer-events: none;
+    }
+
+    .reel-overlay,
+    .play-icon {
+        display: none !important;
+    }
+
+    /* Kill animations */
+    .reel-track,
+    .reel-item {
+        animation: none !important;
+    }
+
+    /* 7. "We Mastered" Services Section - Swipeable Scroll */
+    .mastered-section {
+        position: relative;
+        padding-bottom: 3rem !important;
+    }
+
+    .mastered-grid {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        /* Breakout to full viewport width */
+        width: 100vw !important;
+        max-width: none !important;
+        margin-left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+
+    .mastered-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .mastered-carousel-track {
+        display: flex !important;
+        width: max-content !important;
+        flex-wrap: nowrap !important;
+        gap: 1rem !important;
+        /* Center the first item: 50vw - (cardWidth/2) */
+        /* Card width is 140px, so half is 70px */
+        padding: 0 calc(50vw - 70px) !important;
+        animation: none !important;
+    }
+
+    .mastered-card {
+        flex: 0 0 140px !important;
+        width: 140px !important;
+        aspect-ratio: 9/16 !important;
+        border-radius: 12px !important;
+        scroll-snap-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Scroll Indicator - On SECTION level (not containers - overflow clips them) */
+    .mastered-section::after,
+    .built-for-section::after,
+    .team-section::after {
+        content: 'swipe →';
+        display: block;
+        position: absolute;
+        bottom: 0.5rem;
+        right: 1rem;
+        font-size: 0.65rem;
+        color: rgba(255, 255, 255, 0.5);
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        pointer-events: none;
+    }
+
+    /* Ensure sections have relative positioning for the indicator */
+    .mastered-section,
+    .built-for-section,
+    .team-section {
+        position: relative !important;
+        padding-bottom: 2.5rem !important;
+    }
+
+    /* 7b. SIMPLE SCROLL STYLES (Built For / Team / Stats) */
+    html body .team-marquee,
+    .built-for-grid,
+    .stats-grid {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        gap: 1rem !important;
+
+        /* Breakout to full viewport width (Nuclear) */
+        width: 100vw !important;
+        max-width: none !important;
+        margin-left: 50% !important;
+        transform: translateX(-50%) !important;
+
+        /* Reset any inherited margins */
+        margin-right: 0 !important;
+
+        /* Center first item padding: 50vw - (cardWidth/2) */
+        /* Team card width is 85vw -> Center is tricky since it's almost full width */
+        /* Let's stick to standard padding for 85vw cards to keep it simple: 1rem sides */
+        padding: 0 1rem !important;
+
+        /* Hide scrollbar */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        /* Disable native grid if present */
+        grid-template-columns: none !important;
+    }
+
+    /* Hide Duplicates for Team Marquee (Assume 6 unique members) */
+    html body .team-marquee .team-card:nth-child(n+7) {
+        display: none !important;
+    }
+
+    .built-for-grid::-webkit-scrollbar,
+    .team-marquee::-webkit-scrollbar,
+    .stats-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .team-track {
+        display: contents !important;
+    }
+
+    /* Cards: Clean, no 3D */
+    .built-for-card,
+    .team-card,
+    .stat-item {
+        flex: 0 0 85vw !important;
+        min-width: 85vw !important;
+        scroll-snap-align: center;
+        margin: 0 !important;
+        background: rgba(20, 20, 20, 0.8) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 16px !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+        height: auto !important;
+        padding: 1.5rem !important;
+        /* Remove all transforms */
+        transform: none !important;
+        opacity: 1 !important;
+    }
+
+    .stat-item {
+        flex: 0 0 45vw !important;
+        min-width: 45vw !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    /* 8. SERVICE PAGES: SCROLLABLE STEPS (Default / Performance Creative) */
+    .process-tabs {
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        white-space: nowrap !important;
+        gap: 12px !important;
+        width: 100% !important;
+        justify-content: flex-start !important;
+        padding: 0 20px 20px 20px !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+    }
+
+    .process-tabs::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .process-tab {
+        flex: 0 0 auto !important;
+        width: auto !important;
+        min-width: 140px !important;
+        padding: 12px 20px !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 100px !important;
+    }
+
+    .process-tab.active {
+        background: #d4af37 !important;
+        color: #000 !important;
+        border-color: #d4af37 !important;
+    }
+
+    /* 8b. SERVICE PAGES: VERTICAL STACK (Meta/Google Ads - Option 1) */
+    .process-section.mobile-stack {
+        counter-reset: step-counter !important;
+    }
+
+    .process-section.mobile-stack .process-tabs {
+        display: none !important;
+    }
+
+    .process-section.mobile-stack .process-carousel {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 3rem !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    .process-section.mobile-stack .process-slide {
+        display: flex !important;
+        flex-direction: column !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        position: relative !important;
+        height: auto !important;
+        transform: none !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 20px !important;
+        padding: 2rem !important;
+        background: linear-gradient(180deg, rgba(20, 20, 20, 0.5), rgba(10, 10, 10, 0.8)) !important;
+    }
+
+    /* Add "Step X" label dynamically */
+    .process-section.mobile-stack .process-slide::before {
+        counter-increment: step-counter;
+        content: "Step " counter(step-counter);
+        display: inline-block;
+        font-family: 'DM Sans', sans-serif;
+        /* Fallback safe font */
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: #d4af37;
+        /* Accent color */
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        padding: 0.4rem 1rem;
+        border-radius: 100px;
+        margin-bottom: 1.5rem;
+        align-self: flex-start;
+        background: rgba(212, 175, 55, 0.05);
+    }
+
+    .process-section.mobile-stack .slide-image {
+        margin-top: 1.5rem !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        order: 2 !important;
+    }
+
+    .process-section.mobile-stack .slide-content {
+        order: 1 !important;
+    }
+
+
+    /* 8c. CONTENT STRATEGY SPECIFIC OVERRIDES */
+    /* Hero De-clutter */
+    .hero-visual-container,
+    .floating-grid,
+    .mockup-card {
+        display: none !important;
+    }
+
+    /* Extend Mobile Stack to support .process-content (Content Strategy page structure) */
+    /* Boost specificity to force show all contents */
+    .process-section.mobile-stack div.process-content {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        position: relative !important;
+        height: auto !important;
+        transform: none !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 20px !important;
+        padding: 2rem !important;
+        background: linear-gradient(180deg, rgba(20, 20, 20, 0.5), rgba(10, 10, 10, 0.8)) !important;
+        margin-bottom: 2rem !important;
+        counter-increment: step-counter;
+        /* Increment shared counter */
+    }
+
+    /* Add "Step X" label dynamically for process-content too */
+    .process-section.mobile-stack div.process-content::before {
+        content: "Step " counter(step-counter);
+        display: inline-block;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: #d4af37;
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        padding: 0.4rem 1rem;
+        border-radius: 100px;
+        margin-bottom: 1rem;
+        align-self: flex-start;
+        background: rgba(212, 175, 55, 0.05);
+    }
+
+    /* Fix internal Layout of process-content */
+    .process-section.mobile-stack .process-content .process-text {
+        order: 1;
+    }
+
+    /* REMOVED IMAGE AS REQUESTED */
+    .process-section.mobile-stack .process-content .process-visual {
+        display: none !important;
+    }
+
+    /* 9. SERVICE PAGES: COLLAPSIBLE FAQ (AGGRESSIVE FIX) */
+    .faq-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    .faq-item {
+        transition: all 0.3s ease !important;
+        height: auto !important;
+        /* Padding reduced for collapsed look */
+        padding: 1.5rem !important;
+    }
+
+    /* Aggressive Hiding for Closed State - using faq-active */
+    .faq-item:not(.faq-active) .faq-answer {
+        display: none !important;
+        height: 0 !important;
+        overflow: hidden !important;
+        opacity: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        visibility: hidden !important;
+    }
+
+    /* Explicit Open State */
+    .faq-item.faq-active .faq-answer {
+        display: block !important;
+        height: auto !important;
+        opacity: 1 !important;
+        margin-top: 1rem !important;
+        padding-top: 1rem !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+        visibility: visible !important;
+        animation: fadeIn 0.4s ease forwards !important;
+    }
+
+    .faq-item.faq-active {
+        background: rgba(212, 175, 55, 0.05) !important;
+        border-color: rgba(212, 175, 55, 0.3) !important;
+    }
+
+    .faq-item.faq-active .faq-question span {
+        transform: rotate(45deg) !important;
+        display: inline-block !important;
+        transition: transform 0.3s ease !important;
+    }
+
+    h1 {
+        font-size: clamp(40px, 11vw, 56px) !important;
+        line-height: 0.95 !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* 11. UNFAIR ADVANTAGE / COMMERCIAL MASTERY ADJUSTMENTS */
+    html body .mastery-section {
+        padding: 4rem 1.5rem !important;
+        height: auto !important;
+        min-height: 0 !important;
+    }
+
+    html body .mastery-header-top {
+        margin-bottom: 2rem !important;
+    }
+
+    html body .mastery-header-top h2 {
+        font-size: clamp(2rem, 8vw, 2.75rem) !important;
+        line-height: 1.1 !important;
+        margin-bottom: 1rem !important;
+    }
+
+    html body .mastery-subtitle {
+        font-size: 1rem !important;
+        margin-bottom: 2rem !important;
+    }
+
+    html body .mastery-intro p {
+        font-size: 1.25rem !important;
+    }
+
+    html body .showcase-card {
+        margin-top: 2rem !important;
+        padding: 2rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+        height: auto !important;
+        min-height: 0 !important;
+    }
+
+    html body .card-content {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+        position: relative !important;
+        z-index: 2 !important;
+    }
+
+    /* 1. Text Top */
+    html body .card-left {
+        width: 100% !important;
+        text-align: center !important;
+        order: 1 !important;
+    }
+
+    html body .card-left h2 {
+        font-size: 1.75rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    html body .card-description {
+        font-size: 1rem !important;
+        opacity: 0.8 !important;
+        max-width: 100% !important;
+    }
+
+    html body .card-copyright {
+        display: none !important;
+        /* Hide noise */
+    }
+
+    /* 2. Visual Middle - SIMPLIFIED */
+    html body .card-center {
+        width: 100% !important;
+        height: auto !important;
+        order: 2 !important;
+        position: relative !important;
+        margin: 0 !important;
+        transform: none !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    /* Hide the complex floating/rotating mess */
+    html body .floating-asset {
+        display: none !important;
+    }
+
+    /* Static Phone */
+    html body .phone-mockup {
+        position: relative !important;
+        width: 200px !important;
+        /* Controlled width */
+        height: auto !important;
+        transform: none !important;
+        margin: 0 auto !important;
+        left: auto !important;
+        top: auto !important;
+        opacity: 1 !important;
+    }
+
+    html body .phone-screen {
+        transform: none !important;
+        animation: none !important;
+        height: auto !important;
+        display: block !important;
+        overflow: visible !important;
+    }
+
+    html body .phone-screen img {
+        position: relative !important;
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        object-fit: contain !important;
+    }
+
+    /* Hide the second image if it's meant to be a slideshow, just show the first one */
+    html body .phone-screen img:not(:first-child) {
+        display: none !important;
+    }
+
+    /* 3. CTA Bottom */
+    html body .card-right {
+        width: 100% !important;
+        order: 3 !important;
+        display: flex !important;
+        justify-content: center !important;
+        padding: 0 !important;
+    }
+
+    html body .card-right .hero-cta {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    /* 13. FORMULA & TESTIMONIALS CAROUSELS (Mobile) */
+    html body .process-tabs,
+    html body .process-content,
+    html body .process-header p {
+        display: none !important;
+    }
+
+    html body .formula-carousel {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        gap: 1rem !important;
+        padding: 0 1.5rem 1.5rem 1.5rem !important;
+        width: 100vw !important;
+        margin-left: 50% !important;
+        transform: translateX(-50%) !important;
+        scrollbar-width: none;
+        margin-top: 2rem !important;
+    }
+
+    html body .formula-carousel::-webkit-scrollbar,
+    html body .testimonials-grid::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    html body .formula-card {
+        flex: 0 0 85vw !important;
+        width: 85vw !important;
+        scroll-snap-align: center !important;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px !important;
+        padding: 1.25rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        margin: 0 !important;
+        height: auto !important;
+        max-height: 260px !important;
+        overflow: hidden !important;
+        /* NO SCROLLING */
+    }
+
+    html body .formula-card h3 {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.5rem !important;
+        color: #fff !important;
+        line-height: 1.3 !important;
+        flex-shrink: 0 !important;
+        /* Prevent title from squishing */
+    }
+
+    html body .formula-card h3 em {
+        color: #d4af37 !important;
+        font-style: italic !important;
+    }
+
+    html body .formula-card p {
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+        margin: 0 !important;
+        opacity: 0.9 !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 6;
+        /* Show max 6 lines */
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    html body .testimonials-grid {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        gap: 0.75rem !important;
+        padding: 0 1.5rem 1.5rem 1.5rem !important;
+        width: 100vw !important;
+        margin-left: 50% !important;
+        transform: translateX(-50%) !important;
+        scrollbar-width: none;
+        grid-template-columns: none !important;
+    }
+
+    html body .testimonial-card {
+        flex: 0 0 85vw !important;
+        width: 85vw !important;
+        scroll-snap-align: center !important;
+        height: auto !important;
+        max-height: 260px !important;
+        margin: 0 !important;
+        /* Premium Dark Style */
+        background: #080808 !important;
+        /* Deep black/grey */
+        color: #ffffff !important;
+        border: 1px solid rgba(212, 175, 55, 0.2) !important;
+        /* Subtle gold border */
+        border-radius: 4px !important;
+        padding: 1.5rem 1rem !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        /* Center Everything */
+        text-align: center !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    html body .testimonial-card h3,
+    html body .testimonial-card blockquote {
+        font-size: 0.95rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 0.75rem !important;
+        color: #ffffff !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+        letter-spacing: 0.05em !important;
+    }
+
+    html body .testimonial-card p {
+        font-size: 0.8rem !important;
+        color: #aaaaaa !important;
+        /* Soft grey for secondary text */
+        margin-top: auto !important;
+        font-style: italic !important;
+    }
+
+    html body .testimonial-card img {
+        width: 60px !important;
+        height: 60px !important;
+        border-radius: 50% !important;
+        object-fit: cover !important;
+        margin-bottom: 1rem !important;
+        align-self: center !important;
+        flex-shrink: 0 !important;
+        border: 1px solid #d4af37 !important;
+        /* Gold ring */
+    }
+
+    /* Apply similar Premium Dark logic to Formula Cards */
+    html body .formula-card {
+        flex: 0 0 85vw !important;
+        width: 85vw !important;
+        scroll-snap-align: center !important;
+        background: #080808 !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 4px !important;
+        padding: 1.5rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        margin: 0 !important;
+        height: auto !important;
+        max-height: 260px !important;
+        overflow: hidden !important;
+    }
+
+    html body .formula-card h3 {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.75rem !important;
+        color: #fff !important;
+        line-height: 1.3 !important;
+        flex-shrink: 0 !important;
+    }
+
+    html body .formula-card p {
+        font-size: 0.9rem !important;
+        color: #cccccc !important;
+        line-height: 1.5 !important;
+    }
+
+    /* Swipe Indicator for key sections */
+    html body .formula-carousel::after,
+    html body .testimonials-grid::after {
+        content: '' !important;
+        display: block !important;
+        min-width: 1.5rem !important;
+        /* Padding spacer */
+    }
+
+    html body .process-section::after,
+    html body .testimonials-section::after {
+        content: 'Swipe \2192';
+        display: block;
+        text-align: center;
+        color: #d4af37;
+        font-size: 0.9rem;
+        margin-top: 1rem;
+        opacity: 0.7;
+        font-family: 'Outfit', sans-serif;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        pointer-events: none;
+    }
+
+}
+
+
+/* 14. PHOTOGRAPHY PAGE SPECIFIC FIXES (REFINED) */
+@media (max-width: 768px) {
+
+    /* Hero Adjustments */
+    .hero-content {
+        padding: 2.5rem 1.5rem !important;
+        /* Increased padding */
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        background: rgba(0, 0, 0, 0.6) !important;
+        /* Ensure box visibility */
+        -webkit-backdrop-filter: blur(10px) !important;
+        backdrop-filter: blur(10px) !important;
+        border-radius: 20px !important;
+        margin-bottom: 2rem !important;
+    }
+
+    .hero h1 {
+        font-size: 2.25rem !important;
+        /* Reduced from 3rem */
+        /* Prevent edge touching */
+        line-height: 1.1 !important;
+    }
+
+    .hero-cta {
+        max-width: 100% !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        justify-content: center !important;
+    }
+
+    /* Hide Desktop Parallax & Table */
+    .horizontal-scroll-container,
+    .comparison-table {
+        display: none !important;
+    }
+
+    /* Show Mobile Replacements - Refined Slideshow */
+    .mobile-photo-carousel {
+        display: block !important;
+        padding: 2rem 0 4rem 0 !important;
+        background: #050505 !important;
+        text-align: center !important;
+        position: relative !important;
+        z-index: 50 !important;
+        /* Ensure visibility over other elements */
+    }
+
+    .mobile-photo-carousel h3 {
+        font-family: 'Outfit', sans-serif !important;
+        font-size: 1.75rem !important;
+        /* Slightly smaller for balance */
+        margin-bottom: 2rem !important;
+        color: #fff !important;
+        text-align: center !important;
+        padding: 0 1.5rem !important;
+    }
+
+    .mobile-carousel-track {
+        display: flex !important;
+        gap: 1rem !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        padding: 0 7.5vw 2rem 7.5vw !important;
+        /* Center the active 85vw card */
+        scrollbar-width: none !important;
+    }
+
+    .mobile-carousel-track::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .mobile-carousel-track img {
+        height: auto !important;
+        width: 80vw !important;
+        /* Slightly smaller to see next card */
+        aspect-ratio: 4/5 !important;
+        /* Vertical/Portrait Ratio - Shows more image */
+        object-fit: cover !important;
+        object-position: center center !important;
+        /* Center focus */
+        border-radius: 12px !important;
+        scroll-snap-align: center !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* Comparison Header Fit */
+    .comparison-header h2 {
+        font-size: 2rem !important;
+        line-height: 1.2 !important;
+        padding: 0 1rem !important;
+    }
+
+    /* Mobile Comparison List */
+    /* Mobile Comparison List - Horizontal Scroll */
+    .mobile-comparison-list {
+        display: flex !important;
+        flex-direction: row !important;
+        /* Horizontal */
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        gap: 1rem !important;
+        padding: 0 1.5rem 0.5rem 1.5rem !important;
+        /* Reduced bottom padding */
+        scrollbar-width: none !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .mobile-comparison-list::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    /* Reuse swipe-hint for comparison */
+    .mobile-comparison-list+.swipe-hint {
+        display: block !important;
+        text-align: center !important;
+        margin-bottom: 3rem !important;
+        /* Space after section */
+    }
+
+    .comparison-card {
+        min-width: 85vw !important;
+        /* Card width */
+        scroll-snap-align: center !important;
+        background: #111 !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 12px !important;
+        padding: 1.5rem !important;
+        flex-shrink: 0 !important;
+    }
+
+    .comparison-card h4 {
+        margin-bottom: 1rem !important;
+        font-size: 1.1rem !important;
+        color: #fff !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        padding-bottom: 0.5rem !important;
+    }
+
+    .comp-row {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 0.5rem 0 !important;
+    }
+
+    .comp-row.mute {
+        opacity: 0.5 !important;
+    }
+
+    .comp-label {
+        font-size: 0.9rem !important;
+        color: #ccc !important;
+    }
+
+    /* Fix Services Grid Stacking */
+    .services-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    /* Fix Excessive Padding Globally */
+    .services-section,
+    .comparison-section,
+    .stats-section,
+    .cta-section {
+        padding: 3rem 1.5rem !important;
+        /* Reduced from 4rem */
+    }
+}
+
+/* 15. MOBILE HERO BACKGROUND (HOME) */
+@media (max-width: 768px) {
+
+    /* Hero Adjustments */
+    .home-hero-content {
+        padding: 0 1.5rem !important;
+        /* Reset padding */
+        width: 100% !important;
+        max-width: 100% !important;
+        background: transparent !important;
+        /* Remove box */
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+        border-radius: 0 !important;
+        margin-bottom: 2rem !important;
+    }
+
+    /* Add Shadow only for Home where box is gone */
+    .home-hero-content h1 {
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero h1 {
+        font-size: 2.25rem !important;
+        /* Reduced from 3rem */
+        line-height: 1.1 !important;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* ... existing styles ... */
+
+/* 15. MOBILE HERO BACKGROUND (HOME) */
+.mobile-hero-bg {
+    display: none;
+    /* Hidden by default */
+}
+
+@media (max-width: 768px) {
+    .mobile-hero-bg {
+        display: block !important;
+        position: absolute !important;
+        top: 0 !important;
+        right: -20% !important;
+        /* Shift right */
+        left: auto !important;
+        width: 100% !important;
+        /* Reduced width */
+        height: 80vh !important;
+        /* Not full height */
+        z-index: -1 !important;
+        background-image: url('../images/mobile-hero-bg.jpg') !important;
+        background-size: contain !important;
+        /* Don't cover, contain to keep detail */
+        background-repeat: no-repeat !important;
+        background-position: center right !important;
+        opacity: 0.8 !important;
+        /* Higher opacity for visibility */
+        pointer-events: none !important;
+        mask-image: linear-gradient(to right, transparent 0%, black 50%) !important;
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 50%) !important;
+    }
+
+    /* Ensure hero content pops above it */
+    .hero-content {
+        position: relative !important;
+        z-index: 2 !important;
+    }
+}
