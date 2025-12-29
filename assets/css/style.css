@@ -179,7 +179,7 @@ nav {
 }
 
 .mobile-menu-btn {
-    display: none;
+    display: none !important;
 }
 
 .nav-links {
