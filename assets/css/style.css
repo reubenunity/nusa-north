@@ -178,6 +178,10 @@ nav {
     color: var(--accent);
 }
 
+.mobile-menu-btn {
+    display: none;
+}
+
 .nav-links {
     display: flex;
     gap: 0.25rem;
