@@ -40,9 +40,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/css/mobile-menu.css?v=2">
+    <link rel="stylesheet" href="../../assets/css/mobile-menu.css?v=3">
     <!-- Mobile Safe Mode (Global Stabilization) -->
-    <link rel="stylesheet" href="../../assets/css/mobile-safe-mode-v18.css">
+    <link rel="stylesheet" href="../../assets/css/mobile-safe-mode-v18.css?v=3">
     <style>
         :root {
             --bg-primary: #000000;
@@ -344,6 +344,10 @@
             position: relative;
             overflow: hidden;
         }
+
+        /* .mobile-menu-btn {
+            display: none !important;
+        } */
 
         .hero::before {
             display: none;
@@ -1013,6 +1017,11 @@
 
         /* Mobile Adjustments */
         @media (max-width: 1024px) {
+            .mobile-menu-btn {
+                display: flex !important;
+            }
+
+            /* General Padding Reduced */
             .process-slide.active {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -1536,8 +1545,7 @@
         }
     </style>
     <link rel="icon" type="image/png" href="../../assets/images/favicon-new.png">
-    <link rel="icon" type="image/png" href="../../assets/images/favicon-new.png"
-</head>
+    <link rel="icon" type="image/png" href="../../assets/images/favicon-new.png" </head>
 
 <body>
 
@@ -1668,9 +1676,8 @@
         </div>
         <div class="hero-content">
             <h1>
-                Meta Ads<br>
-                Built for Scale.
-                <em>Engineered for Performance.</em>
+                Meta Ads Agency Ireland<br>
+                <em>Facebook & Instagram Experts</em>
             </h1>
             <p class="hero-subtitle">
                 <strong>We blend creative production, audience intelligence, and data-driven media buying</strong>
@@ -2011,7 +2018,8 @@
             <a href="../content-strategy/">Strategy</a>
             <a href="../../privacy-policy.html">Privacy Policy</a>
         </div>
-<p style="text-align: center; color: #666; font-size: 0.9rem;">&copy; 2015 Nusa & North. All rights reserved.</p>
+        <p style="text-align: center; color: #666; font-size: 0.9rem;">&copy; 2015 Nusa & North. All rights reserved.
+        </p>
     </footer>
 
     <script>
