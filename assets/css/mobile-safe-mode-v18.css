@@ -1018,15 +1018,16 @@
 
     .mobile-carousel-track img {
         height: auto !important;
-        width: 85vw !important;
-        /* Single Focus Card */
-        aspect-ratio: 3/4 !important;
-        /* Portrait Ratio */
+        width: 80vw !important;
+        /* Slightly smaller to see next card */
+        aspect-ratio: 16/9 !important;
+        /* Landscape Ratio - Safer */
         object-fit: cover !important;
         border-radius: 12px !important;
         scroll-snap-align: center !important;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
         border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        flex-shrink: 0 !important;
     }
 
     /* Comparison Header Fit */
