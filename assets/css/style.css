@@ -2011,6 +2011,7 @@ footer {
         /* Shown on mobile via mobile-menu.css, but useful fallback here */
     }
 }
+
 /* =========================================
    Holistic Growth Interlink (Visibility Boost)
    ========================================= */
@@ -2021,7 +2022,11 @@ footer {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     position: relative;
     overflow: hidden;
-    margin-bottom: 4rem !important;
+    z-index: 10;
+    /* Ensure it floats above potential overlaps */
+    margin-bottom: 8rem !important;
+    /* Increase spacing to prevent footer overlap */
+    margin-top: 4rem;
 }
 
 /* Add a subtle glow/shine */
@@ -2037,7 +2042,23 @@ footer {
 }
 
 @keyframes growthShine {
-    0% { left: -100%; }
-    20% { left: 100%; }
-    100% { left: 100%; }
+    0% {
+        left: -100%;
+    }
+
+    20% {
+        left: 100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .holistic-growth-section {
+        margin: 4rem 1.5rem 8rem !important;
+        /* Ensure side margins on mobile */
+        width: auto;
+    }
 }
