@@ -68,14 +68,15 @@
         flex-direction: column !important;
         gap: 1.5rem !important;
         padding: 0 1rem !important;
-        position: relative !important;
-        /* Reset from absolute */
-        pointer-events: auto !important;
-        /* Allow clicks */
-        inset: auto !important;
-        /* Release pinned edges */
-        height: auto !important;
-        margin-top: 2rem !important;
+        position: absolute !important;
+        /* Keep behind text */
+        z-index: 1 !important;
+        pointer-events: none !important;
+        inset: 0 !important;
+        height: 100% !important;
+        margin-top: 0 !important;
+        opacity: 0.3 !important;
+        /* Fade as background */
     }
 
     .fw-card {
@@ -108,12 +109,13 @@
     /* 4. Fix Google Ads Orbit (Scale Down) */
     .orbital-system {
         width: 100% !important;
-        height: 350px !important;
-        /* Constrain height */
-        transform: scale(0.65) !important;
-        /* Shrink to fit */
-        transform-origin: center center !important;
-        margin-top: -2rem !important;
+        height: 100% !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) scale(0.65) !important;
+        z-index: 1 !important;
+        margin: 0 !important;
     }
 
     .central-g {
