@@ -14,7 +14,7 @@
         gtag('config', 'G-D9RF7YR46W');
     </script>
     <!-- Meta Pixel Code -->
-    <script>
+    <script defer>
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
                 n.callMethod ?
@@ -829,7 +829,7 @@
 
         @media (max-width: 768px) {
             .framework-card-container {
-                opacity: 0.2;
+                display: none;
             }
         }
 
@@ -1015,7 +1015,6 @@
             border-radius: 24px;
         }
 
-        /* Mobile Adjustments */
         @media (max-width: 1024px) {
             .mobile-menu-btn {
                 display: flex !important;
@@ -1024,15 +1023,30 @@
             /* General Padding Reduced */
             .process-slide.active {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 1.5rem;
+                text-align: center;
             }
 
             .slide-content {
                 order: 2;
+                padding: 0;
             }
 
             .slide-image {
                 order: 1;
+                width: 100%;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .slide-features {
+                display: inline-block;
+                text-align: left;
+                margin: 0 auto;
+            }
+
+            .slide-features li {
+                justify-content: flex-start;
             }
         }
 
@@ -1545,13 +1559,12 @@
         }
     </style>
     <link rel="icon" type="image/png" href="../../assets/images/favicon-new.png">
-    <link rel="icon" type="image/png" href="../../assets/images/favicon-new.png" 
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    <link rel="icon" type="image/png" href="../../assets/images/favicon-new.png" <!-- Microsoft Clarity -->
+    <script type="text/javascript" defer>
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", "utbi0oux59");
     </script>
 
@@ -1748,7 +1761,7 @@
                 </div>
                 <div class="slide-image">
                     <img loading="lazy" src="../../assets/images/services/process-1-audience.webp"
-                        alt="Audience Research">
+                        alt="Audience Research" width="1024" height="1024">
                 </div>
             </div>
 
@@ -1767,7 +1780,7 @@
                 </div>
                 <div class="slide-image">
                     <img loading="lazy" src="../../assets/images/services/process-2-campaign.webp"
-                        alt="Campaign Architecture">
+                        alt="Campaign Architecture" width="1024" height="1024">
                 </div>
             </div>
 
@@ -1785,7 +1798,8 @@
                     </ul>
                 </div>
                 <div class="slide-image">
-                    <img loading="lazy" src="../../assets/images/services/process-3-creative.webp" alt="UGC Creative">
+                    <img loading="lazy" src="../../assets/images/services/process-3-creative.webp" alt="UGC Creative"
+                        width="1024" height="1024">
                 </div>
             </div>
 
@@ -1803,7 +1817,8 @@
                     </ul>
                 </div>
                 <div class="slide-image">
-                    <img loading="lazy" src="../../assets/images/services/process-4-funnel.webp" alt="Funnel Strategy">
+                    <img loading="lazy" src="../../assets/images/services/process-4-funnel.webp" alt="Funnel Strategy"
+                        width="1024" height="1024">
                 </div>
             </div>
 
@@ -1821,7 +1836,8 @@
                     </ul>
                 </div>
                 <div class="slide-image">
-                    <img loading="lazy" src="../../assets/images/services/process-5-cro.webp" alt="CRO Alignment">
+                    <img loading="lazy" src="../../assets/images/services/process-5-cro.webp" alt="CRO Alignment"
+                        width="1024" height="1024">
                 </div>
             </div>
 
@@ -1839,7 +1855,8 @@
                     </ul>
                 </div>
                 <div class="slide-image">
-                    <img loading="lazy" src="../../assets/images/services/process-6-scale.webp" alt="Launch and Scale">
+                    <img loading="lazy" src="../../assets/images/services/process-6-scale.webp" alt="Launch and Scale"
+                        width="1024" height="1024">
                 </div>
             </div>
         </div>
@@ -1857,7 +1874,7 @@
             <!-- The Gasometer Hotel -->
             <div class="result-card reveal">
                 <img loading="lazy" src="../../assets/images/gasometer-logo.png" alt="The Gasometer Hotel"
-                    class="result-logo">
+                    class="result-logo" width="225" height="225">
                 <p class="result-quote">We drove targeted Meta campaigns that promoted their bookings while dramatically
                     reducing cost-per-click. More visibility, better returns.</p>
                 <div class="result-stats">
@@ -1880,7 +1897,8 @@
 
             <!-- Le Comptoir -->
             <div class="result-card reveal">
-                <img loading="lazy" src="../../assets/images/lecomptoir-logo.png" alt="Le Comptoir" class="result-logo">
+                <img loading="lazy" src="../../assets/images/lecomptoir-logo.png" alt="Le Comptoir" class="result-logo"
+                    width="676" height="202">
                 <p class="result-quote">We set up their pixel tracking, mapped a 6-stage Meta strategy, and operated as
                     an extension of their team. CPC dropped from day one.</p>
                 <div class="result-stats">
@@ -1982,27 +2000,42 @@
         <div class="marquee-header">Trusted by World-Class Brands</div>
         <div class="logo-marquee">
             <div class="marquee-track">
-                <img loading="lazy" src="../../Logos/bazaar.png" alt="Harper's Bazaar">
-                <img loading="lazy" src="../../Logos/hello%20bpdy.webp" alt="Hello Body">
-                <img loading="lazy" src="../../Logos/hp.png" alt="HP">
-                <img loading="lazy" src="../../Logos/mgm.png" alt="MGM">
-                <img loading="lazy" src="../../Logos/universal.png" alt="Universal" class="logo-fix">
-                <img loading="lazy" src="../../Logos/scwatrtz.webp" alt="Schwarzkopf">
-                <img loading="lazy" src="../../../Logos/logo%20long%20trang%201.png" alt="Pan Pacific" class="logo-fix">
-                <img loading="lazy" src="../../Logos/bazaar.png" alt="Harper's Bazaar">
-                <img loading="lazy" src="../../Logos/hello%20bpdy.webp" alt="Hello Body">
-                <img loading="lazy" src="../../Logos/hp.png" alt="HP">
-                <img loading="lazy" src="../../Logos/mgm.png" alt="MGM">
-                <img loading="lazy" src="../../Logos/universal.png" alt="Universal" class="logo-fix">
-                <img loading="lazy" src="../../Logos/scwatrtz.webp" alt="Schwarzkopf">
-                <img loading="lazy" src="../../../Logos/logo%20long%20trang%201.png" alt="Pan Pacific" class="logo-fix">
-                <img loading="lazy" src="../../Logos/bazaar.png" alt="Harper's Bazaar">
-                <img loading="lazy" src="../../Logos/hello%20bpdy.webp" alt="Hello Body">
-                <img loading="lazy" src="../../Logos/hp.png" alt="HP">
-                <img loading="lazy" src="../../Logos/mgm.png" alt="MGM">
-                <img loading="lazy" src="../../Logos/universal.png" alt="Universal" class="logo-fix">
-                <img loading="lazy" src="../../Logos/scwatrtz.webp" alt="Schwarzkopf">
-                <img loading="lazy" src="../../../Logos/logo%20long%20trang%201.png" alt="Pan Pacific" class="logo-fix">
+                <img loading="lazy" src="../../Logos/optimized/bazaar.webp" alt="Harper's Bazaar" width="500"
+                    height="338">
+                <img loading="lazy" src="../../Logos/optimized/hello_bpdy.webp" alt="Hello Body" width="500"
+                    height="338">
+                <img loading="lazy" src="../../Logos/optimized/hp.webp" alt="HP" width="500" height="338">
+                <img loading="lazy" src="../../Logos/optimized/mgm.webp" alt="MGM" width="500" height="338">
+                <img loading="lazy" src="../../Logos/optimized/universal.webp" alt="Universal" class="logo-fix"
+                    width="500" height="338">
+                <img loading="lazy" src="../../Logos/optimized/scwatrtz.webp" alt="Schwarzkopf" width="500"
+                    height="338">
+                <img loading="lazy" src="../../Logos/optimized/logo_long_trang_1.webp" alt="Pan Pacific"
+                    class="logo-fix" width="500" height="419">
+                <img loading="lazy" src="../../Logos/optimized/bazaar.webp" alt="Harper's Bazaar" width="500"
+                    height="338">
+                <img loading="lazy" src="../../Logos/optimized/hello_bpdy.webp" alt="Hello Body" width="500"
+                    height="338">
+                <img loading="lazy" src="../../Logos/optimized/hp.webp" alt="HP" width="500" height="338">
+                <img loading="lazy" src="../../Logos/optimized/mgm.webp" alt="MGM" width="500" height="338">
+                <img loading="lazy" src="../../Logos/optimized/universal.webp" alt="Universal" class="logo-fix"
+                    width="500" height="338">
+                <img loading="lazy" src="../../Logos/optimized/scwatrtz.webp" alt="Schwarzkopf" width="500"
+                    height="338">
+                <img loading="lazy" src="../../Logos/optimized/logo_long_trang_1.webp" alt="Pan Pacific"
+                    class="logo-fix" width="500" height="419">
+                <img loading="lazy" src="../../Logos/optimized/bazaar.webp" alt="Harper's Bazaar" width="500"
+                    height="338">
+                <img loading="lazy" src="../../Logos/optimized/hello_bpdy.webp" alt="Hello Body" width="500"
+                    height="338">
+                <img loading="lazy" src="../../Logos/optimized/hp.webp" alt="HP" width="500" height="338">
+                <img loading="lazy" src="../../Logos/optimized/mgm.webp" alt="MGM" width="500" height="338">
+                <img loading="lazy" src="../../Logos/optimized/universal.webp" alt="Universal" class="logo-fix"
+                    width="500" height="338">
+                <img loading="lazy" src="../../Logos/optimized/scwatrtz.webp" alt="Schwarzkopf" width="500"
+                    height="338">
+                <img loading="lazy" src="../../Logos/optimized/logo_long_trang_1.webp" alt="Pan Pacific"
+                    class="logo-fix" width="500" height="419">
             </div>
         </div>
     </div>

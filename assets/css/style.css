@@ -1180,8 +1180,10 @@ footer,
 .mastered-card-bg {
     position: absolute;
     inset: 0;
-    background-size: cover;
-    background-position: left center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
     transition: transform 0.8s ease;
     filter: brightness(0.8);
 }
@@ -1263,10 +1265,10 @@ footer,
 .portfolio-card-bg {
     position: absolute;
     inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     z-index: 0;
 }
 
@@ -1711,8 +1713,8 @@ footer,
 .team-img {
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center top;
+    object-fit: cover;
+    object-position: center top;
     transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -1942,6 +1944,13 @@ footer {
 @media (max-width: 1024px) {
 
     .logos-section,
+    .reel-poster {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
     .video-reel-section,
     .team-marquee {
         width: 100vw !important;

@@ -146,7 +146,7 @@
                     n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
+            n.queue = []; t = b.createElement(e); t.async = !0; t.defer = !0;
             t.src = v; s = b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t, s)
         }(window, document, 'script',
@@ -169,11 +169,11 @@
     <link rel="stylesheet" href="assets/css/mobile-safe-mode-v19.css?v=999" media="(max-width: 1024px)">
 
     <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    <script type="text/javascript" defer>
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", "utbi0oux59");
     </script>
 
@@ -253,53 +253,53 @@
             <div class="floating-grid">
                 <!-- Column 1 (Scroll Up) -->
                 <div class="grid-column col-anim-up">
-                    <div class="grid-item"><img loading="eager" fetchpriority="high" src="assets/images/hero/img1.webp"
-                            alt="Luxury Fashion Campaign Video Production"></div>
-                    <div class="grid-item"><img loading="eager" fetchpriority="high" src="assets/images/hero/img2.webp"
-                            alt="Premium Hotel Marketing Content"></div>
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img3.webp"
-                            alt="Cinematic Lifestyle Photography"></div>
+                    <div class="grid-item"><img loading="eager" fetchpriority="high" width="1024" height="576"
+                            src="assets/images/hero/img1.webp" alt="Luxury Fashion Campaign Video Production"></div>
+                    <div class="grid-item"><img loading="eager" fetchpriority="high" width="863" height="1024"
+                            src="assets/images/hero/img2.webp" alt="Premium Hotel Marketing Content"></div>
+                    <div class="grid-item"><img loading="lazy" width="1024" height="571"
+                            src="assets/images/hero/img3.webp" alt="Cinematic Lifestyle Photography"></div>
                     <!-- Duplicate for infinite scroll -->
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img1.webp"
-                            alt="Luxury Fashion Campaign Video Production"></div>
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img2.webp"
-                            alt="Premium Hotel Marketing Content"></div>
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img3.webp"
-                            alt="Cinematic Lifestyle Photography"></div>
+                    <div class="grid-item"><img loading="lazy" width="1024" height="576"
+                            src="assets/images/hero/img1.webp" alt="Luxury Fashion Campaign Video Production"></div>
+                    <div class="grid-item"><img loading="lazy" width="863" height="1024"
+                            src="assets/images/hero/img2.webp" alt="Premium Hotel Marketing Content"></div>
+                    <div class="grid-item"><img loading="lazy" width="1024" height="571"
+                            src="assets/images/hero/img3.webp" alt="Cinematic Lifestyle Photography"></div>
                 </div>
 
                 <!-- Column 2 (Scroll Down) -->
                 <div class="grid-column col-anim-down">
-                    <div class="grid-item"><img loading="eager" fetchpriority="high" src="assets/images/hero/img4.webp"
-                            alt="High-End Performance Ad Creative"></div>
-                    <div class="grid-item"><img loading="eager" fetchpriority="high" src="assets/images/hero/img5.webp"
-                            alt="Luxury Brand Storytelling"></div>
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img6.webp"
-                            alt="Travel & Hospitality Video Production"></div>
+                    <div class="grid-item"><img loading="eager" fetchpriority="high" width="1024" height="574"
+                            src="assets/images/hero/img4.webp" alt="High-End Performance Ad Creative"></div>
+                    <div class="grid-item"><img loading="eager" fetchpriority="high" width="772" height="1024"
+                            src="assets/images/hero/img5.webp" alt="Luxury Brand Storytelling"></div>
+                    <div class="grid-item"><img loading="lazy" width="1024" height="547"
+                            src="assets/images/hero/img6.webp" alt="Travel & Hospitality Video Production"></div>
                     <!-- Duplicate -->
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img4.webp"
-                            alt="High-End Performance Ad Creative"></div>
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img5.webp"
-                            alt="Luxury Brand Storytelling"></div>
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img6.webp"
-                            alt="Travel & Hospitality Video Production"></div>
+                    <div class="grid-item"><img loading="lazy" width="1024" height="574"
+                            src="assets/images/hero/img4.webp" alt="High-End Performance Ad Creative"></div>
+                    <div class="grid-item"><img loading="lazy" width="772" height="1024"
+                            src="assets/images/hero/img5.webp" alt="Luxury Brand Storytelling"></div>
+                    <div class="grid-item"><img loading="lazy" width="1024" height="547"
+                            src="assets/images/hero/img6.webp" alt="Travel & Hospitality Video Production"></div>
                 </div>
 
                 <!-- Column 3 (Scroll Up) -->
                 <div class="grid-column col-anim-up">
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img7.webp"
-                            alt="Ecommerce Product Video"></div>
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img8.webp"
-                            alt="Social Media Content Strategy"></div>
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img9.webp"
-                            alt="Video Reel Production Sydney"></div>
+                    <div class="grid-item"><img loading="lazy" width="898" height="1024"
+                            src="assets/images/hero/img7.webp" alt="Ecommerce Product Video"></div>
+                    <div class="grid-item"><img loading="lazy" width="675" height="1024"
+                            src="assets/images/hero/img8.webp" alt="Social Media Content Strategy"></div>
+                    <div class="grid-item"><img loading="lazy" width="576" height="1024"
+                            src="assets/images/hero/img9.webp" alt="Video Reel Production Sydney"></div>
                     <!-- Duplicate -->
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img7.webp"
-                            alt="Ecommerce Product Video"></div>
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img8.webp"
-                            alt="Social Media Content Strategy"></div>
-                    <div class="grid-item"><img loading="lazy" src="assets/images/hero/img9.webp"
-                            alt="Video Reel Production Sydney"></div>
+                    <div class="grid-item"><img loading="lazy" width="898" height="1024"
+                            src="assets/images/hero/img7.webp" alt="Ecommerce Product Video"></div>
+                    <div class="grid-item"><img loading="lazy" width="675" height="1024"
+                            src="assets/images/hero/img8.webp" alt="Social Media Content Strategy"></div>
+                    <div class="grid-item"><img loading="lazy" width="576" height="1024"
+                            src="assets/images/hero/img9.webp" alt="Video Reel Production Sydney"></div>
                 </div>
             </div>
         </div>
@@ -388,92 +388,88 @@
             <!-- Track 1 (Left Channel) -->
             <div class="reel-track track-left">
                 <div class="reel-item" data-vimeo-id="1133899956" data-hash="97ac212d90">
-                    <div class="reel-poster"
-                        style="background-image: url('https://i.vimeocdn.com/video/2078669405-91489ad32ee1d4de589854b1295ec6a99890df6500d2913ce139acb7c3262e05-d_640x360');">
-                    </div>
+                    <img class="reel-poster" loading="lazy" width="640" height="360"
+                        src="https://i.vimeocdn.com/video/2078669405-91489ad32ee1d4de589854b1295ec6a99890df6500d2913ce139acb7c3262e05-d_640x360"
+                        alt="Work Thumbnail">
                 </div>
                 <div class="reel-item" data-vimeo-id="1133529757" data-hash="e8519ee984">
-                    <div class="reel-poster"
-                        style="background-image: url('https://i.vimeocdn.com/video/2078164274-4fbe4e1ef68baacba62c25d7406b8a4a98f1eb8ff13fb4b70f427d5bfcb15646-d_640x360');">
-                    </div>
+                    <img class="reel-poster" loading="lazy" width="640" height="360"
+                        src="https://i.vimeocdn.com/video/2078164274-4fbe4e1ef68baacba62c25d7406b8a4a98f1eb8ff13fb4b70f427d5bfcb15646-d_640x360"
+                        alt="Work Thumbnail">
                 </div>
                 <div class="reel-item" data-vimeo-id="1123943736" data-hash="b2bba13bf5">
-                    <div class="reel-poster"
-                        style="background-image: url('https://i.vimeocdn.com/video/2065676516-b4300baa189d4888a3ba1eed8ca0c14de7e8d89aee4b1f75301e070776b2ebd2-d_640x360');">
-                    </div>
+                    <img class="reel-poster" loading="lazy" width="640" height="360"
+                        src="https://i.vimeocdn.com/video/2065676516-b4300baa189d4888a3ba1eed8ca0c14de7e8d89aee4b1f75301e070776b2ebd2-d_640x360"
+                        alt="Work Thumbnail">
                 </div>
                 <div class="reel-item" data-vimeo-id="1145009419" data-hash="90bca3a2b9">
-                    <div class="reel-poster"
-                        style="background-image: url('https://i.vimeocdn.com/video/2093846582-59b6858741a841ab76ef419ee0fa110ba9fa5f391367bb7e7180bef2750fe231-d_640x360');">
-                    </div>
+                    <img class="reel-poster" loading="lazy" width="640" height="360"
+                        src="https://i.vimeocdn.com/video/2093846582-59b6858741a841ab76ef419ee0fa110ba9fa5f391367bb7e7180bef2750fe231-d_640x360"
+                        alt="Work Thumbnail">
                 </div>
                 <div class="reel-item" data-vimeo-id="1118772124" data-hash="85090fa653">
-                    <div class="reel-poster"
-                        style="background-image: url('https://i.vimeocdn.com/video/2059064794-b1e0f2dcbef1e0bb4b9e6b0a4f4288f6f34ccbb496e70c3d134f0581888e2896-d_640x360');">
-                    </div>
+                    <img class="reel-poster" loading="lazy" width="640" height="360"
+                        src="https://i.vimeocdn.com/video/2059064794-b1e0f2dcbef1e0bb4b9e6b0a4f4288f6f34ccbb496e70c3d134f0581888e2896-d_640x360"
+                        alt="Work Thumbnail">
                 </div>
-                <!-- Duplicate for Marquee -->
+                <!-- Duplicates for marquee -->
                 <div class="reel-item" data-vimeo-id="1133899956" data-hash="97ac212d90">
-                    <div class="reel-poster"
-                        style="background-image: url('https://i.vimeocdn.com/video/2078669405-91489ad32ee1d4de589854b1295ec6a99890df6500d2913ce139acb7c3262e05-d_640x360');">
-                    </div>
+                    <img class="reel-poster" loading="lazy" width="640" height="360"
+                        src="https://i.vimeocdn.com/video/2078669405-91489ad32ee1d4de589854b1295ec6a99890df6500d2913ce139acb7c3262e05-d_640x360"
+                        alt="Work Thumbnail">
                 </div>
                 <div class="reel-item" data-vimeo-id="1133529757" data-hash="e8519ee984">
-                    <div class="reel-poster"
-                        style="background-image: url('https://i.vimeocdn.com/video/2078164274-4fbe4e1ef68baacba62c25d7406b8a4a98f1eb8ff13fb4b70f427d5bfcb15646-d_640x360');">
-                    </div>
+                    <img class="reel-poster" loading="lazy" width="640" height="360"
+                        src="https://i.vimeocdn.com/video/2078164274-4fbe4e1ef68baacba62c25d7406b8a4a98f1eb8ff13fb4b70f427d5bfcb15646-d_640x360"
+                        alt="Work Thumbnail">
                 </div>
                 <div class="reel-item" data-vimeo-id="1123943736" data-hash="b2bba13bf5">
-                    <div class="reel-poster"
-                        style="background-image: url('https://i.vimeocdn.com/video/2065676516-b4300baa189d4888a3ba1eed8ca0c14de7e8d89aee4b1f75301e070776b2ebd2-d_640x360');">
-                    </div>
+                    <img class="reel-poster" loading="lazy" width="640" height="360"
+                        src="https://i.vimeocdn.com/video/2065676516-b4300baa189d4888a3ba1eed8ca0c14de7e8d89aee4b1f75301e070776b2ebd2-d_640x360"
+                        alt="Work Thumbnail">
                 </div>
             </div>
 
             <!-- Track 2 (Right Channel) -->
             <div class="reel-track track-right">
                 <div class="reel-item" data-vimeo-id="1143242723" data-hash="c08f1c8239">
-                    <div class="reel-poster"
-                        style="background-image: url('https://i.vimeocdn.com/video/2091354883-839519eb32e57ea2b1b669977162d46cad0687ce0a313a74f2cf50dc413d455d-d_640x360');">
-                    </div>
+                    <img class="reel-poster" loading="lazy" width="640" height="360"
+                        src="https://i.vimeocdn.com/video/2091354883-839519eb32e57ea2b1b669977162d46cad0687ce0a313a74f2cf50dc413d455d-d_640x360"
+                        alt="Work Thumbnail">
                 </div>
                 <div class="reel-item" data-vimeo-id="1082754781" data-hash="6636bc5898">
-                    <div class="reel-poster"
-                        style="background-image: url('https://i.vimeocdn.com/video/2054846709-3feba26c75591be96dda774ac9f55bbc68f5625a677542f2cdb50f75eef98485-d_640x360');">
-                    </div>
+                    <img class="reel-poster" loading="lazy" width="640" height="360"
+                        src="https://i.vimeocdn.com/video/2054846709-3feba26c75591be96dda774ac9f55bbc68f5625a677542f2cdb50f75eef98485-d_640x360"
+                        alt="Work Thumbnail">
                 </div>
                 <div class="reel-item" data-vimeo-id="1084881951" data-hash="3f2ec5e0f9">
-                    <div class="reel-poster"
-                        style="background-image: url('https://i.vimeocdn.com/video/2054821369-ef5825e2b9372ceb81776f45ed835a295cfdb6d31e2fd17e9d3014fedf00b75c-d_640x360');">
-                    </div>
+                    <img class="reel-poster" loading="lazy" width="640" height="360"
+                        src="https://i.vimeocdn.com/video/2054821369-ef5825e2b9372ceb81776f45ed835a295cfdb6d31e2fd17e9d3014fedf00b75c-d_640x360"
+                        alt="Work Thumbnail">
                 </div>
                 <div class="reel-item" data-vimeo-id="1122744728" data-hash="c10d5281d7">
-                    <div class="reel-poster"
-                        style="background-image: url('https://i.vimeocdn.com/video/2064197543-cbf89ce985c9019114268be8568868dc968ba42a2a91966e1e51b4426d9361c6-d_640x360');">
-                    </div>
+                    <img class="reel-poster" loading="lazy" width="640" height="360"
+                        src="https://i.vimeocdn.com/video/2064197543-cbf89ce985c9019114268be8568868dc968ba42a2a91966e1e51b4426d9361c6-d_640x360"
+                        alt="Work Thumbnail">
                 </div>
-                <div class="reel-item" data-vimeo-id="1084875985" data-hash="733ca8b56c">
-                    <div class="reel-poster"
-                        style="background-image: url('https://i.vimeocdn.com/video/2016384896-50aa8addb95e23c43cb11ae82354f0ee3043071a29f4e45f3f419d921dc43c55-d_640x360');">
-                    </div>
+                <div class="reel-item" data-vimeo-id="1102927909" data-hash="343b95d00a">
+                    <img class="reel-poster" loading="lazy" width="640" height="360"
+                        src="https://i.vimeocdn.com/video/2016384896-50aa8addb95e23c43cb11ae82354f0ee3043071a29f4e45f3f419d921dc43c55-d_640x360"
+                        alt="Work Thumbnail">
                 </div>
-                <!-- Duplicate for Marquee -->
+                <!-- Duplicates -->
                 <div class="reel-item" data-vimeo-id="1143242723" data-hash="c08f1c8239">
-                    <div class="reel-poster"
-                        style="background-image: url('https://i.vimeocdn.com/video/2091354883-839519eb32e57ea2b1b669977162d46cad0687ce0a313a74f2cf50dc413d455d-d_640x360');">
-                    </div>
+                    <img class="reel-poster" loading="lazy" width="640" height="360"
+                        src="https://i.vimeocdn.com/video/2091354883-839519eb32e57ea2b1b669977162d46cad0687ce0a313a74f2cf50dc413d455d-d_640x360"
+                        alt="Work Thumbnail">
                 </div>
                 <div class="reel-item" data-vimeo-id="1082754781" data-hash="6636bc5898">
-                    <div class="reel-poster"
-                        style="background-image: url('https://i.vimeocdn.com/video/2054846709-3feba26c75591be96dda774ac9f55bbc68f5625a677542f2cdb50f75eef98485-d_640x360');">
-                    </div>
-                </div>
-                <div class="reel-item" data-vimeo-id="1084881951" data-hash="3f2ec5e0f9">
-                    <div class="reel-poster"
-                        style="background-image: url('https://i.vimeocdn.com/video/2054821369-ef5825e2b9372ceb81776f45ed835a295cfdb6d31e2fd17e9d3014fedf00b75c-d_640x360');">
-                    </div>
+                    <img class="reel-poster" loading="lazy" width="640" height="360"
+                        src="https://i.vimeocdn.com/video/2054846709-3feba26c75591be96dda774ac9f55bbc68f5625a677542f2cdb50f75eef98485-d_640x360"
+                        alt="Work Thumbnail">
                 </div>
             </div>
+        </div>
         </div>
 
     </section>
@@ -613,48 +609,46 @@
             <div class="mastered-carousel-track">
                 <!-- Original Items -->
                 <a href="services/performance-creative/" class="mastered-card">
-                    <div class="mastered-card-bg"
-                        style="background-image: url('assets/images/services/performance_creative.webp');"></div>
+                    <img class="mastered-card-bg" src="assets/images/services/performance_creative.webp"
+                        alt="Performance Creative" loading="lazy" width="600" height="800">
                 </a>
                 <a href="services/email-marketing/" class="mastered-card">
-                    <div class="mastered-card-bg"
-                        style="background-image: url('assets/images/services/email_marketing.webp');"></div>
+                    <img class="mastered-card-bg" src="assets/images/services/email_marketing.webp"
+                        alt="Email Marketing" loading="lazy" width="600" height="800">
                 </a>
                 <a href="services/meta-ads/" class="mastered-card">
-                    <div class="mastered-card-bg"
-                        style="background-image: url('assets/images/services/meta_ads.webp');">
-                    </div>
+                    <img class="mastered-card-bg" src="assets/images/services/meta_ads.webp" alt="Meta Ads"
+                        loading="lazy" width="600" height="800">
                 </a>
                 <a href="services/google-ads/" class="mastered-card">
-                    <div class="mastered-card-bg"
-                        style="background-image: url('assets/images/services/google_ads.webp');"></div>
+                    <img class="mastered-card-bg" src="assets/images/services/google_ads.webp" alt="Google Ads"
+                        loading="lazy" width="600" height="800">
                 </a>
                 <a href="services/content-strategy/" class="mastered-card">
-                    <div class="mastered-card-bg"
-                        style="background-image: url('assets/images/services/content_strategy.webp');"></div>
+                    <img class="mastered-card-bg" src="assets/images/services/content_strategy.webp"
+                        alt="Content Strategy" loading="lazy" width="600" height="800">
                 </a>
 
                 <!-- Duplicated for Infinite Scroll -->
                 <a href="services/performance-creative/" class="mastered-card">
-                    <div class="mastered-card-bg"
-                        style="background-image: url('assets/images/services/performance_creative.webp');"></div>
+                    <img class="mastered-card-bg" src="assets/images/services/performance_creative.webp"
+                        alt="Performance Creative" loading="lazy" width="600" height="800">
                 </a>
                 <a href="services/email-marketing/" class="mastered-card">
-                    <div class="mastered-card-bg"
-                        style="background-image: url('assets/images/services/email_marketing.webp');"></div>
+                    <img class="mastered-card-bg" src="assets/images/services/email_marketing.webp"
+                        alt="Email Marketing" loading="lazy" width="600" height="800">
                 </a>
                 <a href="services/meta-ads/" class="mastered-card">
-                    <div class="mastered-card-bg"
-                        style="background-image: url('assets/images/services/meta_ads.webp');">
-                    </div>
+                    <img class="mastered-card-bg" src="assets/images/services/meta_ads.webp" alt="Meta Ads"
+                        loading="lazy" width="600" height="800">
                 </a>
                 <a href="services/google-ads/" class="mastered-card">
-                    <div class="mastered-card-bg"
-                        style="background-image: url('assets/images/services/google_ads.webp');"></div>
+                    <img class="mastered-card-bg" src="assets/images/services/google_ads.webp" alt="Google Ads"
+                        loading="lazy" width="600" height="800">
                 </a>
                 <a href="services/content-strategy/" class="mastered-card">
-                    <div class="mastered-card-bg"
-                        style="background-image: url('assets/images/services/content_strategy.webp');"></div>
+                    <img class="mastered-card-bg" src="assets/images/services/content_strategy.webp"
+                        alt="Content Strategy" loading="lazy" width="600" height="800">
                 </a>
             </div>
         </div>
@@ -839,7 +833,8 @@
                     <!-- Set 1 -->
                     <div class="team-card">
                         <div class="team-img-container">
-                            <div class="team-img" style="background-image: url('assets/images/team/reuben.png');"></div>
+                            <img class="team-img" src="assets/images/team/optimized/reuben.webp" alt="Reuben"
+                                loading="lazy" width="400" height="400">
                             <div class="team-glow"></div>
                         </div>
                         <div class="team-info">
@@ -852,7 +847,8 @@
 
                     <div class="team-card">
                         <div class="team-img-container">
-                            <div class="team-img" style="background-image: url('assets/images/team/okta.jpg');"></div>
+                            <img class="team-img" src="assets/images/team/optimized/okta.webp" alt="Okta" loading="lazy"
+                                width="400" height="400">
                             <div class="team-glow"></div>
                         </div>
                         <div class="team-info">
@@ -865,7 +861,8 @@
 
                     <div class="team-card">
                         <div class="team-img-container">
-                            <div class="team-img" style="background-image: url('assets/images/team/elena.png');"></div>
+                            <img class="team-img" src="assets/images/team/optimized/elena.webp" alt="Elena"
+                                loading="lazy" width="400" height="400">
                             <div class="team-glow"></div>
                         </div>
                         <div class="team-info">
@@ -878,9 +875,8 @@
 
                     <div class="team-card">
                         <div class="team-img-container">
-                            <div class="team-img"
-                                style="background-image: url('assets/images/team/marcus.png'); background-position: center;">
-                            </div>
+                            <img class="team-img" src="assets/images/team/optimized/marcus.webp" alt="Marcus"
+                                loading="lazy" width="400" height="400">
                             <div class="team-glow"></div>
                         </div>
                         <div class="team-info">
@@ -893,7 +889,8 @@
 
                     <div class="team-card">
                         <div class="team-img-container">
-                            <div class="team-img" style="background-image: url('assets/images/team/sia.png');"></div>
+                            <img class="team-img" src="assets/images/team/optimized/sia.webp" alt="Sia" loading="lazy"
+                                width="400" height="400">
                             <div class="team-glow"></div>
                         </div>
                         <div class="team-info">
@@ -906,7 +903,8 @@
 
                     <div class="team-card">
                         <div class="team-img-container">
-                            <div class="team-img" style="background-image: url('assets/images/team/julian.png');"></div>
+                            <img class="team-img" src="assets/images/team/optimized/julian.webp" alt="Julian"
+                                loading="lazy" width="400" height="400">
                             <div class="team-glow"></div>
                         </div>
                         <div class="team-info">
@@ -920,7 +918,8 @@
                     <!-- Set 2 (Duplicate for Infinite Scroll) -->
                     <div class="team-card">
                         <div class="team-img-container">
-                            <div class="team-img" style="background-image: url('assets/images/team/reuben.png');"></div>
+                            <img class="team-img" src="assets/images/team/optimized/reuben.webp" alt="Reuben"
+                                loading="lazy" width="400" height="400">
                             <div class="team-glow"></div>
                         </div>
                         <div class="team-info">
@@ -933,7 +932,8 @@
 
                     <div class="team-card">
                         <div class="team-img-container">
-                            <div class="team-img" style="background-image: url('assets/images/team/okta.jpg');"></div>
+                            <img class="team-img" src="assets/images/team/optimized/okta.webp" alt="Okta" loading="lazy"
+                                width="400" height="400">
                             <div class="team-glow"></div>
                         </div>
                         <div class="team-info">
@@ -946,7 +946,8 @@
 
                     <div class="team-card">
                         <div class="team-img-container">
-                            <div class="team-img" style="background-image: url('assets/images/team/elena.png');"></div>
+                            <img class="team-img" src="assets/images/team/optimized/elena.webp" alt="Elena"
+                                loading="lazy" width="400" height="400">
                             <div class="team-glow"></div>
                         </div>
                         <div class="team-info">
@@ -959,9 +960,8 @@
 
                     <div class="team-card">
                         <div class="team-img-container">
-                            <div class="team-img"
-                                style="background-image: url('assets/images/team/marcus.png'); background-position: center;">
-                            </div>
+                            <img class="team-img" src="assets/images/team/optimized/marcus.webp" alt="Marcus"
+                                loading="lazy" width="400" height="400">
                             <div class="team-glow"></div>
                         </div>
                         <div class="team-info">
@@ -974,7 +974,8 @@
 
                     <div class="team-card">
                         <div class="team-img-container">
-                            <div class="team-img" style="background-image: url('assets/images/team/sia.png');"></div>
+                            <img class="team-img" src="assets/images/team/optimized/sia.webp" alt="Sia" loading="lazy"
+                                width="400" height="400">
                             <div class="team-glow"></div>
                         </div>
                         <div class="team-info">
@@ -987,7 +988,8 @@
 
                     <div class="team-card">
                         <div class="team-img-container">
-                            <div class="team-img" style="background-image: url('assets/images/team/julian.png');"></div>
+                            <img class="team-img" src="assets/images/team/optimized/julian.webp" alt="Julian"
+                                loading="lazy" width="400" height="400">
                             <div class="team-glow"></div>
                         </div>
                         <div class="team-info">
