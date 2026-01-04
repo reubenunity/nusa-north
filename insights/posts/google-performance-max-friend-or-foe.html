@@ -10,7 +10,7 @@
 
     <!-- Analytics & Tracking -->
     <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9RF7YR46W"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-D9RF7YR46W"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -36,7 +36,7 @@
         fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=2047570032697905&ev=PageView&noscript=1" /></noscript>
+            src="https://www.facebook.com/tr?id=2047570032697905&ev=PageView&noscript=1"  loading="lazy" /></noscript>
     <!-- End Meta Pixel Code -->
 
 
@@ -104,7 +104,7 @@
         <article class="single-post-content">
             <div class="single-post-hero">
                 <img src="../../assets/images/insights/thumb_google_meta_people_1766972620645.png" alt="Google Performance Max: Friend or Foe?"
-                    class="single-hero-img">
+                    class="single-hero-img" fetchpriority="high">
             </div>
             <p class="intro-paragraph">Performance Max (PMax) is Google's all-in-one automated campaign type. It finds customers across YouTube, Display, Search, and Gmail. It is powerful, but dangerous.</p>
             <h2>The Danger: Brand Cannibalization</h2>
@@ -132,8 +132,8 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="../../assets/js/mobile-menu.js"></script>
-    <script src="../../assets/js/insights.js?v=2"></script>
+    <script src="../../assets/js/mobile-menu.js" defer></script>
+    <script src="../../assets/js/insights.js?v=2" defer></script>
 
 <script src="../../assets/js/instantpage.js" type="module"></script>
 </body>
