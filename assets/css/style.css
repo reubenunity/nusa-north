@@ -2646,45 +2646,6 @@ nav {
     }
 }
 
-.hero-cta-premium:hover {
-    background: rgba(212, 175, 55, 0.1);
-    border-color: var(--accent);
-    letter-spacing: 0.25em;
-    /* Widen on hover */
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
-}
-
-/* Bottom Brand Strip */
-.hero-brands-premium {
-    position: absolute;
-    bottom: 2rem;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    opacity: 0;
-    animation: fadeIn 1s ease 1s forwards;
-    flex-wrap: wrap;
-    padding: 0 2rem;
-}
-
-.brand-item {
-    font-family: "Playfair Display", serif;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.6);
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-weight: 600;
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 @media (max-width: 768px) {
     .hero.video-hero h1 {
         font-size: 3rem;
@@ -2694,16 +2655,27 @@ nav {
         font-size: 1.2rem;
     }
 
-    .hero-brands-premium {
-        gap: 1.5rem;
+    /* Move text up slightly on mobile to avoid bottom overlap */
+    .hero.video-hero .hero-content {
+        margin-top: -10vh;
     }
 
-    .brand-item {
-        font-size: 0.7rem;
+    .ticker-track {
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+
+    .brand-ticker-item {
+        font-size: 0.9rem;
+        gap: 0.75rem;
+    }
+
+    .brand-ticker-item img {
+        height: 20px;
     }
 
     .hero-video-background iframe {
-        /* Mobile adjustment to ensure cover */
+        /* Ensure video covers full vertical height */
         width: 177.77vh;
         height: 100vh;
         min-width: 100%;
