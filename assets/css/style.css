@@ -392,9 +392,23 @@ html {
         font-size: 1.2rem;
     }
 
-    /* Move text up slightly on mobile to avoid bottom overlap */
+    /* Fix mobile visibility - reset negative margin and force stacking */
     .hero.video-hero .hero-content {
-        margin-top: -10vh;
+        margin-top: 0;
+        z-index: 100 !important;
+        opacity: 1 !important;
+        transform: none !important;
+        position: relative;
+    }
+
+    .hero-subhead,
+    .hero.video-hero h1,
+    .hero-cta-premium {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        position: relative;
+        z-index: 101 !important;
     }
 
     .ticker-track {
