@@ -246,37 +246,41 @@ html {
     /* Optical center up slightly */
 }
 
-/* "The Agency For" Subhead */
+/* "The Agency For" Subhead -> Now Description */
 .hero-subhead {
-    font-family: "Playfair Display", serif;
-    font-style: italic;
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-family: "Outfit", sans-serif;
+    /* Changed to sans for readability */
+    font-size: clamp(1rem, 2vw, 1.25rem);
     font-weight: 400;
-    color: var(--accent);
-    /* Gold */
-    margin-bottom: 0.5rem;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
     letter-spacing: 0.05em;
     opacity: 1;
+    max-width: 700px;
+    line-height: 1.6;
+    margin-top: 1rem;
+    position: relative;
+    z-index: 101;
 }
 
 /* Main H1 */
 .hero.video-hero h1 {
     font-family: "Playfair Display", serif;
-    font-weight: 400;
-    font-size: clamp(3.5rem, 8vw, 7rem);
-    text-transform: uppercase;
+    font-weight: 500;
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    /* Reduced size for longer text */
+    text-transform: none;
+    /* Sentence case */
     color: #fff;
-    line-height: 0.95;
-    margin: 0 0 3rem 0;
-    letter-spacing: -0.02em;
-    margin: 0 0 3rem 0;
-    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.01em;
     opacity: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    z-index: 101;
 }
 
 .hero.video-hero h1 .accent-amp {
@@ -327,8 +331,8 @@ html {
     z-index: 20;
     opacity: 1;
     /* Clean Vignette to ensure readability */
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .ticker-track {
