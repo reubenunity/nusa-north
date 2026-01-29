@@ -177,6 +177,238 @@ html {
     animation-play-state: paused;
 }
 
+/* Video Hero Styles - Premium Redesign */
+.hero.video-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #000;
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 0px;
+    /* Space for brand strip */
+}
+
+.hero-video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    /* Falback Image for faster load perception */
+    background-image: url('../../images/hero-gallery-06.webp');
+    background-size: cover;
+    background-position: center;
+    background-color: #000;
+}
+
+.hero-video-background iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 56.25vw;
+    min-height: 100vh;
+    min-width: 177.77vh;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 1;
+    /* Fully opaque to cover fallback image */
+    transition: opacity 1s ease;
+}
+
+.hero-overlay-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Soft gradient from bottom + slight overall tint for text contrast */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero.video-hero .hero-content {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 2rem;
+    margin-top: -5vh;
+    /* Optical center up slightly */
+}
+
+/* "The Agency For" Subhead */
+.hero-subhead {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 400;
+    color: var(--accent);
+    /* Gold */
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.2s forwards;
+}
+
+/* Main H1 */
+.hero.video-hero h1 {
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 0.95;
+    margin: 0 0 3rem 0;
+    letter-spacing: -0.02em;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.4s forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero.video-hero h1 .accent-amp {
+    font-style: italic;
+    font-size: 0.6em;
+    display: block;
+    margin: 0.2rem 0;
+    color: var(--accent);
+    font-family: "Playfair Display", serif;
+}
+
+/* Premium CTA Button - "No Clean Border" (Transparent with thin line) */
+.hero-cta-premium {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    padding: 1rem 2.5rem;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.7s forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-cta-premium:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+/* Bottom Brand Slide (Infinite Scroll) */
+.hero-brands-slider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: transparent;
+    border-top: none;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    z-index: 20;
+    opacity: 0;
+    animation: fadeIn 1s ease 1s forwards;
+    /* Clean Vignette to ensure readability */
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.ticker-track {
+    display: flex;
+    gap: 4rem;
+    padding: 0 2rem;
+    animation: tickerScroll 30s linear infinite;
+    width: max-content;
+}
+
+.brand-ticker-item {
+    font-family: "Playfair Display", serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    /* Premium Gold/White mix */
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.brand-ticker-item img {
+    height: 30px;
+    /* If we add images later */
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.7;
+}
+
+@keyframes tickerScroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero.video-hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero-subhead {
+        font-size: 1.2rem;
+    }
+
+    /* Move text up slightly on mobile to avoid bottom overlap */
+    .hero.video-hero .hero-content {
+        margin-top: -10vh;
+    }
+
+    .ticker-track {
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+
+    .brand-ticker-item {
+        font-size: 0.9rem;
+        gap: 0.75rem;
+    }
+
+    .brand-ticker-item img {
+        height: 20px;
+    }
+
+    .hero-video-background iframe {
+        /* Ensure video covers full vertical height */
+        width: 177.77vh;
+        height: 100vh;
+        min-width: 100%;
+        min-height: 100%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
 .reel-item {
     flex: 0 0 500px;
     aspect-ratio: 16/9;
@@ -2451,236 +2683,4 @@ nav {
     border-bottom: none;
     /* "No clean border" */
     padding-top: 2rem;
-}
-
-/* Video Hero Styles - Premium Redesign */
-.hero.video-hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: #000;
-    grid-template-columns: 1fr;
-    min-height: 100vh;
-    position: relative;
-    padding-bottom: 0px;
-    /* Space for brand strip */
-}
-
-.hero-video-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 0;
-    /* Falback Image for faster load perception */
-    background-image: url('../../images/hero-gallery-06.webp');
-    background-size: cover;
-    background-position: center;
-    background-color: #000;
-}
-
-.hero-video-background iframe {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100vw;
-    height: 56.25vw;
-    min-height: 100vh;
-    min-width: 177.77vh;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    opacity: 1;
-    /* Fully opaque to cover fallback image */
-    transition: opacity 1s ease;
-}
-
-.hero-overlay-gradient {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Soft gradient from bottom + slight overall tint for text contrast */
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
-    z-index: 1;
-    pointer-events: none;
-}
-
-.hero.video-hero .hero-content {
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 1000px;
-    padding: 0 2rem;
-    margin-top: -5vh;
-    /* Optical center up slightly */
-}
-
-/* "The Agency For" Subhead */
-.hero-subhead {
-    font-family: "Playfair Display", serif;
-    font-style: italic;
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-    font-weight: 400;
-    color: var(--accent);
-    /* Gold */
-    margin-bottom: 0.5rem;
-    letter-spacing: 0.05em;
-    opacity: 0;
-    animation: fadeIn 1s ease 0.2s forwards;
-}
-
-/* Main H1 */
-.hero.video-hero h1 {
-    font-family: "Playfair Display", serif;
-    font-weight: 400;
-    font-size: clamp(3.5rem, 8vw, 7rem);
-    text-transform: uppercase;
-    color: #fff;
-    line-height: 0.95;
-    margin: 0 0 3rem 0;
-    letter-spacing: -0.02em;
-    opacity: 0;
-    animation: fadeIn 1s ease 0.4s forwards;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.hero.video-hero h1 .accent-amp {
-    font-style: italic;
-    font-size: 0.6em;
-    display: block;
-    margin: 0.2rem 0;
-    color: var(--accent);
-    font-family: "Playfair Display", serif;
-}
-
-/* Premium CTA Button - "No Clean Border" (Transparent with thin line) */
-.hero-cta-premium {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #fff;
-    padding: 1rem 2.5rem;
-    font-family: var(--font-display);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    text-decoration: none;
-    transition: all 0.4s ease;
-    opacity: 0;
-    animation: fadeIn 1s ease 0.7s forwards;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-cta-premium:hover {
-    background: #fff;
-    color: #000;
-    border-color: #fff;
-}
-
-/* Bottom Brand Slide (Infinite Scroll) */
-.hero-brands-slider {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background: transparent;
-    border-top: none;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    z-index: 20;
-    opacity: 0;
-    animation: fadeIn 1s ease 1s forwards;
-    /* Clean Vignette to ensure readability */
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-}
-
-.ticker-track {
-    display: flex;
-    gap: 4rem;
-    padding: 0 2rem;
-    animation: tickerScroll 30s linear infinite;
-    width: max-content;
-}
-
-.brand-ticker-item {
-    font-family: "Playfair Display", serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.7);
-    /* Premium Gold/White mix */
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.brand-ticker-item img {
-    height: 30px;
-    /* If we add images later */
-    width: auto;
-    filter: brightness(0) invert(1);
-    opacity: 0.7;
-}
-
-@keyframes tickerScroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-@media (max-width: 768px) {
-    .hero.video-hero h1 {
-        font-size: 3rem;
-    }
-
-    .hero-subhead {
-        font-size: 1.2rem;
-    }
-
-    /* Move text up slightly on mobile to avoid bottom overlap */
-    .hero.video-hero .hero-content {
-        margin-top: -10vh;
-    }
-
-    .ticker-track {
-        gap: 2rem;
-        padding: 0 1rem;
-    }
-
-    .brand-ticker-item {
-        font-size: 0.9rem;
-        gap: 0.75rem;
-    }
-
-    .brand-ticker-item img {
-        height: 20px;
-    }
-
-    .hero-video-background iframe {
-        /* Ensure video covers full vertical height */
-        width: 177.77vh;
-        height: 100vh;
-        min-width: 100%;
-        min-height: 100%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
 }
